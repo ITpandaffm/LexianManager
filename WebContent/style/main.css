@@ -1,0 +1,72 @@
+body {
+    background-image: url("http://osnk57csd.bkt.clouddn.com/bj.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    min-width: 1200px;
+}
+/****************Header Start****************/
+header {
+    margin: 20px 0;
+}
+.header-pic {
+    display: table;
+    margin: 0 auto;
+}
+/****************Header End****************/
+/****************Main Start****************/
+.main {
+    background: rgba(255,255,255,.9);
+}
+.main .row {
+    margin: 0;
+}
+.main-left {
+    padding: 20px 10px;
+    background: #212020;
+    color: #fff;
+    text-align: center;
+}
+.left-headr-top a {
+    display: flex;
+    font-size: 14px;
+    margin: 5px 0;
+    color: #fff;
+}
+.left-headr-top a:first-child {
+    margin-top: 10px;
+}
+.user-info {
+    margin-top: 15px;
+    font-size: 18px;
+}
+.time-area {
+    margin-top: 15px;
+    font-size: 16px;
+}
+.main-right {
+    padding: 40px 20px 0 20px;
+}
+
+table tbody tr {
+    background: #fff;
+}
+
+/****************Main End****************/
+/****************Footer Start****************/
+footer {
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+}
+.logo {
+    height: 50px;
+    width: 50px;
+}
+footer a {
+    color: #333;
+}
+/****************Footer End****************/

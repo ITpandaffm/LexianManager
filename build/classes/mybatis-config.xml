@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.lexian.manager.authority.bean.Manager" alias="Manager" />
+		<typeAlias type="com.lexian.manager.authority.bean.Menu" alias="Menu" />
+		<typeAlias type="com.lexian.manager.authority.bean.Privilege" alias="Privilege" />
+		<typeAlias type="com.lexian.manager.authority.bean.Role" alias="Role" />
+		<typeAlias type="com.lexian.manager.authority.bean.RoleManager" alias="RoleManager" />
+		<typeAlias type="com.lexian.manager.goods.bean.Category" alias="Category" />
+		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />
+	</typeAliases>
+</configuration>

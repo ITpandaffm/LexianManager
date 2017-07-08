@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.authority.dao.RoleManagerDao" >
+  
+  <sql id="Base_Column_List" >
+    id,name,description,createTime,updateTime
+  </sql>
+  <insert id="insertRoleManager" parameterType="RoleManager">
+  		insert into role_manager(role_id,manager_id) values(#{rm.roleId,jdbcType=INTEGER},#{rm.managerId,jdbcType=INTEGER})
+  </insert>
+  
+</mapper>

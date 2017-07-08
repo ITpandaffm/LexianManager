@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.authority.dao.ManagerDao" >
+  <!-- <resultMap id="BaseResultMap" type="test.model.Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+  </resultMap> -->
+  <sql id="Base_Column_List" >
+    id, name, info, createtime, updatetime, status
+  </sql>
+  <select id="getManagerByNameAndPassword" resultType="Manager">
+    select 
+    id,name
+    from manager
+    where name=#{name,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updatePasswordById">
+  		update manager set password=#{password,jdbcType=VARCHAR} where id=#{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getMenus" parameterType="java.lang.Integer" resultType="Menu">
+  		SELECT menu.id,menu.name,menu.parentId,menu.backurl 
+  		FROM menu ,manager,role_menu ,role,role_manager 
+  		WHERE manager.id=role_manager.manager_id
+  		AND role_manager.role_id=role.id
+  		AND role.id=role_menu.role_id 
+  		AND role_menu.menu_id=menu.id
+  		and manager.id=#{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getPrivileges" parameterType="java.lang.Integer" resultType="Privilege">
+  		SELECT privilege.id,privilege.name,privilege.description 
+  		FROM privilege ,manager,role_privilege ,role,role_manager 
+  		WHERE manager.id=role_manager.manager_id
+  		AND role_manager.role_id=role.id
+  		AND role.id=role_privilege.role_id 
+  		AND role_privilege.privilege_id=privilege.id
+  		and manager.id=#{id,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="addManager" parameterType="Manager">
+  		insert into manager(name,password, info, createtime, updatetime, status)
+  		values(
+  		#{manager.name,jdbcType=VARCHAR},
+  		#{manager.password,jdbcType=VARCHAR},
+  		#{manager.info,jdbcType=VARCHAR},
+  		#{manager.createTime,jdbcType=DATETIME},
+  		#{manager.updateTime,jdbcType=DATETIME},
+  		#{manager.status,jdbcType=INTEGER}
+  		)
+  </insert>
+  
+  <update id="updateManagerInfo" parameterType="Manager">
+  
+  	update manager
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        createtime = #{createTime,jdbcType=DATETIME},
+      </if>
+      <if test="updateTime != null" >
+        updatetime = #{updateTime,jdbcType=DATETIME},
+      </if>
+       <if test="status != null" >
+        status = #{status,jdbcType=INTEGER}
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getManagers" resultType="Manager">
+  		select <include refid="Base_Column_List"/>
+  		from manager
+  </select>
+  
+</mapper>

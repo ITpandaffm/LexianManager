@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.goods.dao.CommodityDao">
+
+ <select id="getCommodities" resultType="Commodity">
+ 
+ select
+ id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
+ createtime as createTime,updateTime as updateTime,states
+ from commodity
+ 
+ </select>
+ 
+ <select id="getCommodityByName" resultType="Commodity">
+ select
+ id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
+ createtime as createTime,updateTime as updateTime,states
+ from commodity
+ where name=#{name,jdbcType=VARCHAR}
+ 
+ </select>
+</mapper>

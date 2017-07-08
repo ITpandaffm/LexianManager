@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.authority.dao.RoleDao" >
+  
+  <sql id="Base_Column_List" >
+    id,name,description,createTime,updateTime
+  </sql>
+  
+  <select id="getRoles" resultType="Role">
+  		select <include refid="Base_Column_List"/> from role
+  </select>
+  
+  <insert id="addRole" parameterType="Role"> 
+  		
+  		 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+          SELECT LAST_INSERT_ID()
+      	</selectKey>
+  		 
+  		insert into role(name,description,createtime) values(
+  			#{role.name,jdbcType=VARCHAR},
+  			#{role.description,jdbcType=VARCHAR},
+  			#{role.createtime,jdbcType=DATETIME}
+  		)
+  </insert>
+  
+  <update id="updateRole" parameterType="Role">
+  
+  	update role
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        updatetime = #{updateTime,jdbcType=DATETIME}
+      </if>
+ 
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+</mapper>
