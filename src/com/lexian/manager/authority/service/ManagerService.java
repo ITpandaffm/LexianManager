@@ -1,5 +1,7 @@
 package com.lexian.manager.authority.service;
 
+import com.lexian.manager.authority.bean.Manager;
+import com.lexian.manager.authority.bean.RoleManager;
 import com.lexian.web.ResultHelper;
 
 
@@ -7,11 +9,21 @@ public interface ManagerService {
 
 	public ResultHelper signIn(String name,String password);
 	
-	public ResultHelper updatePasswordById(int id,String newPassword);
-	
 	public ResultHelper getPrivileges(int id);
 	
+	public ResultHelper getPrivilegeUrls(int id);
+	
 	public ResultHelper getMenus(int id);
+	
+	public ResultHelper addManager(Manager manager);
+	
+	public ResultHelper updateManager(Manager manager);
+	
+	public ResultHelper associateToRole(RoleManager rl);
+
+	public ResultHelper getManagers();
+
+	public ResultHelper deleteManagerById(int id);
 	
 	
 	

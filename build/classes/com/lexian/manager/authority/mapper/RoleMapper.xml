@@ -10,6 +10,7 @@
   		select <include refid="Base_Column_List"/> from role
   </select>
   
+<<<<<<< HEAD
   <insert id="addRole" parameterType="Role"> 
   		
   		 <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -20,6 +21,16 @@
   			#{role.name,jdbcType=VARCHAR},
   			#{role.description,jdbcType=VARCHAR},
   			#{role.createtime,jdbcType=DATETIME}
+=======
+  <insert id="addRole" parameterType="Role" keyProperty="id" useGeneratedKeys="true" > 
+  		
+  	
+  		insert into role(name,description,createtime,updatetime) values(
+  			#{name,jdbcType=VARCHAR},
+  			#{description,jdbcType=VARCHAR},
+  			#{createTime,jdbcType=TIMESTAMP},
+  			#{updateTime,jdbcType=TIMESTAMP}
+>>>>>>> pr/1
   		)
   </insert>
   
@@ -34,12 +45,51 @@
         description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="updateTime != null" >
+<<<<<<< HEAD
         updatetime = #{updateTime,jdbcType=DATETIME}
+=======
+        updatetime = #{updateTime,jdbcType=TIMESTAMP}
+>>>>>>> pr/1
       </if>
  
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   
+<<<<<<< HEAD
+=======
+  <select id="getMenus" resultType="Menu">
+  		select menu.id,menu.name 
+  		from role,role_menu,menu
+  		where 
+  		menu.id=role_menu.menu_id
+  		and role.id=role_menu.role_id
+  </select>
+  
+  <select id="getMenusById" resultType="Menu" parameterType="java.lang.Integer">
+  		select menu.id,menu.name 
+  		from role,role_menu,menu
+  		where 
+  		menu.id=role_menu.menu_id
+  		and role.id=role_menu.role_id
+  		and role.id=#{id,jdbcType=INTEGER}
+  </select>
+  <select id="getPrivileges" resultType="Privilege">
+  		select privilege.id,privilege.name 
+  		from privilege,role_privilege,role
+  		where 
+  		privilege.id=role_privilege.privilege_id
+  		and role.id=role_privilege.role_id
+  </select>
+  
+  <select id="getPrivilegesById" resultType="Privilege" parameterType="java.lang.Integer">
+  		select privilege.id,privilege.name 
+  		from role,role_privilege,privilege
+  		where 
+  		privilege.id=role_privilege.privilege_id
+  		and role.id=role_privilege.role_id
+  		and role.id=#{id,jdbcType=INTEGER}
+  </select>
+>>>>>>> pr/1
   
 </mapper>

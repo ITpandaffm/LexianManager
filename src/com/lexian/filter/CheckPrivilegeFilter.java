@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.lexian.manager.authority.bean.Privilege;
 import com.lexian.utils.Constant;
 import com.lexian.web.ResultHelper;
 
@@ -55,10 +54,10 @@ public class CheckPrivilegeFilter implements Filter{
 			String action=req.getParameter(ACTION);
 			if(action!=null){
 				HttpSession session = req.getSession();
-				List<Privilege> privileges=(List<Privilege>) session.getAttribute("privileges");
+				List<String> privilegeUrls=(List<String>) session.getAttribute("privilegeUrls");
 				canContinue=false;
-				for(Privilege privilege:privileges){
-					if(privilege.getName().equals(action)){
+				for(String privilegeUrl:privilegeUrls){
+					if(privilegeUrl.endsWith(action)){
 						canContinue=true;
 						break;
 					}

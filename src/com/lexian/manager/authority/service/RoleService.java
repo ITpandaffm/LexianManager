@@ -11,7 +11,13 @@ public interface RoleService {
 
 	public ResultHelper updateRole(Role role);
 
-	public ResultHelper createMenusAndPrivileges();
 	
+	public ResultHelper getMenus(Integer id);
+
+	public ResultHelper updateMenus(Integer id, int[] menuIds);
+
+	public ResultHelper updatePrivileges(Integer id, int[] privilegeId);
+
+	public ResultHelper getPrivileges(int id);
 	
 }

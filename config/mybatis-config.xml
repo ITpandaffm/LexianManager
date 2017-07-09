@@ -8,6 +8,11 @@
 		<typeAlias type="com.lexian.manager.authority.bean.Privilege" alias="Privilege" />
 		<typeAlias type="com.lexian.manager.authority.bean.Role" alias="Role" />
 		<typeAlias type="com.lexian.manager.authority.bean.RoleManager" alias="RoleManager" />
+		<typeAlias type="com.lexian.manager.authority.bean.RoleMenu" alias="RoleMenu" />
+		<typeAlias type="com.lexian.manager.authority.bean.RolePrivilege" alias="RolePrivilege" />
+		
+		
+		
 		<typeAlias type="com.lexian.manager.goods.bean.Category" alias="Category" />
 		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />
 	</typeAliases>
