@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
 }
 .container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     min-width: 1200px;
 }
@@ -50,7 +50,10 @@ header {
 .main-right {
     padding: 40px 20px 0 20px;
 }
-
+.main-right .container {
+    width: 100%;
+    min-width: 0;
+}
 table tbody tr {
     background: #fff;
 }

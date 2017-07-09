@@ -7,3 +7,12 @@ myApp.controller('timeController',['$scope','$interval',function ($scope,$interv
     };
     $scope.curTime = (new Date()).toLocaleString();
 }]);
+
+
+//authority
+myApp.controller('queryusersController', ['$scope', '$state', function ($scope, $state) {
+    $scope.addUser = function () {
+        alert('ja');
+        $state.go('authority/querymenu', {});
+    }
+}]);

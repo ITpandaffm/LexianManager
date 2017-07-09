@@ -2,7 +2,6 @@ var myApp = angular.module('lx-app',['ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider){
 
-    
     $urlRouterProvider.otherwise('welcome');
 
     $stateProvider
