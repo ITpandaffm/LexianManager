@@ -43,20 +43,11 @@ myApp.controller('userCenterListController', ['$scope','$http',  function ($scop
         47: 'welcome'
     };
     $scope.aIcons = ['icon-authority', 'icon-vip' ,'icon-goods', 'icon-store', 'icon-order', 'icon-activity', 'icon-statisitcs', 'icon-setting'];
-    $scope.getClass = function (id) {
-        return $scope.aIcons[id-1];
-        // var className = '';
-        // switch (id) {
-        //     case 1:
-        //         className = 'icon-authority';
-        //         break;
-        //     default:
-        //         className = 'icon-vip';
-        //         break;
-        // }
-        // return className;
-    }
-
+    $scope.subItemClick = function ($event){
+          console.log($event.target);
+          angular.element('.panel-body a').removeClass('active');
+          $($event.target).addClass('active');
+    };
 }]);
 
 //authority

@@ -57,7 +57,7 @@ header {
 }
 
 /* 用户中心列表样式 */
-.left-user-center .lx_a {
+.left-user-center .panel-title a {
     display: block;
     height: 100%;
     width: 100%;
@@ -105,14 +105,29 @@ header {
 .left-user-center a:hover{
     text-decoration: none;
 }
-.left-user-center a.active span{
+
+.left-user-center a.collapsed strong{
+    color: #fff;
+}
+.left-user-center a strong{
+    color: #ff9053;
+}
+.left-user-center a.collapsed .glyphicon-chevron-down {
+    transition: all 0.5s ease;
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    color: #fff;
+}
+
+.left-user-center a .glyphicon-chevron-down{
+    transition: all 0.5s ease;
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     color: gray;
 }
 
-.left-user-center li.active a {
-    color: #ff630c;
+.left-user-center .panel-body a.active {
+    color: #ff9053;
 }
 .icon {
     display: inline-block;

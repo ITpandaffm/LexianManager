@@ -44,7 +44,7 @@
                         <div class="panel panel-default"  ng-repeat="item in (aCenterListData | filter:{'parentId':'0'}) ">
                             <div class="panel-heading" role="tab">
                                 <h4 class="panel-title">
-                                    <a class="lx_a" ng-class="active" role="button" data-toggle="collapse" data-parent="#accordion" ng-href="#{{item.name}}">
+                                    <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" ng-href="#{{item.name}}">
                                         <i class="icon" ng-class="aIcons[item.id-1]"></i><strong>&emsp;{{item.name}}&emsp;</strong><span class="glyphicon glyphicon-chevron-down"></span>
                                     </a>
                                 </h4>
@@ -53,7 +53,7 @@
                                 <div class="panel-body">
                                     <ul class="sidebar-ul">
                                         <li ng-repeat="subItem in (aCenterListData | filter: {'parentId' : item.id})">
-                                            <a ui-sref="{{jSref[subItem.id]}}">{{subItem.name}}</a>
+                                            <a ui-sref="{{jSref[subItem.id]}}" ng-click="subItemClick($event)">{{subItem.name}}</a>
                                         </li>
                                     </ul>
                                 </div>
