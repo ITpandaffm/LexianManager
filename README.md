@@ -23,11 +23,11 @@ goal： **实现后端+前端+安卓端+ios**
 
 ##### 后台登录界面：
 
-![](http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-43.329Z.png)
+![http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-43.329Z.png](http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-43.329Z.png)
 
 ##### 后台系统界面
 
-![](http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-06.419Z.png)
+![http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-06.419Z.pn](http://osnk57csd.bkt.clouddn.com/%E7%81%AB%E7%8B%90%E6%88%AA%E5%9B%BE_2017-07-10T15-53-06.419Z.png)
 
 
 目前进度：
