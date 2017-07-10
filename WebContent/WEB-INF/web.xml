@@ -56,7 +56,21 @@
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
+	
+	<!-- 配置跳转到主页的过滤器，若登录成功则直接跳转到 home页面 -->
+	<!-- <filter>
+		<filter-name>CheckLoginFilter</filter-name>
+		<filter-class>com.lexian.filter.CheckLoginFilter</filter-class>
+		<init-param>
+			<param-name>target-page</param-name>
+			<param-value>index.html</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CheckLoginFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping> -->
+	
 	<!-- 配置登录过滤器 -->
 	<filter>
 		<filter-name>CheckLoginFilter</filter-name>

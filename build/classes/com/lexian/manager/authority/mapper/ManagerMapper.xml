@@ -20,7 +20,7 @@
   </select>
   
   <select id="getMenus" parameterType="java.lang.Integer" resultType="Menu">
-  		SELECT menu.id,menu.url,menu.name,menu.parentId,menu.backurl 
+  		SELECT DISTINCT menu.id,menu.url,menu.name,menu.parentId,menu.backurl 
   		FROM menu ,manager,role_menu ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -30,7 +30,7 @@
   </select>
   
   <select id="getPrivileges" parameterType="java.lang.Integer" resultType="Privilege">
-  		SELECT privilege.id,privilege.url,privilege.name,privilege.description 
+  		SELECT DISTINCT privilege.id,privilege.url,privilege.name,privilege.description 
   		FROM privilege ,manager,role_privilege ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -41,7 +41,7 @@
   
   
   <select id="getPrivilegeUrls" parameterType="java.lang.Integer" resultType="java.lang.String">
-  		SELECT privilege.url
+  		SELECT DISTINCT privilege.url
   		FROM privilege ,manager,role_privilege ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -91,7 +91,7 @@
   </update>
   
   <select id="getManagers" resultType="Manager">
-  		select <include refid="Base_Column_List"/>
+  		select DISTINCT <include refid="Base_Column_List"/>
   		from manager
   </select>
   

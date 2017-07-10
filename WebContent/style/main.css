@@ -20,6 +20,8 @@ header {
 /****************Main Start****************/
 .main {
     background: rgba(255,255,255,.9);
+    overflow: hidden;
+    padding-bottom: 10px;
 }
 .main .row {
     margin: 0;
@@ -28,9 +30,15 @@ header {
     padding: 20px 10px;
     background: #212020;
     color: #fff;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}
+.left-header-top,
+.user-info,
+.time-area{
     text-align: center;
 }
-.left-headr-top a {
+.left-header-top a {
     display: flex;
     font-size: 14px;
     margin: 5px 0;
@@ -47,8 +55,167 @@ header {
     margin-top: 15px;
     font-size: 16px;
 }
+
+/* 用户中心列表样式 */
+.left-user-center .lx_a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.main-left  {
+    text-align: left;
+}
+
+.left-user-center .panel-default .panel-heading {
+    background-color: #212020;
+    color: white;
+}
+
+.left-user-center .panel-group .panel-heading+.panel-collapse>.panel-body {
+    background-color: #212020;
+    padding: 0px;
+    border-top: 0px solid #ddd;
+}
+.left-user-center .panel-default {
+    border: 0px;
+}
+.left-user-center .panel {
+    background: #fff;
+    overflow: inherit;
+}
+.left-user-center .panel-title a {
+    font-size: 16px;
+    overflow: hidden;
+}
+.left-user-center .panel-title span {
+    float: right;
+}
+.left-user-center a {
+    color: #fff;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.left-user-center .panel-body {
+    text-align: center;
+}
+.left-user-center a:link {
+    text-decoration: none;
+}
+.left-user-center a:hover{
+    text-decoration: none;
+}
+.left-user-center a.active span{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    color: gray;
+}
+
+.left-user-center li.active a {
+    color: #ff630c;
+}
+.icon {
+    display: inline-block;
+    background: url('http://osnk57csd.bkt.clouddn.com/manage_sprites.png') no-repeat;
+    margin-top: -4px;
+    vertical-align: middle;
+}
+
+.icon-setting {
+    width: 24px;
+    height: 24px;
+    background-position: 0px 0px;
+}
+
+.icon-activity {
+    width: 24px;
+    height: 24px;
+    background-position: -29px 0px;
+}
+
+.icon-order {
+    width: 24px;
+    height: 24px;
+    background-position: -58px 0px;
+}
+
+.icon-store {
+    width: 24px;
+    height: 24px;
+    background-position: -87px 0px;
+}
+
+.icon-vip {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -29px;
+}
+
+.icon-final_page {
+    width: 24px;
+    height: 24px;
+    background-position: -87px -58px;
+}
+
+.icon-next_page {
+    width: 24px;
+    height: 24px;
+    background-position: -29px -58px;
+}
+
+.icon-statisitcs {
+    width: 24px;
+    height: 24px;
+    background-position: -87px -29px;
+}
+
+.icon-previous_page {
+    width: 24px;
+    height: 24px;
+    background-position: 0px -58px;
+}
+
+.icon-first_page {
+    width: 24px;
+    height: 24px;
+    background-position: -58px -58px;
+}
+
+.icon-refresh {
+    width: 24px;
+    height: 23px;
+    background-position: 0px -87px;
+}
+
+.icon-goods {
+    width: 24px;
+    height: 24px;
+    background-position: -58px -29px;
+}
+
+.icon-authority {
+    width: 24px;
+    height: 24px;
+    background-position: -29px -29px;
+}
+
+.icon-sign_error {
+    width: 30px;
+    height: 32px;
+    background-position: -29px -87px;
+}
+
+.icon-sign_question {
+    width: 30px;
+    height: 32px;
+    background-position: -66px -87px;
+}
+/* */
+
 .main-right {
     padding: 40px 20px 0 20px;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
 }
 .main-right .container {
     width: 100%;

@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-xs-2 main-left">
                 <div class="left-header">
-                    <div class="left-headr-top">
+                    <div class="left-header-top">
                         <div class="row">
                             <div class="avatar col-xs-6">
                                 <img src="http://osnk57csd.bkt.clouddn.com/imagehead.png" alt="">
@@ -39,56 +39,27 @@
                         <span ng-init="startClock()" ng-bind="curTime"></span>
                     </div>
                 </div>
-                <div class="left-user-center" >
-                    <ul>
-                        <li>
-                            <h4>权限管理</h4>
-                            <ul>
-                                <li><a ui-sref="authority/queryauthority">查看权限</a></li>
-                                <li><a ui-sref="authority/querymenu">查看菜单</a></li>
-                                <li><a ui-sref="authority/queryusers">查看后台用户</a></li>
-                                <li><a ui-sref="authority/queryrole">查看角色信息</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>会员管理</h4>
-                            <ul>
-                                <li><a ui-sref="vip/queryvip">查看会员信息</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>商品管理</h4>
-                            <ul>
-                                <li><a ui-sref="goods/category">分类管理</a></li>
-                                <li><a ui-sref="goods/vipinfo">商品信息管理</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>门店管理</h4>
-                            <ul>
-                                <li><a ui-sref="store/info">门店信息</a></li>
-                                <li><a ui-sref="store/goods">门店商品</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>订单管理</h4>
-                            <ul>
-                                <li><a ui-sref="order/list">订单列表</a></li>
-                                <li><a ui-sref="order/unpaid">未付款订单</a></li>
-                                <li><a ui-sref="order/haspaid">已付款订单</a></li>
-                                <li><a ui-sref="order/hasdeliver">已发货订单</a></li>
-                                <li><a ui-sref="order/complete">已完成订单</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>板块管理</h4>
-                            <ul>
-                                <li><a ui-sref="activity/specify">特定活动</a></li>
-                            </ul>
-                        </li>
-                        <li>数据统计</li>
-                        <li>系统设置</li>
-                    </ul>
+                <div class="left-user-center" ng-controller="userCenterListController">
+                    <div class="panel-group" id="accordion" role="tablist"  ng-init="getUserCenterList()">
+                        <div class="panel panel-default"  ng-repeat="item in (aCenterListData | filter:{'parentId':'0'}) ">
+                            <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a class="lx_a" ng-class="active" role="button" data-toggle="collapse" data-parent="#accordion" ng-href="#{{item.name}}">
+                                        <i class="icon" ng-class="aIcons[item.id-1]"></i><strong>&emsp;{{item.name}}&emsp;</strong><span class="glyphicon glyphicon-chevron-down"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{item.name}}" class="panel-collapse collapse" role="tabpanel">
+                                <div class="panel-body">
+                                    <ul class="sidebar-ul">
+                                        <li ng-repeat="subItem in (aCenterListData | filter: {'parentId' : item.id})">
+                                            <a ui-sref="{{jSref[subItem.id]}}">{{subItem.name}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-10 main-right">

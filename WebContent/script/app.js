@@ -9,7 +9,7 @@ var myApp = angular.module('lx-app',['ui.router'])
             url: '/welcome',
             templateUrl: 'views/welcome.html'
         })
-        .state('authority/queryauthority',{
+        .state('authority/queryauthority', {
             url: '/authority/queryauthority',
             templateUrl: 'views/authority/authority_queryauthority.html'
         })
@@ -17,13 +17,13 @@ var myApp = angular.module('lx-app',['ui.router'])
             url: '/authority/querymenu',
             templateUrl: 'views/authority/authority_querymenu.html'
         })
-        .state('authority/queryrole',{
-            url: '/authority/queryrole',
-            templateUrl: 'views/authority/authority_queryrole.html'
-        })
         .state('authority/queryusers',{
             url: '/authority/queryusers',
             templateUrl: 'views/authority/authority_queryusers.html'
+        })
+        .state('authority/queryrole',{
+            url: '/authority/queryrole',
+            templateUrl: 'views/authority/authority_queryrole.html'
         })
         .state('vip/queryvip',{
             url: '/vip/queryvip',

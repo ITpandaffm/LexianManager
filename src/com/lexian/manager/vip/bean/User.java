@@ -2,7 +2,7 @@ package com.lexian.manager.vip.bean;
 
 public class User {
 
-	private int id;//自增长
+	private String id;//自增长
 	private String phone;//手机号，同时也是登陆账号
 	private String userName;//用户姓名
 	private String sex;//性别
@@ -13,10 +13,10 @@ public class User {
 	private int status;//用户状态。1：启用；-1：冻结
 	
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getPhone() {

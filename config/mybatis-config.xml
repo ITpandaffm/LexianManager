@@ -3,6 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+	
+		<!-- 商品管理 -->
 		<typeAlias type="com.lexian.manager.authority.bean.Manager" alias="Manager" />
 		<typeAlias type="com.lexian.manager.authority.bean.Menu" alias="Menu" />
 		<typeAlias type="com.lexian.manager.authority.bean.Privilege" alias="Privilege" />
@@ -10,6 +12,9 @@
 		<typeAlias type="com.lexian.manager.authority.bean.RoleManager" alias="RoleManager" />
 		<typeAlias type="com.lexian.manager.authority.bean.RoleMenu" alias="RoleMenu" />
 		<typeAlias type="com.lexian.manager.authority.bean.RolePrivilege" alias="RolePrivilege" />
+		
+		<!-- 会员管理 -->
+		<typeAlias type="com.lexian.manager.vip.bean.User" alias="User" />
 		
 		
 		
