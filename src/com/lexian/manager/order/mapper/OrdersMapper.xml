@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.order.dao.OrdersDao" >
+  
+	
+	
+	<resultMap type="Orders" id="OrderssWithStoreMap">
+		<id column="id" property="id" jdbcType="INTEGER"></id>
+		<result column="order_no" property="orderNo" jdbcType="VARCHAR"/>
+		
+		<result column="totalamount" property="totalAmount" jdbcType="DOUBLE"/>
+		
+		<result column="states" property="states" jdbcType="INTEGER"/>
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP"/>
+		
+		<association property="store" javaType="Store">
+			<result column="storename" property="storeName" jdbcType="VARCHAR"/>
+		</association>
+		
+	</resultMap>
+	
+	<resultMap type="Orders" id="OrderssWithUserAndStoreMap">
+		<id column="id" property="id" jdbcType="INTEGER"></id>
+		<result column="order_no" property="orderNo" jdbcType="VARCHAR"/>
+		
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP"/>
+		
+		<association property="user" javaType="User">
+			<result column="username" property="userName" jdbcType="VARCHAR"/>
+			<result column="phone" property="phone" jdbcType="VARCHAR"/>
+		</association>
+		
+		<association property="store" javaType="Store">
+			<result column="storename" property="storeName" jdbcType="VARCHAR"/>
+		</association>
+		
+	</resultMap>
+	
+	
+	
+	<select id="getOrderssWithStore" resultMap="OrderssWithStoreMap">
+		SELECT orders.id,order_no,totalamount,states,createtime,storename
+		FROM orders,store
+		WHERE store.store_no=orders.store_no
+	</select>
+	
+	<select id="getOrdersWithUserAndStore" resultMap="OrderssWithUserAndStoreMap" parameterType="java.lang.Integer">
+		
+		SELECT orders.id,order_no,createtime,username,phone,storename
+		FROM orders,user,store
+		where user.id=orders.user_id and store.store_no=orders.store_no and  orders.id=#{id}
+	</select>
+	
+	<update id="updateOrders" parameterType="Orders">
+		
+		update orders
+		<set>
+			
+			<if test="orderNo != null">
+					order_no=#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="userId != null">
+					user_id=#{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="storeNo != null">
+					store_no=#{storeNo,jdbcType=VARCHAR},
+			</if>
+			<if test="totalAmount != null">
+					totalamount=#{totalAmount,jdbcType=DOUBLE},
+			</if>
+			<if test="paymentType != null">
+					paymenttype=#{paymentType,jdbcType=VARCHAR},
+			</if>
+			<if test="paymentSubtype != null">
+					paymentsubtype=#{paymentSubtype,jdbcType=VARCHAR},
+			</if>
+			<if test="deliveryType != null">
+					deliverytype=#{deliveryType,jdbcType=VARCHAR},
+			</if>
+			<if test="states != null">
+					states=#{states,jdbcType=INTEGER}
+			</if>
+			
+			
+		</set>
+		where id=#{id}
+		
+	</update>
+	
+	<select id="getOrderssWithStoreByState" resultMap="OrderssWithStoreMap" parameterType="java.lang.Integer">
+		SELECT orders.id,order_no,totalamount,states,createtime,storename
+		FROM orders,store
+		WHERE store.store_no=orders.store_no and states=#{state}
+	</select>
+  
+</mapper>

@@ -60,9 +60,9 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 	@Override
-	public ResultHelper getMenus(int id) {
+	public ResultHelper getUserWithMenus(int id) {
 		// TODO Auto-generated method stub
-		return new ResultHelper(Constant.code_success,managerDao.getMenus(id));
+		return new ResultHelper(Constant.code_success,managerDao.getUserWithMenus(id));
 	}
 
 	@Override
@@ -88,6 +88,20 @@ public class ManagerServiceImpl implements ManagerService{
 		managerDao.updateManager(manager);
 		return new ResultHelper(Constant.code_success);
 	}
+	
+	
+	@Override
+	public ResultHelper updateManagerPassword(Manager manager,String newPass) {
+		
+		ResultHelper result=verifyPassword(manager.getId(), manager.getPassword());
+		if(result.getCode()==Constant.code_success){
+			manager.setPassword(newPass);
+			updateManager(manager);
+		}
+		return result;
+		
+		
+	}
 
 	@Override
 	public ResultHelper associateToRole(RoleManager rm) {
@@ -107,6 +121,23 @@ public class ManagerServiceImpl implements ManagerService{
 	public ResultHelper deleteManagerById(int id) {
 		managerDao.deleteManagerById(id);
 		return new ResultHelper(Constant.code_success);
+	}
+
+	@Override
+	public ResultHelper verifyPassword(Integer id, String password) {
+		
+		Integer manager=managerDao.verifyPassword(id,password);
+		
+		ResultHelper result;
+		if(manager==null){
+			result=new ResultHelper(Constant.code_login_failed);
+		}else{
+			
+			result=new ResultHelper(Constant.code_success);
+		}
+		
+		return result;
+		
 	}
 	
 }

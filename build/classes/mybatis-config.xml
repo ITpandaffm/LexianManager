@@ -16,7 +16,12 @@
 		<!-- 会员管理 -->
 		<typeAlias type="com.lexian.manager.vip.bean.User" alias="User" />
 		
+		<!-- 订单管理 -->
+		<typeAlias type="com.lexian.manager.order.bean.OrderItem" alias="OrderItem" />
+		<typeAlias type="com.lexian.manager.order.bean.Orders" alias="Orders" />
 		
+		<!-- 门店管理 -->
+		<typeAlias type="com.lexian.manager.goods.bean.Store" alias="Store" />
 		
 		<typeAlias type="com.lexian.manager.goods.bean.Category" alias="Category" />
 		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />

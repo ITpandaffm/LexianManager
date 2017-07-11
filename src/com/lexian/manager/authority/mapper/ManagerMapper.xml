@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.authority.dao.ManagerDao" >
-  <!-- <resultMap id="BaseResultMap" type="test.model.Student" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+  <resultMap id="UserWithMenusMap" type="Manager" >
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="VARCHAR" />
-    <result column="birthday" property="birthday" jdbcType="DATE" />
-    <result column="age" property="age" jdbcType="INTEGER" />
-    <result column="classid" property="classid" jdbcType="INTEGER" />
-  </resultMap> -->
+    <collection property="menus" ofType="Menu">
+    	<id column="id" property="id" jdbcType="INTEGER"/>
+    	<result column="mname" property="name" jdbcType="VARCHAR" />
+    	<result column="url" property="url" jdbcType="VARCHAR" />
+    	<result column="parentid" property="parentId" jdbcType="INTEGER" />
+    </collection>
+    
+  </resultMap>
   <sql id="Base_Column_List" >
     id, name, info, createtime, updatetime, status
   </sql>
@@ -19,8 +21,8 @@
     where name=#{name,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
   </select>
   
-  <select id="getMenus" parameterType="java.lang.Integer" resultType="Menu">
-  		SELECT DISTINCT menu.id,menu.url,menu.name,menu.parentId,menu.backurl 
+  <select id="getUserWithMenus" parameterType="java.lang.Integer" resultMap="UserWithMenusMap">
+  		SELECT DISTINCT manager.name,menu.id,menu.url,menu.name mname,menu.parentid,menu.backurl 
   		FROM menu ,manager,role_menu ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -96,8 +98,13 @@
   </select>
   
   <delete id="deleteManagerById" parameterType="java.lang.Integer">
-  
   	delete from manager where id=#{id}
   </delete>
+  
+  
+  <select id="verifyPassword" resultType="java.lang.Integer">
+  		select id from manager where id=#{id} and password=#{password,jdbcType=VARCHAR}
+  </select>
+  
   
 </mapper>

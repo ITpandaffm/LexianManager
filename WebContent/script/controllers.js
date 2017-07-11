@@ -1,59 +1,116 @@
-myApp.controller('timeController',['$scope','$interval',function ($scope,$interval) {
+myApp.controller('userController', ['$scope', '$interval','httpService', 'srefAndIconFatory',
+                            function ($scope, $interval, httpService, srefAndIconFatory) {
+
     $scope.startClock = function () {
+        $scope.curTime = new Date();
         $interval(function () {
-            var oDate = new Date();
-            $scope.curTime = (new Date()).toLocaleString();
-        }, 1000, false)
+            $scope.curTime = new Date();
+        }, 1000, false);
     };
-    $scope.curTime = (new Date()).toLocaleString();
+
+    $scope.getUserCenterList = function () {
+        httpService.getRequest('manager/getUserWithMenus.do', {})
+            .then(function (data) {
+                $scope.oData = {
+                    username: data.data.name,
+                    aCenterListData: data.data.menus,
+                    jSref: srefAndIconFatory.jSref,
+                    aIcons: srefAndIconFatory.aIcons
+                };
+            }, function (error) {
+                console.log('getUserWithMenus error:'+error);
+            });
+    };
+
+    $scope.subItemClick = function ($event){
+        angular.element('.panel-body a').removeClass('active');
+        $($event.target).addClass('active');
+    };
+
+    $scope.signOut = function () {
+        if(confirm('确定吗？'+$scope.oData.username)){
+            httpService.getRequest('manager/signOut.do', {})
+                .then(function (data) {
+                    alert(data.data + '，请重新登录！');
+                    window.location.hash = '';
+                    window.location.pathname = '/LexianManager';
+                }, function (error) {
+                    console.log('signOut error:'+error);
+                });
+        }
+    }
+
 }]);
 
-myApp.controller('userCenterListController', ['$scope','$http',  function ($scope, $http) {
-    $scope.getUserCenterList = function () {
-        $http.get('manager/getMenus.do', {})
-            .success(function (data, status) {
-                console.log('success:'+data+', status:'+status);
-                if(data.code == 1){
-                    $scope.aCenterListData = data.data;
+//修改密码
+myApp.controller('updatePwdController', ['$scope', '$state', 'httpService',  function ($scope, $state, httpService) {
+    $scope.updatePwd = function () {
+        console.log($scope.oldPwd+': '+$scope.newPwd);
+        httpService.getRequest('manager/updateManagerPassword.do', {params: {password: $scope.oldPwd, newPass: $scope.newPwd}})
+            .then(function (data) {
+                if (data.code == 1){
+                    alert(data.data);
+                    $state.go('welcome');
+                } else {
+                    alert('旧密码错误！');
                 }
-            })
-            .error(function (data, status) {
-                console.log('error:'+data+', status:'+status);
+            }, function (error) {
+                console.log('updateManagerPassword error:'+error);
             });
     }
-    $scope.jSref  = {
-    	17: 'authority/queryauthority',
-        18: 'authority/querymenu',
-        19: 'authority/queryusers',
-        20: 'authority/queryrole',
-        21: 'vip/queryvip',
-        22: 'goods/category',
-        23: 'goods/vipinfo',
-        27: 'store/info',
-        28: 'store/goods',
-        30: 'order/list',
-        31: 'order/unpaid',
-        32: 'order/haspaid',
-        33: 'order/hasdeliver',
-        34:	'order/complete',
-        64: 'activity/specify',
-
-        71: 'welcome',
-        45: 'welcome',
-        47: 'welcome'
-    };
-    $scope.aIcons = ['icon-authority', 'icon-vip' ,'icon-goods', 'icon-store', 'icon-order', 'icon-activity', 'icon-statisitcs', 'icon-setting'];
-    $scope.subItemClick = function ($event){
-          console.log($event.target);
-          angular.element('.panel-body a').removeClass('active');
-          $($event.target).addClass('active');
-    };
 }]);
 
 //authority
-myApp.controller('queryusersController', ['$scope', '$state', function ($scope, $state) {
-    $scope.addUser = function () {
-        alert('ja');
-        $state.go('authority/querymenu', {});
+//查询权限
+myApp.controller('queryPrivilegesController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getPrivileges = function () {
+        httpService.getRequest('manager/getPrivileges.do', {})
+            .then(function (data) {
+                $scope.aPrivileges = data.data;
+            }, function (error) {
+                console.log('getPrivileges error:'+error);
+            });
+    }
+}]);
+
+//查询菜单
+myApp.controller('queryMenuController', ['$scope', 'httpService', 'srefAndIconFatory',
+    function ($scope, httpService, srefAndIconFatory) {
+    $scope.getMenus = function () {
+        httpService.getRequest('manager/getUserWithMenus.do', {})
+            .then(function (data) {
+                $scope.oData = {
+                    aCenterListData: data.data.menus,
+                    jSref: srefAndIconFatory.jSref,
+                    aIcons: srefAndIconFatory.aIcons
+                };
+            }, function (error) {
+                console.log('getUserWithMenus error:'+error);
+            });
+    }
+}]);
+
+//查询后台用户
+myApp.controller('queryUsersController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getManagers = function () {
+        httpService.getRequest('handleManager/getManagers.do', {})
+            .then(function (data) {
+                $scope.aManagers = data.data;
+            }, function (error) {
+                console.log('getManagers error:'+error);
+            })
+    };
+}]);
+
+//查询角色
+myApp.controller('queryRoleController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getRoles = function () {
+        httpService.getRequest('role/getRoles.do', {})
+            .then(function (data) {
+                $scope.aRoles = data.data;
+            }, function (error) {
+                console.log('getRoles error:' + error);
+            });
+
     }
 }]);

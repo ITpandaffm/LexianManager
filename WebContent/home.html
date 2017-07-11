@@ -19,7 +19,7 @@
     </header>
     <div class="main" ng-app="lx-app">
         <div class="row">
-            <div class="col-xs-2 main-left">
+            <div class="col-xs-2 main-left" ng-controller="userController">
                 <div class="left-header">
                     <div class="left-header-top">
                         <div class="row">
@@ -27,33 +27,33 @@
                                 <img src="http://osnk57csd.bkt.clouddn.com/imagehead.png" alt="">
                             </div>
                             <div class="header-operation col-xs-6">
-                                <a href="javascript:;">退出登录</a>
-                                <a href="javascript:;">修改密码</a>
+                                <a href="javascript:;" ng-click="signOut()">退出登录</a>
+                                <a ui-sref="updatePwd">修改密码</a>
                             </div>
                         </div>
                     </div>
                     <div class="user-info">
-                        <span>用户帐号</span>
+                        <span ng-bind="oData.username"></span>
                     </div>
-                    <div class="time-area" ng-controller="timeController">
-                        <span ng-init="startClock()" ng-bind="curTime"></span>
+                    <div class="time-area">
+                        <span ng-init="startClock()" ng-bind="curTime| date: 'yyyy-MM-dd HH:mm:ss'"></span>
                     </div>
                 </div>
-                <div class="left-user-center" ng-controller="userCenterListController">
+                <div class="left-user-center">
                     <div class="panel-group" id="accordion" role="tablist"  ng-init="getUserCenterList()">
-                        <div class="panel panel-default"  ng-repeat="item in (aCenterListData | filter:{'parentId':'0'}) ">
+                        <div class="panel panel-default"  ng-repeat="item in (oData.aCenterListData | filter:{'parentId': null})">
                             <div class="panel-heading" role="tab">
                                 <h4 class="panel-title">
                                     <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" ng-href="#{{item.name}}">
-                                        <i class="icon" ng-class="aIcons[item.id-1]"></i><strong>&emsp;{{item.name}}&emsp;</strong><span class="glyphicon glyphicon-chevron-down"></span>
+                                        <i class="icon" ng-class="oData.aIcons[item.id-1]"></i><strong>&emsp;{{item.name}}&emsp;</strong><span class="glyphicon glyphicon-chevron-down"></span>
                                     </a>
                                 </h4>
                             </div>
                             <div id="{{item.name}}" class="panel-collapse collapse" role="tabpanel">
                                 <div class="panel-body">
                                     <ul class="sidebar-ul">
-                                        <li ng-repeat="subItem in (aCenterListData | filter: {'parentId' : item.id})">
-                                            <a ui-sref="{{jSref[subItem.id]}}" ng-click="subItemClick($event)">{{subItem.name}}</a>
+                                        <li ng-repeat="subItem in (oData.aCenterListData | filter: {'parentId' : item.id})">
+                                            <a ui-sref="{{oData.jSref[subItem.id]}}" ng-click="subItemClick($event)">{{subItem.name}}</a>
                                         </li>
                                     </ul>
                                 </div>

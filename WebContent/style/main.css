@@ -33,6 +33,9 @@ header {
     padding-bottom: 9999px;
     margin-bottom: -9999px;
 }
+.left-header {
+    margin-bottom: 30px;
+}
 .left-header-top,
 .user-info,
 .time-area{
@@ -61,9 +64,6 @@ header {
     display: block;
     height: 100%;
     width: 100%;
-}
-.main-left  {
-    text-align: left;
 }
 
 .left-user-center .panel-default .panel-heading {
@@ -96,8 +96,8 @@ header {
     font-size: 14px;
     font-weight: bold;
 }
-.left-user-center .panel-body {
-    text-align: center;
+.left-user-center .panel-body a {
+    margin-left: 33%;
 }
 .left-user-center a:link {
     text-decoration: none;
@@ -232,10 +232,30 @@ header {
     padding-bottom: 9999px;
     margin-bottom: -9999px;
 }
+.main-right .container table th {
+    text-align: center;
+}
 .main-right .container {
     width: 100%;
     min-width: 0;
 }
+.main-right .panel-body {
+    background: #f5f5f5;
+}
+.main-right .panel-body .glyphicon-user {
+    margin-top: 7px;
+}
+
+.main-right .updateContainer .form-group {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.main-right .updateContainer .alert {
+    position: absolute;
+    top: -15px;
+}
+
 table tbody tr {
     background: #fff;
 }

@@ -1,6 +1,7 @@
 package com.lexian.manager.authority.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class Manager {
 
@@ -12,6 +13,16 @@ public class Manager {
 	private Date updateTime;
 	private int status;
 	
+	private List<Menu> menus;
+	
+	
+	
+	public List<Menu> getMenus() {
+		return menus;
+	}
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
+	}
 	public int getId() {
 		return id;
 	}

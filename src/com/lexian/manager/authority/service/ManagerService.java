@@ -13,7 +13,7 @@ public interface ManagerService {
 	
 	public ResultHelper getPrivilegeUrls(int id);
 	
-	public ResultHelper getMenus(int id);
+	public ResultHelper getUserWithMenus(int id);
 	
 	public ResultHelper addManager(Manager manager);
 	
@@ -24,6 +24,10 @@ public interface ManagerService {
 	public ResultHelper getManagers();
 
 	public ResultHelper deleteManagerById(int id);
+
+	public ResultHelper verifyPassword(Integer id, String password);
+
+	public ResultHelper updateManagerPassword(Manager manager, String newPass);
 	
 	
 	

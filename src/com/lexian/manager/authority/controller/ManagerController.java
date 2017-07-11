@@ -57,17 +57,7 @@ public class ManagerController {
 		
 		return result;
 	}
-//	public ResultHelper signIn(String name, String password,Map<String, Object> model) {
-//
-//		ResultHelper result = managerService.signIn(name, password);
-//		if (result.getCode() == Constant.code_success) {
-//			Manager manager = (Manager) result.getData();
-//			//session.setAttribute("privilegeUrls", managerService.getPrivilegeUrls(manager.getId()).getData());
-//			model.put("managerId", manager.getId());
-//			model.put("privilegeUrls",managerService.getPrivilegeUrls(manager.getId()).getData());
-//		}
-//		return result;
-//	}
+
 	/**
 	 * 退出登录
 	 * @param values
@@ -86,13 +76,14 @@ public class ManagerController {
 	 * @param newPassword
 	 * @return
 	 */
-	// manager/updateManager.do?password=1
+	// manager/updateManagerPassword.do?password=1&newPass=2
 	@ResponseBody
-	@RequestMapping("updateManager.do")
-	public ResultHelper updateManager(Manager manager,Map<String, Object> model) {
+	@RequestMapping("updateManagerPassword.do")
+	public ResultHelper updateManagerPassword(Manager manager,String newPass,Map<String, Object> model) {
 		manager.setId((Integer) model.get("managerId"));
-		return managerService.updateManager(manager);
+		return managerService.updateManagerPassword(manager,newPass);
 	}
+	
 	
 	/**
 	 * 获取权限列表
@@ -111,11 +102,11 @@ public class ManagerController {
 	 * @param model
 	 * @return
 	 */
-	//manager/getMenus.do
+	//manager/getUserWithMenus.do
 	@ResponseBody
-	@RequestMapping("getMenus.do")
+	@RequestMapping("getUserWithMenus.do")
 	public ResultHelper getMenus(Map<String, Object> model) {
-		ResultHelper result=managerService.getMenus((Integer) model.get("managerId"));
+		ResultHelper result=managerService.getUserWithMenus((Integer) model.get("managerId"));
 		return result;
 	}
 

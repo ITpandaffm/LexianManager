@@ -9,6 +9,10 @@ var myApp = angular.module('lx-app',['ui.router'])
             url: '/welcome',
             templateUrl: 'views/welcome.html'
         })
+        .state('updatePwd', {
+            url: '/updatePwd',
+            templateUrl: 'views/updatePwd.html'
+        })
         .state('authority/queryauthority', {
             url: '/authority/queryauthority',
             templateUrl: 'views/authority/authority_queryauthority.html'

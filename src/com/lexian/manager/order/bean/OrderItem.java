@@ -1,23 +1,42 @@
 package com.lexian.manager.order.bean;
 
+import com.lexian.manager.goods.bean.Commodity;
+
 public class OrderItem {
 
-	private int id;
-	private int orderId;
+	private Integer id;
+	private Integer orderId;
 	private String commodityNo;
-	private int amount;
-	private double listPrice;
-	private double totalPrice;
-	public int getId() {
+	private Integer amount;
+	private Double listPrice;
+	private Double totalPrice;
+	
+	private Commodity commodity;
+	
+	
+	
+	public Commodity getCommodity() {
+		return commodity;
+	}
+	public void setCommodity(Commodity commodity) {
+		this.commodity = commodity;
+	}
+	public void setListPrice(Double listPrice) {
+		this.listPrice = listPrice;
+	}
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(int orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 	public String getCommodityNo() {
@@ -26,22 +45,28 @@ public class OrderItem {
 	public void setCommodityNo(String commodityNo) {
 		this.commodityNo = commodityNo;
 	}
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	public double getListPrice() {
+	public Double getListPrice() {
 		return listPrice;
 	}
 	public void setListPrice(double listPrice) {
 		this.listPrice = listPrice;
 	}
-	public double getTotalPrice() {
+	public Double getTotalPrice() {
 		return totalPrice;
 	}
 	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	@Override
+	public String toString() {
+		return "OrderItem [id=" + id + ", orderId=" + orderId + ", commodityNo=" + commodityNo + ", amount=" + amount
+				+ ", listPrice=" + listPrice + ", totalPrice=" + totalPrice + ", commodity=" + commodity + "]";
+	}
+	
 }

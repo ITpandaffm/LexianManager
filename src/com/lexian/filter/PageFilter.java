@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class GotoHomePageFilter implements Filter {
+public class PageFilter implements Filter {
 
-	private String targetPage;
+	private String homePage;
 	private String root;
-	private String loginAction;
+	private String loginPage;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		targetPage = filterConfig.getInitParameter("target-page");
-		loginAction = filterConfig.getServletContext().getInitParameter("login-action");
+		homePage = filterConfig.getInitParameter("home-page");
+		
+		loginPage=filterConfig.getInitParameter("login-page");
 		root = filterConfig.getServletContext().getContextPath();
-
 	}
 
 	@Override
@@ -31,26 +31,34 @@ public class GotoHomePageFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-
-		if (canContinue(req, resp)) {
-			chain.doFilter(request, response);
-		} else {
-			resp.sendRedirect(root + "/" + targetPage);
-		}
-	}
-
-	private boolean canContinue(HttpServletRequest req, HttpServletResponse resp) {
-		boolean canContinue = true;
-
-		if (!req.getRequestURI().toString().contains(loginAction)) {
-			HttpSession session = req.getSession();
-			if (session.getAttribute("managerId") == null) {
-				canContinue = false;
+		
+		
+		String url=req.getRequestURI().toString();
+		
+		if(url.equals(root+"/")||url.contains(loginPage)){
+			if(isLogin(req, resp)){
+				resp.sendRedirect(root + "/" + homePage);
+				return;
+			}
+		}else if(url.contains(homePage)){
+			if(!isLogin(req, resp)){
+				resp.sendRedirect(root + "/" + loginPage);
+				return ;
 			}
 		}
-
-		return canContinue;
+		chain.doFilter(request, response);
 	}
+
+	private boolean isLogin(HttpServletRequest req, HttpServletResponse resp) {
+		boolean goHome=true;
+		HttpSession session = req.getSession();
+		if (session.getAttribute("managerId") == null) {
+			goHome = false;
+		}
+		
+		return goHome;
+	}
+
 
 	@Override
 	public void destroy() {

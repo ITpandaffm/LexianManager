@@ -1,1 +1,50 @@
-<div>authority_queryauthority</div>
+<div class="container" ng-controller="queryPrivilegesController" ng-init="getPrivileges()">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user">&nbsp;权限管理&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;权限查询&nbsp;</span>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                    <span class="glyphicon glyphicon-ok">&emsp;权限名称</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;权限名称</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;权限描述</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入搜索内容">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <th></th>
+            <th>权限名称</th>
+            <th>描述</th>
+        </tr>
+        <tr ng-repeat="item in aPrivileges">
+            <td>{{($index+1)}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+    </table>
+</div>

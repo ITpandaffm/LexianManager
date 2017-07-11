@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.lexian.manager.authority.bean.Manager;
 import com.lexian.manager.authority.bean.Menu;
 import com.lexian.manager.authority.bean.Privilege;
+import com.lexian.web.ResultHelper;
 
 public interface ManagerDao {
 	
@@ -15,7 +16,7 @@ public interface ManagerDao {
 	
 	public List<Privilege> getPrivileges(int id);
 	
-	public List<Menu> getMenus(int id);
+	public Manager getUserWithMenus(int id);
 	
 	public void addManager(Manager manager);
 
@@ -27,4 +28,7 @@ public interface ManagerDao {
 
 
 	public void deleteManagerById(int id);
+
+
+	public Integer verifyPassword(@Param("id")Integer id, @Param("password")String password);
 }

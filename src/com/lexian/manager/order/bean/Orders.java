@@ -1,18 +1,30 @@
 package com.lexian.manager.order.bean;
 
+import java.util.Date;
+
+import com.lexian.manager.goods.bean.Store;
+import com.lexian.manager.vip.bean.User;
+
 public class Orders {
-	private int id;
+	private Integer id;
 	private String orderNo;//订单编号
 	private String userId;//订单所属用户id 引用 ：user.id
 	private String storeNo;//引用：store.store_no; 订单取货门店
-	private double totalAmount;//订单总金额
+	private Double totalAmount;//订单总金额
 	private String paymentType;//支付类型
-	private String paymentSubty;//支付子类型
+	private String paymentSubtype;//支付子类型
+	private Date createTime;
+	private String deliveryType;//配送类型
+	private Integer states;//订单状态：1：待付款 2：待发货  3：已发货  4：已结单
 	
-	public int getId() {
+	private Store store;
+	
+	private User user;
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getOrderNo() {
@@ -33,7 +45,7 @@ public class Orders {
 	public void setStoreNo(String storeNo) {
 		this.storeNo = storeNo;
 	}
-	public double getTotalAmount() {
+	public Double getTotalAmount() {
 		return totalAmount;
 	}
 	public void setTotalAmount(double totalAmount) {
@@ -46,10 +58,10 @@ public class Orders {
 		this.paymentType = paymentType;
 	}
 	public String getPaymentSubty() {
-		return paymentSubty;
+		return paymentSubtype;
 	}
 	public void setPaymentSubty(String paymentSubty) {
-		this.paymentSubty = paymentSubty;
+		this.paymentSubtype = paymentSubty;
 	}
 	public String getDeliveryType() {
 		return deliveryType;
@@ -57,13 +69,47 @@ public class Orders {
 	public void setDeliveryType(String deliveryType) {
 		this.deliveryType = deliveryType;
 	}
-	public int getStates() {
+	public Integer getStates() {
 		return states;
 	}
-	public void setStates(int states) {
+	public void setStates(Integer states) {
 		this.states = states;
 	}
-	private String deliveryType;//配送类型
-	private int states;//订单状态：1：待付款 2：待发货  3：已发货  4：已结单
+	
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public String getPaymentSubtype() {
+		return paymentSubtype;
+	}
+	public void setPaymentSubtype(String paymentSubtype) {
+		this.paymentSubtype = paymentSubtype;
+	}
+	public Store getStore() {
+		return store;
+	}
+	public void setStore(Store store) {
+		this.store = store;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public void setTotalAmount(Double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", orderNo=" + orderNo + ", userId=" + userId + ", storeNo=" + storeNo
+				+ ", totalAmount=" + totalAmount + ", paymentType=" + paymentType + ", paymentSubtype=" + paymentSubtype
+				+ ", createTime=" + createTime + ", deliveryType=" + deliveryType + ", states=" + states + ", store="
+				+ store + ", user=" + user + "]";
+	}
+	
 	
 }
