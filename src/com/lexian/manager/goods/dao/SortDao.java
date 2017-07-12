@@ -1,11 +1,11 @@
 package com.lexian.manager.goods.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.lexian.manager.goods.bean.Category;
-import com.lexian.web.ResultHelper;
 
 public interface SortDao {
 

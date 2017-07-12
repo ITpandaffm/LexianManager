@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.plate.dao.SpeCommodityDao">
+
+
+	<select id="getCountSpeCommodities" resultType="java.lang.Integer">
+	
+		SELECT
+		 count(*)
+		FROM special_commodity,commodity 
+		WHERE special_commodity.commodityno=commodity.commodity_no AND special_commodity.specialid=#{id,jdbcType=INTEGER}
+		
+	</select>
+	
+	<select id="getSpecialCommodities" resultType="com.lexian.manager.plate.bean.SpecialCommodity">
+	
+		SELECT
+		special_commodity.id as id,commodityno as commodityNo,specialid as specialId,name,pictureurl as pictureUrl
+		FROM special_commodity,commodity 
+		WHERE special_commodity.commodityno=commodity.commodity_no AND special_commodity.specialid=#{id,jdbcType=INTEGER}
+	</select>
+	
+	<delete id="deleteSpeCommodity">
+	DELETE FROM special_commodity WHERE id=#{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="addSpecialCommodities">
+	INSERT INTO special_commodity(commodityno,specialid) 
+	VALUES(
+	(SELECT commodity_no FROM commodity WHERE commodity_no=#{commodityNo,jdbcType=VARCHAR} ),
+	(SELECT id FROM  special WHERE id=#{id,jdbcType=INTEGER}))
+	</insert>
+</mapper>

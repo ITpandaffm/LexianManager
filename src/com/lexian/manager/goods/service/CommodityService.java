@@ -5,15 +5,18 @@ import com.lexian.web.ResultHelper;
 
 public interface CommodityService {
 	
-	public ResultHelper getCommodities();
+	public ResultHelper getCommodities(Integer pageNo);
 	
 	public ResultHelper getCommodityByName(String name);
 	
 	public ResultHelper getCommodityBycommodityNo(String commodityNo);
 	
-	public ResultHelper updateCommodity(int id,Commodity commodity);
+	public ResultHelper updateCommodity(Commodity commodity);
 	
 	public ResultHelper addCommodity(Commodity commodity);
 
 	public ResultHelper getCommodityById(int id);
+	
+	
+	public ResultHelper updateCommodityPicture(String commodityNo,String pictureUrl);
 }

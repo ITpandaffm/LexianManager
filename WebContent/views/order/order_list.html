@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" ng-controller="orderListController">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <span class="glyphicon glyphicon-user">&nbsp;订单管理&nbsp;</span>
                 <span class="glyphicon glyphicon-chevron-right">&nbsp;订单列表&nbsp;</span>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <div class="col-sm-7">
                     <div class="col-sm-6">
                         <div class="input-group input-group-sm">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" ng-init="getOrderLists()">
         <tr>
             <th></th>
             <th>订单编号</th>
@@ -59,49 +59,22 @@
             <th>操作</th>
         </tr>
 
-        <tr>
-            <td>1</td>
-            <td>20170707151920067</td>
-            <td>2017-07-07 15:20:45</td>
-            <td>已付款</td>
-            <td>2116.8</td>
-            <td>中软国际总部</td>
-            <td>
-                <a href="javascript:;">查看订单详情</a>
+        <tr ng-repeat="item in aOrderLists">
+            <td>{{$index+1}}</td>
+            <td>{{item.orderNo}}</td>
+            <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td ng-switch="item.states">
+                <span ng-switch-when="1">待付款</span>
+                <span ng-switch-when="2">待发货</span>
+                <span ng-switch-when="3">已发货</span>
+                <span ng-switch-when="4">已结单</span>
             </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>20170707151920067</td>
-            <td>2017-07-07 15:20:45</td>
-            <td>待付款</td>
-            <td>2116.8</td>
-            <td>中软国际总部</td>
-            <td>
-                <a href="javascript:;">查看订单详情</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>20170707151920067</td>
-            <td>2017-07-07 15:20:45</td>
-            <td>已发货</td>
-            <td>2116.8</td>
-            <td>中软国际总部</td>
-            <td>
-                <a href="javascript:;">查看订单详情</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>20170707151920067</td>
-            <td>2017-07-07 15:20:45</td>
-            <td>已签收</td>
-            <td>2116.8</td>
-            <td>中软国际总部</td>
+            <td>{{item.totalAmount}}</td>
+            <td>{{item.store.storeName}}</td>
             <td>
                 <a href="javascript:;">查看订单详情</a>
             </td>
         </tr>
     </table>
+    <pagination></pagination>
 </div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.plate.dao.SpecialDao">
+
+	<select id="getCountSpecial" resultType="java.lang.Integer">
+	select count(*)
+	from special
+	</select>
+	
+	<select id="getSpecial" resultType="com.lexian.manager.plate.bean.Special">
+	select DISTINCT
+	id,name
+	from special
+	</select>
+	<update id="updateSpecial">
+	update special
+	set name=#{name,jdbcType=VARCHAR}
+	where id=#{id,jdbcType=INTEGER}
+	</update>
+	<delete id="deleteSpecial">
+	delete 
+	from special
+	where id=#{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="addSpecial">
+	INSERT INTO special ( NAME)
+	 VALUES (#{name,jdbcType=VARCHAR}); 
+	</insert>
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.shop.dao.CommodityStoreDao">
+	<select id="getCommdityByStoreNo" resultType="CommodityStore" parameterType="java.lang.String">
+		select
+		commodity_no as commmodityNo,commodity_price as commodotyPrice,real_price as
+		realPrice,commodity_amont as commodityAmont,type
+		from commodity_store
+		where store_no=#{storeNo,jdbcType=VARCHAR}
+	</select>
+</mapper>

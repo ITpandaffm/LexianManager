@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.shop.dao.StoreDao">
+	<select id="getAllStorePage" resultType="Store">
+		select
+		store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
+		from store
+	</select>
+	<insert id="addStore" parameterType="Store">
+		insert into
+		store(store_no,storename,storeaddress,introduce,starttime,closetime,maxlongitude,minlongitude,maxlatitude,minlatitude,province_id,citys_id,county_id)
+		values(
+		#{storeNo,jdbcType=VARCHAR},
+		#{storeName,jdbcType=VARCHAR},
+		#{storeAddress,jdbcType=VARCHAR},
+		#{ introduce,jdbcType=VARCHAR},
+		#{ startTime,jdbcType=TIME},
+		#{ closeTime,jdbcType=TIME},
+		#{ maxLongItude,jdbcType=DOUBLE},
+		#{ minLongItude,jdbcType=DOUBLE},
+		#{ maxLatItude,jdbcType=DOUBLE},
+		#{ minLatItude,jdbcType=DOUBLE},
+		#{ provinceId,jdbcType=INTEGER},
+		#{ cityId,jdbcType=INTEGER},
+		#{ countyId,jdbcType=INTEGER}
+		)
+	</insert>
+	<update id="updateStore" parameterType="Store">
+		update store
+		<set>
+			<if test="storeNo !=null">
+				store_no=#{storeNo,jdbcType=VARCHAR},
+			</if>
+			<if test="storeName !=null">
+				storename=#{storeName,jdbcType=VARCHAR},
+			</if>
+			<if test="storeAddress !=null">
+				storeaddress=#{storeAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce !=null">
+				introduce=#{introduce,jdbcType=VARCHAR},
+			</if>
+			<if test="startTime !=null">
+				starttime=#{startTime,jdbcType=Time},
+			</if>
+			<if test="closeTime !=null">
+				closetime=#{closeTime,jdbcType=Time},
+			</if>
+			<if test="maxLongItude !=null">
+				maxlongitude=#{maxLongItude,jdbcType=DOUBLE},
+			</if>
+			<if test="minLongItude !=null">
+				minlongitude=#{minLongItude,jdbcType=DOUBLE},
+			</if>
+			<if test="maxLatItude !=null">
+				maxlatitude=#{maxLatItude,jdbcType=DOUBLE},
+			</if>
+			<if test="minLatItude !=null">
+				minlatitude=#{minLatItude,jdbcType=DOUBLE},
+			</if>
+			<if test="provinceId !=null">
+				province_id=#{provinceId,jdbcType=INTEGER},
+			</if>
+			<if test="cityId !=null">
+				city_id=#{cityId,jdbcType=INTEGER},
+			</if>
+			<if test="countyId !=null">
+				county_id=#{countyId,jdbcType=INTEGER},
+			</if>
+			<if test="status !=null">
+				status=#{status,jdbcType=INTEGER}
+			</if>
+		</set>
+		where id=#{id,jdbcType=INTEGER}
+	</update>
+</mapper>

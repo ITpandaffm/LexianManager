@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="activitySpecifyController">
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="col-sm-6">
@@ -15,8 +15,7 @@
 		</div>
 	</div>
 
-	<div>
-		<table class="table table-striped">
+		<table class="table table-striped" ng-init="getSpecials()">
 			<tr>
 				<th></th>
 				<th>模块编号</th>
@@ -24,66 +23,19 @@
 				<th>操作</th>
 			</tr>
 
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
+			<tr ng-repeat="item in aSpecials">
+				<td>{{$index+1}}</td>
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
 				<td>
 					<a href="javascript:;">查看活动商品</a>&emsp;
 					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
+					<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal">删除</a>
 				</td>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
-				<td>
-					<a href="javascript:;">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
-				<td>
-					<a href="javascript:;">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
-				<td>
-					<a href="javascript:;">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
-				<td>
-					<a href="javascript:;">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1</td>
-				<td>限时抢购</td>
-				<td>
-					<a href="javascript:;">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;">删除</a>
-				</td>
-			</tr>
+
+
 		</table>
-	</div>
+	<pagination></pagination>
+	<confirmdeletemodal></confirmdeletemodal>
 </div>

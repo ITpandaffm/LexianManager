@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.goods.dao.CategoryViewDao">
+
+	<select id="getAllCategoryView" resultType="com.lexian.manager.goods.bean.CategoryView">
+	select 
+	firstid as firstId,firstname as firstName,secondid as secondId,secondname as secondName,thirdid as thirdId,thirdname as thirdName
+	from categoryview
+	</select>
+	
+	<select id="getCountCategory" resultType="java.lang.Integer">
+	select count(*)
+	from categoryview
+	</select>
+	
+	<select id="getFirstCategoryView" resultType="com.lexian.manager.goods.bean.CategoryView">
+	select distinct
+	firstid as firstId,firstname as firstName
+	from categoryview
+	</select>
+	<select id="getFirstCountCategory" resultType="java.lang.Integer">
+	select count(*)
+	from firstcategoryview
+	</select>
+	
+	<select id="getSecondCategoryView" resultType="com.lexian.manager.goods.bean.CategoryView">
+	select distinct
+	firstid as firstId,firstname as firstName,secondid as secondId,secondname as secondName
+	from categoryview
+	</select>
+	
+	<select id="getSecondCountCategory" resultType="java.lang.Integer">
+	select count(*)
+	from secondcategoryview
+	</select>
+	
+	<select id="getThirdCategoryView" resultType="com.lexian.manager.goods.bean.CategoryView">
+	select distinct
+	secondid as secondId,secondname as secondName,thirdid as thirdId,thirdname as thirdName
+	from categoryview
+	</select>
+	<select id="getThirdCountCategory" resultType="java.lang.Integer">
+	select count(*)
+	from thirdcategoryview
+	</select>
+</mapper>

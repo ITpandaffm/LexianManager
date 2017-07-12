@@ -2,93 +2,114 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.goods.dao.CommodityDao">
 
- <select id="getCommodities" resultType="Commodity">
- 
- select
- id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
- createtime as createTime,updateTime as updateTime,states
- from commodity
- 
- </select>
- 
- <select id="getCommodityByName" resultType="Commodity">
- select
- id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
- createtime as createTime,updateTime as updateTime,states
- from commodity
- where name=#{name,jdbcType=VARCHAR}
- 
- </select>
- 
- <select id="getCommodityBycommodityNo" resultType="Commodity">
- select
- id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
- createtime as createTime,updateTime as updateTime,states
- from commodity
- where commodity_no=#{commodityNo,jdbcType=VARCHAR}
- 
- </select>
- 
- <select id="getCommodityById" resultType="Commodity">
- select
- id,commodity_no as commodityNo,name,category_id as categoryId,introduce,detailed,pictureurl as pictureUrl,
- createtime as createTime,updatetime as updateTime,states
- from commodity
- where id=#{id,jdbcType=VARCHAR}
- 
- </select>
- 
- <insert id="addCommodity">
- 
- insert into commodity(id,commodity_no,name,category_id,introduce,detailed,pictureurl,createtime,updatetime,states)
- values(
- #{commodity.id,jdbcType=INTEGER},
- #{commodity.commodityNo,jdbcType=VARCHAR},
- #{commodity.name,jdbcType=VARCHAR},
- #{commodity.commodityId,jdbcType=INTEGER},
- #{commodity.detailed,jdbcType=VARCHAR},
- #{commodity.pictureurl,jdbcType=VARCHAR},
- #{commodity.createTime,jdbcType=DATETIME},
- #{commodity.updatetime,jdbcType=DATETIME},
- #{commodity.states,jdbcType=INTEGER}
- )
- </insert>
- 
- <update id="updateCommodity" parameterType="Commodity">
-   		update commodity
-   		<set>
-   			<if test="id != null">
-   			id=#{id,jdbcType=INTEGER},
-   			</if>
-   			<if test="commodityNo != null">
-   			commodity_no=#{commodityNo,jdbcType=VARCHAR},
-   			</if>
-   			<if test="name != null">
-   			name=#{name,jdbcType=VARCHAR},
-   			</if>
-   			<if test="categoryId != null">
-   			category_id=#{categoryId,jdbcType=INTEGER},
-   			</if>
-   			<if test="introduce != null">
-   			introduce=#{introduce,jdbcType=VARCHAR},
-   			</if>
-   			<if test="detailed != null">
-   			detailed=#{detailed,jdbcType=VARCHAR},
-   			</if>
-   			<if test="pictureUrl != null">
-   			pictureurl=#{pictureUrl,jdbcType=VARCHAR},
-   			</if>
-   			<if test="createTime != null">
-   			createtime=#{createTime,jdbcType=DATETIME},
-   			</if>
-   			<if test="updateTime != null">
-   			updatetime=#{updateTime,jdbcType=DATETIME},
-   			</if>
-   			<if test="states">
-   			states=#{states,jdbcType=INTEGER}
-   			</if>
-   		</set>
-   		where id = #{id,jdbcType=INTEGER}
- </update>
- 
+	<select id="getCommodities" resultType="Commodity">
+
+		select
+		id,commodity_no as commodityNo,name,category_id as
+		categoryId,introduce,detailed,pictureurl as pictureUrl,
+		createtime as createTime,updateTime as updateTime,states
+		from commodity
+
+	</select>
+
+	<select id="getCountCommodity" resultType="java.lang.Integer">
+		select count(*)
+		from commodity
+	</select>
+
+	<select id="getCommodityByName" resultType="Commodity">
+		select
+		id,commodity_no as commodityNo,name,category_id as
+		categoryId,introduce,detailed,pictureurl as pictureUrl,
+		createtime as createTime,updateTime as updateTime,states
+		from commodity
+		where name=#{name,jdbcType=VARCHAR}
+
+	</select>
+
+	<select id="getCommodityBycommodityNo" resultType="Commodity">
+		select
+		id,commodity_no as commodityNo,name,category_id as
+		categoryId,introduce,detailed,pictureurl as pictureUrl,
+		createtime as createTime,updateTime as updateTime,states
+		from commodity
+		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+
+	</select>
+
+	<select id="getCommodityById" resultType="Commodity">
+		select
+		id,commodity_no as commodityNo,name,category_id as
+		categoryId,introduce,detailed,pictureurl as pictureUrl,
+		createtime as createTime,updatetime as updateTime,states
+		from commodity
+		where id=#{id,jdbcType=VARCHAR}
+
+	</select>
+
+	<insert id="addCommodity" parameterType="Commodity">
+
+	INSERT INTO commodity (commodity_no, NAME, category_id, introduce,createtime)
+	 VALUES (
+	 #{commodityNo,jdbcType=VARCHAR},
+	  #{name,jdbcType=VARCHAR},
+	   (SELECT id FROM category WHERE id=#{categoryId,jdbcType=INTEGER}),
+	    #{introduce,jdbcType=VARCHAR},
+	    #{createTime,jdbcType=TIMESTAMP}); 
+	</insert>
+
+	<update id="updateCommodity" parameterType="Commodity">
+		update commodity
+		<set>
+			<if test="id != null">
+				id=#{id,jdbcType=INTEGER},
+			</if>
+			<if test="commodityNo != null">
+				commodity_no=#{commodityNo,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name=#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="categoryId != null">
+				category_id=#{categoryId,jdbcType=INTEGER},
+			</if>
+			<if test="introduce != null">
+				introduce=#{introduce,jdbcType=VARCHAR},
+			</if>
+			<if test="detailed != null">
+				detailed=#{detailed,jdbcType=VARCHAR},
+			</if>
+			<if test="pictureUrl != null">
+				pictureurl=#{pictureUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				createtime=#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				updatetime=#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="states != null">
+				states=#{states,jdbcType=INTEGER}
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	
+	<update id="updateCommodityPicture">
+	
+	update commodity_picture 
+	set
+	 picture_url=#{pictureUrl,jdbcType=VARCHAR}
+	 where commodity_no#{commodityNo,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="addCommodityPicture">
+		INSERT INTO commodity_picture(commodity_no,picture_url)
+		VALUES(
+		(SELECT commodity_no FROM commodity WHERE commodity_no=#{commodityNo,jdbcType=VARCHAR}),
+		#{pictureUrl,jdbcType=VARCHAR}
+		)
+	</insert>
+
 </mapper>

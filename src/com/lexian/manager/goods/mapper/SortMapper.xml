@@ -3,6 +3,12 @@
 <mapper namespace="com.lexian.manager.goods.dao.SortDao">
 
 
+<select id="getAllCategories" resultType="Category">
+	select 
+	id,categoryname as categoryName,type,parentId
+	from category
+</select>
+
 <select id="getCategoryByCategoryName" resultType="Category">
 	select 
 	id,categoryname as categoryName,type,parentId

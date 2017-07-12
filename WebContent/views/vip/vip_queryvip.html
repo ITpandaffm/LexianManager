@@ -1,110 +1,62 @@
-<div class="container">
-	<div class="panel panel-default">
-		<div class="panel-body" style="background-color: #f5f5f5;">
-			<div class="col-sm-6"  style="position: relative; top: 7px;">
-				<span class="glyphicon glyphicon-user">&nbsp;会员管理&nbsp;</span>
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;查看会员信息&nbsp;</span>
-			</div>
-			<div class="col-sm-6">
-				<div class="col-sm-10 col-sm-offset-2">
-					<div class="input-group">
-						<div class="input-group-btn">
-							<div class="btn-group">
-								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-									<span class="glyphicon glyphicon-ok">&emsp;会员名</span>
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;会员名</a>
-									</li>
-									<li>
-										<a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;手机号</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<input type="text" class="form-control" placeholder="请输入搜索内容">
-						<div class="input-group-btn">
-							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container vipContainer" ng-controller="queryVipController">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user">&nbsp;会员管理&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看会员信息&nbsp;</span>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                    <span class="glyphicon glyphicon-ok">&emsp;会员名</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;会员名</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;手机号</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入搜索内容">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div>
-		<table class="table table-striped" style="text-align: center;">
-			<tr>
-				<th></th>
-				<th style="text-align: center;">会员名</th>
-				<th style="text-align: center;">手机号</th>
-				<th style="text-align: center;">最后登录时间</th>
-				<th style="text-align: center;">状态</th>
-				<th style="text-align: center;">操作</th>
-			</tr>
+    <table class="table table-striped" ng-init="getVips()">
+        <tr>
+            <th></th>
+            <th>会员名</th>
+            <th>手机号</th>
+            <th>最后登录时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
 
-			<tr>
-				<td>1</td>
-				<td>User7</td>
-				<td>13800138006</td>
-				<td>2016-07-05 17:33:53</td>
-				<td>
-					<a href="javascript:;">启用</a>
-				</td>
-				<td>
-					<a href="javascript:;" style="color: red;">禁用</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>User7</td>
-				<td>13800138006</td>
-				<td>2016-07-05 17:33:53</td>
-				<td>
-					<a href="javascript:;">启用</a>
-				</td>
-				<td>
-					<a href="javascript:;" style="color: red;">禁用</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>User7</td>
-				<td>13800138006</td>
-				<td>2016-07-05 17:33:53</td>
-				<td>
-					<a href="javascript:;">启用</a>
-				</td>
-				<td>
-					<a href="javascript:;" style="color: red;">禁用</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>User7</td>
-				<td>13800138006</td>
-				<td>2016-07-05 17:33:53</td>
-				<td>
-					<a href="javascript:;">启用</a>
-				</td>
-				<td>
-					<a href="javascript:;" style="color: red;">禁用</a>
-				</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>User7</td>
-				<td>13800138006</td>
-				<td>2016-07-05 17:33:53</td>
-				<td>
-					<a href="javascript:;">启用</a>
-				</td>
-				<td>
-					<a href="javascript:;" style="color: red;">禁用</a>
-				</td>
-			</tr>
-		</table>
-	</div>
+        <tr ng-repeat="item in aVips">
+            <td>{{$index}}</td>
+            <td>{{item.userName}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.lastLoginTime|date: 'YY-mm-ss HH-mm-ss'}}</td>
+            <td>
+                <a href="javascript:;">启用</a>
+            </td>
+            <td>
+                <a href="javascript:;">禁用</a>
+            </td>
+        </tr>
+    </table>
+    <pagination></pagination>
 </div>

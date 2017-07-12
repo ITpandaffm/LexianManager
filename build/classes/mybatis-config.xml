@@ -21,9 +21,15 @@
 		<typeAlias type="com.lexian.manager.order.bean.Orders" alias="Orders" />
 		
 		<!-- 门店管理 -->
-		<typeAlias type="com.lexian.manager.goods.bean.Store" alias="Store" />
+		<typeAlias type="com.lexian.manager.shop.bean.Store" alias="Store"/>
+		<typeAlias type="com.lexian.manager.shop.bean.CommodityStore" alias="CommodityStore"/>
 		
 		<typeAlias type="com.lexian.manager.goods.bean.Category" alias="Category" />
 		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />
 	</typeAliases>
+	
+	<plugins>  
+        <plugin interceptor="com.lexian.interceptor.PageInterceptor"></plugin>  
+    </plugins>
+	
 </configuration>

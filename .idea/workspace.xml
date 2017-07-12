@@ -21,51 +21,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="updatePwd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/updatePwd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authority_querymenu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_querymenu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authority_queryrole.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="authority_queryrole.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="58" column="33" lean-forward="false" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+            <state relative-caret-position="1539">
+              <caret line="57" column="61" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directives.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/script/directives.js">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/style/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="551">
+              <caret line="304" column="20" lean-forward="false" selection-start-line="304" selection-start-column="20" selection-end-line="304" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order_haspaid.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_haspaid.html">
+      <file leaf-file-name="order_complete.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_complete.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="110" column="12" lean-forward="false" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
+            <state relative-caret-position="1647">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,18 +54,48 @@
       <file leaf-file-name="order_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
+            <state relative-caret-position="403">
+              <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order_unpaid.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_unpaid.html">
+      <file leaf-file-name="authority_queryusers.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="106" column="12" lean-forward="false" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
+            <state relative-caret-position="324">
+              <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authority_querymenu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_querymenu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1350">
+              <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authority_queryauthority.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryauthority.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="35" column="55" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -94,28 +104,18 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="108" column="35" lean-forward="false" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+            <state relative-caret-position="4320">
+              <caret line="160" column="32" lean-forward="false" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store_goods.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_goods.html">
+      <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="store_info.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="95" column="12" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+            <state relative-caret-position="54">
+              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -146,6 +146,7 @@
       <find>style</find>
       <find>userController</find>
       <find>glyphicon-user</find>
+      <find>container</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -155,7 +156,6 @@
         <option value="$PROJECT_DIR$/WebContent/script/controller.js" />
         <option value="$PROJECT_DIR$/WebContent/script/directive.js" />
         <option value="$PROJECT_DIR$/WebContent/script/filters.js" />
-        <option value="$PROJECT_DIR$/WebContent/script/directives.js" />
         <option value="$PROJECT_DIR$/WebContent/views/querymenu.htm.html" />
         <option value="$PROJECT_DIR$/WebContent/views/querymenu.html" />
         <option value="$PROJECT_DIR$/WebContent/views/queryrole.html" />
@@ -163,7 +163,6 @@
         <option value="$PROJECT_DIR$/WebContent/views/search.html" />
         <option value="$PROJECT_DIR$/WebContent/views/state.html" />
         <option value="$PROJECT_DIR$/WebContent/views/queryvip.html" />
-        <option value="$PROJECT_DIR$/WebContent/views/welcome.html" />
         <option value="$PROJECT_DIR$/WebContent/style/login.css" />
         <option value="$PROJECT_DIR$/WebContent/script/login.js.mine" />
         <option value="$PROJECT_DIR$/WebContent/index.html" />
@@ -172,15 +171,14 @@
         <option value="$PROJECT_DIR$/WebContent/script/login.js" />
         <option value="$PROJECT_DIR$/WebContent/script/app.js" />
         <option value="$PROJECT_DIR$/WebContent/views/updatePwd.css" />
-        <option value="$PROJECT_DIR$/WebContent/script/services.js" />
         <option value="$PROJECT_DIR$/WebContent/style/common.css" />
-        <option value="$PROJECT_DIR$/WebContent/views/activity/activity_specify.html" />
-        <option value="$PROJECT_DIR$/WebContent/style/main.css" />
-        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
         <option value="$PROJECT_DIR$/WebContent/home.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/updatePwd.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/welcome.html" />
+        <option value="$PROJECT_DIR$/WebContent/script/services.js" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryauthority.html" />
-        <option value="$PROJECT_DIR$/WebContent/views/goods/goods_category.html" />
-        <option value="$PROJECT_DIR$/WebContent/views/goods/goods_vipinfo.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_querymenu.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html" />
         <option value="$PROJECT_DIR$/WebContent/views/order/order_complete.html" />
         <option value="$PROJECT_DIR$/WebContent/views/order/order_hasdeliver.html" />
         <option value="$PROJECT_DIR$/WebContent/views/order/order_haspaid.html" />
@@ -188,10 +186,17 @@
         <option value="$PROJECT_DIR$/WebContent/views/order/order_unpaid.html" />
         <option value="$PROJECT_DIR$/WebContent/views/store/store_goods.html" />
         <option value="$PROJECT_DIR$/WebContent/views/store/store_info.html" />
-        <option value="$PROJECT_DIR$/WebContent/views/updatePwd.html" />
-        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_querymenu.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/goods/goods_vipinfo.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/goods/goods_category.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/vip/vip_queryvip.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/pagination.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/components/deleteModel.html" />
+        <option value="$PROJECT_DIR$/WebContent/script/directives.js" />
+        <option value="$PROJECT_DIR$/WebContent/views/activity/activity_specify.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/components/deleteModal.html" />
         <option value="$PROJECT_DIR$/WebContent/script/controllers.js" />
-        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html" />
+        <option value="$PROJECT_DIR$/WebContent/style/main.css" />
       </list>
     </option>
   </component>
@@ -202,10 +207,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1384" />
-    <option name="y" value="93" />
-    <option name="width" value="1600" />
-    <option name="height" value="875" />
+    <option name="y" value="24" />
+    <option name="width" value="1276" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -288,7 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
+              <option name="myItemId" value="vip" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -376,32 +380,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="authority" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="level2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LexianManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LexianManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebContent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="activity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -458,6 +436,9 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent" />
       <recent name="http://https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DLETC\Desktop\svn\trunk\LexianManager\WebContent\views\components" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DLETC\Desktop\svn\trunk\LexianManager\WebContent\views" />
@@ -583,26 +564,30 @@
       <workItem from="1499736212532" duration="10574000" />
       <workItem from="1499756039526" duration="4315000" />
       <workItem from="1499762279554" duration="9753000" />
-      <workItem from="1499775600404" duration="5977000" />
+      <workItem from="1499775600404" duration="7473000" />
+      <workItem from="1499822273701" duration="2643000" />
+      <workItem from="1499825692506" duration="1358000" />
+      <workItem from="1499827759826" duration="20429000" />
+      <workItem from="1499860183132" duration="70000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123975000" />
+    <option name="totallyTimeSpent" value="149986000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1384" y="93" width="1600" height="875" extended-state="0" />
+    <frame x="0" y="24" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.139375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1763323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08975713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -643,17 +628,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/script/directive.js" />
-    <entry file="https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="http://https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -675,13 +649,6 @@
     <entry file="file://$PROJECT_DIR$/WebContent/views/queryvip.html" />
     <entry file="file://$PROJECT_DIR$/WebContent/views/search.html" />
     <entry file="file://$PROJECT_DIR$/WebContent/views/state.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/views/vip/vip_queryvip.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.mine" />
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.r101" />
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.r96" />
@@ -714,14 +681,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/style/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
@@ -741,37 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <marker date="1499752430000" expanded="true" signature="449:579" ph="{&quot;url&quot;: '/authority/queryauthority'...}" />
-            <marker date="1499752430000" expanded="true" signature="618:738" ph="{&quot;url&quot;: '/authority/querymenu'...}" />
-            <marker date="1499752430000" expanded="true" signature="778:900" ph="{&quot;url&quot;: '/authority/queryusers'...}" />
-            <marker date="1499752430000" expanded="true" signature="939:1059" ph="{&quot;url&quot;: '/authority/queryrole'...}" />
-            <marker date="1499752430000" expanded="true" signature="1091:1191" ph="{&quot;url&quot;: '/vip/queryvip'...}" />
-            <marker date="1499752430000" expanded="true" signature="1225:1331" ph="{&quot;url&quot;: '/goods/category'...}" />
-            <marker date="1499752430000" expanded="true" signature="1364:1468" ph="{&quot;url&quot;: '/goods/vipinfo'...}" />
-            <marker date="1499752430000" expanded="true" signature="1498:1596" ph="{&quot;url&quot;: '/store/info'...}" />
-            <marker date="1499752430000" expanded="true" signature="1628:1728" ph="{&quot;url&quot;: '/store/goods'...}" />
-            <marker date="1499752430000" expanded="true" signature="1758:1856" ph="{&quot;url&quot;: '/order/list'...}" />
-            <marker date="1499752430000" expanded="true" signature="1889:1991" ph="{&quot;url&quot;: '/order/unpaid'...}" />
-            <marker date="1499752430000" expanded="true" signature="2025:2129" ph="{&quot;url&quot;: '/order/haspaid'...}" />
-            <marker date="1499752430000" expanded="true" signature="2166:2276" ph="{&quot;url&quot;: '/order/hasdeliver'...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,166 +707,199 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/activity/activity_specify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/style/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="245" column="9" lean-forward="false" selection-start-line="245" selection-start-column="9" selection-end-line="245" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="945">
           <caret line="35" column="55" lean-forward="false" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1146">
-          <caret line="0" column="58" lean-forward="false" selection-start-line="0" selection-start-column="58" selection-end-line="0" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryauthority.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/goods/goods_category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="223" column="16" lean-forward="false" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/goods/goods_vipinfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="125" column="12" lean-forward="false" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="507">
+          <caret line="126" column="29" lean-forward="false" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_complete.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="596">
+          <caret line="63" column="17" lean-forward="false" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_hasdeliver.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/components/deleteModel.html" />
+    <entry file="file://$PROJECT_DIR$/WebContent/script/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="297">
+          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_haspaid.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryauthority.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="110" column="12" lean-forward="false" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_unpaid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="106" column="12" lean-forward="false" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_goods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="95" column="12" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/updatePwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="945">
+          <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_querymenu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        <state relative-caret-position="1350">
+          <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/directives.js">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/components/pagination.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="378">
+          <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/goods/goods_category.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="224" column="29" lean-forward="false" selection-start-line="224" selection-start-column="29" selection-end-line="224" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_hasdeliver.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_complete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1647">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="108" column="35" lean-forward="false" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+        <state relative-caret-position="403">
+          <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_haspaid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/order/order_unpaid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="74" column="29" lean-forward="false" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="66" column="29" lean-forward="false" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/store/store_goods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="54" column="29" lean-forward="false" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/vip/vip_queryvip.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="60" column="29" lean-forward="false" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/updatePwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/style/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="58" column="33" lean-forward="false" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        <state relative-caret-position="1539">
+          <caret line="57" column="61" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/components/deleteModal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="102" lean-forward="false" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4320">
+          <caret line="160" column="32" lean-forward="false" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/activity/activity_specify.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/style/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="304" column="20" lean-forward="false" selection-start-line="304" selection-start-column="20" selection-end-line="304" selection-end-column="20" />
           <folding />
         </state>
       </provider>

@@ -1,6 +1,9 @@
 package com.lexian.manager.order.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,21 +19,14 @@ public class OrderController {
 	@Autowired
 	private OrdersService ordersService;
 
-	// order/getOrderss.do
+	// order/getOrderss.do?pageNo=1
 	@ResponseBody
 	@RequestMapping("getOrderss.do")
-	public ResultHelper getOrderss() {
+	public ResultHelper getOrderss(Integer pageNo,Integer state) {
 
-		return ordersService.getOrderss();
+		return ordersService.getOrderss(pageNo,state);
 	}
 
-	// order/getOrderssByState.do?state=2
-	@ResponseBody
-	@RequestMapping("getOrderssByState.do")
-	public ResultHelper getOrderssByState(int state) {
-
-		return ordersService.getOrderssByState(state);
-	}
 
 	// order/getOrderDetail.do?id=4
 	@ResponseBody
@@ -47,5 +43,13 @@ public class OrderController {
 
 		return ordersService.updateOrders(orders);
 	}
+	
+	// order/getOrderssByDate.do?state=2&pageNo=1&start=2016-7-5&end=2016-7-8
+	@ResponseBody
+	@RequestMapping("getOrderssByDate.do")
+	public ResultHelper getOrderssByDate(Integer state,String start,String end,Integer pageNo) {
 
+		return ordersService.getOrderssByDate(state,start,end,pageNo);
+	}
+	
 }

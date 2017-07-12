@@ -27,8 +27,8 @@ public class HandleManagerController {
 	//handleManager/getManagers.do
 	@ResponseBody
 	@RequestMapping("getManagers.do")
-	public ResultHelper getManagers(){
-		return managerService.getManagers();
+	public ResultHelper getManagers(Integer pageNo){
+		return managerService.getManagers(pageNo);
 	}
 	//handleManager/addManager.do?name=xxx
 	//<insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="userId" parameterType="com.chenzhou.mybatis.User">  

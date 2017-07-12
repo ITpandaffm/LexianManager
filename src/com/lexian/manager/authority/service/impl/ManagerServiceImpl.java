@@ -1,16 +1,21 @@
 package com.lexian.manager.authority.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lexian.manager.authority.bean.Manager;
+import com.lexian.manager.authority.bean.Privilege;
 import com.lexian.manager.authority.bean.RoleManager;
 import com.lexian.manager.authority.dao.ManagerDao;
 import com.lexian.manager.authority.dao.RoleManagerDao;
 import com.lexian.manager.authority.service.ManagerService;
 import com.lexian.utils.Constant;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 @Service
 public class ManagerServiceImpl implements ManagerService{
@@ -54,19 +59,33 @@ public class ManagerServiceImpl implements ManagerService{
 		return result;
 	}
 	@Override
-	public ResultHelper getPrivileges(int id) {
-		
-		return new ResultHelper(Constant.code_success,managerDao.getPrivileges(id));
+	public ResultHelper getPrivileges(Integer id,Integer pageNo) {
+		Page page = new Page();
+
+		if (pageNo != null) {
+			page.setPageNo(pageNo);
+		}
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("page", page);
+		params.put("id", id);
+		List<Privilege> privileges= managerDao.getPrivilegesPage(params);
+		page.setData(privileges);
+	
+
+		ResultHelper result = new ResultHelper(Constant.code_success, page);
+
+		return result;
 	}
 
 	@Override
-	public ResultHelper getUserWithMenus(int id) {
+	public ResultHelper getUserWithMenus(Integer id) {
 		// TODO Auto-generated method stub
 		return new ResultHelper(Constant.code_success,managerDao.getUserWithMenus(id));
 	}
 
 	@Override
-	public ResultHelper getPrivilegeUrls(int id) {
+	public ResultHelper getPrivilegeUrls(Integer id) {
 		
 		return new ResultHelper(Constant.code_success,managerDao.getPrivilegeUrls(id));
 	}
@@ -111,14 +130,29 @@ public class ManagerServiceImpl implements ManagerService{
 
 
 	@Override
-	public ResultHelper getManagers() {
+	public ResultHelper getManagers(Integer pageNo) {
+		
+		Page page = new Page();
 
-		ResultHelper result=new ResultHelper(Constant.code_success,managerDao.getManagers());
+		if (pageNo != null) {
+			page.setPageNo(pageNo);
+		}
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("page", page);
+		List<Manager> privileges= managerDao.getManagersPage(params);
+		page.setData(privileges);
+	
+
+		ResultHelper result = new ResultHelper(Constant.code_success, page);
+
 		return result;
+		
+
 	}
 
 	@Override
-	public ResultHelper deleteManagerById(int id) {
+	public ResultHelper deleteManagerById(Integer id) {
 		managerDao.deleteManagerById(id);
 		return new ResultHelper(Constant.code_success);
 	}

@@ -239,11 +239,23 @@ header {
     width: 100%;
     min-width: 0;
 }
+.main-right .welcomeContainer {
+    position: relative;
+    background-image: url("http://osnk57csd.bkt.clouddn.com/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+.main-right .welcomeContainer img {
+    position: absolute;
+    right: 150px;
+    bottom: 30px;
+}
 .main-right .panel-body {
     background: #f5f5f5;
 }
 .main-right .panel-body .glyphicon-user {
-    margin-top: 7px;
+    margin-top: 10px;
 }
 
 .main-right .updateContainer .form-group {
@@ -255,11 +267,65 @@ header {
     position: absolute;
     top: -15px;
 }
-
+.main-right .vipContainer .table tr+tr td:last-child a{
+    color: #f00;
+}
 table tbody tr {
     background: #fff;
 }
 
+.pagination {
+    overflow: hidden;
+    width: 100%;
+}
+.pagination span:last-of-type {
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.pagination span:not(.glyphicon) {
+    font-size: 12px;
+}
+
+.pagination div {
+    display: inline-block;
+}
+
+.pagination .current-page {
+    width: 60px;
+}
+.pagination span.glyphicon:nth-of-type(even) {
+    margin-left: 20px;
+}
+.pagination .glyphicon {
+    color: #47bdcc;
+}
+.pagination .glyphicon:hover {
+    color: #ff9053;
+    cursor: pointer;
+}
+.pagination .vertical-line {
+    position: relative;
+    top: 7px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 0;
+    height: 23px;
+    margin: 0 15px;
+}
+
+.confirmDeleteModal .modal-dialog {
+    top: 30%;
+    text-align: center;
+    width:300px;
+}
+.confirmDeleteModal .modal-body {
+    padding: 10px 0;
+}
+.confirmDeleteModal .modal-footer {
+    padding: 10px;
+    margin-top: 0;
+}
 /****************Main End****************/
 /****************Footer Start****************/
 footer {

@@ -5,12 +5,11 @@ import com.lexian.web.ResultHelper;
 
 public interface OrdersService {
 
-	ResultHelper getOrderss();
+	ResultHelper getOrderss(Integer pageNo,Integer state);
 
 	ResultHelper getOrderDetail(int id);
 
 	ResultHelper updateOrders(Orders orders);
-
-	ResultHelper getOrderssByState(int state);
-
+	
+	public ResultHelper getOrderssByDate(Integer state,String start, String end, Integer pageNo);
 }

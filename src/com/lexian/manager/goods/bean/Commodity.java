@@ -13,7 +13,7 @@ public class Commodity {
 	private String pictureUrl;
 	private Date createTime;
 	private Date updateTime;
-	private int states;
+	private Integer states;
 	
 	public int getId() {
 		return id;
@@ -69,10 +69,10 @@ public class Commodity {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	public int getStates() {
+	public Integer getStates() {
 		return states;
 	}
-	public void setStates(int states) {
+	public void setStates(Integer states) {
 		this.states = states;
 	}
 	

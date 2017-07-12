@@ -1,20 +1,19 @@
 package com.lexian.manager.authority.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 import com.lexian.manager.authority.bean.Manager;
-import com.lexian.manager.authority.bean.Menu;
 import com.lexian.manager.authority.bean.Privilege;
-import com.lexian.web.ResultHelper;
 
 public interface ManagerDao {
 	
 	public Manager getManagerByNameAndPassword(@Param("name")String name,@Param("password")String password);
 	
 	
-	public List<Privilege> getPrivileges(int id);
+	public List<Privilege> getPrivilegesPage(Map<String, Object> params);
 	
 	public Manager getUserWithMenus(int id);
 	
@@ -22,7 +21,7 @@ public interface ManagerDao {
 
 	public void updateManager(Manager manager);
 	
-	public List<Manager> getManagers();
+	public List<Manager> getManagersPage(Map<String, Object> params);
 
 	public List<String> getPrivilegeUrls(int id);
 

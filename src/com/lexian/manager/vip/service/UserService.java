@@ -5,7 +5,7 @@ import com.lexian.web.ResultHelper;
 
 public interface UserService {
 	
-	public ResultHelper getUsers();
+	public ResultHelper getUsers(Integer pageNo);
 	
 	public ResultHelper updateUser(User user);
 }

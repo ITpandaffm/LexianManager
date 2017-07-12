@@ -1,5 +1,9 @@
 package com.lexian.manager.vip.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +11,7 @@ import com.lexian.manager.vip.bean.User;
 import com.lexian.manager.vip.dao.UserDao;
 import com.lexian.manager.vip.service.UserService;
 import com.lexian.utils.Constant;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 @Service
 public class UserServiceImpl implements UserService{
@@ -15,9 +20,23 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 	
 	@Override
-	public ResultHelper getUsers() {
+	public ResultHelper getUsers(Integer pageNo) {
 		
-		return new ResultHelper(Constant.code_success, userDao.getUsers());
+		Page page = new Page();
+
+		if (pageNo != null) {
+			page.setPageNo(pageNo);
+		}
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("page", page);
+		List<User> privileges= userDao.getUsersPage(params);
+		page.setData(privileges);
+
+		ResultHelper result = new ResultHelper(Constant.code_success, page);
+
+		return result;
+		
 	}
 
 	@Override

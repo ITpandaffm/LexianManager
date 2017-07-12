@@ -55,15 +55,14 @@
             <td>{{$index+1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
-            <td>{{item.createTime|date: 'yy-MM-dd HH:mm:ss'}}</td>
-            <td>{{item.updateTime|date: 'yy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.updateTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             <td>
                 <a href="javascript:;">修改</a>&emsp;
                 <a href="javascript:;">授权</a>&emsp;
                 <a href="javascript:;">添加菜单</a>
             </td>
         </tr>
-
     </table>
-
+    <pagination></pagination>
 </div>

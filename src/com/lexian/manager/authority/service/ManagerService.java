@@ -9,11 +9,11 @@ public interface ManagerService {
 
 	public ResultHelper signIn(String name,String password);
 	
-	public ResultHelper getPrivileges(int id);
+	public ResultHelper getPrivileges(Integer id,Integer pageNo);
 	
-	public ResultHelper getPrivilegeUrls(int id);
+	public ResultHelper getPrivilegeUrls(Integer id);
 	
-	public ResultHelper getUserWithMenus(int id);
+	public ResultHelper getUserWithMenus(Integer id);
 	
 	public ResultHelper addManager(Manager manager);
 	
@@ -21,9 +21,9 @@ public interface ManagerService {
 	
 	public ResultHelper associateToRole(RoleManager rl);
 
-	public ResultHelper getManagers();
+	public ResultHelper getManagers(Integer pageNo);
 
-	public ResultHelper deleteManagerById(int id);
+	public ResultHelper deleteManagerById(Integer id);
 
 	public ResultHelper verifyPassword(Integer id, String password);
 

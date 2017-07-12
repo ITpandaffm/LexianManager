@@ -66,7 +66,7 @@ myApp.controller('queryPrivilegesController', ['$scope', 'httpService', function
     $scope.getPrivileges = function () {
         httpService.getRequest('manager/getPrivileges.do', {})
             .then(function (data) {
-                $scope.aPrivileges = data.data;
+                $scope.aPrivileges = data.data.data;
             }, function (error) {
                 console.log('getPrivileges error:'+error);
             });
@@ -95,7 +95,7 @@ myApp.controller('queryUsersController', ['$scope', 'httpService', function ($sc
     $scope.getManagers = function () {
         httpService.getRequest('handleManager/getManagers.do', {})
             .then(function (data) {
-                $scope.aManagers = data.data;
+                $scope.aManagers = data.data.data;
             }, function (error) {
                 console.log('getManagers error:'+error);
             })
@@ -112,5 +112,119 @@ myApp.controller('queryRoleController', ['$scope', 'httpService', function ($sco
                 console.log('getRoles error:' + error);
             });
 
+    }
+}]);
+
+//vip
+myApp.controller('queryVipController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getVips = function () {
+        httpService.getRequest('user/getUsers.do', {})
+            .then(function (data) {
+                $scope.aVips = data.data.data;
+            }, function (error) {
+                console.log('getUsers error:' + error);
+            });
+
+    }
+}]);
+//store
+//门店信息
+myApp.controller('storeInfoController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getStoreInfo = function () {
+        httpService.getRequest('store/getAllStore.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                $scope.aStoreInfo = data.data.data;
+            }, function (error) {
+                console.log('getCommodityStoreByStoreNo error: '+error);
+            })
+    }
+}]);
+
+//门店商品
+myApp.controller('storeGoodsController',  ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getStoreGoods = function () {
+        httpService.getRequest('store/getAllStore.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                $scope.aStoreGoods = data.data.data;
+            }, function (error) {
+                console.log('getGoods error: '+error);
+            })
+    }
+}]);
+
+//order
+//订单列表
+myApp.controller('orderListController', ['$scope', 'orderService', function ($scope, orderService) {
+    $scope.getOrderLists = function () {
+        orderService.getOrdersByState(0,1)
+          .then(function (data) {
+              $scope.aOrderLists = data.data.data;
+          }, function (error) {
+              console.log('getOrderss error'+ error);
+          });
+    };
+}]);
+
+//未付款订单
+myApp.controller('orderUnpaidController', ['$scope', 'orderService', function ($scope, orderService) {
+    $scope.getUnpaidLists = function () {
+        orderService.getOrdersByState(1, 1)
+            .then(function (data) {
+                $scope.aUnpaidLists = data.data.data;
+            }, function (error) {
+                console.log('orderUnpaid error'+ error);
+            });
+    };
+}]);
+
+//已付款订单
+myApp.controller('orderPaidController', ['$scope', 'orderService', function ($scope, orderService) {
+    $scope.getPaidLists = function () {
+        orderService.getOrdersByState(2, 1)
+            .then(function (data) {
+                $scope.aPaidLists = data.data.data;
+            }, function (error) {
+                console.log('orderUnpaid error'+ error);
+            });
+    };
+}]);
+
+//已发货订单
+myApp.controller('orderDeliverController', ['$scope', 'orderService', function ($scope, orderService) {
+    $scope.getDeliverLists = function () {
+        orderService.getOrdersByState(3, 1)
+            .then(function (data) {
+                $scope.aDeliverLists = data.data.data;
+            }, function (error) {
+                console.log('orderUnpaid error'+ error);
+            });
+    };
+}]);
+
+//已完成订单
+myApp.controller('orderCompleteController', ['$scope', 'orderService', function ($scope, orderService) {
+    $scope.getCompleteLists = function () {
+        orderService.getOrdersByState(4, 1)
+            .then(function (data) {
+                $scope.aCompleteLists = data.data.data;
+            }, function (error) {
+                console.log('orderUnpaid error'+ error);
+            });
+    };
+}]);
+
+//activity
+//特定活动
+myApp.controller('activitySpecifyController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.getSpecials = function () {
+        httpService.getRequest('special/getSpecial.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                $scope.aSpecials = data.data.data.data;
+            }, function (error) {
+                console.log('getSpecial error'+ error);
+            });
+    }
+    $scope.confirmDelete = function (id) {
+        alert('yes');
     }
 }]);

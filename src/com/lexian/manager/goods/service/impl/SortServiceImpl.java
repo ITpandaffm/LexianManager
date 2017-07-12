@@ -1,7 +1,7 @@
 package com.lexian.manager.goods.service.impl;
 
-import org.junit.Test;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +28,8 @@ public class SortServiceImpl implements SortService{
 
 	@Override
 	public ResultHelper getAllCategories() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Category> list = sortDao.getAllCategories();
+		return new ResultHelper(Constant.code_success,list);
 	}
 	
 	@Override

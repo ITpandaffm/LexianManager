@@ -1,5 +1,10 @@
 package com.lexian.manager.order.service.impl;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +13,7 @@ import com.lexian.manager.order.dao.OrderItemDao;
 import com.lexian.manager.order.dao.OrdersDao;
 import com.lexian.manager.order.service.OrdersService;
 import com.lexian.utils.Constant;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Service
@@ -20,9 +26,27 @@ public class OrdersServiceImpl implements OrdersService {
 	private OrderItemDao orderItemDao;
 
 	@Override
-	public ResultHelper getOrderss() {
+	public ResultHelper getOrderss(Integer pageNo,Integer state) {
 
-		ResultHelper result = new ResultHelper(Constant.code_success, ordersDao.getOrderssWithStore());
+		Page page = new Page();
+
+		if (pageNo != null) {
+			page.setPageNo(pageNo);
+		}
+		
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("page", page);
+		
+		if(state!=null){
+			params.put("state", state);
+		}
+		
+		List<Orders> orderssWithStore = ordersDao.getOrderssWithStorePage(params);
+		page.setData(orderssWithStore);
+	
+
+		ResultHelper result = new ResultHelper(Constant.code_success, page);
 
 		return result;
 	}
@@ -47,10 +71,29 @@ public class OrdersServiceImpl implements OrdersService {
 		return new ResultHelper(Constant.code_success);
 	}
 
+
+
 	@Override
-	public ResultHelper getOrderssByState(int state) {
+	public ResultHelper getOrderssByDate(Integer state,String start, String end, Integer pageNo) {
+		Page page = new Page();
+
+		if (pageNo != null) {
+			page.setPageNo(pageNo);
+		}
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("page", page);
 		
-		ResultHelper result = new ResultHelper(Constant.code_success, ordersDao.getOrderssWithStoreByState(state));
+		if(state!=null){
+			params.put("state", state);
+		}
+		
+		params.put("start", start);
+		params.put("end", end);
+		List<Orders> orderssWithStore = ordersDao.getOrderssByDatePage(params);
+		page.setData(orderssWithStore);
+	
+		ResultHelper result = new ResultHelper(Constant.code_success, page);
 		return result;
 	}
 

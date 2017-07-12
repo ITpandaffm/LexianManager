@@ -31,7 +31,7 @@
   		and manager.id=#{id,jdbcType=INTEGER}
   </select>
   
-  <select id="getPrivileges" parameterType="java.lang.Integer" resultType="Privilege">
+  <select id="getPrivilegesPage" parameterType="java.util.Map" resultType="Privilege">
   		SELECT DISTINCT privilege.id,privilege.url,privilege.name,privilege.description 
   		FROM privilege ,manager,role_privilege ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
@@ -92,7 +92,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="getManagers" resultType="Manager">
+  <select id="getManagersPage" resultType="Manager">
   		select DISTINCT <include refid="Base_Column_List"/>
   		from manager
   </select>

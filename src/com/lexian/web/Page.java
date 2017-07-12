@@ -1,24 +1,32 @@
 package com.lexian.web;
 
-import java.util.List;
-
-public class Page<T> {
+public class Page {
 	
-	private List<T> items;
 	
-	private int pageNo;
+	private int pageNo=1;
 	
-	private int pageSize;
+	private int pageSize=30;
 	
 	private long totalSize;
 	
+	private int pageNums=1;
+	
+	private Object data;
 	
 	
-	public List<T> getItems() {
-		return items;
+	
+	
+	public int getPageNums() {
+		return pageNums;
 	}
-	public void setItems(List<T> items) {
-		this.items = items;
+	public void setPageNums(int pageNums) {
+		this.pageNums = pageNums;
+	}
+	public Object getData() {
+		return data;
+	}
+	public void setData(Object data) {
+		this.data = data;
 	}
 	public int getPageNo() {
 		return pageNo;
@@ -33,9 +41,20 @@ public class Page<T> {
 		this.pageSize = pageSize;
 	}
 	public long getTotalSize() {
+		
 		return totalSize;
 	}
 	public void setTotalSize(long totalSize) {
+		
+
+		if(totalSize>pageSize){
+			if(totalSize%pageSize!=0){
+				pageNums=(int) (totalSize/pageSize)+1;
+			}else{
+				pageNums=(int) (totalSize/pageSize);
+			}
+		}
+		
 		this.totalSize = totalSize;
 	}
 	

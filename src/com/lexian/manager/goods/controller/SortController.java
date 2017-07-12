@@ -24,13 +24,31 @@ public class SortController {
 		this.sortService = sortService;
 	}
 
+	/**
+	 * 查询所有的category
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("getAllCategories.do")
-	 public void getAllCategories(){
-		 
+	 public ResultHelper getAllCategories(){
+		ResultHelper result=sortService.getAllCategories();
+		return result;
+		//sort/getAllCategories.do
 	 }
 	/**
 	 * 
+	 * @param pageNo
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("getCategoryView.do")
+	 public ResultHelper getCategoryView(Integer pageNo){
+		ResultHelper result=sortService.getAllCategories();
+		return result;
+		//sort/getCategoryView.do
+	 }
+	/**
+	 * 通过categoryName查询
 	 * @param categoryName
 	 * @return
 	 */
@@ -43,7 +61,7 @@ public class SortController {
 		
 	 }
 	/**
-	 * 
+	 * 添加category
 	 * @param category
 	 * @return
 	 */
@@ -55,6 +73,12 @@ public class SortController {
 		 
 	 }
 	
+	/**
+	 * 修改category
+	 * @param id
+	 * @param categoryName
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("updateCategory.do")
 	 public ResultHelper updateCategoryById(int id,String categoryName){
@@ -63,7 +87,11 @@ public class SortController {
 		return sortService.updateCategoryById(id, categoryName);
 		 
 	 }
-	
+	/**
+	 * 删除category
+	 * @param id
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("deleteSpecial.do")
 	 public ResultHelper deleteCategory(int id){

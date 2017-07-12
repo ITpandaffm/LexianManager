@@ -48,10 +48,8 @@ public class ManagerController {
 
 		if (result.getCode() == Constant.code_success) {
 			Manager manager = (Manager) result.getData();
-			session.setAttribute("managerId", manager.getId());
-			session.setAttribute("privilegeUrls", managerService.getPrivilegeUrls(manager.getId()).getData());
 			model.put("managerId", manager.getId());
-			
+			model.put("privilegeUrls", managerService.getPrivilegeUrls(manager.getId()).getData());
 		}
 		
 		
@@ -90,11 +88,12 @@ public class ManagerController {
 	 * @param model
 	 * @return
 	 */
+	//manager/getPrivileges.do?pageNo=2
 	@ResponseBody
 	@RequestMapping("getPrivileges.do")
-	public ResultHelper getPrivileges(Map<String, Object> model) {
+	public ResultHelper getPrivileges(Map<String, Object> model,Integer pageNo) {
 
-		return managerService.getPrivileges((Integer) model.get("managerId"));
+		return managerService.getPrivileges((Integer) model.get("managerId"),pageNo);
 	}
 	
 	/**
@@ -105,7 +104,7 @@ public class ManagerController {
 	//manager/getUserWithMenus.do
 	@ResponseBody
 	@RequestMapping("getUserWithMenus.do")
-	public ResultHelper getMenus(Map<String, Object> model) {
+	public ResultHelper getUserWithMenus(Map<String, Object> model) {
 		ResultHelper result=managerService.getUserWithMenus((Integer) model.get("managerId"));
 		return result;
 	}

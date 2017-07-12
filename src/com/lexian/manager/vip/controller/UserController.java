@@ -19,9 +19,9 @@ public class UserController {
 	//user/getUsers.do
 	@ResponseBody
 	@RequestMapping("getUsers.do")
-	public ResultHelper getUsers(){
+	public ResultHelper getUsers(Integer pageNo){
 		
-		return userService.getUsers();
+		return userService.getUsers(pageNo);
 	}
 	//user/updateUser.do?id=146fe691-f6fd-4400-bbdb-d5835fb8207c&status=-1
 	@ResponseBody

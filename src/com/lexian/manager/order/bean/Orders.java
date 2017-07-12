@@ -2,7 +2,7 @@ package com.lexian.manager.order.bean;
 
 import java.util.Date;
 
-import com.lexian.manager.goods.bean.Store;
+import com.lexian.manager.shop.bean.Store;
 import com.lexian.manager.vip.bean.User;
 
 public class Orders {
