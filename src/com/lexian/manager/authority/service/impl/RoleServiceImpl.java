@@ -1,8 +1,10 @@
 package com.lexian.manager.authority.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,9 @@ import com.lexian.manager.authority.dao.RoleMenuDao;
 import com.lexian.manager.authority.dao.RolePrivilegeDao;
 import com.lexian.manager.authority.service.RoleService;
 import com.lexian.utils.Constant;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
+
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -38,21 +42,33 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public ResultHelper getRoles() {
-		return new ResultHelper(Constant.code_success, roleDao.getRoles());
+	public ResultHelper getRoles(Integer pageNo) {
+		
+		Page page=new Page();
+		page.setPageNo(pageNo);
+		Map<String,Object> params=new HashMap<>();
+		params.put("page", page);
+		page.setData(roleDao.getRolesPage(params));
+		
+		return new ResultHelper(Constant.code_success, page);
 	}
 
 	@Override
 	public ResultHelper addRole(Role role) {
 		
-		Date time=new Date();
-		role.setCreateTime(time);
-		
-		role.setUpdateTime(time);
-		
-		roleDao.addRole(role);
-		
-		return new ResultHelper(Constant.code_success,role);
+		ResultHelper result;
+		if(roleDao.hasNameUsed(role.getName())==0){
+			Date time=new Date();
+			role.setCreateTime(time);
+			
+			role.setUpdateTime(time);
+			
+			roleDao.addRole(role);
+			result=new ResultHelper(Constant.code_success,role);
+		}else{
+			result=new ResultHelper(Constant.code_invalid_parameter);
+		}
+		return result;
 	}
 
 	@Override
@@ -71,9 +87,9 @@ public class RoleServiceImpl implements RoleService {
 		
 		Object[] data=new Object[2];
 		
-		data[0]=roleDao.getMenus();
+		data[0]=roleDao.getMenus(null);
 		
-		data[1]=roleDao.getMenusById(id);
+		data[1]=roleDao.getMenus(id);
 		
 		
 		return new ResultHelper(Constant.code_success,data);
@@ -133,18 +149,14 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public ResultHelper getPrivileges(int id) {
+	public ResultHelper getPrivileges(Integer id) {
 		Object[] data=new Object[2];
 		
-		data[0]=roleDao.getPrivileges();
+		data[0]=roleDao.getPrivileges(null);
 		
-		data[1]=roleDao.getPrivilegesById(id);
+		data[1]=roleDao.getPrivileges(id);
 		
 		return new ResultHelper(Constant.code_success,data);
 	}
 
-	
-	
-	
-	
 }

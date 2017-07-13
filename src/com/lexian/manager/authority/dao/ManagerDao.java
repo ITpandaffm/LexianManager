@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.lexian.manager.authority.bean.Manager;
+import com.lexian.manager.authority.bean.Menu;
 import com.lexian.manager.authority.bean.Privilege;
 
 public interface ManagerDao {
@@ -30,4 +31,9 @@ public interface ManagerDao {
 
 
 	public Integer verifyPassword(@Param("id")Integer id, @Param("password")String password);
+
+
+	public List<Menu> getMenusPage(Map<String,Object> params);
+	
+	public Integer hasNameUsed(String name);
 }

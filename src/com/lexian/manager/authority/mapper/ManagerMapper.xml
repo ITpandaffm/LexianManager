@@ -106,5 +106,18 @@
   		select id from manager where id=#{id} and password=#{password,jdbcType=VARCHAR}
   </select>
   
+  <select id="getMenusPage" resultType="Menu" parameterType="java.util.Map">
+  
+  		SELECT DISTINCT menu.id,url,menu.name,menu.parentid,menu.backurl 
+  		FROM menu ,manager,role_menu ,role,role_manager 
+  		WHERE manager.id=role_manager.manager_id
+  		AND role_manager.role_id=role.id
+  		AND role.id=role_menu.role_id 
+  		AND role_menu.menu_id=menu.id
+  		and manager.id=#{id,jdbcType=INTEGER}
+  </select>
+  <select id="hasNameUsed" parameterType="java.lang.String" resultType="java.lang.Integer">
+  		select count(id) from manager where name=#{name,jdbcType=VARCHAR}
+  </select>
   
 </mapper>

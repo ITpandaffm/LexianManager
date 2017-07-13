@@ -1,6 +1,7 @@
 package com.lexian.manager.order.bean;
 
 import java.util.Date;
+import java.util.List;
 
 import com.lexian.manager.shop.bean.Store;
 import com.lexian.manager.vip.bean.User;
@@ -21,6 +22,14 @@ public class Orders {
 	
 	private User user;
 	
+	private List<OrderItem> orderItems;
+	
+	public List<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+	public void setOrderItems(List<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
 	public Integer getId() {
 		return id;
 	}

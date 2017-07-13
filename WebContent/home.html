@@ -45,7 +45,7 @@
                             <div class="panel-heading" role="tab">
                                 <h4 class="panel-title">
                                     <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" ng-href="#{{item.name}}">
-                                        <i class="icon" ng-class="oData.aIcons[item.id-1]"></i><strong>&emsp;{{item.name}}&emsp;</strong><span class="glyphicon glyphicon-chevron-down"></span>
+                                        <i class="icon" ng-class="oData.aIcons[item.id-1]"></i><strong ng-bind="item.name"></strong><span class="glyphicon glyphicon-chevron-down"></span>
                                     </a>
                                 </h4>
                             </div>

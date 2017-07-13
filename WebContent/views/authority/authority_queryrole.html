@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2 ">
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" ng-click="addRole()">
                         <span class="glyphicon glyphicon-plus">添加</span>
                     </button>
                 </div>
@@ -58,9 +58,9 @@
             <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             <td>{{item.updateTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             <td>
-                <a href="javascript:;">修改</a>&emsp;
+                <a ui-sref="authority/role/editRole({id:item.id, name:item.name, description:item.description})">修改</a>&emsp;
                 <a href="javascript:;">授权</a>&emsp;
-                <a href="javascript:;">添加菜单</a>
+                <a ui-sref="authority/role/editRoleMenu({id:item.id, name:item.name})">添加菜单</a>
             </td>
         </tr>
     </table>

@@ -1,61 +1,66 @@
-myApp.controller('userController', ['$scope', '$interval','httpService', 'srefAndIconFatory',
-                            function ($scope, $interval, httpService, srefAndIconFatory) {
+myApp.controller('userController', ['$scope', '$interval', 'httpService', 'srefAndIconFatory',
+    function ($scope, $interval, httpService, srefAndIconFatory) {
 
-    $scope.startClock = function () {
-        $scope.curTime = new Date();
-        $interval(function () {
+        $scope.startClock = function () {
             $scope.curTime = new Date();
-        }, 1000, false);
-    };
+            $interval(function () {
+                $scope.curTime = new Date();
+            }, 1000, false);
+        };
 
-    $scope.getUserCenterList = function () {
-        httpService.getRequest('manager/getUserWithMenus.do', {})
-            .then(function (data) {
-                $scope.oData = {
-                    username: data.data.name,
-                    aCenterListData: data.data.menus,
-                    jSref: srefAndIconFatory.jSref,
-                    aIcons: srefAndIconFatory.aIcons
-                };
-            }, function (error) {
-                console.log('getUserWithMenus error:'+error);
-            });
-    };
-
-    $scope.subItemClick = function ($event){
-        angular.element('.panel-body a').removeClass('active');
-        $($event.target).addClass('active');
-    };
-
-    $scope.signOut = function () {
-        if(confirm('确定吗？'+$scope.oData.username)){
-            httpService.getRequest('manager/signOut.do', {})
+        $scope.getUserCenterList = function () {
+            httpService.getRequest('manager/getUserWithMenus.do', {})
                 .then(function (data) {
-                    alert(data.data + '，请重新登录！');
-                    window.location.hash = '';
-                    window.location.pathname = '/LexianManager';
+                    $scope.oData = {
+                        username: data.data.name,
+                        aCenterListData: data.data.menus,
+                        jSref: srefAndIconFatory.jSref,
+                        aIcons: srefAndIconFatory.aIcons
+                    };
                 }, function (error) {
-                    console.log('signOut error:'+error);
+                    console.log('getUserWithMenus error:' + error);
                 });
-        }
-    }
+        };
 
-}]);
+        $scope.subItemClick = function ($event) {
+            angular.element('.panel-body a').removeClass('active');
+            $($event.target).addClass('active');
+        };
+
+        $scope.signOut = function () {
+            if (confirm('确定吗？' + $scope.oData.username)) {
+                httpService.getRequest('manager/signOut.do', {})
+                    .then(function (data) {
+                        alert(data.data + '，请重新登录！');
+                        window.location.hash = '';
+                        window.location.pathname = '/LexianManager';
+                    }, function (error) {
+                        console.log('signOut error:' + error);
+                    });
+            }
+        }
+
+    }]);
 
 //修改密码
-myApp.controller('updatePwdController', ['$scope', '$state', 'httpService',  function ($scope, $state, httpService) {
+myApp.controller('updatePwdController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
     $scope.updatePwd = function () {
-        console.log($scope.oldPwd+': '+$scope.newPwd);
-        httpService.getRequest('manager/updateManagerPassword.do', {params: {password: $scope.oldPwd, newPass: $scope.newPwd}})
+        console.log($scope.oldPwd + ': ' + $scope.newPwd);
+        httpService.getRequest('manager/updateManagerPassword.do', {
+            params: {
+                password: $scope.oldPwd,
+                newPass: $scope.newPwd
+            }
+        })
             .then(function (data) {
-                if (data.code == 1){
+                if (data.code == 1) {
                     alert(data.data);
                     $state.go('welcome');
                 } else {
                     alert('旧密码错误！');
                 }
             }, function (error) {
-                console.log('updateManagerPassword error:'+error);
+                console.log('updateManagerPassword error:' + error);
             });
     }
 }]);
@@ -68,7 +73,7 @@ myApp.controller('queryPrivilegesController', ['$scope', 'httpService', function
             .then(function (data) {
                 $scope.aPrivileges = data.data.data;
             }, function (error) {
-                console.log('getPrivileges error:'+error);
+                console.log('getPrivileges error:' + error);
             });
     }
 }]);
@@ -76,43 +81,144 @@ myApp.controller('queryPrivilegesController', ['$scope', 'httpService', function
 //查询菜单
 myApp.controller('queryMenuController', ['$scope', 'httpService', 'srefAndIconFatory',
     function ($scope, httpService, srefAndIconFatory) {
-    $scope.getMenus = function () {
-        httpService.getRequest('manager/getUserWithMenus.do', {})
-            .then(function (data) {
-                $scope.oData = {
-                    aCenterListData: data.data.menus,
-                    jSref: srefAndIconFatory.jSref,
-                    aIcons: srefAndIconFatory.aIcons
-                };
-            }, function (error) {
-                console.log('getUserWithMenus error:'+error);
-            });
-    }
-}]);
+        $scope.getMenus = function () {
+            httpService.getRequest('manager/getUserWithMenus.do', {})
+                .then(function (data) {
+                    $scope.oData = {
+                        aCenterListData: data.data.menus,
+                        jSref: srefAndIconFatory.jSref,
+                        aIcons: srefAndIconFatory.aIcons
+                    };
+                }, function (error) {
+                    console.log('getUserWithMenus error:' + error);
+                });
+        }
+    }]);
 
 //查询后台用户
-myApp.controller('queryUsersController', ['$scope', 'httpService', function ($scope, httpService) {
+myApp.controller('queryUsersController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
     $scope.getManagers = function () {
         httpService.getRequest('handleManager/getManagers.do', {})
             .then(function (data) {
                 $scope.aManagers = data.data.data;
             }, function (error) {
-                console.log('getManagers error:'+error);
+                console.log('getManagers error:' + error);
             })
     };
+    $scope.addManager = function () {
+        $state.go('authority/managers/addManager');
+    }
+}]);
+
+//添加用户
+myApp.controller('addManagerController', ['$scope', 'httpService', function ($scope, httpService) {
+    $scope.hello = 'world';
+}]);
+
+//修改用户
+myApp.controller('editManagerController', ['$scope', '$stateParams', 'httpService', function ($scope, $stateParams, httpService) {
+    $scope.name = $stateParams.name;
+    $scope.info = $stateParams.info;
 }]);
 
 //查询角色
-myApp.controller('queryRoleController', ['$scope', 'httpService', function ($scope, httpService) {
+myApp.controller('queryRoleController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
     $scope.getRoles = function () {
         httpService.getRequest('role/getRoles.do', {})
             .then(function (data) {
-                $scope.aRoles = data.data;
+                $scope.aRoles = data.data.data;
             }, function (error) {
                 console.log('getRoles error:' + error);
             });
-
     }
+    $scope.addRole = function () {
+        $state.go('authority/role/addRole');
+    };
+}]);
+
+//添加角色
+myApp.controller('addRoleController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
+    $scope.submitNewRole = function () {
+        httpService.getRequest('role/addRole.do', {params: {name: $scope.name, description: $scope.description}})
+            .then(function (data, status) {
+                if (1 == data.code) {
+                    alert('创建角色成功!欢迎您：' + data.data.name)
+                    $state.go('welcome');
+                } else {
+                    alert('创建失败');
+                }
+            }, function (error) {
+                console.log('addRole.do error' + error);
+            });
+    };
+    $scope.clickEnter = function ($events) {
+        if($events.keyCode == 13){
+            $scope.submitNewRole();
+        }
+    }
+}]);
+
+//修改角色
+myApp.controller('editRoleController', ['$scope', '$stateParams', '$state', 'httpService', function ($scope, $stateParams, $state, httpService) {
+    $scope.name = $stateParams.name;
+    $scope.description = $stateParams.description;
+    $scope.updateRole = function () {
+        httpService.getRequest('role/updateRole.do', {params: {
+            id: $stateParams.id,
+            name: $scope.name,
+            description: $scope.description
+        }})
+            .then(function (data) {
+                if(1 == data.code){
+                    alert(data.data);
+                    $state.go('welcome');
+                } else {
+                    alert('修改失败!');
+                }
+            }, function (error) {
+                console.log('updateRole.do error:'+error);
+            })
+    };
+    $scope.clickEnter = function ($events) {
+        if($events.keyCode == 13){
+            $scope.updateRole();
+        }
+    }
+}]);
+
+//修改角色菜单
+myApp.controller('editRoleMenuController', ['$scope', '$stateParams', '$filter', '$state', 'httpService', 'isCheckFactory',
+                     function ($scope, $stateParams, $filter, $state, httpService, isCheckFactory) {
+    $scope.name = $stateParams.name;
+    $scope.aMyMenusId = [];
+    $scope.getMenus = function () {
+        httpService.getRequest('role/getMenus.do', {params: {id: $stateParams.id}})
+            .then(function (data) {
+                $scope.aAllMenus = data.data[0];
+                angular.forEach(data.data[1], function (value, index) {
+                    this.push(value.id);
+                }, $scope.aMyMenusId);
+            }, function (error) {
+                console.log('role/getMenus.do error: ' + error);
+            });
+    };
+    $scope.isDefaultSelected = function (id) {
+        return $scope.aMyMenusId.indexOf(id) != -1;
+    };
+    $scope.toggleCheck = function (id) {
+        isCheckFactory.toggleCheck(id, $scope.aMyMenusId);
+    };
+    $scope.updateRoleMenu = function () {
+        httpService.getRequest('role/updateMenus.do?', {params: {id: $stateParams.id, menuId: $scope.aMyMenusId}})
+            .then(function (data) {
+                if (1 == data.code){
+                    alert(data.data);
+                    $state.go('welcome');
+                }
+            }, function (error) {
+                console.log('role/updateMenus.do error:'+error);
+            });
+    };
 }]);
 
 //vip
@@ -135,19 +241,19 @@ myApp.controller('storeInfoController', ['$scope', 'httpService', function ($sco
             .then(function (data) {
                 $scope.aStoreInfo = data.data.data;
             }, function (error) {
-                console.log('getCommodityStoreByStoreNo error: '+error);
+                console.log('getCommodityStoreByStoreNo error: ' + error);
             })
     }
 }]);
 
 //门店商品
-myApp.controller('storeGoodsController',  ['$scope', 'httpService', function ($scope, httpService) {
+myApp.controller('storeGoodsController', ['$scope', 'httpService', function ($scope, httpService) {
     $scope.getStoreGoods = function () {
         httpService.getRequest('store/getAllStore.do', {params: {pageNo: 1}})
             .then(function (data) {
                 $scope.aStoreGoods = data.data.data;
             }, function (error) {
-                console.log('getGoods error: '+error);
+                console.log('getGoods error: ' + error);
             })
     }
 }]);
@@ -156,12 +262,12 @@ myApp.controller('storeGoodsController',  ['$scope', 'httpService', function ($s
 //订单列表
 myApp.controller('orderListController', ['$scope', 'orderService', function ($scope, orderService) {
     $scope.getOrderLists = function () {
-        orderService.getOrdersByState(0,1)
-          .then(function (data) {
-              $scope.aOrderLists = data.data.data;
-          }, function (error) {
-              console.log('getOrderss error'+ error);
-          });
+        orderService.getOrdersByState(0, 1)
+            .then(function (data) {
+                $scope.aOrderLists = data.data.data;
+            }, function (error) {
+                console.log('getOrderss error' + error);
+            });
     };
 }]);
 
@@ -172,7 +278,7 @@ myApp.controller('orderUnpaidController', ['$scope', 'orderService', function ($
             .then(function (data) {
                 $scope.aUnpaidLists = data.data.data;
             }, function (error) {
-                console.log('orderUnpaid error'+ error);
+                console.log('orderUnpaid error' + error);
             });
     };
 }]);
@@ -184,7 +290,7 @@ myApp.controller('orderPaidController', ['$scope', 'orderService', function ($sc
             .then(function (data) {
                 $scope.aPaidLists = data.data.data;
             }, function (error) {
-                console.log('orderUnpaid error'+ error);
+                console.log('orderUnpaid error' + error);
             });
     };
 }]);
@@ -196,7 +302,7 @@ myApp.controller('orderDeliverController', ['$scope', 'orderService', function (
             .then(function (data) {
                 $scope.aDeliverLists = data.data.data;
             }, function (error) {
-                console.log('orderUnpaid error'+ error);
+                console.log('orderUnpaid error' + error);
             });
     };
 }]);
@@ -208,7 +314,7 @@ myApp.controller('orderCompleteController', ['$scope', 'orderService', function 
             .then(function (data) {
                 $scope.aCompleteLists = data.data.data;
             }, function (error) {
-                console.log('orderUnpaid error'+ error);
+                console.log('orderUnpaid error' + error);
             });
     };
 }]);
@@ -219,12 +325,24 @@ myApp.controller('activitySpecifyController', ['$scope', 'httpService', function
     $scope.getSpecials = function () {
         httpService.getRequest('special/getSpecial.do', {params: {pageNo: 1}})
             .then(function (data) {
-                $scope.aSpecials = data.data.data.data;
+                $scope.aSpecials = data.data.data;
             }, function (error) {
-                console.log('getSpecial error'+ error);
+                console.log('getSpecial error' + error);
             });
     }
     $scope.confirmDelete = function (id) {
         alert('yes');
     }
+}]);
+
+//查看活动商品
+myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', 'httpService', function ($scope, $stateParams, httpService) {
+    $scope.getSpecialCommodities = function () {
+        httpService.getRequest('speCommodity/getSpecialCommodities.do', {params: {id: $stateParams.aSpecialsID, pageNo: 1}})
+            .then(function (data) {
+                $scope.aSpecialCommodities = data.data.data;
+            }, function (error) {
+                console.log('getSpecialCommoditiesController error' + error);
+            });
+    };
 }]);

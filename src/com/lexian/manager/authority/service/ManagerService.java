@@ -28,6 +28,8 @@ public interface ManagerService {
 	public ResultHelper verifyPassword(Integer id, String password);
 
 	public ResultHelper updateManagerPassword(Manager manager, String newPass);
+
+	public ResultHelper getMenus(Integer id,Integer pageNo);
 	
 	
 	

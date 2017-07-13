@@ -19,11 +19,11 @@ public class RoleController {
 	// role/getRoles.do
 	@ResponseBody
 	@RequestMapping("getRoles.do")
-	public ResultHelper getRoles() {
-		return roleService.getRoles();
+	public ResultHelper getRoles(Integer pageNo) {
+		return roleService.getRoles(pageNo);
 	}
 
-	// role/addRole.do?name=xxx
+	// role/addRole.do?name=supermanager
 	@ResponseBody
 	@RequestMapping("addRole.do")
 	public ResultHelper addRole(Role role) {
@@ -41,14 +41,14 @@ public class RoleController {
 	// role/getMenus.do?id=3
 	@ResponseBody
 	@RequestMapping("getMenus.do")
-	public ResultHelper getMenus(int id) {
+	public ResultHelper getMenus(Integer id) {
 		return roleService.getMenus(id);
 	}
 
 	// role/getPrivileges.do?id=3
 	@ResponseBody
 	@RequestMapping("getPrivileges.do")
-	public ResultHelper getPrivileges(int id) {
+	public ResultHelper getPrivileges(Integer id) {
 		return roleService.getPrivileges(id);
 	}
 

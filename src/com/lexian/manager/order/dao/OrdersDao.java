@@ -9,11 +9,9 @@ public interface OrdersDao {
 
 	public List<Orders> getOrderssWithStorePage(Map<String, Object> params);
 	
-	public Orders getOrdersWithUserAndStore(Integer id);
+	public Orders getOrdersWithUserAndAndOrderItemsStore(Integer id);
 	
 	public void updateOrders(Orders orders);
-
-	public List<Orders> getOrderssWithStoreByStatePage(Map<String, Object> params);
 
 	public List<Orders> getOrderssByDatePage(Map<String, Object> params);
 

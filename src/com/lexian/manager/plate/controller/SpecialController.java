@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.plate.service.SpecialService;
-import com.lexian.utils.Constant;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -29,9 +28,8 @@ public class SpecialController {
 	@ResponseBody
 	@RequestMapping("getSpecial.do")
 	public ResultHelper getSpecial(Integer pageNo){
-		
-		ResultHelper result = specialService.getSpecial(pageNo);
-		return new ResultHelper(Constant.code_success,result);
+		ResultHelper result =specialService.getSpecial(pageNo);
+		return result;
 		//special/getSpecial.do?pageNo=1
 	}
 	/**
@@ -43,7 +41,7 @@ public class SpecialController {
 	@RequestMapping("updateSpecial.do")
 	public ResultHelper updateSpecial(int id,String name){
 		ResultHelper result = specialService.updateSpecial(id, name);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//special/updateSpecial.do?id=17&name=王子龙
 	}
 	
@@ -56,7 +54,7 @@ public class SpecialController {
 	@RequestMapping("deleteSpecial.do")
 	public ResultHelper deleteSpecial(int id){
 		ResultHelper result = specialService.deleteSpecial(id);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//special/deleteSpecial.do?id=16
 	}
 	
@@ -64,7 +62,7 @@ public class SpecialController {
 	@RequestMapping("addSpecial.do")
 	public ResultHelper addSpecial(String name){
 		ResultHelper result = specialService.addSpecial(name);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//special/addSpecial.do?name=陈浩
 	}
 	

@@ -1,6 +1,9 @@
 package com.lexian.manager.authority.dao;
 
 import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.lexian.manager.authority.bean.Menu;
 import com.lexian.manager.authority.bean.Privilege;
@@ -8,19 +11,16 @@ import com.lexian.manager.authority.bean.Role;
 
 public interface RoleDao {
 	
-	public List<Role> getRoles();
+	public List<Role> getRolesPage(Map<String,Object> params);
 
 	public void addRole(Role role);
 
 	public void updateRole(Role role);
 
-	public List<Menu> getMenus();
+	public List<Menu> getMenus(@Param("id")Integer id);
 	
-	public List<Menu> getMenusById(Integer id);
-
-	public List<Menu> getPrivilegesById(Integer id);
+	public List<Privilege> getPrivileges(@Param("id")Integer id);
 	
-	public List<Privilege> getPrivileges();
+	public Integer hasNameUsed(String name);
 
-	public List<Privilege> getPrivilegesById(int id);
 }

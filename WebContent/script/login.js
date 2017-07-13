@@ -1,5 +1,4 @@
 var myApp = angular.module('singInApp', [])
-
     .controller('signController', ['$scope', '$http', function ($scope, $http) {
         $scope.signIn = function () {
             $http.get('manager/signIn.do', {params: {name: $scope.username, password: $scope.pwd}})
@@ -10,6 +9,7 @@ var myApp = angular.module('singInApp', [])
                         window.location.pathname += 'home.html';
                     } else {
                         alert(data.data);
+                        $scope.pwd = '';
                     }
                 })
                 .error(function (data, status) {

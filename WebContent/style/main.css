@@ -111,6 +111,7 @@ header {
 }
 .left-user-center a strong{
     color: #ff9053;
+    margin-left: 10px;
 }
 .left-user-center a.collapsed .glyphicon-chevron-down {
     transition: all 0.5s ease;
@@ -232,8 +233,11 @@ header {
     padding-bottom: 9999px;
     margin-bottom: -9999px;
 }
-.main-right .container table th {
+.main-right .container table th,
+.main-right .container table tr,
+.main-right .container table td {
     text-align: center;
+    vertical-align: middle;
 }
 .main-right .container {
     width: 100%;
@@ -262,9 +266,10 @@ header {
     margin-top: 50px;
     margin-bottom: 30px;
 }
-
-.main-right .updateContainer .alert {
+.main-right .container .alert {
     position: absolute;
+}
+.main-right .updateContainer .alert {
     top: -15px;
 }
 .main-right .vipContainer .table tr+tr td:last-child a{

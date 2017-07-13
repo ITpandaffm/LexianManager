@@ -78,7 +78,14 @@ goal： **实现后端+前端+安卓端+ios**
 4. 增加welcome页面。
 5. 因为order模块的几个获取数据都是类似的，只是返回数值的state不同（未付款，已付款，已发货等）故封装成一个service。
 
+今日遇到的小坑：*angular的指令，元素的话不能含有大写（不能驼峰），注释的话注意空格！*
 
+如： `<confirmdeletemodal></confirmdeletemodal>` , 
+
+     <!-- directive:confirmdeletemodal -->
+     <div></div>
+
+   
 ### 环境搭建
 
 为了方便大家导入我们的项目并跑起来：

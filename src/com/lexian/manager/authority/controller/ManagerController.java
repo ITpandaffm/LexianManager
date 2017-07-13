@@ -108,5 +108,17 @@ public class ManagerController {
 		ResultHelper result=managerService.getUserWithMenus((Integer) model.get("managerId"));
 		return result;
 	}
+	/**
+	 * 获取菜单列表
+	 * @param model
+	 * @return
+	 */
+	//manager/getMenus.do
+	@ResponseBody
+	@RequestMapping("getMenus.do")
+	public ResultHelper gethMenus(Map<String, Object> model,Integer pageNo) {
+		ResultHelper result=managerService.getMenus((Integer) model.get("managerId"),pageNo);
+		return result;
+	}
 
 }

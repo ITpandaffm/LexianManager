@@ -6,7 +6,7 @@
     id,name,description,createTime,updateTime
   </sql>
   
-  <select id="getRoles" resultType="Role">
+  <select id="getRolesPage" resultType="Role">
   		select DISTINCT <include refid="Base_Column_List"/> from role
   </select>
   
@@ -39,37 +39,33 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="getMenus" resultType="Menu">
-  		select DISTINCT menu.id,menu.name 
+  <select id="getMenus" resultType="Menu" parameterType="java.lang.Integer">
+  		select DISTINCT menu.id,menu.name,menu.parentid as parentId
   		from role,role_menu,menu
   		where 
   		menu.id=role_menu.menu_id
   		and role.id=role_menu.role_id
+  		<if test="id != null">
+  			and role.id=#{id,jdbcType=INTEGER}
+  		</if>
+  		
   </select>
   
-  <select id="getMenusById" resultType="Menu" parameterType="java.lang.Integer">
-  		select DISTINCT menu.id,menu.name 
-  		from role,role_menu,menu
-  		where 
-  		menu.id=role_menu.menu_id
-  		and role.id=role_menu.role_id
-  		and role.id=#{id,jdbcType=INTEGER}
-  </select>
-  <select id="getPrivileges" resultType="Privilege">
+  
+  <select id="getPrivileges" resultType="Privilege"  parameterType="java.lang.Integer">
   		select DISTINCT privilege.id,privilege.name 
   		from privilege,role_privilege,role
   		where 
   		privilege.id=role_privilege.privilege_id
   		and role.id=role_privilege.role_id
+  		<if test="id != null">
+  			and role.id=#{id,jdbcType=INTEGER}
+  		</if>
   </select>
   
-  <select id="getPrivilegesById" resultType="Privilege" parameterType="java.lang.Integer">
-  		select DISTINCT privilege.id,privilege.name 
-  		from role,role_privilege,privilege
-  		where 
-  		privilege.id=role_privilege.privilege_id
-  		and role.id=role_privilege.role_id
-  		and role.id=#{id,jdbcType=INTEGER}
+  <select id="hasNameUsed" parameterType="java.lang.String" resultType="java.lang.Integer">
+  		select count(id) from role where name=#{name,jdbcType=VARCHAR}
   </select>
+  
   
 </mapper>

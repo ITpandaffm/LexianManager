@@ -3,7 +3,7 @@ package com.lexian.web;
 public class Page {
 	
 	
-	private int pageNo=1;
+	private Integer pageNo=1;
 	
 	private int pageSize=30;
 	
@@ -12,9 +12,6 @@ public class Page {
 	private int pageNums=1;
 	
 	private Object data;
-	
-	
-	
 	
 	public int getPageNums() {
 		return pageNums;
@@ -31,8 +28,11 @@ public class Page {
 	public int getPageNo() {
 		return pageNo;
 	}
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
+	public void setPageNo(Integer pageNo) {
+		
+		if(pageNo!=null&&pageNo>0){
+			this.pageNo = pageNo;
+		}
 	}
 	public int getPageSize() {
 		return pageSize;

@@ -33,7 +33,7 @@ public class SpeCommodityController {
 	public ResultHelper getSpecialCommodities(int id,Integer pageNo){
 		
 		ResultHelper result = SpeCommodityService.getSpecialCommodities(id,pageNo);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//speCommodity/getSpecialCommodities.do?id=1&pageNo=1
 	}
 	/**
@@ -45,7 +45,7 @@ public class SpeCommodityController {
 	@RequestMapping("deleteSpeCommodity.do")
 	public ResultHelper deleteSpeCommodity(int id){
 		ResultHelper result = SpeCommodityService.deleteSpeCommodity(id);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//speCommodity/deleteSpeCommodity.do?id=
 	}
 	
@@ -59,7 +59,7 @@ public class SpeCommodityController {
 	@RequestMapping("addSpecialCommodities.do")
 	public ResultHelper addSpecialCommodities(String commodityNo,int id){
 		ResultHelper result = SpeCommodityService.addSpecialCommodities(commodityNo, id);
-		return new ResultHelper(Constant.code_success,result);
+		return result;
 		//speCommodity/addSpecialCommodities.do?commodityNo=6946881700735&id=1
 	}
 }

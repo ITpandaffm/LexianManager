@@ -5,7 +5,7 @@ import com.lexian.web.ResultHelper;
 
 public interface RoleService {
 	
-	public ResultHelper getRoles();
+	public ResultHelper getRoles(Integer pageNo);
 
 	public ResultHelper addRole(Role role);
 
@@ -18,6 +18,6 @@ public interface RoleService {
 
 	public ResultHelper updatePrivileges(Integer id, int[] privilegeId);
 
-	public ResultHelper getPrivileges(int id);
+	public ResultHelper getPrivileges(Integer id);
 	
 }

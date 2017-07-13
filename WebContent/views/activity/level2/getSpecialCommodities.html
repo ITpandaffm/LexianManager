@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user">&nbsp;商城活动商品&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;商品管理&nbsp;</span>
+                <a href="javascript:window.history.go(-1);">返回</a>
+            </div>
+            <div class="col-sm-6">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#AddGoods">添加</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-striped" ng-init="getSpecialCommodities()">
+        <tr>
+            <th></th>
+            <th>活动商品ID</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>图片</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="item in aSpecialCommodities">
+            <td>{{$index+1}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.commodityNo}}</td>
+            <td>{{item.name}}</td>
+            <td><img alt="" src="../img/38f4ade2-8b1e-4586-9025-5cfacd1378af.jpg" width="50px" height="50px"/></td>
+            <td>
+                <a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal">删除</a>
+            </td>
+        </tr>
+
+    </table>
+    <pagination></pagination>
+    <confirmdeletemodal></confirmdeletemodal>
+    <div class="modal fade" id="AddGoods" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加商品</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="firstClass" class="control-label col-sm-3">一级分类：</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" id="firstClass"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="secondClass" class="control-label col-sm-3">二级分类：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="secondClass" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="thirdClass" class="control-label col-sm-3">三级分类：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="secondClass" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="goodsName" class="control-label col-sm-3">商品名称：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="goodsName" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="goodsID" class="control-label col-sm-3">商品编号：</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="goodsID" class="form-control"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

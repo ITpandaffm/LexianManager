@@ -13,30 +13,29 @@ import com.lexian.manager.vip.service.UserService;
 import com.lexian.utils.Constant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
+
 @Service
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
+
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	public ResultHelper getUsers(Integer pageNo) {
-		
+
 		Page page = new Page();
 
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
+		page.setPageNo(pageNo);
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<User> privileges= userDao.getUsersPage(params);
+		List<User> privileges = userDao.getUsersPage(params);
 		page.setData(privileges);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);
 
 		return result;
-		
+
 	}
 
 	@Override

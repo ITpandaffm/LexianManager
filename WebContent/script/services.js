@@ -75,3 +75,20 @@ myApp.service('orderService', ['$q', '$http', function ($q, $http) {
         return promise;
     };
 }]);
+
+myApp.factory('isCheckFactory', function () {
+   return {
+       toggleCheck: function (id,arr) {
+           var bFind = false;
+           angular.forEach(arr, function (value, index) {
+               if(!bFind && id==value){
+                   this.splice(index, 1);
+                   bFind = true;
+               }
+           }, arr);
+           if(!bFind){
+               arr.push(id);
+           }
+       }
+   };
+});
