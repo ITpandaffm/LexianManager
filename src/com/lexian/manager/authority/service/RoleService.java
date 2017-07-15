@@ -19,5 +19,7 @@ public interface RoleService {
 	public ResultHelper updatePrivileges(Integer id, int[] privilegeId);
 
 	public ResultHelper getPrivileges(Integer id);
+
+	public ResultHelper getAllRoles();
 	
 }

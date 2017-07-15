@@ -8,4 +8,22 @@
 		from commodity_store
 		where store_no=#{storeNo,jdbcType=VARCHAR}
 	</select>
+	<update id="updateCommdityStore" parameterType="CommodityStore">
+	update  commodity_store
+	<set>
+	<if test="commodotyPrice !=null">
+	commodity_price=#{commodotyPrice,jdbcType=DOUBLE},
+	</if>
+	<if test="realPrice !=null">
+	real_price=#{realPrice,jdbcType=DOUBLE},
+	</if>
+	<if test="commodityAmont !=null">
+	commodity_amont=#{commodityAmont,jdbcType=INTEGER},
+	</if>
+	<if test="type !=null">
+	type=#{type,jdbcType=INTEGER}
+	</if>
+	</set>
+	where id=#{id,jdbcType=INTEGER}
+	</update>
 </mapper>

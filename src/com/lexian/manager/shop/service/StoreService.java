@@ -8,4 +8,5 @@ public interface StoreService {
      public  ResultHelper getAllStore(Integer pageNo);
      public ResultHelper addStore(Store store);
      public ResultHelper updateStore(Store store);
+     
 }

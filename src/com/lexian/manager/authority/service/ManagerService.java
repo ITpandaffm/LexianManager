@@ -15,11 +15,9 @@ public interface ManagerService {
 	
 	public ResultHelper getUserWithMenus(Integer id);
 	
-	public ResultHelper addManager(Manager manager);
+	public ResultHelper addManager(Manager manager,Integer roleId);
 	
 	public ResultHelper updateManager(Manager manager);
-	
-	public ResultHelper associateToRole(RoleManager rl);
 
 	public ResultHelper getManagers(Integer pageNo);
 

@@ -1,3 +1,32 @@
-<div>edit</div>
-<div>{{name}}</div>
-<div>{{info}}</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div>
+                <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;修改管理员信息&nbsp;</span>
+                <a href="javascript:window.history.go(-1);">返回</a>
+            </div>
+        </div>
+    </div>
+
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label for="username" class="control-label col-sm-3">管理员帐号：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="username" ng-model="name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="describe" class="control-label col-sm-3">管理员描述：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="describe" ng-model="info"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-8">
+                <button type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </form>
+</div>

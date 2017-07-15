@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.lexian.manager.shop.bean.CommodityStore;
 import com.lexian.manager.shop.service.CommodityStoreService;
 import com.lexian.web.ResultHelper;
 
@@ -29,5 +29,12 @@ public class CommodityStoreController {
 		ResultHelper result = commoditystoreService.getCommodityByStoreNo(storeNo);
 		return result;
 		// commoditystore/getCommodityStoreByStoreNo.do?storeNo=1004
+	}
+	@ResponseBody
+	@RequestMapping("updateCommodityStore.do")
+	public ResultHelper updateCommodityStore(CommodityStore commoditystore){
+	ResultHelper result=commoditystoreService.updateCommodityStore(commoditystore);
+	return result;
+	//commoditystore/updateCommodityStore.do
 	}
 }

@@ -2,15 +2,15 @@ package com.lexian.manager.goods.bean;
 
 public class Category {
 
-	private int id;
+	private Integer id;
 	private String categoryName;
 	private int type;
-	private int parentId;
+	private Integer parentId;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCategoryName() {
@@ -25,10 +25,10 @@ public class Category {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public int getParentId() {
+	public Integer getParentId() {
 		return parentId;
 	}
-	public void setParentId(int parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 }

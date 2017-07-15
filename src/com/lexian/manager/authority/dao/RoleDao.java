@@ -23,4 +23,6 @@ public interface RoleDao {
 	
 	public Integer hasNameUsed(String name);
 
+	public List<Role> getAllRoles();
+
 }

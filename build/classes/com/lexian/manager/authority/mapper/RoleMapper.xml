@@ -10,6 +10,11 @@
   		select DISTINCT <include refid="Base_Column_List"/> from role
   </select>
   
+  
+  <select id="getAllRoles" resultType="Role">
+  		select DISTINCT <include refid="Base_Column_List"/> from role
+  </select>
+  
   <insert id="addRole" parameterType="Role" keyProperty="id" useGeneratedKeys="true" > 
   		
   	

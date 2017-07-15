@@ -26,7 +26,7 @@ public class ManagerServiceImpl implements ManagerService {
 	private ManagerDao managerDao;
 
 	@Autowired
-	private RoleManagerDao rolePrivilegeDao;
+	private RoleManagerDao roleManagerDao;
 
 	public ManagerDao getManagerDao() {
 		return managerDao;
@@ -36,13 +36,6 @@ public class ManagerServiceImpl implements ManagerService {
 		this.managerDao = managerDao;
 	}
 
-	public RoleManagerDao getRolePrivilegeDao() {
-		return rolePrivilegeDao;
-	}
-
-	public void setRolePrivilegeDao(RoleManagerDao rolePrivilegeDao) {
-		this.rolePrivilegeDao = rolePrivilegeDao;
-	}
 
 	@Override
 	public ResultHelper signIn(String name, String password) {
@@ -89,7 +82,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public ResultHelper addManager(Manager manager) {
+	public ResultHelper addManager(Manager manager,Integer roleId) {
 		
 
 		ResultHelper result;
@@ -100,6 +93,13 @@ public class ManagerServiceImpl implements ManagerService {
 			manager.setUpdateTime(time);
 			
 			managerDao.addManager(manager);
+			
+			RoleManager rm=new RoleManager();
+			rm.setManagerId(manager.getId());
+			rm.setRoleId(roleId);
+			
+			roleManagerDao.insertRoleManager(rm);
+			
 			result=new ResultHelper(Constant.code_success);
 		}else{
 			result=new ResultHelper(Constant.code_invalid_parameter);
@@ -125,12 +125,6 @@ public class ManagerServiceImpl implements ManagerService {
 		}
 		return result;
 
-	}
-
-	@Override
-	public ResultHelper associateToRole(RoleManager rm) {
-		rolePrivilegeDao.insertRoleManager(rm);
-		return new ResultHelper(Constant.code_success);
 	}
 
 	@Override

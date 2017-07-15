@@ -112,7 +112,17 @@ myApp.controller('queryUsersController', ['$scope', '$state', 'httpService', fun
 
 //添加用户
 myApp.controller('addManagerController', ['$scope', 'httpService', function ($scope, httpService) {
-    $scope.hello = 'world';
+    $scope.getAllRoles = function () {
+        httpService.getRequest('role/getAllRoles.do')
+            .then(function (data) {
+                $scope.aAllRoles = data.data;
+            }, function (error) {
+                console.log('getAllROles.do error'+error);
+            })
+    };
+    $scope.addManager = function () {
+        httpService.getRequest('handleManager/addManager.do')
+    }
 }]);
 
 //修改用户
@@ -130,7 +140,7 @@ myApp.controller('queryRoleController', ['$scope', '$state', 'httpService', func
             }, function (error) {
                 console.log('getRoles error:' + error);
             });
-    }
+    };
     $scope.addRole = function () {
         $state.go('authority/role/addRole');
     };
@@ -142,8 +152,9 @@ myApp.controller('addRoleController', ['$scope', '$state', 'httpService', functi
         httpService.getRequest('role/addRole.do', {params: {name: $scope.name, description: $scope.description}})
             .then(function (data, status) {
                 if (1 == data.code) {
-                    alert('创建角色成功!欢迎您：' + data.data.name)
-                    $state.go('welcome');
+                    var oNewRole = data.data;
+                    alert('创建角色成功!欢迎您：' + oNewRole.name);
+                    $state.go('authority/queryrole');
                 } else {
                     alert('创建失败');
                 }
@@ -171,7 +182,7 @@ myApp.controller('editRoleController', ['$scope', '$stateParams', '$state', 'htt
             .then(function (data) {
                 if(1 == data.code){
                     alert(data.data);
-                    $state.go('welcome');
+                    $state.go('authority/queryrole');
                 } else {
                     alert('修改失败!');
                 }
@@ -187,17 +198,21 @@ myApp.controller('editRoleController', ['$scope', '$stateParams', '$state', 'htt
 }]);
 
 //修改角色菜单
-myApp.controller('editRoleMenuController', ['$scope', '$stateParams', '$filter', '$state', 'httpService', 'isCheckFactory',
-                     function ($scope, $stateParams, $filter, $state, httpService, isCheckFactory) {
+myApp.controller('editRoleMenuController', ['$scope', '$stateParams', '$filter', '$state', 'httpService', 'isCheckFactory', 'getFilterIdFactory',
+                     function ($scope, $stateParams, $filter, $state, httpService, isCheckFactory, getFilterIdFactory) {
     $scope.name = $stateParams.name;
     $scope.aMyMenusId = [];
     $scope.getMenus = function () {
         httpService.getRequest('role/getMenus.do', {params: {id: $stateParams.id}})
             .then(function (data) {
                 $scope.aAllMenus = data.data[0];
-                angular.forEach(data.data[1], function (value, index) {
-                    this.push(value.id);
+                angular.forEach(data.data[1], function (value) {
+                    //因为只需要勾选子项，所以把父项过滤，留下纯净的子项id数组，利于后面代码
+                    if(value.parentId != null){
+                        this.push(value.id);
+                    }
                 }, $scope.aMyMenusId);
+                console.log($scope.aMyMenusId);
             }, function (error) {
                 console.log('role/getMenus.do error: ' + error);
             });
@@ -209,11 +224,13 @@ myApp.controller('editRoleMenuController', ['$scope', '$stateParams', '$filter',
         isCheckFactory.toggleCheck(id, $scope.aMyMenusId);
     };
     $scope.updateRoleMenu = function () {
-        httpService.getRequest('role/updateMenus.do?', {params: {id: $stateParams.id, menuId: $scope.aMyMenusId}})
+        var arrFiler = getFilterIdFactory.getFilterArrById($scope.aMyMenusId, $scope.aAllMenus);
+        console.log(arrFiler);
+        httpService.getRequest('role/updateMenus.do?', {params: {id: $stateParams.id, menuId: arrFiler}})
             .then(function (data) {
                 if (1 == data.code){
                     alert(data.data);
-                    $state.go('welcome');
+                    $state.go('authority/queryrole');
                 }
             }, function (error) {
                 console.log('role/updateMenus.do error:'+error);

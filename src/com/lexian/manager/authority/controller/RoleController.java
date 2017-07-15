@@ -23,6 +23,13 @@ public class RoleController {
 		return roleService.getRoles(pageNo);
 	}
 
+	// role/getRoles.do
+	@ResponseBody
+	@RequestMapping("getAllRoles.do")
+	public ResultHelper getAllRoles() {
+		return roleService.getAllRoles();
+	}
+
 	// role/addRole.do?name=supermanager
 	@ResponseBody
 	@RequestMapping("addRole.do")

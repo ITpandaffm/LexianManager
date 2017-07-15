@@ -159,4 +159,10 @@ public class RoleServiceImpl implements RoleService {
 		return new ResultHelper(Constant.code_success,data);
 	}
 
+	@Override
+	public ResultHelper getAllRoles() {
+		
+		return new ResultHelper(Constant.code_success,roleDao.getAllRoles());
+	}
+
 }

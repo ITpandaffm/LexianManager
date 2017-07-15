@@ -38,8 +38,15 @@ public class CommodityStoreServiceImpl implements CommodityStoreService {
 	@Override
 	public ResultHelper getCommodityByStoreNo(String storeNo) {
 		// TODO Auto-generated method stub
-		List<CommodityStore> list=commoditystoreDao.getCommdityByStoreNoPage(storeNo);
+		List<CommodityStore> list=commoditystoreDao.getCommdityByStoreNo(storeNo);
 		return new ResultHelper(Constant.code_success,list);
+	}
+
+	@Override
+	public ResultHelper updateCommodityStore(CommodityStore commoditystore) {
+		// TODO Auto-generated method stub
+		commoditystoreDao.updateCommdityStore(commoditystore);
+		return new ResultHelper(Constant.code_success);
 	}
     
 }

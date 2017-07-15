@@ -76,19 +76,50 @@ myApp.service('orderService', ['$q', '$http', function ($q, $http) {
     };
 }]);
 
-myApp.factory('isCheckFactory', function () {
+myApp.factory('isCheckFactory', function ($filter) {
    return {
        toggleCheck: function (id,arr) {
-           var bFind = false;
-           angular.forEach(arr, function (value, index) {
-               if(!bFind && id==value){
-                   this.splice(index, 1);
-                   bFind = true;
-               }
-           }, arr);
-           if(!bFind){
+           // var bFind = false;
+           // angular.forEach(arr, function (value, index) {
+           //     if(!bFind && id==value){
+           //         this.splice(index, 1);
+           //         bFind = true;
+           //     }
+           // }, arr);
+           // if(!bFind){
+           //     arr.push(id);
+           // }
+           //有问题，并没有实际删除掉。
+           if(($filter(arr, id)).length){
+               angular.forEach(arr, function (value, index) {
+                   if (id == value){
+                       this.splice(index, 1);
+                   }
+               }, arr);
+           } else {
                arr.push(id);
            }
+       }
+   };
+});
+
+myApp.factory('getFilterIdFactory', function ($filter) {
+   return {
+       getFilterArrById: function (aIds, aAllMenus) {
+           //aIds是过滤了父项的子项id数组，下面这个aObjs是通过aIds去获得了所有对应的子项对象。
+           var aChildren = $filter('filter')(aAllMenus, function (value) {
+               return  ($filter('filter')(aIds, value.id)).length;
+           });
+           //通过aObjs获得所有关联的父项数组，而且去重噢。
+           var aParents = $filter('filter')(aAllMenus, function (value) {
+               return ($filter('filter')(aChildren, {'parentId': value.id}).length)
+           });
+           //获取所有父项的id
+           var aParentsId = [];
+           angular.forEach(aParents, function (value) {
+               aParentsId.push(value.id);
+           });
+            return aIds.concat(aParentsId);
        }
    };
 });

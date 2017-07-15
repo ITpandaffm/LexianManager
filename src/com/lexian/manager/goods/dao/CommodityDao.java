@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.lexian.manager.goods.bean.Commodity;
+import com.lexian.manager.goods.bean.CommoditySpec;
 
 
 public interface CommodityDao {
@@ -23,7 +24,11 @@ public interface CommodityDao {
 	
 	public void addCommodity(Commodity commodity);
 	
+	public void addCommoditySpec(CommoditySpec commoditySpec);
+	
+	public void deleteCommoditySpec(String commodityNo);
+	
 	public void addCommodityPicture(@Param("commodityNo")String commodityNo,@Param("pictureUrl")String pictureUrl);
 
-	public void updateCommodityPicture(@Param("commodityNo")String commodityNo,@Param("pictureUrl")String pictureUrl);
+	public void deleteCommodityPicture(@Param("commodityNo")String commodityNo);
 }

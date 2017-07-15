@@ -1,24 +1,47 @@
 package com.lexian.manager.goods.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class Commodity {
 
-	private int id;
+	private Integer id;
 	private String commodityNo;
 	private String name;
-	private int categoryId;
+	private Integer categoryId;
 	private String introduce;
 	private String detailed;
 	private String pictureUrl;
 	private Date createTime;
 	private Date updateTime;
 	private Integer states;
+	private CategoryView categoryView;
+	private List<String> commodityPicuture;
 	
-	public int getId() {
+	private List<CommoditySpec> commodtySpecs;
+	
+	public List<CommoditySpec> getCommodtySpecs() {
+		return commodtySpecs;
+	}
+	public void setCommodtySpecs(List<CommoditySpec> commodtySpecs) {
+		this.commodtySpecs = commodtySpecs;
+	}
+	public List<String> getCommodityPicuture() {
+		return commodityPicuture;
+	}
+	public void setCommodityPicuture(List<String> commodityPicuture) {
+		this.commodityPicuture = commodityPicuture;
+	}
+	public CategoryView getCategoryView() {
+		return categoryView;
+	}
+	public void setCategoryView(CategoryView categoryView) {
+		this.categoryView = categoryView;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCommodityNo() {
@@ -33,10 +56,10 @@ public class Commodity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getIntroduce() {

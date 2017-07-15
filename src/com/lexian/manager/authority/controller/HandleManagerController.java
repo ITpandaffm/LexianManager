@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.authority.bean.Manager;
-import com.lexian.manager.authority.bean.RoleManager;
 import com.lexian.manager.authority.service.ManagerService;
 import com.lexian.web.ResultHelper;
 
@@ -34,20 +33,14 @@ public class HandleManagerController {
 	//<insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="userId" parameterType="com.chenzhou.mybatis.User">  
 	@ResponseBody
 	@RequestMapping("addManager.do")
-	public ResultHelper addManager(Manager manager){
-		return managerService.addManager(manager);
+	public ResultHelper addManager(Manager manager,Integer roleId){
+		return managerService.addManager(manager,roleId);
 	}
 	//handleManager/updateManager.do?id=82&name=1
 	@ResponseBody
 	@RequestMapping("updateManager.do")
 	public ResultHelper updateManager(Manager manager){
 		return managerService.updateManager(manager);
-	}
-	//handleManager/associateToRole.do?roleId=1&managerId=114
-	@ResponseBody
-	@RequestMapping("associateToRole.do")
-	public ResultHelper associateToRole(RoleManager rm){
-		return managerService.associateToRole(rm);
 	}
 	//handleManager/deleteManager.do?id=110
 	@ResponseBody

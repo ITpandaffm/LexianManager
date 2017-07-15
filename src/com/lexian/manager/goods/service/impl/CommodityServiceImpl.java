@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lexian.manager.goods.bean.Commodity;
+import com.lexian.manager.goods.bean.CommoditySpec;
 import com.lexian.manager.goods.dao.CommodityDao;
 import com.lexian.manager.goods.service.CommodityService;
 import com.lexian.utils.Constant;
@@ -32,10 +33,8 @@ public class CommodityServiceImpl implements CommodityService{
 	@Override
 	public ResultHelper getCommodities(Integer pageNo) {
 		Page page = new Page();
-
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
+		page.setPageNo(pageNo);
+		
 		page.setTotalSize(commodityDao.getCountCommodity());
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -74,6 +73,18 @@ public class CommodityServiceImpl implements CommodityService{
 		Date time = new Date();
 		commodity.setUpdateTime(time);
 		System.out.println(commodity.getUpdateTime());
+		commodityDao.deleteCommodityPicture(commodity.getCommodityNo());
+		commodityDao.deleteCommoditySpec(commodity.getCommodityNo());
+		List<String> listCommodityPicture = commodity.getCommodityPicuture();
+		for (String string : listCommodityPicture) {
+			System.out.println(string);
+			commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+		}
+		List<CommoditySpec> listCommoditySpec=commodity.getCommodtySpecs();
+		for (CommoditySpec commoditySpec : listCommoditySpec) {
+			System.out.println(commoditySpec.getCommodityNo()+commoditySpec.getSpecGroup()+commoditySpec.getSpecName());
+			commodityDao.addCommoditySpec(commoditySpec);
+		}
 		commodityDao.updateCommodity(commodity);
 		return new ResultHelper(Constant.code_success);
 	}
@@ -103,8 +114,12 @@ public class CommodityServiceImpl implements CommodityService{
 
 	@Override
 	public ResultHelper updateCommodityPicture(String commodityNo, String pictureUrl) {
-		commodityDao.updateCommodityPicture(commodityNo, pictureUrl);
+		commodityDao.addCommodityPicture(commodityNo, pictureUrl);
 		return new ResultHelper(Constant.code_success);
 	}
-
+	@Override
+	public ResultHelper deleteCommodityPictrue(String commodityNo) {
+		commodityDao.deleteCommodityPicture(commodityNo);
+		return new ResultHelper(Constant.code_success);
+	}
 }

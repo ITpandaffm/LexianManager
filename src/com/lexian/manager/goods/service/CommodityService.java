@@ -17,6 +17,7 @@ public interface CommodityService {
 
 	public ResultHelper getCommodityById(int id);
 	
+	public ResultHelper deleteCommodityPictrue(String commodityNo);
 	
 	public ResultHelper updateCommodityPicture(String commodityNo,String pictureUrl);
 }

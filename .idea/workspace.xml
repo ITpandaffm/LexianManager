@@ -2,10 +2,176 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/WebContent/style/login.css" line="23" />
-    <bookmark url="file://$PROJECT_DIR$/WebContent/script/controllers.js" line="161" />
+    <bookmark url="file://$PROJECT_DIR$/WebContent/script/controllers.js" line="172" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="66b9a2d0-cde0-4924-a4c9-a4e36e7d4b87" name="Default" comment="" />
+    <list default="true" readonly="true" id="66b9a2d0-cde0-4924-a4c9-a4e36e7d4b87" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper/ManagerMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper/RoleManagerMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper/RoleMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper/RoleMenuMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper/RolePrivilegeMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/mapper/CategoryViewMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/mapper/CommodityMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/mapper/SortMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/mapper/OrdersMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/mapper/SpeCommodityMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/mapper/SpecialMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/mapper/CommodityStore.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/mapper/StoreMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/mapper/UserMapper.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/db.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/mybatis-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/filter" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/filter/CheckLoginFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/filter/CheckPrivilegeFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/filter/PageFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/interceptor" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/interceptor/PageInterceptor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/._.DS_Store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/._authority" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/Manager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/Menu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/Privilege.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/Role.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/RoleManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/RoleMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/bean/RolePrivilege.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/controller/HandleManagerController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/controller/ManagerController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/controller/RoleController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao/ManagerDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao/RoleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao/RoleManagerDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao/RoleMenuDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/dao/RolePrivilegeDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service/ManagerService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service/RoleService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service/impl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service/impl/ManagerServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/authority/service/impl/RoleServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Browse.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Category.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/CategoryView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Citys.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Commodity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/CommodityCollection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/CommodityPicuture.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/CommoditySpec.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/CommodityStore.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Special.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/SpecialCommodity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/bean/Store.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/controller/CategoryViewController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/controller/CommodityController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/controller/SortController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/dao/CategoryViewDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/dao/CommodityDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/dao/SortDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/CategoryViewService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/CommodityService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/SortService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/impl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/impl/CategoryViewImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/impl/CommodityServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/goods/service/impl/SortServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/OrderItem.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/Orders.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/Trolley.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/Wallet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/bean/WalletRecord.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/controller/OrderController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/dao/OrdersDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/service/OrdersService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/service/impl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/order/service/impl/OrdersServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/bean/Special.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/bean/SpecialCommodity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/controller/SpeCommodityController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/controller/SpecialController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/dao/SpeCommodityDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/dao/SpecialDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service/SpeCommodityService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service/SpecialService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service/serviceImpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service/serviceImpl/SpeCommodityServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/plate/service/serviceImpl/SpecialServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/bean/Category.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/bean/CommodityStore.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/bean/Special.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/bean/Store.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/controller/CommodityStoreController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/controller/StoreController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/dao/CommodityStoreDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/dao/StoreDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service/CommodityStoreService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service/StoreService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service/impl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service/impl/CommodityStoreServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/shop/service/impl/StoreServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/bean" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/controller" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/controller/UserController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/dao" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/mapper" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/service" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/service/impl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/manager/vip/service/impl/UserServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/utils" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/utils/Constant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/web" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/web/Page.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/com/lexian/web/ResultHelper.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/script/controllers.js" afterPath="$PROJECT_DIR$/WebContent/script/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" afterPath="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html" afterPath="$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html" afterPath="$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -25,24 +191,21 @@
       <file leaf-file-name="authority_queryusers.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="66" column="95" lean-forward="false" selection-start-line="66" selection-start-column="95" selection-end-line="66" selection-end-column="95" />
+            <state relative-caret-position="513">
+              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding>
-                <element signature="e#2994#3000#0" expanded="true" />
+                <element signature="e#3154#3160#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getSpecialCommodities.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/activity/level2/getSpecialCommodities.html">
+      <file leaf-file-name="addRole.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addRole.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-              <folding>
-                <element signature="e#185#191#0" expanded="true" />
-                <element signature="e#275#281#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="513">
+              <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,48 +220,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addRole.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addRole.html">
+      <file leaf-file-name="editRoleMenu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
-              <caret line="30" column="147" lean-forward="false" selection-start-line="30" selection-start-column="118" selection-end-line="30" selection-end-column="147" />
-              <folding>
-                <element signature="e#185#191#0" expanded="true" />
-                <element signature="e#196#202#0" expanded="true" />
-                <element signature="e#274#280#0" expanded="true" />
-                <element signature="e#286#292#0" expanded="true" />
-                <element signature="e#364#370#0" expanded="true" />
-                <element signature="e#374#380#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_specify.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/activity/activity_specify.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="593">
+              <caret line="36" column="90" lean-forward="false" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editRole.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRole.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="123" column="6" lean-forward="true" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
+            <state relative-caret-position="1107">
+              <caret line="221" column="6" lean-forward="true" selection-start-line="221" selection-start-column="6" selection-end-line="221" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="associateRole.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associateRole.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -107,18 +263,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="57" column="46" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editManager.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="540">
+              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -127,9 +273,29 @@
       <file leaf-file-name="addManager.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="783">
+              <caret line="41" column="104" lean-forward="false" selection-start-line="41" selection-start-column="104" selection-end-line="41" selection-end-column="104" />
+              <folding>
+                <element signature="e#168#174#0" expanded="true" />
+                <element signature="e#179#185#0" expanded="true" />
+                <element signature="e#257#263#0" expanded="true" />
+                <element signature="e#270#276#0" expanded="true" />
+                <element signature="e#348#354#0" expanded="true" />
+                <element signature="e#359#365#0" expanded="true" />
+                <element signature="e#1957#1963#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authority_queryrole.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1242">
+              <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+              <folding>
+                <element signature="e#2807#2813#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,12 +331,12 @@
       <find>absolute</find>
       <find>welcome</find>
       <find>addUserController</find>
+      <find>state.go</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebContent/script/main.js" />
         <option value="$PROJECT_DIR$/WebContent/script/controller.js" />
         <option value="$PROJECT_DIR$/WebContent/script/directive.js" />
         <option value="$PROJECT_DIR$/WebContent/script/filters.js" />
@@ -212,14 +378,16 @@
         <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html" />
         <option value="$PROJECT_DIR$/WebContent/style/main.css" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editRole.html" />
-        <option value="$PROJECT_DIR$/WebContent/script/services.js" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html" />
         <option value="$PROJECT_DIR$/WebContent/views/activity/level2/getSpecialCommodities.html" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/addUser.html" />
         <option value="$PROJECT_DIR$/WebContent/script/app.js" />
-        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/level2/associate.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html" />
         <option value="$PROJECT_DIR$/WebContent/script/controllers.js" />
+        <option value="$PROJECT_DIR$/WebContent/script/services.js" />
       </list>
     </option>
   </component>
@@ -230,10 +398,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1348" />
-    <option name="y" value="27" />
-    <option name="width" value="1600" />
-    <option name="height" value="877" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -253,6 +421,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -447,15 +617,93 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lexian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LexianManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lexian" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/前端D10_AngularDay3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../前端D10_AngularDay3" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -465,12 +713,12 @@
       <recent name="https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent" />
       <recent name="http://https://DLETC-PC24:8443/svn/TSvn/trunk/LexianManager/WebContent" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DLETC\Desktop\svn\trunk\LexianManager\WebContent\views\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DLETC\Desktop\svn\trunk\LexianManager\WebContent\views" />
       <recent name="C:\Users\DLETC\Desktop\乐鲜超市\LexianManager\WebContent\framework" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DLETC\Desktop\svn\trunk\LexianManager\WebContent\views\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -573,7 +821,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration>C:\Users\DLETC\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
@@ -599,18 +847,18 @@
       <workItem from="1499860183132" duration="3344000" />
       <workItem from="1499907461137" duration="22647000" />
       <workItem from="1499945054055" duration="4124000" />
-      <workItem from="1499950479795" duration="8743000" />
+      <workItem from="1499950479795" duration="9344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188774000" />
+    <option name="totallyTimeSpent" value="205455000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1348" y="27" width="1600" height="877" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.176875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.203125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -620,12 +868,21 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08975713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22178683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08975713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -659,8 +916,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/views/search.html" />
-    <entry file="file://$PROJECT_DIR$/WebContent/views/state.html" />
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.mine" />
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.r101" />
     <entry file="file://$PROJECT_DIR$/WebContent/script/login.js.r96" />
@@ -842,25 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7263">
           <caret line="269" column="23" lean-forward="false" selection-start-line="269" selection-start-column="23" selection-end-line="269" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
-          <folding>
-            <element signature="e#2807#2813#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="79" column="11" lean-forward="true" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -868,22 +1104,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
           <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/activity/activity_specify.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="567">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -891,35 +1118,122 @@
     <entry file="file://$PROJECT_DIR$/WebContent/views/activity/level2/getSpecialCommodities.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
-            <element signature="e#185#191#0" expanded="true" />
-            <element signature="e#275#281#0" expanded="true" />
+            <element signature="e#185#191#0" expanded="false" />
+            <element signature="e#275#281#0" expanded="false" />
+            <marker date="1499959544000" expanded="true" signature="418:715" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="459:696" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="526:673" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="816:1469" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="829:993" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1046:1455" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1323:1441" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1616:4218" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1667:4207" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1707:4192" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1750:2018" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1847:1923" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="1853:1914" ph="..." />
+            <marker date="1499959544000" expanded="false" signature="1901:1908" ph="×" />
+            <marker date="1499959544000" expanded="true" signature="2059:3930" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2122:3907" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2171:2472" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2319:2441" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2521:2827" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2670:2796" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="2876:3181" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3024:3150" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3230:3532" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3377:3501" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3581:3879" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3726:3848" ph="..." />
+            <marker date="1499959544000" expanded="true" signature="3973:4173" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRole.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addUser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRole.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding>
+            <element signature="e#2807#2813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addRole.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="57" column="46" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="46" />
+        <state relative-caret-position="540">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="41" column="104" lean-forward="false" selection-start-line="41" selection-start-column="104" selection-end-line="41" selection-end-column="104" />
+          <folding>
+            <element signature="e#168#174#0" expanded="true" />
+            <element signature="e#179#185#0" expanded="true" />
+            <element signature="e#257#263#0" expanded="true" />
+            <element signature="e#270#276#0" expanded="true" />
+            <element signature="e#348#354#0" expanded="true" />
+            <element signature="e#359#365#0" expanded="true" />
+            <element signature="e#1957#1963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#3154#3160#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -931,51 +1245,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associateRole.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="20" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addRole.html">
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="30" column="147" lean-forward="false" selection-start-line="30" selection-start-column="118" selection-end-line="30" selection-end-column="147" />
-          <folding>
-            <element signature="e#185#191#0" expanded="true" />
-            <element signature="e#196#202#0" expanded="true" />
-            <element signature="e#274#280#0" expanded="true" />
-            <element signature="e#286#292#0" expanded="true" />
-            <element signature="e#364#370#0" expanded="true" />
-            <element signature="e#374#380#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="66" column="95" lean-forward="false" selection-start-line="66" selection-start-column="95" selection-end-line="66" selection-end-column="95" />
-          <folding>
-            <element signature="e#2994#3000#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="593">
+          <caret line="36" column="90" lean-forward="false" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="123" column="6" lean-forward="true" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
+        <state relative-caret-position="1107">
+          <caret line="221" column="6" lean-forward="true" selection-start-line="221" selection-start-column="6" selection-end-line="221" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
           <folding />
         </state>
       </provider>
