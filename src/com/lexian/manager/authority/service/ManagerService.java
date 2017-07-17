@@ -15,7 +15,7 @@ public interface ManagerService {
 	
 	public ResultHelper getUserWithMenus(Integer id);
 	
-	public ResultHelper addManager(Manager manager,Integer roleId);
+	public ResultHelper addManager(Manager manager,Integer[] roleId);
 	
 	public ResultHelper updateManager(Manager manager);
 
@@ -29,6 +29,7 @@ public interface ManagerService {
 
 	public ResultHelper getMenus(Integer id,Integer pageNo);
 	
-	
+	public ResultHelper updateAssociatedRole(Manager manager,Integer[] newRoleId);
+
 	
 }

@@ -29,4 +29,13 @@
 	(SELECT commodity_no FROM commodity WHERE commodity_no=#{commodityNo,jdbcType=VARCHAR} ),
 	(SELECT id FROM  special WHERE id=#{id,jdbcType=INTEGER}))
 	</insert>
+	
+	<select id="getSpecialCommodity" resultType="com.lexian.manager.plate.bean.SpecialCommodity">
+		select
+		special_commodity.id as id,commodityno as commodityNo,specialid as specialId
+		from special_commodity
+		where commodityno=#{commodityNo,jdbcType=VARCHAR}
+		and specialid=#{specialId,jdbcType=INTEGER}
+	</select>
+	
 </mapper>

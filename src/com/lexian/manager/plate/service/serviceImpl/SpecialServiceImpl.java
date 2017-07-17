@@ -7,8 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lexian.manager.order.bean.Orders;
 import com.lexian.manager.plate.bean.Special;
+import com.lexian.manager.plate.dao.SpeCommodityDao;
 import com.lexian.manager.plate.dao.SpecialDao;
 import com.lexian.manager.plate.service.SpecialService;
 import com.lexian.utils.Constant;
@@ -20,6 +20,9 @@ public class SpecialServiceImpl implements SpecialService{
 
 	@Autowired
 	private SpecialDao specialDao;
+	
+	@Autowired
+	private SpeCommodityDao speCommodityDao;
 	
 	public SpecialDao getSpecialDao() {
 		return specialDao;
@@ -56,14 +59,23 @@ public class SpecialServiceImpl implements SpecialService{
 
 	@Override
 	public ResultHelper deleteSpecial(int id) {
+		if (speCommodityDao.getCountSpeCommodities(id) !=0) {
+			 return new ResultHelper(Constant.code_entity_duplicated);
+		}else{
 		specialDao.deleteSpecial(id);
 		 return new ResultHelper(Constant.code_success);
+		}
 	}
 
 	@Override
 	public ResultHelper addSpecial(String name) {
+		Special special = specialDao.getSpecialByName(name);
+		if (special != null) {
+			return new ResultHelper(Constant.code_entity_duplicated);
+		}else{
 		specialDao.addSpecial(name);
 		return new ResultHelper(Constant.code_success);
+		}
 	}
 
 }

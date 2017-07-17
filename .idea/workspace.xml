@@ -2,7 +2,11 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/WebContent/style/login.css" line="23" />
+<<<<<<< HEAD
     <bookmark url="file://$PROJECT_DIR$/WebContent/script/controllers.js" line="172" />
+=======
+    <bookmark url="file://$PROJECT_DIR$/WebContent/script/controllers.js" line="148" />
+>>>>>>> origin/master
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="66b9a2d0-cde0-4924-a4c9-a4e36e7d4b87" name="Default" comment="">
@@ -223,13 +227,23 @@
       <file leaf-file-name="editRoleMenu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="593">
               <caret line="36" column="90" lean-forward="false" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="90" />
               <folding />
+=======
+            <state relative-caret-position="217">
+              <caret line="28" column="63" lean-forward="false" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+              <folding>
+                <marker date="1500100892000" expanded="true" signature="1714:1950" ph="..." />
+                <marker date="1500100892000" expanded="true" signature="1769:1931" ph="..." />
+              </folding>
+>>>>>>> origin/master
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -255,21 +269,34 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="367">
               <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+=======
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="115" column="4" lean-forward="false" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="540">
               <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
+=======
+            <state relative-caret-position="669">
+              <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="addManager.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -284,6 +311,14 @@
                 <element signature="e#359#365#0" expanded="true" />
                 <element signature="e#1957#1963#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
+              <folding />
+>>>>>>> origin/master
             </state>
           </provider>
         </entry>
@@ -291,11 +326,17 @@
       <file leaf-file-name="authority_queryrole.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1242">
               <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
               <folding>
                 <element signature="e#2807#2813#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="27">
+              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+              <folding />
+>>>>>>> origin/master
             </state>
           </provider>
         </entry>
@@ -378,14 +419,23 @@
         <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html" />
         <option value="$PROJECT_DIR$/WebContent/style/main.css" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editRole.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html" />
+=======
+>>>>>>> origin/master
         <option value="$PROJECT_DIR$/WebContent/views/activity/level2/getSpecialCommodities.html" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/addUser.html" />
         <option value="$PROJECT_DIR$/WebContent/script/app.js" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editManager.html" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html" />
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/associate.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html" />
+=======
+        <option value="$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html" />
+        <option value="$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html" />
+        <option value="$PROJECT_DIR$/WebContent/script/services.js" />
+>>>>>>> origin/master
         <option value="$PROJECT_DIR$/WebContent/script/controllers.js" />
         <option value="$PROJECT_DIR$/WebContent/script/services.js" />
       </list>
@@ -398,10 +448,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+=======
+    <option name="x" value="4" />
+    <option name="y" value="23" />
+    <option name="width" value="1276" />
+    <option name="height" value="777" />
+>>>>>>> origin/master
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -421,7 +478,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> origin/master
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -699,6 +759,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> origin/master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -848,10 +912,15 @@
       <workItem from="1499907461137" duration="22647000" />
       <workItem from="1499945054055" duration="4124000" />
       <workItem from="1499950479795" duration="9344000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1500031159921" duration="4755000" />
+>>>>>>> origin/master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="205455000" />
   </component>
   <component name="ToolWindowManager">
@@ -859,14 +928,23 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.203125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="210210000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22178683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> origin/master
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08975713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08975713" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1111,7 +1189,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+<<<<<<< HEAD
           <folding />
+=======
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1119,6 +1200,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#185#191#0" expanded="false" />
             <element signature="e#275#281#0" expanded="false" />
@@ -1158,6 +1240,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding />
+=======
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1165,7 +1249,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+<<<<<<< HEAD
           <folding />
+=======
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -1173,44 +1260,78 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+<<<<<<< HEAD
           <folding />
+=======
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryrole.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1242">
           <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
           <folding>
             <element signature="e#2807#2813#0" expanded="true" />
+=======
+        <state relative-caret-position="1566">
+          <caret line="58" column="39" lean-forward="false" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding>
+            <element signature="e#2807#2813#0" expanded="false" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addRole.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associate.html" />
+    <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/authority_queryusers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#3154#3160#0" expanded="true" />
+          </folding>
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/script/app.js">
+    <entry file="file://$PROJECT_DIR$/WebContent/script/directives.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="540">
           <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="35" />
+=======
+        <state relative-caret-position="378">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
@@ -1234,17 +1355,38 @@
           <folding>
             <element signature="e#3154#3160#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associateRole.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addUser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/script/directives.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="378">
           <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+=======
+        <state relative-caret-position="513">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/associateRole.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1257,12 +1399,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="593">
           <caret line="36" column="90" lean-forward="false" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="90" />
+=======
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/addManager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/views/authority/level2/editRoleMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="28" column="63" lean-forward="false" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+          <folding>
+            <marker date="1500100892000" expanded="true" signature="1714:1950" ph="..." />
+            <marker date="1500100892000" expanded="true" signature="1769:1931" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/script/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="85" column="20" lean-forward="false" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/script/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1107">
           <caret line="221" column="6" lean-forward="true" selection-start-line="221" selection-start-column="6" selection-end-line="221" selection-end-column="6" />
           <folding />
@@ -1273,6 +1441,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+=======
+        <state relative-caret-position="156">
+          <caret line="115" column="4" lean-forward="false" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="4" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>

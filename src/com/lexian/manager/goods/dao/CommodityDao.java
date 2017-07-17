@@ -10,11 +10,14 @@ import com.lexian.manager.goods.bean.CommoditySpec;
 
 
 public interface CommodityDao {
+	
 	public List<Commodity> getCommodities(Map<String, Object> params);
+	
+	
 	
 	public int getCountCommodity();
 	
-	public Commodity getCommodityByName(String name);
+	public List<Commodity> getCommodityByCategoryId(int categoryId);
 	
 	public Commodity getCommodityBycommodityNo(String commodityNo);
 	

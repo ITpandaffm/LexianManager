@@ -22,4 +22,5 @@ public interface RoleService {
 
 	public ResultHelper getAllRoles();
 	
+	public ResultHelper getRoleByManagerId(Integer managerId);
 }

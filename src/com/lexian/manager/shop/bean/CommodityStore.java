@@ -5,11 +5,19 @@ public class CommodityStore {
 	private Integer id;
 	private String commmodityNo;
 	private String storeNo;
-	private double commodotyPrice;
-	private double realPrice;
+	private Double commodotyPrice;
+	private Double realPrice;
 	private Integer commodityAmont;
 	private Integer commodityLockAmont;
 	private Integer type;
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -28,16 +36,16 @@ public class CommodityStore {
 	public void setStoreNo(String storeNo) {
 		this.storeNo = storeNo;
 	}
-	public double getCommodotyPrice() {
+	public Double getCommodotyPrice() {
 		return commodotyPrice;
 	}
-	public void setCommodotyPrice(double commodotyPrice) {
+	public void setCommodotyPrice(Double commodotyPrice) {
 		this.commodotyPrice = commodotyPrice;
 	}
-	public double getRealPrice() {
+	public Double getRealPrice() {
 		return realPrice;
 	}
-	public void setRealPrice(double realPrice) {
+	public void setRealPrice(Double realPrice) {
 		this.realPrice = realPrice;
 	}
 	public Integer getCommodityAmont() {
@@ -58,5 +66,6 @@ public class CommodityStore {
 	public void setType(Integer type) {
 		this.type = type;
 	}
+	
 	
 }

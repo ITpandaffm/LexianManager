@@ -48,5 +48,13 @@ public class CommodityStoreServiceImpl implements CommodityStoreService {
 		commoditystoreDao.updateCommdityStore(commoditystore);
 		return new ResultHelper(Constant.code_success);
 	}
+
+	@Override
+	public ResultHelper addCommodityStore(CommodityStore commoditystore) {
+		// TODO Auto-generated method stub
+		System.out.println(commoditystore.getCommmodityNo()+"*********"+commoditystore.getStoreNo());
+		commoditystoreDao.addCommodityStore(commoditystore);
+		return new ResultHelper(Constant.code_success);
+	}
     
 }

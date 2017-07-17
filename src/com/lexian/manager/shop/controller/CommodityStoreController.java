@@ -35,6 +35,16 @@ public class CommodityStoreController {
 	public ResultHelper updateCommodityStore(CommodityStore commoditystore){
 	ResultHelper result=commoditystoreService.updateCommodityStore(commoditystore);
 	return result;
-	//commoditystore/updateCommodityStore.do
+	//commoditystore/updateCommodityStore.do?id=8363&realPrice=11.11
+	}
+	@ResponseBody
+	@RequestMapping("addCommodityStore.do")
+	public ResultHelper addCommodityStore(CommodityStore commoditystore){
+		/*CommodityStore commoditystore1=new CommodityStore();
+		commoditystore1.setCommmodityNo("6666");
+		commoditystore1.setStoreNo("123");*/
+		ResultHelper result=commoditystoreService.addCommodityStore(commoditystore);
+		return result;
+		//commoditystore/addCommodityStore.do?commmodityNo=6666&storeNo=6666
 	}
 }

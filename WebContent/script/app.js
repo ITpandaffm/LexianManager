@@ -57,6 +57,11 @@ var myApp = angular.module('lx-app',['ui.router'])
             templateUrl: 'views/authority/level2/editManager.html',
             controller: 'editManagerController'
         })
+        .state('authority/managers/associateRole', {
+            url: '/authority/managers/associateRole/:id/:name',
+            templateUrl: 'views/authority/level2/associateRole.html',
+            controller: 'associateRoleController'
+        })
         //会员模块
         .state('vip/queryvip',{
             url: '/vip/queryvip',
@@ -67,9 +72,9 @@ var myApp = angular.module('lx-app',['ui.router'])
             url: '/goods/category',
             templateUrl: 'views/goods/goods_category.html'
         })
-        .state('goods/vipinfo',{
-            url: '/goods/vipinfo',
-            templateUrl: 'views/goods/goods_vipinfo.html'
+        .state('goods/info',{
+            url: '/goods/info',
+            templateUrl: 'views/goods/goods_info.html'
         })
         //门店模块
         .state('store/info',{
@@ -100,6 +105,11 @@ var myApp = angular.module('lx-app',['ui.router'])
         .state('order/complete',{
             url: '/order/complete',
             templateUrl: 'views/order/order_complete.html'
+        })
+        .state('order/detail', {
+            url: '/order/detail/:id',
+            templateUrl: 'views/order/level2/order_detail.html',
+            controller: 'orderDetailController'
         })
         //板块管理
         .state('activity/specify',{

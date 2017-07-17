@@ -44,14 +44,18 @@ public class CommodityController {
 		return result;
 
 	}
-
+	/**
+	 * 三级联动返回的第三级id是就是categoryId
+	 * @param categoryId
+	 * @return
+	 */
 	@ResponseBody
-	@RequestMapping("getCommodityByName.do")
-	public ResultHelper getCommodityByName(String name) {
-		ResultHelper result = commodityService.getCommodityByName(name);
+	@RequestMapping("getCommodityByCategoryId.do")
+	public ResultHelper getCommodityByCategoryId(int categoryId) {
+		ResultHelper result = commodityService.getCommodityByCategoryId(categoryId);
 
 		return result;
-		//
+		//commodity/getCommodityByCategoryId.do?categoryId=226
 	}
 
 	@ResponseBody
@@ -68,7 +72,7 @@ public class CommodityController {
 	public ResultHelper getCommodityById(int id) {
 		ResultHelper result = commodityService.getCommodityById(id);
 		return result;
-		// commodity/getCommodityById.do?id=40
+		// commodity/getCommodityById.do?id=46
 	}
 	
 	/**
@@ -92,6 +96,6 @@ public class CommodityController {
 	public ResultHelper addCommodity(Commodity commodity) {
 		ResultHelper result = commodityService.addCommodity(commodity);
 		return result;
-		// commodity/addCommodity.do
+		// commodity/addCommodity.do?commodityNo=9787556806671
 	}
 }

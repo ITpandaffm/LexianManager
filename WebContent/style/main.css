@@ -272,8 +272,14 @@ header {
 .main-right .updateContainer .alert {
     top: -15px;
 }
+.main-right .vipContainer .table tr+tr td span {
+    color: #428bca;
+}
 .main-right .vipContainer .table tr+tr td:last-child a{
     color: #f00;
+}
+.main-right .vipContainer .table tr+tr td:last-child a:hover {
+    text-decoration: none;
 }
 table tbody tr {
     background: #fff;

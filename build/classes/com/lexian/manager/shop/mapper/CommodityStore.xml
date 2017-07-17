@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.shop.dao.CommodityStoreDao">
-	<select id="getCommdityByStoreNo" resultType="CommodityStore" parameterType="java.lang.String">
+	<select id="getCommdityByStoreNo" resultType="CommodityStore"
+		parameterType="java.lang.String">
 		select
-		commodity_no as commmodityNo,commodity_price as commodotyPrice,real_price as
-		realPrice,commodity_amont as commodityAmont,type
-		from commodity_store
-		where store_no=#{storeNo,jdbcType=VARCHAR}
+		commodity_store.commodity_no as commmodityNo,commodity_price as
+		commodotyPrice,real_price as
+		realPrice,commodity_amont as
+		commodityAmont,type,name
+		from commodity_store,commodity
+		where
+		commodity_store.commodity_no=commodity.commodity_no
+		AND store_no=#{storeNo,jdbcType=VARCHAR}
 	</select>
 	<update id="updateCommdityStore" parameterType="CommodityStore">
-	update  commodity_store
-	<set>
-	<if test="commodotyPrice !=null">
-	commodity_price=#{commodotyPrice,jdbcType=DOUBLE},
-	</if>
-	<if test="realPrice !=null">
-	real_price=#{realPrice,jdbcType=DOUBLE},
-	</if>
-	<if test="commodityAmont !=null">
-	commodity_amont=#{commodityAmont,jdbcType=INTEGER},
-	</if>
-	<if test="type !=null">
-	type=#{type,jdbcType=INTEGER}
-	</if>
-	</set>
-	where id=#{id,jdbcType=INTEGER}
+		update commodity_store
+		<set>
+			<if test="commodotyPrice !=null">
+				commodity_price=#{commodotyPrice,jdbcType=DOUBLE},
+			</if>
+			<if test="realPrice !=null">
+				real_price=#{realPrice,jdbcType=DOUBLE},
+			</if>
+			<if test="commodityAmont !=null">
+				commodity_amont=#{commodityAmont,jdbcType=INTEGER},
+			</if>
+			<if test="type !=null">
+				type=#{type,jdbcType=INTEGER}
+			</if>
+		</set>
+		where id=#{id,jdbcType=INTEGER}
 	</update>
+	<insert id="addCommodityStore" parameterType="CommodityStore">
+	insert into 
+	commodity_store(commodity_no,store_no)
+	values(
+	(select commodity_no from commodity where commodity_no=#{commmodityNo,jdbcType=VARCHAR}),
+	(select store_no from store where store_no=#{storeNo,jdbcType=VARCHAR})
+	)
+	</insert>
 </mapper>

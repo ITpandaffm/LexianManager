@@ -45,16 +45,18 @@
             <th>操作</th>
         </tr>
 
-        <tr ng-repeat="item in aVips">
+        <tr ng-repeat="item in aVips" ng-switch="item.status">
             <td>{{$index}}</td>
             <td>{{item.userName}}</td>
             <td>{{item.phone}}</td>
             <td>{{item.lastLoginTime|date: 'YY-mm-ss HH-mm-ss'}}</td>
             <td>
-                <a href="javascript:;">启用</a>
+                <span ng-switch-when="1">启用</span>
+                <span ng-switch-when="-1">禁用</span>
             </td>
             <td>
-                <a href="javascript:;">禁用</a>
+                <a href="javascript:;" ng-switch-when="1" ng-click="updateUsersStatus(item.id, item.status)">禁用</a>
+                <a href="javascript:;" ng-switch-when="-1" ng-click="updateUsersStatus(item.id, item.status)">激活</a>
             </td>
         </tr>
     </table>

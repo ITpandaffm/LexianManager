@@ -17,5 +17,7 @@ public interface SpecialDao {
 	
 	public void addSpecial(String name);
 	
+	public Special getSpecialByName(String name);
+	
 	public int getCountSpecial();
 }

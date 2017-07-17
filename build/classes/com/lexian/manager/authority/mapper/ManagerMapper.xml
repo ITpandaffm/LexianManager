@@ -16,7 +16,7 @@
   </sql>
   <select id="getManagerByNameAndPassword" resultType="Manager">
     select 
-    id,name
+    id,name,status
     from manager
     where name=#{name,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
   </select>

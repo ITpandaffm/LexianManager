@@ -67,7 +67,7 @@
             <td>{{item.totalAmount}}</td>
             <td>{{item.store.storeName}}</td>
             <td>
-                <a href="javascript:;">查看订单详情</a>&emsp;
+                <a ui-sref="order/detail({id: item.id})">查看订单详情</a>&emsp;
                 <a href="javascript:;">发货</a>
             </td>
         </tr>

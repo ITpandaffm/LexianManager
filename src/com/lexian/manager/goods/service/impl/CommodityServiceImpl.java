@@ -47,15 +47,11 @@ public class CommodityServiceImpl implements CommodityService{
 	}
 
 	@Override
-	public ResultHelper getCommodityByName(String name) {
+	public ResultHelper getCommodityByCategoryId(int categoryId) {
 		
-		Commodity commodity=commodityDao.getCommodityByName(name);
+		List<Commodity> list=commodityDao.getCommodityByCategoryId(categoryId);
+			return new ResultHelper(Constant.code_success,list);
 		
-		if (commodity != null) {
-			return new ResultHelper(Constant.code_success,commodity);
-		} else {
-			return new ResultHelper(Constant.code_entity_not_found,commodity);
-		}
 	}
 
 	@Override
@@ -70,27 +66,34 @@ public class CommodityServiceImpl implements CommodityService{
 
 	@Override
 	public ResultHelper updateCommodity(Commodity commodity) {
-		Date time = new Date();
-		commodity.setUpdateTime(time);
-		System.out.println(commodity.getUpdateTime());
-		commodityDao.deleteCommodityPicture(commodity.getCommodityNo());
-		commodityDao.deleteCommoditySpec(commodity.getCommodityNo());
-		List<String> listCommodityPicture = commodity.getCommodityPicuture();
-		for (String string : listCommodityPicture) {
-			System.out.println(string);
-			commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
-		}
-		List<CommoditySpec> listCommoditySpec=commodity.getCommodtySpecs();
-		for (CommoditySpec commoditySpec : listCommoditySpec) {
-			System.out.println(commoditySpec.getCommodityNo()+commoditySpec.getSpecGroup()+commoditySpec.getSpecName());
-			commodityDao.addCommoditySpec(commoditySpec);
-		}
-		commodityDao.updateCommodity(commodity);
-		return new ResultHelper(Constant.code_success);
+			Date time = new Date();
+			commodity.setUpdateTime(time);
+			System.out.println(commodity.getUpdateTime());
+			commodityDao.deleteCommodityPicture(commodity.getCommodityNo());
+			commodityDao.deleteCommoditySpec(commodity.getCommodityNo());
+			List<String> listCommodityPicture = commodity.getCommodityPicuture();
+			for (String string : listCommodityPicture) {
+				System.out.println(string);
+				commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+			}
+			List<CommoditySpec> listCommoditySpec=commodity.getCommodtySpecs();
+			for (CommoditySpec commoditySpec : listCommoditySpec) {
+				System.out.println(commoditySpec.getCommodityNo()+commoditySpec.getSpecGroup()+commoditySpec.getSpecName());
+				commodityDao.addCommoditySpec(commoditySpec);
+			}
+			commodityDao.updateCommodity(commodity);
+			return new ResultHelper(Constant.code_success);
+		
+		
 	}
 
 	@Override
 	public ResultHelper addCommodity(Commodity commodity) {
+		Commodity com=commodityDao.getCommodityBycommodityNo(commodity.getCommodityNo());
+		if (com != null) {
+			return new ResultHelper(Constant.code_entity_duplicated);
+		} else {
+		
 		Date time = new Date();
 		commodity.setCreateTime(time);
 		commodity.setStates(1);
@@ -99,6 +102,7 @@ public class CommodityServiceImpl implements CommodityService{
 		System.out.println(commodity.getCommodityNo()+commodity.getPictureUrl());
 		System.out.println(commodity.getCreateTime());
 		return new ResultHelper(Constant.code_success);
+		}
 	}
 
 	@Override

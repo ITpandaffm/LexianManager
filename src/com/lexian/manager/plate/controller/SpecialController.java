@@ -55,9 +55,13 @@ public class SpecialController {
 	public ResultHelper deleteSpecial(int id){
 		ResultHelper result = specialService.deleteSpecial(id);
 		return result;
-		//special/deleteSpecial.do?id=16
+		//special/deleteSpecial.do?id=6
 	}
-	
+	/**
+	 *添加，首先要判断是否已经存在
+	 * @param name
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("addSpecial.do")
 	public ResultHelper addSpecial(String name){

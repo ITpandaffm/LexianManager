@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.plate.service.SpeCommodityService;
-import com.lexian.utils.Constant;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -57,9 +56,9 @@ public class SpeCommodityController {
 	 */
 	@ResponseBody
 	@RequestMapping("addSpecialCommodities.do")
-	public ResultHelper addSpecialCommodities(String commodityNo,int id){
-		ResultHelper result = SpeCommodityService.addSpecialCommodities(commodityNo, id);
+	public ResultHelper addSpecialCommodities(String commodityNo,int specialId){
+		ResultHelper result = SpeCommodityService.addSpecialCommodities(commodityNo,specialId);
 		return result;
-		//speCommodity/addSpecialCommodities.do?commodityNo=6946881700735&id=1
+		//speCommodity/addSpecialCommodities.do?commodityNo=6923644267148&specialId=1
 	}
 }

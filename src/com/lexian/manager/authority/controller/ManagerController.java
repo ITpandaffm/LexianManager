@@ -47,9 +47,13 @@ public class ManagerController {
 		ResultHelper result = managerService.signIn(name, password);
 
 		if (result.getCode() == Constant.code_success) {
+			
 			Manager manager = (Manager) result.getData();
-			model.put("managerId", manager.getId());
-			model.put("privilegeUrls", managerService.getPrivilegeUrls(manager.getId()).getData());
+			
+			if(manager.getStatus()==1){
+				model.put("managerId", manager.getId());
+				model.put("privilegeUrls", managerService.getPrivilegeUrls(manager.getId()).getData());
+			}
 		}
 		
 		

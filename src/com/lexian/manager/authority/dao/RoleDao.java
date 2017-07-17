@@ -24,5 +24,7 @@ public interface RoleDao {
 	public Integer hasNameUsed(String name);
 
 	public List<Role> getAllRoles();
+	
+	public List<Role> getRoleByManagerId(Integer managerId);
 
 }

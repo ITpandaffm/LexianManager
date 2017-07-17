@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-2">
+                <a href="javascript:window.history.go(-1);">返回</a>
+            </div>
+            <div class="col-sm-3 col-sm-offset-3">
+                <span><strong>订单详情</strong></span>
+            </div>
+        </div>
+    </div>
+    <div ng-init="getDetail()">
+        <form role="form" class="form-horizontal">
+            <div class="form-group">
+                <label for="orderID" class="control-label col-sm-2">订单编号：</label>
+                <label id="orderID" class="control-label">{{oDetail.orderNo}}</label>
+            </div>
+            <div class="form-group">
+                <label for="storeName" class="control-label col-sm-2">门店名称：</label>
+                <label id="storeName" class="control-label">{{oDetail.store.storeName}}</label>
+            </div>
+            <div class="form-group">
+                <label for="orderTime" class="control-label col-sm-2">订单时间：</label>
+                <label id="orderTime" class="control-label">{{oDetail.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</label>
+            </div>
+            <div class="form-group">
+                <label for="cuName" class="control-label col-sm-2">客户姓名：</label>
+                <label id="cuName" class="control-label">{{oDetail.user.userName}}</label>
+            </div>
+            <div class="form-group">
+                <label for="cuTel" class="control-label col-sm-2">客户电话：</label>
+                <label id="cuTel" class="control-label">{{oDetail.user.phone}}</label>
+            </div>
+        </form>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>商品编号</th>
+                <th>名称</th>
+                <th>图片</th>
+                <th>单价（元）</th>
+                <th>数量</th>
+                <th>总价（元）</th>
+            </tr>
+            <tr ng-repeat="item in oDetail.orderItems">
+                <td class="goods_td">{{item.commodity.commodityNo}}</td>
+                <td class="goods_td">{{item.commodity.name}}</td>
+                <td class="goods_td"><img src="../img/38f4ade2-8b1e-4586-9025-5cfacd1378af.jpg" alt="" width="120px" height="120px" /></td>
+                <td class="goods_td">{{item.listPrice}}</td>
+                <td class="goods_td">{{item.amount}}</td>
+                <td class="goods_td">{{item.totalPrice}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

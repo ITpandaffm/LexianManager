@@ -26,4 +26,12 @@
 	INSERT INTO special ( NAME)
 	 VALUES (#{name,jdbcType=VARCHAR}); 
 	</insert>
+	
+	<select id="getSpecialByName" resultType="com.lexian.manager.plate.bean.Special">
+		select DISTINCT
+		id,name
+		from special
+		where name=#{name,jdbcType=VARCHAR}
+	</select>
+	
 </mapper>

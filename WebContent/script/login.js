@@ -7,10 +7,12 @@ var myApp = angular.module('singInApp', [])
                         alert('登录成功');
                         // sessionStorage.setItem('username', data.data.name);
                         window.location.pathname += 'home.html';
+                    } else if(-200 == data.code){
+                        alert('该用户已被禁用！请联系管理员');
                     } else {
                         alert(data.data);
-                        $scope.pwd = '';
                     }
+                    $scope.pwd = '';
                 })
                 .error(function (data, status) {
                     alert('登录失败：status为：' + status + '，返回data为：' + data);

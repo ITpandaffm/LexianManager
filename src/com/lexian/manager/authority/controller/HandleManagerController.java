@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.authority.bean.Manager;
 import com.lexian.manager.authority.service.ManagerService;
+import com.lexian.manager.authority.service.RoleService;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -14,6 +15,9 @@ import com.lexian.web.ResultHelper;
 public class HandleManagerController {
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	public ManagerService getManagerService() {
 		return managerService;
@@ -33,7 +37,7 @@ public class HandleManagerController {
 	//<insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="userId" parameterType="com.chenzhou.mybatis.User">  
 	@ResponseBody
 	@RequestMapping("addManager.do")
-	public ResultHelper addManager(Manager manager,Integer roleId){
+	public ResultHelper addManager(Manager manager,Integer[] roleId){
 		return managerService.addManager(manager,roleId);
 	}
 	//handleManager/updateManager.do?id=82&name=1
@@ -48,5 +52,16 @@ public class HandleManagerController {
 	public ResultHelper deleteManager(int id){
 		return managerService.deleteManagerById(id);
 	}
+	@ResponseBody
+	@RequestMapping("updateAssociatedRole.do")
+	public ResultHelper updateAssociatedRole(Manager manager,Integer[] newRoleId){
+		return managerService.updateAssociatedRole(manager,newRoleId);
+	}
 	
+	@ResponseBody
+	@RequestMapping("getRoleByManagerId.do")
+	public ResultHelper getRoleByManagerId(Integer managerId){
+		
+		return roleService.getRoleByManagerId(managerId);
+	}
 }

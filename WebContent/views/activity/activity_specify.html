@@ -1,41 +1,45 @@
 <div class="container" ng-controller="activitySpecifyController">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="col-sm-6">
-				<span class="glyphicon glyphicon-user">&nbsp;商品活动管理&nbsp;</span>
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;商城活动&nbsp;</span>
-			</div>
-			<div class="col-sm-6">
-				<div class="pull-right">
-					<button type="button" class="btn btn-default">
-						<span class="glyphicon glyphicon-plus">添加</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user">&nbsp;商品活动管理&nbsp;</span> <span
+                    class="glyphicon glyphicon-chevron-right">&nbsp;商城活动&nbsp;</span>
+            </div>
+            <div class="col-sm-6">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addSpecialModal">
+                        <span class="glyphicon glyphicon-plus">添加</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		<table class="table table-striped" ng-init="getSpecials()">
-			<tr>
-				<th></th>
-				<th>模块编号</th>
-				<th>模块名称</th>
-				<th>操作</th>
-			</tr>
+    <table class="table table-striped" ng-init="getSpecials()">
+        <tr>
+            <th></th>
+            <th>模块编号</th>
+            <th>模块名称</th>
+            <th>操作</th>
+        </tr>
 
-			<tr ng-repeat="item in aSpecials">
-				<td>{{$index+1}}</td>
-				<td>{{item.id}}</td>
-				<td>{{item.name}}</td>
-				<td>
-					<a ui-sref="activity/special/getSpecialCommodities({aSpecialsID:item.id})">查看活动商品</a>&emsp;
-					<a href="javascript:;">修改</a>&emsp;
-					<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal">删除</a>
-				</td>
-			</tr>
+        <tr ng-repeat="item in aSpecials">
+            <td>{{$index+1}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>
+                <a ui-sref="activity/special/getSpecialCommodities({aSpecialsID:item.id})">查看活动商品</a>
+                &emsp;
+                <a href="javascript:;" data-toggle="modal" data-target="#changeModuleNameModal" ng-click="changeModuleName(item.id,item.name)">修改</a>
+                &emsp;
+                <a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="getSpeDel(item.id)">删除</a>
+            </td>
+        </tr>
 
+    </table>
+    <pagination></pagination>
+    <confirmdeletemodal></confirmdeletemodal>
+    <changemodulenamemodal></changemodulenamemodal>
+    <addspecialmodal></addspecialmodal>
 
-		</table>
-	<pagination></pagination>
-	<confirmdeletemodal></confirmdeletemodal>
 </div>

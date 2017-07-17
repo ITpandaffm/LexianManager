@@ -10,11 +10,17 @@
         </div>
     </div>
 
-    <form role="form" class="form-horizontal">
-        <div class="form-group">
+    <form role="form" class="form-horizontal" name="editManagerForm">
+        <div class="form-group" ng-class="{'has-error':editManagerForm.username.$invalid && editManagerForm.username.$dirty}">
             <label for="username" class="control-label col-sm-3">管理员帐号：</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="username" ng-model="name"/>
+                <input type="text" name="username" class="form-control" id="username" ng-model="name" required/>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block"
+                     ng-show="editManagerForm.username.$invalid && editManagerForm.username.$dirty">
+                    账号不能为空！
+                </div>
             </div>
         </div>
         <div class="form-group">
@@ -25,7 +31,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-8">
-                <button type="button" class="btn btn-primary">保存</button>
+                <button type="button" class="btn btn-primary" ng-click="submitUpdatedManager()" ng-disabled="editManagerForm.username.$invalid">保存</button>
             </div>
         </div>
     </form>

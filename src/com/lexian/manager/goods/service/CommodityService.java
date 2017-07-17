@@ -7,7 +7,7 @@ public interface CommodityService {
 	
 	public ResultHelper getCommodities(Integer pageNo);
 	
-	public ResultHelper getCommodityByName(String name);
+	public ResultHelper getCommodityByCategoryId(int categoryId);
 	
 	public ResultHelper getCommodityBycommodityNo(String commodityNo);
 	

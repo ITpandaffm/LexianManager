@@ -16,4 +16,7 @@ public interface SpeCommodityDao {
 	public List<SpecialCommodity> getSpecialCommodities(@Param("id")int id,Map<String, Object> params);
 	
 	public void addSpecialCommodities(@Param("commodityNo")String commodityNo,@Param("id")int id);
+
+	public SpecialCommodity getSpecialCommodity(@Param("commodityNo")String commodityNo,@Param("specialId")int specialId);
+
 }

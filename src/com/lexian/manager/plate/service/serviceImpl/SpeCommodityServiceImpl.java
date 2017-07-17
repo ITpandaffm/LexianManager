@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lexian.manager.plate.bean.Special;
 import com.lexian.manager.plate.bean.SpecialCommodity;
 import com.lexian.manager.plate.dao.SpeCommodityDao;
 import com.lexian.manager.plate.service.SpeCommodityService;
@@ -57,9 +56,14 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 	}
 
 	@Override
-	public ResultHelper addSpecialCommodities(String commodityNo, int id) {
-		speCommodityDao.addSpecialCommodities(commodityNo, id);
+	public ResultHelper addSpecialCommodities(String commodityNo,int specialId) {
+		SpecialCommodity specialCommodity = speCommodityDao.getSpecialCommodity(commodityNo,specialId);
+		if(specialCommodity !=null){
+			return new ResultHelper(Constant.code_entity_duplicated);
+		}else{
+		speCommodityDao.addSpecialCommodities(commodityNo, specialId);
 		return new ResultHelper(Constant.code_success);
+		}
 	}
 
 }

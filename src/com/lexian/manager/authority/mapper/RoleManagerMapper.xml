@@ -5,8 +5,14 @@
   <sql id="Base_Column_List" >
     id,name,description,createTime,updateTime
   </sql>
-  <insert id="insertRoleManager" parameterType="RoleManager">
-  		insert into role_manager(role_id,manager_id) values(#{roleId,jdbcType=INTEGER},#{managerId,jdbcType=INTEGER})
+  <insert id="insertRoleManagerBatch" parameterType="java.util.List">
+  		insert into role_manager(role_id,manager_id) values
+  		<foreach collection="list" separator="," item="rm">
+  			(#{rm.roleId,jdbcType=INTEGER},#{rm.managerId,jdbcType=INTEGER})
+  		</foreach>
+  		
   </insert>
-  
+  <delete id="deleteRoleManagerByManagerId" parameterType="java.lang.Integer">
+  		delete from role_manager where manager_id=#{id}
+  </delete>
 </mapper>

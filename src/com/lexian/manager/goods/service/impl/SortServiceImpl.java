@@ -49,8 +49,13 @@ public class SortServiceImpl implements SortService{
 
 	@Override
 	public ResultHelper addCategory(Category category) {
-		sortDao.addCategory(category);
+		Category cate=sortDao.getCategory(category.getCategoryName(), category.getType(), category.getParentId());
+		if (cate != null) {
+			return new ResultHelper(Constant.code_entity_duplicated);
+		}else{
+		 sortDao.addCategory(category);
 		 return new ResultHelper(Constant.code_success);
+		}
 	}
 
 	@Override

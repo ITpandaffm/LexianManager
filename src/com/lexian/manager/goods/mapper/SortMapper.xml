@@ -35,5 +35,14 @@
   		#{parentId,jdbcType=INTEGER}
   		)
   </insert>
+  
+  <select id="getCategory" resultType="Category">
+  	SELECT 
+  	id,categoryname AS categoryName,TYPE,parentid AS parentId
+  	FROM category
+  	WHERE categoryname=#{categoryName,jdbcType=VARCHAR}
+  	AND TYPE=#{type,jdbcType=INTEGER}
+  	AND parentid=#{parentId,jdbcType=INTEGER}
+  </select>
 
 </mapper>

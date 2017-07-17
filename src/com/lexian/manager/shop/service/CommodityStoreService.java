@@ -6,4 +6,5 @@ import com.lexian.web.ResultHelper;
 public interface CommodityStoreService {
    public ResultHelper getCommodityByStoreNo(String storeNo);
    public ResultHelper updateCommodityStore(CommodityStore commoditystore);
+   public ResultHelper addCommodityStore(CommodityStore commoditystore);
 }

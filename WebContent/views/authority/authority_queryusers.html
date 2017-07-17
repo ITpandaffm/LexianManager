@@ -61,15 +61,18 @@
                 <span ng-switch-when="1">激活</span>
                 <span ng-switch-default>禁用</span>
             </td>
-            <td>
+            <td ng-switch="item.status">
                 <a ui-sref="authority/managers/editManager({id: item.id, name:item.name, info:item.info })">修改</a>&emsp;
-                <a href="javascript:;">关联角色</a>&emsp;
-                <a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal">删除</a>&emsp;
-                <a href="javascript:;">重置密码</a>&emsp;
-                <a href="javascript:;">禁用</a>
+                <a ui-sref="authority/managers/associateRole({id: item.id, name: item.name})">关联角色</a>&emsp;
+                <a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(item.id)">删除</a>&emsp;
+                <a href="javascript:;" ng-click="resetManagerPwd(item.id)">重置密码</a>&emsp;
+
+                <a href="javascript:;" ng-click="updateManagerStatus(item.status, item.id, item.name)" ng-switch-when="1">禁用</a>
+                <a href="javascript:;" ng-click="updateManagerStatus(item.status, item.id, item.name)" ng-switch-when="0">激活</a>
             </td>
+            <confirmdeletemodal></confirmdeletemodal>
+
         </tr>
     </table>
     <pagination></pagination>
-    <confirmdeletemodal></confirmdeletemodal>
 </div>

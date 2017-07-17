@@ -6,7 +6,7 @@ myApp.factory('srefAndIconFatory', function () {
         20: 'authority/queryrole',
         21: 'vip/queryvip',
         22: 'goods/category',
-        23: 'goods/vipinfo',
+        23: 'goods/info',
         27: 'store/info',
         28: 'store/goods',
         30: 'order/list',
@@ -79,18 +79,7 @@ myApp.service('orderService', ['$q', '$http', function ($q, $http) {
 myApp.factory('isCheckFactory', function ($filter) {
    return {
        toggleCheck: function (id,arr) {
-           // var bFind = false;
-           // angular.forEach(arr, function (value, index) {
-           //     if(!bFind && id==value){
-           //         this.splice(index, 1);
-           //         bFind = true;
-           //     }
-           // }, arr);
-           // if(!bFind){
-           //     arr.push(id);
-           // }
-           //有问题，并没有实际删除掉。
-           if(($filter(arr, id)).length){
+           if(($filter('filter')(arr, id)).length){
                angular.forEach(arr, function (value, index) {
                    if (id == value){
                        this.splice(index, 1);

@@ -1,5 +1,6 @@
 package com.lexian.manager.authority.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +45,12 @@ public class ManagerServiceImpl implements ManagerService {
 
 		ResultHelper result;
 		if (manager != null) {
-			result = new ResultHelper(Constant.code_success, manager);
+			
+			if(manager.getStatus()!=1){
+				result=new ResultHelper(Constant.code_state_forbid, manager);
+			}else{
+				result = new ResultHelper(Constant.code_success, manager);
+			}
 		} else {
 			result = new ResultHelper(Constant.code_login_failed);
 		}
@@ -82,7 +88,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public ResultHelper addManager(Manager manager,Integer roleId) {
+	public ResultHelper addManager(Manager manager,Integer[] roleId) {
 		
 
 		ResultHelper result;
@@ -94,11 +100,16 @@ public class ManagerServiceImpl implements ManagerService {
 			
 			managerDao.addManager(manager);
 			
-			RoleManager rm=new RoleManager();
-			rm.setManagerId(manager.getId());
-			rm.setRoleId(roleId);
 			
-			roleManagerDao.insertRoleManager(rm);
+			List<RoleManager> rms=new ArrayList<>();
+			for(Integer rid:roleId){
+				RoleManager rm=new RoleManager();
+				rm.setManagerId(manager.getId());
+				rm.setRoleId(rid);
+				rms.add(rm);
+			}
+			
+			roleManagerDao.insertRoleManagerBatch(rms);
 			
 			result=new ResultHelper(Constant.code_success);
 		}else{
@@ -163,7 +174,6 @@ public class ManagerServiceImpl implements ManagerService {
 
 			result = new ResultHelper(Constant.code_success);
 		}
-
 		return result;
 
 	}
@@ -180,5 +190,27 @@ public class ManagerServiceImpl implements ManagerService {
 		page.setData(menus);
 		return new ResultHelper(Constant.code_success,page);
 	}
+
+	@Override
+	public ResultHelper updateAssociatedRole(Manager manager,Integer[] newRoleId) {
+		
+		
+		Date time=new Date();
+		manager.setCreateTime(time);
+		manager.setUpdateTime(time);
+		managerDao.updateManager(manager);
+		roleManagerDao.deleteRoleManagerByManagerId(manager.getId());
+		List<RoleManager> rms=new ArrayList<>();
+		for(Integer rid:newRoleId){
+			RoleManager rm=new RoleManager();
+			rm.setManagerId(manager.getId());
+			rm.setRoleId(rid);
+			rms.add(rm);
+		}
+		roleManagerDao.insertRoleManagerBatch(rms);
+		
+		return new ResultHelper(Constant.code_success);
+	}
+
 
 }
