@@ -35,10 +35,9 @@ public class CommodityServiceImpl implements CommodityService{
 		Page page = new Page();
 		page.setPageNo(pageNo);
 		
-		page.setTotalSize(commodityDao.getCountCommodity());
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<Commodity> orderssWithStore = commodityDao.getCommodities(params);
+		List<Commodity> orderssWithStore = commodityDao.getCommoditiesPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);

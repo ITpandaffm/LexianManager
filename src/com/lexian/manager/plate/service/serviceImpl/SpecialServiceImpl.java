@@ -37,13 +37,10 @@ public class SpecialServiceImpl implements SpecialService{
 		
 		Page page = new Page();
 
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(specialDao.getCountSpecial());
+		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<Special> orderssWithStore = specialDao.getSpecial(params);
+		List<Special> orderssWithStore = specialDao.getSpecialPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);

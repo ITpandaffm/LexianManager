@@ -61,12 +61,6 @@
 		AND c.id=#{id,jdbcType=VARCHAR}
 	</select>
 
-	<select id="getCountCommodity" resultType="java.lang.Integer">
-		select count(*)
-		from
-		commodity
-	</select>
-
 	<select id="getCommodityByCategoryId" resultType="Commodity">
 		select
 		id,commodity_no as commodityNo,name,introduce,detailed,pictureurl as pictureUrl,createtime ascreateTime,updateTime as updateTime,states
@@ -88,7 +82,7 @@
 
 	</select>
 
-	<select id="getCommodities" resultType="Commodity">
+	<select id="getCommoditiesPage" resultType="Commodity">
 		select
 		id,commodity_no
 		as commodityNo,name,category_id as

@@ -6,7 +6,7 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
-    min-width: 1200px;
+    min-width: 1440px;
 }
 /****************Header Start****************/
 header {
@@ -271,6 +271,9 @@ header {
 }
 .main-right .updateContainer .alert {
     top: -15px;
+}
+.main-right .container .forbidden-btn {
+    color: #f00;
 }
 .main-right .vipContainer .table tr+tr td span {
     color: #428bca;

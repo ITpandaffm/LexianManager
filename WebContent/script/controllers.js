@@ -71,7 +71,7 @@ myApp.controller('queryPrivilegesController', ['$scope', 'httpService', function
     $scope.getPrivileges = function () {
         httpService.getRequest('manager/getPrivileges.do', {})
             .then(function (data) {
-                if(1 == data.code){
+                if (1 == data.code) {
                     $scope.aPrivileges = data.data.data;
                 }
             }, function (error) {
@@ -86,7 +86,7 @@ myApp.controller('queryMenuController', ['$scope', 'httpService', 'srefAndIconFa
         $scope.getMenus = function () {
             httpService.getRequest('manager/getUserWithMenus.do', {})
                 .then(function (data) {
-                    if(1 == data.code){
+                    if (1 == data.code) {
                         $scope.oData = {
                             aCenterListData: data.data.menus,
                             jSref: srefAndIconFatory.jSref,
@@ -104,7 +104,7 @@ myApp.controller('queryUsersController', ['$scope', '$state', 'httpService', fun
     $scope.getManagers = function () {
         httpService.getRequest('handleManager/getManagers.do', {})
             .then(function (data) {
-                if(1 == data.code){
+                if (1 == data.code) {
                     $scope.aManagers = data.data.data;
                 }
             }, function (error) {
@@ -430,61 +430,61 @@ myApp.controller('queryVipController', ['$scope', 'httpService', function ($scop
 myApp.controller('goodsCategoryController', [
     '$scope',
     'httpService',
-    function($scope, httpService) {
+    function ($scope, httpService) {
         //一级分类
-        $scope.getFirstCategory = function() {
-            httpService.getRequest('categoryView/getFirstCategoryView.do', {params:{pageNo:1}}).then(
-                function(data) {
-                    if(1 == data.code){
+        $scope.getFirstCategory = function () {
+            httpService.getRequest('categoryView/getFirstCategoryView.do', {params: {pageNo: 1}}).then(
+                function (data) {
+                    if (1 == data.code) {
                         $scope.aFirstCategory = data.data.data;
                     }
-                }, function(error) {
+                }, function (error) {
                     console.log('getFirstCategoryView error:' + error);
                 });
         }
         //二级分类
-        $scope.getSecondCategory = function(){
-            httpService.getRequest('categoryView/getSecondCategoryView.do', {params:{pageNo:1}}).then(
-                function(data) {
-                    if(1 == data.code){
+        $scope.getSecondCategory = function () {
+            httpService.getRequest('categoryView/getSecondCategoryView.do', {params: {pageNo: 1}}).then(
+                function (data) {
+                    if (1 == data.code) {
                         $scope.aSecondCategory = data.data.data;
                     }
-                }, function(error) {
+                }, function (error) {
                     console.log('getSecondCategoryView error:' + error);
                 });
         }
         //三级分类
-        $scope.getThirdCategory = function(){
-            httpService.getRequest('categoryView/getThirdCategoryView.do', {params:{pageNo:1}}).then(
-                function(data) {
-                    if(1 == data.code){
+        $scope.getThirdCategory = function () {
+            httpService.getRequest('categoryView/getThirdCategoryView.do', {params: {pageNo: 1}}).then(
+                function (data) {
+                    if (1 == data.code) {
                         $scope.aThirdCategory = data.data.data;
                         console.log(data);
                     }
-                }, function(error) {
+                }, function (error) {
                     console.log('getThirdCategoryView error:' + error);
                 });
         }
-    } ]);
+    }]);
 //goodsinfo
 //商品信息管理
-myApp.controller('goodsInfoController', [ '$scope', 'httpService',
-    function($scope, httpService) {
-        $scope.getGoodsInfo = function() {
+myApp.controller('goodsInfoController', ['$scope', 'httpService',
+    function ($scope, httpService) {
+        $scope.getGoodsInfo = function () {
             httpService.getRequest('commodity/getCommodities.do', {
-                params : {
-                    pageNo : 1
+                params: {
+                    pageNo: 1
                 }
-            }).then(function(data) {
-                if(1 == data.code){
+            }).then(function (data) {
+                if (1 == data.code) {
                     $scope.aGoodsInfo = data.data.data;
                     console.log(data.data.data);
                 }
-            }, function(error) {
+            }, function (error) {
                 console.log('getCommodityStoreByStoreNo error: ' + error);
             })
         }
-    } ]);
+    }]);
 
 //store
 //门店信息
@@ -496,7 +496,17 @@ myApp.controller('storeInfoController', ['$scope', 'httpService', function ($sco
             }, function (error) {
                 console.log('getCommodityStoreByStoreNo error: ' + error);
             })
-    }
+    };
+    $scope.forbiddenStore = function (id, status){
+        status = -status;
+        httpService.getRequest('store/updateStore.do', {params: {id: id, status: status}})
+              .then(function(data){
+                  console.log(data);
+                  $scope.getStoreInfo();
+              }, function(error){
+                  console.log('store/updateStore.do'+error);
+              })
+    };
 }]);
 
 //门店商品
@@ -513,7 +523,7 @@ myApp.controller('storeGoodsController', ['$scope', 'httpService', function ($sc
 
 //order
 //订单列表
-myApp.controller('orderListController', ['$scope', 'orderService', function ($scope, orderService) {
+myApp.controller('orderListController', ['$scope',  '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
     $scope.getOrderLists = function () {
         orderService.getOrdersByState(0, 1)
             .then(function (data) {
@@ -521,11 +531,21 @@ myApp.controller('orderListController', ['$scope', 'orderService', function ($sc
             }, function (error) {
                 console.log('getOrderss error' + error);
             });
+        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+            var oStartDate = new Date(start._d);
+            var oEndDate = new Date(end._d);
+            $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
+            $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
+        });
+    };
+
+    $scope.searchByDate = function (){
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 0, $scope.aOrderLists);
     };
 }]);
 
 //未付款订单
-myApp.controller('orderUnpaidController', ['$scope', 'orderService', function ($scope, orderService) {
+myApp.controller('orderUnpaidController', ['$scope', '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
     $scope.getUnpaidLists = function () {
         orderService.getOrdersByState(1, 1)
             .then(function (data) {
@@ -533,11 +553,20 @@ myApp.controller('orderUnpaidController', ['$scope', 'orderService', function ($
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
+        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+            var oStartDate = new Date(start._d);
+            var oEndDate = new Date(end._d);
+            $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
+            $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
+        });
+    };
+    $scope.searchByDate = function (){
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 1, $scope.aUnpaidLists);
     };
 }]);
 
 //已付款订单
-myApp.controller('orderPaidController', ['$scope', 'orderService', function ($scope, orderService) {
+myApp.controller('orderPaidController', ['$scope', '$filter', 'httpService', 'orderService', 'orderSearchByDateService', function ($scope, $filter, httpService, orderService, orderSearchByDateService) {
     $scope.getPaidLists = function () {
         orderService.getOrdersByState(2, 1)
             .then(function (data) {
@@ -545,11 +574,31 @@ myApp.controller('orderPaidController', ['$scope', 'orderService', function ($sc
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
+        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+            var oStartDate = new Date(start._d);
+            var oEndDate = new Date(end._d);
+            $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
+            $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
+        });
+    };
+    $scope.deliverGoods = function (id) {
+        httpService.getRequest('order/updateOrders.do', {params: {id: id, states: 3}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    alert(data.data);
+                    $scope.getPaidLists();
+                }
+            }, function (error) {
+                console.log('order/updateOrders.do error:' + error);
+            })
+    };
+    $scope.searchByDate = function (){
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 2, $scope.aPaidLists);
     };
 }]);
 
 //已发货订单
-myApp.controller('orderDeliverController', ['$scope', 'orderService', function ($scope, orderService) {
+myApp.controller('orderDeliverController', ['$scope', '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
     $scope.getDeliverLists = function () {
         orderService.getOrdersByState(3, 1)
             .then(function (data) {
@@ -557,11 +606,20 @@ myApp.controller('orderDeliverController', ['$scope', 'orderService', function (
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
+        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+            var oStartDate = new Date(start._d);
+            var oEndDate = new Date(end._d);
+            $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
+            $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
+        });
+    };
+    $scope.searchByDate = function (){
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 3,  $scope.aDeliverLists);
     };
 }]);
 
 //已完成订单
-myApp.controller('orderCompleteController', ['$scope', 'orderService', function ($scope, orderService) {
+myApp.controller('orderCompleteController', ['$scope', '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
     $scope.getCompleteLists = function () {
         orderService.getOrdersByState(4, 1)
             .then(function (data) {
@@ -569,6 +627,15 @@ myApp.controller('orderCompleteController', ['$scope', 'orderService', function 
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
+        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+            var oStartDate = new Date(start._d);
+            var oEndDate = new Date(end._d);
+            $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
+            $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
+        });
+    };
+    $scope.searchByDate = function (){
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 4, $scope.aCompleteLists);
     };
 }]);
 
@@ -577,86 +644,87 @@ myApp.controller('orderDetailController', ['$scope', '$stateParams', 'httpServic
     $scope.getDetail = function () {
         httpService.getRequest('order/getOrderDetail.do', {params: {id: $stateParams.id}})
             .then(function (data) {
-                if(1==data.code){
+                if (1 == data.code) {
                     $scope.oDetail = data.data;
                 }
             }, function (error) {
-                    console.log('order/getOrderDetail.do error:'+error);
+                console.log('order/getOrderDetail.do error:' + error);
             })
-    }
+    };
 }]);
 
 // activity
 // 特定活动
-myApp.controller('activitySpecifyController', ['$scope', '$state','httpService', function ($scope,$state, httpService) {
-        $scope.getSpecials = function () {
-            httpService.getRequest('special/getSpecial.do', {
-                params: {
-                    pageNo: 1
-                }
-            }).then(function (data) {
-                if(1 == data.code){
-                    $scope.aSpecials = data.data.data;
-                }
-            }, function (error) {
-                console.log('getSpecial error' + error);
-            });
-        };
-        //添加活动
-        $scope.SpeName = "";
-        $scope.addSpe = function () {
-            httpService.getRequest('special/addSpecial.do', {params: {name: $scope.SpeName}})
-                .then(function (data) {
-                    if (1 == data.code) {
-                        $scope.getSpecials();
-                        $scope.SpeName = '';
-                    } else {
-                        alert("该模块已存在");
-                    }
-                }, function (error) {
-                    console.log('addSpe error' + error);
-                });
-        };
-        //删除活动
-        $scope.getSpeDel = function (id) {
-            $scope.getSpeComDel = id;
-        };
-        $scope.confirmDelete = function () {
-            httpService.getRequest('special/deleteSpecial.do', {params: {id: $scope.getSpeComDel}})
-                .then(function (data) {
-                    if (1 == data.code) {
-                        $scope.getSpecials();
-                    } else {
-                        alert("请先删除子项");
-                    }
-                }, function (error) {
-                    console.log('confirmDelete error' + error);
-                })
-        };
-        //修改模块名称
-        $scope.changeModuleName = function (id, name) {
-            $scope.activityName = name;
-            $scope.activityID = id;
-        };
-        $scope.updateSpecialName = function () {
-            httpService.getRequest('special/updateSpecial.do', {
-                params: {
-                    id: $scope.activityID,
-                    name: $scope.activityName
-                }
-            }).then(function (data) {
-                if(1 == data.code){
+myApp.controller('activitySpecifyController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
+    $scope.getSpecials = function () {
+        httpService.getRequest('special/getSpecial.do', {
+            params: {
+                pageNo: 1
+            }
+        }).then(function (data) {
+            if (1 == data.code) {
+                $scope.aSpecials = data.data.data;
+            }
+        }, function (error) {
+            console.log('getSpecial error' + error);
+        });
+    };
+    //添加活动
+    $scope.SpeName = "";
+    $scope.addSpe = function () {
+        httpService.getRequest('special/addSpecial.do', {params: {name: $scope.SpeName}})
+            .then(function (data) {
+                if (1 == data.code) {
                     $scope.getSpecials();
+                    $scope.SpeName = '';
+                } else {
+                    alert("该模块已存在");
                 }
             }, function (error) {
-                console.log('updateSpecial error' + error);
+                console.log('addSpe error' + error);
             });
-        };
+    };
+    //删除活动
+    $scope.getSpeDel = function (id) {
+        $scope.getSpeComDel = id;
+    };
+    $scope.confirmDelete = function () {
+        httpService.getRequest('special/deleteSpecial.do', {params: {id: $scope.getSpeComDel}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.getSpecials();
+                } else {
+                    alert("请先删除子项");
+                }
+            }, function (error) {
+                console.log('confirmDelete error' + error);
+            })
+    };
+    //修改模块名称
+    $scope.changeModuleName = function (id, name) {
+        $scope.activityName = name;
+        $scope.activityID = id;
+    };
+    $scope.updateSpecialName = function () {
+        httpService.getRequest('special/updateSpecial.do', {
+            params: {
+                id: $scope.activityID,
+                name: $scope.activityName
+            }
+        }).then(function (data) {
+            if (1 == data.code) {
+                $scope.getSpecials();
+            }
+        }, function (error) {
+            console.log('updateSpecial error' + error);
+        });
+    };
 }]);
 
 // 查看活动商品
-myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', 'httpService',
-                                            function ($scope, $stateParams, httpService) {
+myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '$filter', 'httpService', 'getCategoryArrByIdFactory',
+    function ($scope, $stateParams, $filter, httpService, getCategoryArrByIdFactory) {
+
         $scope.getSpecialCommodities = function () {
             httpService.getRequest('speCommodity/getSpecialCommodities.do',
                 {
@@ -666,7 +734,7 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
                     }
                 }).then(
                 function (data) {
-                    if(1 == data.code){
+                    if (1 == data.code) {
                         $scope.aSpecialCommodities = data.data.data;
                     }
                 },
@@ -677,86 +745,51 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
         };
         //添加活动商品
         $scope.getAllCategories = function () {
-
-            $scope.commodity = [];
-            $scope.fid = -1;
-            $scope.sid = -1;
-            $scope.tid = -1;
-            $scope.gid = -1;
-            $scope.firstCategories = [];
-            $scope.thirdCategories = [];
-            $scope.secondCategories = [];
-            $scope.commodityNo = null;
-            httpService.getRequest('sort/getAllCategories.do').then(
-                function (data) {
-                    if(1 == data.code){
-                        $scope.allCategories = data.data;
-                        $scope.firstCategories = [];
-                        for (var i = 0; i < $scope.allCategories.length; i++) {
-                            if ($scope.allCategories[i].parentId == null) {
-                                $scope.firstCategories.push($scope.allCategories[i]);
-                            }
+            $scope.secondSelected = '';
+            $scope.thirdSelected = [];
+            $scope.commodities = [];
+            $scope.commodityNo = '';
+            httpService.getRequest('sort/getAllCategories.do')
+                .then(function (data) {
+                        if (1 == data.code) {
+                            $scope.firstCategories = $filter('filter')(data.data, {'type': 1});
+                            $scope.secondTypeCategories = $filter('filter')(data.data, {'type': 2});
+                            $scope.thirdTypeCategories = $filter('filter')(data.data, {'type': 3});
                         }
-                    }
-                },
-                function (error) {
-                    console.log('getSpecialCommoditiesController error'
-                        + error);
-                });
+                    },
+                    function (error) {
+                        console.log('getSpecialCommoditiesController error' + error);
+                    });
         };
 
-        $scope.changeSecCat = function (parentId) {
-            $scope.sid = -1;
-            $scope.tid = -1;
-            $scope.gid = -1;
-            $scope.secondCategories = [];
+        $scope.changeSecondCat = function () {
+            $scope.secondCategories = getCategoryArrByIdFactory.getCategoryArrById($scope.firstSelected.id, $scope.secondTypeCategories);
             $scope.thirdCategories = [];
-            $scope.commodity = [];
-            $scope.commodityNo = null;
-            for (var i = 0; i < $scope.allCategories.length; i++) {
-                if ($scope.allCategories[i].parentId == parentId) {
-                    $scope.secondCategories.push($scope.allCategories[i]);
-                }
-            }
+            $scope.commodities = [];
+            $scope.commodityNo = '';
         };
 
-        $scope.changeThiCat = function (parentId) {
-            $scope.tid = -1;
-            $scope.gid = -1;
-            $scope.thirdCategories = [];
-            $scope.commodity = [];
-            $scope.commodityNo = null;
-            for (var i = 0; i < $scope.allCategories.length; i++) {
-                if ($scope.allCategories[i].parentId == parentId) {
-                    $scope.thirdCategories.push($scope.allCategories[i]);
-                }
-            }
+        $scope.changeThirdCat = function () {
+            $scope.thirdCategories = getCategoryArrByIdFactory.getCategoryArrById($scope.secondSelected.id, $scope.thirdTypeCategories);
+            $scope.commodities = [];
+            $scope.commodityNo = '';
         };
 
-        $scope.getGoodsName = function (categoryId) {
-            $scope.gid = -1;
-            $scope.commodity = [];
-            $scope.commodityNo = null;
-            httpService.getRequest('commodity/getCommodityByCategoryId.do', {params: {categoryId: categoryId}}).then(
-                function (data) {
-                    if(1 == data.code){
-                        $scope.commodity = data.data;
-                    }
-                },
-                function (error) {
-                    console.log('getSpecialCommoditiesController error'
-                        + error);
-                });
+        $scope.getGoodsName = function () {
+            $scope.commodityNo = '';
+            httpService.getRequest('commodity/getCommodityByCategoryId.do', {params: {categoryId: $scope.thirdSelected.id}})
+                .then(function (data) {
+                        if (1 == data.code) {
+                            $scope.commodities = data.data;
+                        }
+                    },
+                    function (error) {
+                        console.log('getSpecialCommoditiesController error' + error);
+                    });
         };
 
-        $scope.getGoodsId = function (goodsId) {
-            $scope.commodityNo = null;
-            for (var i = 0; i < $scope.commodity.length; i++) {
-                if ($scope.commodity[i].id == goodsId) {
-                    $scope.commodityNo = $scope.commodity[i].commodityNo;
-                    break;
-                }
-            }
+        $scope.getGoodsId = function () {
+            $scope.commodityNo = ($filter('filter')($scope.commodities, {'id': $scope.goodSelected.id}))[0].commodityNo;
         };
 
         $scope.addCommodity = function () {
@@ -771,12 +804,12 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
                         $scope.getSpecialCommodities();
                     } else {
                         alert("该商品已存在");
-                        $scope.getSpecialCommodities();
                     }
                 }, function (error) {
                     console.log('addCommodity error' + error)
                 })
         };
+
         //删除活动商品
         $scope.getDelID = function (id) {
             $scope.getComDelID = id;
@@ -784,7 +817,7 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
         $scope.confirmDelete = function () {
             httpService.getRequest('speCommodity/deleteSpeCommodity.do', {params: {id: $scope.getComDelID}})
                 .then(function (data) {
-                    if(1 == data.code){
+                    if (1 == data.code) {
                         $scope.getSpecialCommodities();
                     }
                 }, function (error) {

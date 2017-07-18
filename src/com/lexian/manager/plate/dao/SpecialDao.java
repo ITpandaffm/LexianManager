@@ -9,7 +9,7 @@ import com.lexian.manager.plate.bean.Special;
 
 public interface SpecialDao {
 
-	public List<Special> getSpecial(Map<String, Object> params);
+	public List<Special> getSpecialPage(Map<String, Object> params);
 	
 	public void updateSpecial(@Param("id")int id,@Param("name")String name);
 	

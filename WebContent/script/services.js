@@ -112,3 +112,41 @@ myApp.factory('getFilterIdFactory', function ($filter) {
        }
    };
 });
+
+myApp.factory('getCategoryArrByIdFactory', function ($filter) {
+   return {
+       getCategoryArrById: function (parentId, arrAll) {
+           return $filter('filter')(arrAll, {'parentId': parentId});
+       }
+   }
+});
+
+myApp.service('orderSearchByDateService', function (httpService) {
+    this.orderSearchByDate = function (fromDate, toDate, state, arr) {
+        var jParams = {};
+        if(0 == state){
+            jParams = {
+                pageNo: 1,
+                start: fromDate,
+                end: toDate
+            }
+        } else {
+            jParams = {
+                state: state,
+                pageNo: 1,
+                start: fromDate,
+                end: toDate
+            }
+        }
+        httpService.getRequest('order/getOrderssByDate.do', {params: jParams}).then(function (data) {
+            if(1==data.code){
+                arr.length = 0;
+                angular.forEach(data.data.data, function (value) {
+                    arr.push(value);
+                });
+            }
+        }, function (error) {
+            console.log('order/getOrderssByDate.do error: '+error);
+        });
+    }
+});

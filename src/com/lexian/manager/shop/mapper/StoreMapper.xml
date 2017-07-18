@@ -3,7 +3,7 @@
 <mapper namespace="com.lexian.manager.shop.dao.StoreDao">
 	<select id="getAllStorePage" resultType="Store">
 		select
-		store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
+		id,store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
 		from store
 	</select>
 	<insert id="addStore" parameterType="Store">
@@ -73,4 +73,9 @@
 		</set>
 		where id=#{id,jdbcType=INTEGER}
 	</update>
+	<select id="getStoresByCitysId" resultType="Store">
+		 select id , storename as storeName,storeaddress as storeAddress 
+		 from store
+		 where province_id=#{pid,jdbcType=INTEGER} and citys_id=#{cityId,jdbcType=INTEGER} and county_id=#{countyId,jdbcType=INTEGER}	 
+	</select>
 </mapper>

@@ -12,7 +12,7 @@
 		
 	</select>
 	
-	<select id="getSpecialCommodities" resultType="com.lexian.manager.plate.bean.SpecialCommodity">
+	<select id="getSpecialCommoditiesPage" parameterType="java.util.Map" resultType="com.lexian.manager.plate.bean.SpecialCommodity">
 	
 		SELECT
 		special_commodity.id as id,commodityno as commodityNo,specialid as specialId,name,pictureurl as pictureUrl

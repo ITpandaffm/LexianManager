@@ -32,14 +32,11 @@ public class CategoryViewImpl implements CategoryViewService{
 	public ResultHelper getAllCategoryView(Integer pageNo) {
 
 		Page page = new Page();
-
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(CategoryViewDao.getCountCategory());
+		page.setPageNo(pageNo);
+		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<CategoryView> orderssWithStore = CategoryViewDao.getAllCategoryView(params);
+		List<CategoryView> orderssWithStore = CategoryViewDao.getAllCategoryViewPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);
@@ -50,14 +47,11 @@ public class CategoryViewImpl implements CategoryViewService{
 	@Override
 	public ResultHelper getFirstCategoryView(Integer pageNo) {
 		Page page = new Page();
-
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(CategoryViewDao.getFirstCountCategory());
+		page.setPageNo(pageNo);
+		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<CategoryView> orderssWithStore = CategoryViewDao.getFirstCategoryView(params);
+		List<CategoryView> orderssWithStore = CategoryViewDao.getFirstCategoryViewPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);
@@ -69,13 +63,10 @@ public class CategoryViewImpl implements CategoryViewService{
 	public ResultHelper getSecondCategoryView(Integer pageNo) {
 		Page page = new Page();
 
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(CategoryViewDao.getSecondCountCategory());
+		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<CategoryView> orderssWithStore = CategoryViewDao.getSecondCategoryView(params);
+		List<CategoryView> orderssWithStore = CategoryViewDao.getSecondCategoryViewPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);
@@ -87,13 +78,11 @@ public class CategoryViewImpl implements CategoryViewService{
 	public ResultHelper getThirdCategoryView(Integer pageNo) {
 		Page page = new Page();
 
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(CategoryViewDao.getThirdCountCategory());
+	
+		page.setPageNo(pageNo);	
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<CategoryView> orderssWithStore = CategoryViewDao.getThirdCategoryView(params);
+		List<CategoryView> orderssWithStore = CategoryViewDao.getThirdCategoryViewPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);

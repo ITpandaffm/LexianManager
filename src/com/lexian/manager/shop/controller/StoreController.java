@@ -56,6 +56,6 @@ public class StoreController {
 	  store1.setStoreName("hahah");*/
 		ResultHelper result=storeService.updateStore(store);
 		return result;
-		//store/updateStore.do
+		//store/updateStore.do?id=69&status=-1
 	}
 }

@@ -3,7 +3,13 @@
 <mapper namespace="com.lexian.manager.goods.dao.SortDao">
 
 
-<select id="getAllCategories" resultType="Category">
+<select id="getAllCategoriesPage" resultType="Category">
+	select 
+	id,categoryname as categoryName,type,parentId
+	from category
+</select>
+
+<select id="getCategories" resultType="Category">
 	select 
 	id,categoryname as categoryName,type,parentId
 	from category
@@ -17,7 +23,7 @@
 </select>
 
 <update id="updateCategoryById">
-		update category set categoryname =#{categoryname,jdbcType=VARCHAR} where id=#{id,jdbcType=INTEGER}
+		update category set categoryname =#{categoryName,jdbcType=VARCHAR} where id=#{id,jdbcType=INTEGER}
 	
 </update>
 
@@ -45,4 +51,10 @@
   	AND parentid=#{parentId,jdbcType=INTEGER}
   </select>
 
+	<select id="getCountCategoryByParentId" resultType="java.lang.Integer">
+	
+	SELECT COUNT(*)
+	FROM category
+	WHERE parentid=#{parentId,jdbcType=INTEGER}
+	</select>
 </mapper>
