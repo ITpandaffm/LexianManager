@@ -76,6 +76,26 @@ var myApp = angular.module('lx-app',['ui.router'])
             url: '/goods/info',
             templateUrl: 'views/goods/goods_info.html'
         })
+        // 商品管理模块二级路由
+        .state('goods/category/addCategory', {
+            url: '/goods/category/addCategory',
+            templateUrl: 'views/goods/level2/addCategory.html',
+            controller: 'addCategoryController'
+        }).state('goods/category/changeCategory', {
+             url: '/goods/category/changeCategory/:id/:categoryName',
+             templateUrl: 'views/goods/level2/changeCategory.html',
+             controller: 'changeCategoryController'
+        })
+        .state('goods/info/addNewGoods', {
+            url: '/goods/info/addNewGoods',
+            templateUrl: 'views/goods/level2/addNewGoods.html',
+            controller: 'addNewGoodsController'
+        })
+        .state('goods/info/updateGoodsInfo', {
+            url: '/goods/info/updateGoodsInfo/:id',
+            templateUrl: 'views/goods/level2/updateGoodsInfo.html',
+            controller: 'updateGoodsInfoController'
+        })
         //门店模块
         .state('store/info',{
             url: '/store/info',

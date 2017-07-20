@@ -69,12 +69,12 @@ public class SortController {
 	 */
 	@ResponseBody
 	@RequestMapping("addCategory.do")
-	 public ResultHelper addCategory(){
+	 public ResultHelper addCategory(Category category){
 		//sort/addCategory.do
-		Category category= new Category();
+		/*Category category= new Category();
 		category.setCategoryName("chenhao");
 		category.setType(2);
-		category.setParentId(46);
+		category.setParentId(46);*/
 		return sortService.addCategory(category);
 		 
 	 }

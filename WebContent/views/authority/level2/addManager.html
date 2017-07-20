@@ -1,12 +1,10 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div>
-                <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;添加管理员&nbsp;</span>
-                <a href="javascript:window.history.go(-1);">返回</a>
-            </div>
+            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;添加管理员&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
         </div>
     </div>
 
@@ -28,7 +26,8 @@
              ng-class="{'has-error':addManagerForm.password.$dirty && addManagerForm.password.$error.minlength}">
             <label for="password" class="control-label col-sm-3">密码：</label>
             <div class="col-sm-4">
-                <input type="password" name="password" class="form-control" id="password" ng-model="password" ng-minlength="6" required/>
+                <input type="password" name="password" class="form-control" id="password" ng-model="password"
+                       ng-minlength="6" required/>
             </div>
             <div class="col-sm-4">
                 <div class="alert alert-danger help-block" ng-show="addManagerForm.password.$error.minlength">
@@ -75,7 +74,9 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-8">
-                    <button type="button" class="btn btn-primary" ng-click="submitNewManager()" ng-disabled="addManagerForm.username.$pristine||addManagerForm.password.$pristine||addManagerForm.confirmPwd.$pristine||addManagerForm.$invalid || roleId.length == 0">保存
+                    <button type="button" class="btn btn-primary" ng-click="submitNewManager()"
+                            ng-disabled="addManagerForm.username.$pristine||addManagerForm.password.$pristine||addManagerForm.confirmPwd.$pristine||addManagerForm.$invalid || roleId.length == 0">
+                        保存
                     </button>
                 </div>
             </div>

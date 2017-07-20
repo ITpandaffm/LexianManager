@@ -71,10 +71,13 @@ public class CommodityServiceImpl implements CommodityService{
 			commodityDao.deleteCommodityPicture(commodity.getCommodityNo());
 			commodityDao.deleteCommoditySpec(commodity.getCommodityNo());
 			List<String> listCommodityPicture = commodity.getCommodityPicuture();
-			for (String string : listCommodityPicture) {
-				System.out.println(string);
-				commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+			if(listCommodityPicture!=null){
+				for (String string : listCommodityPicture) {
+					System.out.println(string);
+					commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+				}
 			}
+			
 			List<CommoditySpec> listCommoditySpec=commodity.getCommodtySpecs();
 			for (CommoditySpec commoditySpec : listCommoditySpec) {
 				System.out.println(commoditySpec.getCommodityNo()+commoditySpec.getSpecGroup()+commoditySpec.getSpecName());

@@ -1,11 +1,9 @@
 package com.lexian.manager.goods.bean;
 
-import java.math.BigDecimal;
-
 public class CommodityStore {
 
 	private int id;
-	private String commmodityNo;
+	private String commodityNo;
 	private String storeNo;
 	private double commodotyPrice;
 	private double realPrice;
@@ -18,11 +16,11 @@ public class CommodityStore {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCommmodityNo() {
-		return commmodityNo;
+	public String getCommodityNo() {
+		return commodityNo;
 	}
-	public void setCommmodityNo(String commmodityNo) {
-		this.commmodityNo = commmodityNo;
+	public void setCommmodityNo(String commodityNo) {
+		this.commodityNo = commodityNo;
 	}
 	public String getStoreNo() {
 		return storeNo;

@@ -1,12 +1,10 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div>
-                <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;修改角色菜单&nbsp;</span>
-                <a href="javascript:window.history.go(-1);">返回</a>
-            </div>
+            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;修改角色菜单&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
         </div>
     </div>
 
@@ -26,7 +24,8 @@
                 <div class="col-sm-8 checkbox">
                     <div class="col-sm-3" ng-repeat="subItem in aAllMenus| filter: {'parentId': item.id}">
                         <label>
-                            <input type="checkbox" data-menu-id="{{subItem.id}}" ng-checked="isDefaultSelected(subItem.id)" ng-click="toggleCheck(subItem.id)"/>
+                            <input type="checkbox" data-menu-id="{{subItem.id}}"
+                                   ng-checked="isDefaultSelected(subItem.id)" ng-click="toggleCheck(subItem.id)"/>
                             {{subItem.name}}
                         </label>
                     </div>
@@ -34,7 +33,9 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="button" class="btn btn-primary" ng-click="updateRoleMenu()" ng-disabled="!aMyMenusId.length">保存</button>
+                    <button type="button" class="btn btn-primary" ng-click="updateRoleMenu()"
+                            ng-disabled="!aMyMenusId.length">保存
+                    </button>
                 </div>
             </div>
         </form>

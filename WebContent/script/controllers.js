@@ -258,7 +258,7 @@ myApp.controller('associateRoleController', ['$scope', '$stateParams', '$state',
     };
     $scope.isAssociateRole = function (id) {
         return $scope.roleId.indexOf(id) != -1;
-    }
+    };
     $scope.checkboxStateChange = function (id) {
         isCheckFactory.toggleCheck(id, $scope.roleId);
     };
@@ -425,67 +425,427 @@ myApp.controller('queryVipController', ['$scope', 'httpService', function ($scop
     }
 }]);
 
-//goods
-//分类管理
-myApp.controller('goodsCategoryController', [
-    '$scope',
-    'httpService',
-    function ($scope, httpService) {
-        //一级分类
-        $scope.getFirstCategory = function () {
-            httpService.getRequest('categoryView/getFirstCategoryView.do', {params: {pageNo: 1}}).then(
-                function (data) {
-                    if (1 == data.code) {
-                        $scope.aFirstCategory = data.data.data;
-                    }
-                }, function (error) {
-                    console.log('getFirstCategoryView error:' + error);
-                });
-        }
-        //二级分类
-        $scope.getSecondCategory = function () {
-            httpService.getRequest('categoryView/getSecondCategoryView.do', {params: {pageNo: 1}}).then(
-                function (data) {
-                    if (1 == data.code) {
-                        $scope.aSecondCategory = data.data.data;
-                    }
-                }, function (error) {
-                    console.log('getSecondCategoryView error:' + error);
-                });
-        }
-        //三级分类
-        $scope.getThirdCategory = function () {
-            httpService.getRequest('categoryView/getThirdCategoryView.do', {params: {pageNo: 1}}).then(
-                function (data) {
-                    if (1 == data.code) {
-                        $scope.aThirdCategory = data.data.data;
-                        console.log(data);
-                    }
-                }, function (error) {
-                    console.log('getThirdCategoryView error:' + error);
-                });
-        }
-    }]);
-//goodsinfo
-//商品信息管理
-myApp.controller('goodsInfoController', ['$scope', 'httpService',
-    function ($scope, httpService) {
-        $scope.getGoodsInfo = function () {
-            httpService.getRequest('commodity/getCommodities.do', {
-                params: {
-                    pageNo: 1
+// goods
+// 分类管理
+myApp.controller('goodsCategoryController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
+    // 一级分类
+    $scope.getFirstCategory = function () {
+        httpService.getRequest('categoryView/getFirstCategoryView.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.aFirstCategory = data.data.data;
                 }
-            }).then(function (data) {
+            }, function (error) {
+                console.log('getFirstCategoryView error:' + error);
+            });
+    };
+    // 二级分类
+    $scope.getSecondCategory = function () {
+        httpService.getRequest('categoryView/getSecondCategoryView.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.aSecondCategory = data.data.data;
+                }
+            }, function (error) {
+                console.log('getSecondCategoryView error:' + error);
+            });
+    };
+    // 三级分类
+    $scope.getThirdCategory = function () {
+        httpService.getRequest('categoryView/getThirdCategoryView.do', {params: {pageNo: 1}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.aThirdCategory = data.data.data;
+                }
+            }, function (error) {
+                console.log('getThirdCategoryView error:' + error);
+            });
+    };
+    // 二级路由
+    $scope.addCategory = function () {
+        $state.go('goods/category/addCategory');
+    };
+    // 删除分类
+    $scope.updateDeleteId = function (id, level) {
+        $scope.delId = id;
+        $scope.deleteInLevel = level;
+    };
+    $scope.confirmDelete = function () {
+        httpService.getRequest('sort/deleteCategory.do', {params: {id: $scope.delId}})
+            .then(function (data) {
+                if (1 == data.code) {
+                    alert(data.data);
+                    switch ($scope.deleteInLevel) {
+                        case 1:
+                            $scope.getFirstCategory();
+                            break;
+                        case 2:
+                            $scope.getSecondCategory();
+                            break;
+                        case 3:
+                            $scope.getThirdCategory();
+                            break;
+                    }
+                } else if (-3 == data.code) {
+                    alert("该类下还有子项，删除失败");
+                }
+            }, function (error) {
+                console.log('deleteSpecial error:' + error);
+            });
+    };
+}]);
+// 添加商品分类
+myApp.controller('addCategoryController', ['$scope', '$state', '$filter', 'httpService', function ($scope, $state, $filter, httpService) {
+    $scope.getAllCategories = function () {
+        httpService.getRequest('sort/getCategories.do')
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.firstCategories = $filter('filter')(data.data, {'type': 1});
+                    $scope.secondeCategories = $filter('filter')(data.data, {'type': 2});
+                }
+            }, function (error) {
+                console.log('getAllCategories error:' + error);
+            });
+    };
+    $scope.updateCategoryLevel = function () {
+        switch ($scope.categoryLevel) {
+            case '1':
+                $scope.currentCategory = $scope.firstCategories;
+                $scope.parentId = $scope.currentCategory[0].id;
+                break;
+            case '2':
+                $scope.currentCategory = $scope.secondeCategories;
+                $scope.parentId = $scope.currentCategory[0].id;
+                break;
+            default:
+        }
+    };
+    $scope.addCategory = function () {
+        httpService.getRequest('sort/addCategory.do', {
+            params: {
+                categoryName: $scope.categoryName,
+                type: ++$scope.categoryLevel,
+                parentId: $scope.parentId
+            }
+        }).then(function (data) {
+            if (1 == data.code) {
+                alert(data.data);
+                $state.go('goods/category');
+            }
+        }, function (error) {
+            console.log('addCategory error:' + error);
+        });
+
+    };
+}]);
+// 修改商品分类
+myApp.controller('changeCategoryController', ['$scope', '$stateParams', '$state', 'httpService', function ($scope, $stateParams, $state, httpService) {
+    $scope.categoryName = $stateParams.categoryName;
+    $scope.submitNewCategoryName = function () {
+        httpService.getRequest('sort/updateCategory.do', {
+            params: {
+                id: $stateParams.id,
+                categoryName: $scope.categoryName
+            }
+        }).then(function (data) {
+            if (1 == data.code) {
+                alert(data.data);
+                $state.go('goods/category');
+            }
+        }, function (error) {
+            console.log('changeCategory error:' + error);
+        });
+    }
+}]);
+
+// goodsinfo
+// 商品信息管理
+myApp.controller('goodsInfoController', ['$scope', '$state', 'httpService', function ($scope, $state, httpService) {
+    $scope.getGoodsInfo = function () {
+        httpService.getRequest('commodity/getCommodities.do', {params: {pageNo: 1}})
+            .then(function (data) {
                 if (1 == data.code) {
                     $scope.aGoodsInfo = data.data.data;
-                    console.log(data.data.data);
                 }
             }, function (error) {
                 console.log('getCommodityStoreByStoreNo error: ' + error);
             })
-        }
-    }]);
+    };
+    $scope.addNewGoods = function () {
+        $state.go('goods/info/addNewGoods');
+    }
+}]);
 
+myApp.controller('addNewGoodsController', ['$scope', '$state', '$filter', 'httpService', function ($scope, $state, $filter, httpService) {
+    $scope.getAllCategories = function () {
+        httpService.getRequest('sort/getCategories.do')
+            .then(function (data) {
+                if (1 == data.code) {
+                    $scope.firstCategories = $filter('filter')(data.data, {'type': 1});
+                    $scope.secondAllCategories = $filter('filter')(data.data, {'type': 2});
+                    $scope.thirdAllCategories = $filter('filter')(data.data, {'type': 3});
+                }
+            }, function (error) {
+                console.log('sort/getCategories.do error:' + error);
+            });
+        //采用$watch而不是ng-change来监听，是因为如果设置默认值第一项，那么如果真的就想选第一项的话，得点击下拉框重新选中第一项，才会触发ng-change，后面的下拉框才会显示
+        $scope.$watch('level1', function (newValue) {
+            if (newValue) {
+                $scope.secondCategories = $filter('filter')($scope.secondAllCategories, {'parentId': newValue.id});
+                $scope.level2 = $scope.secondCategories[0];
+            } else {
+                //为null，即选中了默认项，“--请选择一级分类--”
+                $scope.secondCategories.length = 0;
+                $scope.thirdCategories.length = 0;
+                $scope.level3 = null;
+            }
+        });
+        $scope.$watch('level2', function (newValue) {
+            if (newValue) {
+                $scope.thirdCategories = $filter('filter')($scope.thirdAllCategories, {'parentId': newValue.id});
+                $scope.level3 = $scope.thirdCategories[0];
+            }
+        })
+    };
+    $scope.bSelectDirty = false;
+    $scope.secondCategories = [];
+    $scope.thirdCategories = [];
+    $scope.level1Change = function () {
+        if (!$scope.bSelectDirty) {
+            $scope.bSelectDirty = !$scope.bSelectDirty;
+        }
+    };
+    $scope.submitNewCommodity = function () {
+        httpService.getRequest('commodity/addCommodity.do', {
+            params: {
+                commodityNo: $scope.commodityNo,
+                name: $scope.name,
+                categoryId: $scope.level3.id,
+                introduce: $scope.introduce
+            }
+        }).then(function (data) {
+            if (1 == data.code) {
+                alert(data.data);
+                $state.go('goods/info');
+            } else if (-3 == data.code) {
+                alert(data.data);
+            } else {
+                alert('操作失败');
+            }
+        }, function (error) {
+            console.log('commodity/addCommodity.do error:' + error);
+        });
+    };
+}]);
+
+myApp.controller('updateGoodsInfoController', ['$scope', '$state', '$stateParams', '$filter', '$interval', 'httpService', 'fileUploadService',
+    function ($scope, $state, $stateParams, $filter, $interval, httpService, fileUploadService) {
+
+        $scope.aSubPicUrl = [];     //配图
+        $scope.commodtySpecs = [];  //规格信息
+        $scope.mainPicBtn = '上传主图';
+        $scope.bMainPicBtnActive = false;
+        $scope.subPicBtn = '上传配图';
+        $scope.bSubPicBtnActive = false;
+        $scope.getGoodsInfoById = function () {
+
+            $scope.getAllCategories();  //先初始化下拉列表
+
+            httpService.getRequest('commodity/getCommodityById.do', {params: {id: $stateParams.id}})
+                .then(function (data) {
+                    if (1 == data.code) {
+                        //上传主图按钮
+
+
+                        var obj = data.data;
+                        $scope.name = obj.name;
+                        $scope.introduce = obj.introduce;
+
+                        $scope.commodityNo = obj.commodityNo;
+
+                        $scope.secondCategories = $filter('filter')($scope.secondAllCategories, {'parentId': obj.categoryView.firstId});
+                        $scope.thirdCategories = $filter('filter')($scope.thirdAllCategories, {'parentId': obj.categoryView.secondtId});
+
+                        $scope.level1 = ($filter('filter')($scope.firstCategories, {'id': obj.categoryView.firstId}))[0];
+                        if ($scope.secondCategories.length) {
+                            $scope.level2 = ($filter('filter')($scope.secondCategories, {'id': obj.categoryView.secondtId}))[0];
+                        }
+                        if ($scope.thirdCategories.length) {
+                            $scope.level3 = ($filter('filter')($scope.thirdCategories, {'id': obj.categoryView.thirdId}))[0];
+                        }
+
+                        //规格信息
+                        if (obj.commodtySpecs.length) {
+                            $scope.commodtySpecs = obj.commodtySpecs;
+                        }
+                        //激活状态
+                        if (1 == obj.states) {
+                            $scope.states = true;
+                        } else if (-1 == obj.states) {
+                            $scope.states = false;
+                        }
+                        //取主图
+                        $scope.pictureUrl = obj.pictureUrl;
+                        //配图
+                        if (obj.commodityPicuture.length) {
+                            $scope.aSubPicUrl = obj.commodityPicuture;
+                        }
+                        //商品详情初始化
+                        $scope.detailed = obj.detailed;
+                    }
+                }, function (error) {
+                    console.log('commodity/getCommodityById.do error:' + error);
+                });
+        };
+        $scope.getAllCategories = function () {
+            httpService.getRequest('sort/getCategories.do')
+                .then(function (data) {
+                    if (1 == data.code) {
+                        $scope.firstCategories = $filter('filter')(data.data, {'type': 1});
+                        $scope.secondAllCategories = $filter('filter')(data.data, {'type': 2});
+                        $scope.thirdAllCategories = $filter('filter')(data.data, {'type': 3});
+                    }
+                }, function (error) {
+                    console.log('sort/getCategories.do error:' + error);
+                });
+        };
+        $scope.level1Change = function () {
+            $scope.secondCategories = $filter('filter')($scope.secondAllCategories, {'parentId': $scope.level1.id});
+            if ($scope.secondCategories.length) {
+                $scope.level2 = $scope.secondCategories[0];
+            }
+            $scope.thirdCategories = $filter('filter')($scope.thirdAllCategories, {'parentId': $scope.level2.id});
+            if ($scope.thirdCategories.length) {
+                $scope.level3 = $scope.thirdCategories[0];
+            } else {
+                $scope.level3 = null;
+            }
+        };
+        $scope.level2Change = function () {
+            $scope.thirdCategories = $filter('filter')($scope.thirdAllCategories, {'parentId': $scope.level2.id});
+            if ($scope.thirdCategories.length) {
+                $scope.level3 = $scope.thirdCategories[0];
+            } else {
+                $scope.level3 = null;
+            }
+        };
+        $scope.addInfoBlock = function () {
+            $scope.commodtySpecs.push({
+                commodityNo: $scope.commodityNo,
+                specGroup: $scope.specGroup,
+                specName: $scope.specName
+            });
+        };
+        $scope.removeInfoBlock = function (specGroup, specName) {
+            angular.forEach($scope.commodtySpecs, function (value, index) {
+                if (value.specGroup == specGroup && value.specName == specName) {
+                    $scope.commodtySpecs.splice(index, 1);
+                }
+            });
+        };
+
+        $scope.uploadMainPic = function () {
+            let file = $scope.mainPicFile;
+            if (!file) {
+                alert('上传图片为空！');
+                return;
+            }
+            let uploadUrl = 'uploadPicture/uploadSinglePic.do';
+            $scope.mainPicBtn = '上传主图中';
+            $scope.bMainPicBtnActive = true;
+            let count = 0;
+            var timer = $interval(function () {
+                $scope.mainPicBtn += '.';
+                count++
+                if (count == 4) {
+                    const index = $scope.mainPicBtn.indexOf('.');
+                    $scope.mainPicBtn = $scope.mainPicBtn.substring(0, index);
+                    count = 0;
+                }
+            }, 1000);
+
+            fileUploadService.uploadFileToUrl(file, uploadUrl)
+                .then(function (data) {
+                    if (1 == data.code) {
+                        alert('上传成功！')
+                        $scope.pictureUrl = data.data;
+                        $scope.bMainPicBtnActive = false;
+                        $interval.cancel(timer);
+                        $scope.mainPicBtn = '上传主图';
+                        angular.element('#mainPicInput').val('');
+                    }
+                }, function (error) {
+                    console.log('mainpic UploadPicture/uploadMainPic.do error:' + error);
+                });
+        };
+        $scope.uploadSubPic = function () {
+            let file = $scope.subPicFile;
+            if (!file) {
+                alert('上传图片为空！');
+                return;
+            }
+            let uploadUrl = 'uploadPicture/uploadSinglePic.do';
+
+            $scope.bSubPicBtnActive = true;
+            $scope.subPicBtn = '上传配图中';
+            let count = 0;
+            var timer = $interval(function () {
+                $scope.subPicBtn += '.';
+                count++
+                if (count == 4) {
+                    const index = $scope.subPicBtn.indexOf('.');
+                    $scope.subPicBtn = $scope.subPicBtn.substring(0, index);
+                    count = 0;
+                }
+            }, 1000);
+            fileUploadService.uploadFileToUrl(file, uploadUrl)
+                .then(function (data) {
+                    if (1 == data.code) {
+                        alert('上传成功!');
+                        $scope.aSubPicUrl.push(data.data);
+                        $scope.bSubPicBtnActive = false;
+                        $interval.cancel(timer);
+                        $scope.subPicBtn = '上传配图';
+                        angular.element('#subPicInput').val('');
+                    }
+                }, function (error) {
+                    console.log('subpic uploadPicture/uploadSinglePic.do error:' + error);
+                });
+        };
+        $scope.removeSubPic = function (url) {
+            angular.forEach($scope.aSubPicUrl, function (value, index) {
+                if(value == url){
+                    $scope.aSubPicUrl.splice(index, 1);
+                }
+            })
+        };
+        //富文本编辑器初始化
+        $scope.ckEditorInit = function () {
+            CKEDITOR.replace('detailed');
+        };
+        $scope.submitUpdatedInfo = function () {
+            httpService.postRequest('commodity/updateCommodity.do',{
+                commodityNo: $scope.commodityNo,
+                name: $scope.name,
+                states: $scope.states,
+                categoryId: $scope.level3.id,
+                introduce: $scope.introduce,
+                detailed: $scope.detailed,
+                pictureUrl: $scope.pictureUrl,
+                commodtySpecs: $scope.commodtySpecs,
+                commodityPicuture: $scope.aSubPicUrl
+            }).then(function (data) {
+                console.log(data);
+                if(1==data.code){
+                    alert(data.data);
+                } else {
+                    alert(data.data);
+                }
+            }, function (error) {
+                console.log('commodity/updateCommodity.do error:'+error);
+            })
+        };
+    }]);
 //store
 //门店信息
 myApp.controller('storeInfoController', ['$scope', 'httpService', function ($scope, httpService) {
@@ -497,15 +857,15 @@ myApp.controller('storeInfoController', ['$scope', 'httpService', function ($sco
                 console.log('getCommodityStoreByStoreNo error: ' + error);
             })
     };
-    $scope.forbiddenStore = function (id, status){
+    $scope.forbiddenStore = function (id, status) {
         status = -status;
         httpService.getRequest('store/updateStore.do', {params: {id: id, status: status}})
-              .then(function(data){
-                  console.log(data);
-                  $scope.getStoreInfo();
-              }, function(error){
-                  console.log('store/updateStore.do'+error);
-              })
+            .then(function (data) {
+                console.log(data);
+                $scope.getStoreInfo();
+            }, function (error) {
+                console.log('store/updateStore.do' + error);
+            })
     };
 }]);
 
@@ -517,13 +877,13 @@ myApp.controller('storeGoodsController', ['$scope', 'httpService', function ($sc
                 $scope.aStoreGoods = data.data.data;
             }, function (error) {
                 console.log('getGoods error: ' + error);
-            })
-    }
+            });
+    };
 }]);
 
 //order
 //订单列表
-myApp.controller('orderListController', ['$scope',  '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
+myApp.controller('orderListController', ['$scope', '$filter', 'orderService', 'orderSearchByDateService', function ($scope, $filter, orderService, orderSearchByDateService) {
     $scope.getOrderLists = function () {
         orderService.getOrdersByState(0, 1)
             .then(function (data) {
@@ -531,7 +891,7 @@ myApp.controller('orderListController', ['$scope',  '$filter', 'orderService', '
             }, function (error) {
                 console.log('getOrderss error' + error);
             });
-        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+        angular.element('.datePicker-btn').daterangepicker(null, function (start, end) {
             var oStartDate = new Date(start._d);
             var oEndDate = new Date(end._d);
             $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
@@ -539,7 +899,7 @@ myApp.controller('orderListController', ['$scope',  '$filter', 'orderService', '
         });
     };
 
-    $scope.searchByDate = function (){
+    $scope.searchByDate = function () {
         orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 0, $scope.aOrderLists);
     };
 }]);
@@ -553,14 +913,14 @@ myApp.controller('orderUnpaidController', ['$scope', '$filter', 'orderService', 
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
-        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+        angular.element('.datePicker-btn').daterangepicker(null, function (start, end) {
             var oStartDate = new Date(start._d);
             var oEndDate = new Date(end._d);
             $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
             $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
         });
     };
-    $scope.searchByDate = function (){
+    $scope.searchByDate = function () {
         orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 1, $scope.aUnpaidLists);
     };
 }]);
@@ -574,7 +934,7 @@ myApp.controller('orderPaidController', ['$scope', '$filter', 'httpService', 'or
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
-        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+        angular.element('.datePicker-btn').daterangepicker(null, function (start, end) {
             var oStartDate = new Date(start._d);
             var oEndDate = new Date(end._d);
             $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
@@ -592,7 +952,7 @@ myApp.controller('orderPaidController', ['$scope', '$filter', 'httpService', 'or
                 console.log('order/updateOrders.do error:' + error);
             })
     };
-    $scope.searchByDate = function (){
+    $scope.searchByDate = function () {
         orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 2, $scope.aPaidLists);
     };
 }]);
@@ -606,15 +966,15 @@ myApp.controller('orderDeliverController', ['$scope', '$filter', 'orderService',
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
-        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+        angular.element('.datePicker-btn').daterangepicker(null, function (start, end) {
             var oStartDate = new Date(start._d);
             var oEndDate = new Date(end._d);
             $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
             $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
         });
     };
-    $scope.searchByDate = function (){
-        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 3,  $scope.aDeliverLists);
+    $scope.searchByDate = function () {
+        orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 3, $scope.aDeliverLists);
     };
 }]);
 
@@ -627,14 +987,14 @@ myApp.controller('orderCompleteController', ['$scope', '$filter', 'orderService'
             }, function (error) {
                 console.log('orderUnpaid error' + error);
             });
-        angular.element('.datePicker-btn').daterangepicker(null, function(start, end) {
+        angular.element('.datePicker-btn').daterangepicker(null, function (start, end) {
             var oStartDate = new Date(start._d);
             var oEndDate = new Date(end._d);
             $scope.fromDate = $filter('date')(oStartDate, 'yyyy-MM-dd');
             $scope.toDate = $filter('date')(oEndDate, 'yyyy-MM-dd');
         });
     };
-    $scope.searchByDate = function (){
+    $scope.searchByDate = function () {
         orderSearchByDateService.orderSearchByDate($scope.fromDate, $scope.toDate, 4, $scope.aCompleteLists);
     };
 }]);
@@ -749,7 +1109,7 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
             $scope.thirdSelected = [];
             $scope.commodities = [];
             $scope.commodityNo = '';
-            httpService.getRequest('sort/getAllCategories.do')
+            httpService.getRequest('sort/getCategories.do')
                 .then(function (data) {
                         if (1 == data.code) {
                             $scope.firstCategories = $filter('filter')(data.data, {'type': 1});

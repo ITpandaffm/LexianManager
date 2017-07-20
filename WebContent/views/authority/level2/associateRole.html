@@ -1,12 +1,10 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div>
-                <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;关联角色&nbsp;</span>
-                <a href="javascript:window.history.go(-1);">返回</a>
-            </div>
+            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;关联角色&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
         </div>
     </div>
 
@@ -24,7 +22,8 @@
                 <div class="col-sm-8 row checkbox">
                     <div class="col-sm-4 checkbox" ng-repeat="item in aAllRoles">
                         <label>
-                            <input type="checkbox" name="rolename" ng-checked="isAssociateRole(item.id)" ng-click="checkboxStateChange(item.id)">{{item.description}}&emsp;
+                            <input type="checkbox" name="rolename" ng-checked="isAssociateRole(item.id)"
+                                   ng-click="checkboxStateChange(item.id)">{{item.description}}&emsp;
                         </label>
                     </div>
                 </div>

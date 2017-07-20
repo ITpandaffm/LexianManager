@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -82,7 +83,7 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public ResultHelper getCategories() {
 		List<Category> list = sortDao.getCategories();
-		return null;
+		return new ResultHelper(Constant.code_success,list);
 	}
 
 }

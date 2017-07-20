@@ -47,7 +47,7 @@ header {
     margin: 5px 0;
     color: #fff;
 }
-.left-headr-top a:first-child {
+.left-header-top a:first-child {
     margin-top: 10px;
 }
 .user-info {
@@ -284,6 +284,39 @@ header {
 .main-right .vipContainer .table tr+tr td:last-child a:hover {
     text-decoration: none;
 }
+.main-right .updateGoodsInfoContainer .info-block {
+    border: 1px solid #ccc;
+    display: table;
+    padding: 10px;
+    margin-right: 10px;
+    width: initial;
+    margin-bottom: 10px;
+}
+.main-right .updateGoodsInfoContainer .info-block>span {
+    margin: 10px;
+}
+
+.main-right .updateGoodsInfoContainer .specGroupContainer,
+.main-right .updateGoodsInfoContainer .specNameContainer {
+    display: flex;
+    align-items: center;
+}
+.main-right .updateGoodsInfoContainer .specGroupContainer label,
+.main-right .updateGoodsInfoContainer .specNameContainer label {
+    flex-basis: 80px;
+}
+.main-right .updateGoodsInfoContainer .specName,
+.main-right .updateGoodsInfoContainer .specGroup {
+    flex-grow: 1;
+}
+
+.main-right #subPicContainer>div {
+    margin-bottom: 20px;
+}
+.main-right #subPicContainer>div button{
+    margin-left: 20px;
+}
+
 table tbody tr {
     background: #fff;
 }
