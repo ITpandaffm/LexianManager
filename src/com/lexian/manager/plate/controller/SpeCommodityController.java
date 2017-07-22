@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lexian.manager.plate.dao.SpeCommodityDao;
 import com.lexian.manager.plate.service.SpeCommodityService;
 import com.lexian.web.ResultHelper;
 
@@ -50,7 +51,7 @@ public class SpeCommodityController {
 	
 	/**
 	 * 通过选择commodity获取commodityNo和返回specialId来添加（表special_commodity）
-	 * @param categoryNo
+	 * @param commodityNo
 	 * @param specialId
 	 * @return
 	 */

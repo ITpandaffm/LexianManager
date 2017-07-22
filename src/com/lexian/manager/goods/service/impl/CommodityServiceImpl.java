@@ -1,5 +1,6 @@
 package com.lexian.manager.goods.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -9,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lexian.manager.goods.bean.Commodity;
+import com.lexian.manager.goods.bean.CommodityPicuture;
 import com.lexian.manager.goods.bean.CommoditySpec;
 import com.lexian.manager.goods.dao.CommodityDao;
 import com.lexian.manager.goods.service.CommodityService;
 import com.lexian.utils.Constant;
+import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
@@ -35,10 +38,9 @@ public class CommodityServiceImpl implements CommodityService{
 		Page page = new Page();
 		page.setPageNo(pageNo);
 		
-		page.setTotalSize(commodityDao.getCountCommodity());
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<Commodity> orderssWithStore = commodityDao.getCommodities(params);
+		List<Commodity> orderssWithStore = commodityDao.getCommoditiesPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);
@@ -72,10 +74,13 @@ public class CommodityServiceImpl implements CommodityService{
 			commodityDao.deleteCommodityPicture(commodity.getCommodityNo());
 			commodityDao.deleteCommoditySpec(commodity.getCommodityNo());
 			List<String> listCommodityPicture = commodity.getCommodityPicuture();
-			for (String string : listCommodityPicture) {
-				System.out.println(string);
-				commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+			if(listCommodityPicture!=null){
+				for (String string : listCommodityPicture) {
+					System.out.println(string);
+					commodityDao.addCommodityPicture(commodity.getCommodityNo(),string);
+				}
 			}
+			
 			List<CommoditySpec> listCommoditySpec=commodity.getCommodtySpecs();
 			for (CommoditySpec commoditySpec : listCommoditySpec) {
 				System.out.println(commoditySpec.getCommodityNo()+commoditySpec.getSpecGroup()+commoditySpec.getSpecName());
@@ -109,6 +114,14 @@ public class CommodityServiceImpl implements CommodityService{
 	public ResultHelper getCommodityById(int id) {
 		Commodity commodity = commodityDao.getCommodityById(id);
 		if (commodity != null) {
+			commodity.setPictureUrl(UrlContant.qiNiuUrl+commodity.getPictureUrl());
+			List<String> list = commodity.getCommodityPicuture();
+			List<String> newList=new ArrayList<String>();
+			for (String item : list) {
+				item=UrlContant.qiNiuUrl+item;
+				newList.add(item);
+			}
+			commodity.setCommodityPicuture(newList);
 			return new ResultHelper(Constant.code_success,commodity);
 		} else {
 			return new ResultHelper(Constant.code_entity_not_found,commodity);

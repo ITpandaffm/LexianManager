@@ -22,12 +22,11 @@ import com.lexian.web.UploadingImageUtil;
 
 
 @Controller
-@RequestMapping("UploadPicture")
-@SessionAttributes(value = { "isLogining" }, types = { Boolean.class })
+@RequestMapping("uploadPicture")
 public class UploadPictrueController {
 	
 	@ResponseBody
-	@RequestMapping("uploadMainPic.do")
+	@RequestMapping("uploadSinglePic.do")
 	public ResultHelper uploadMainPic(HttpServletRequest request)throws IOException{
 		String newPictureUrl=null;
 		
@@ -40,27 +39,6 @@ public class UploadPictrueController {
 				CommonsMultipartFile fi = (CommonsMultipartFile) file;
 				String newName = UploadingImageUtil.upload(fi);
 				newPictureUrl = UrlContant.qiNiuUrl + "/" + newName;
-			}
-		}
-		
-		return new ResultHelper(Constant.code_success,newPictureUrl);
-		}
-	
-	
-	@ResponseBody
-	@RequestMapping("uploadManyPic.do")
-	public ResultHelper uploadManyPic(HttpServletRequest request)throws IOException{
-		
-		List<String> newPictureUrl = null;
-		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-		if(multipartResolver.isMultipart(request)){
-			MultipartHttpServletRequest multiRequest =(MultipartHttpServletRequest) request;
-			Iterator<String> ite =multiRequest.getFileNames();
-			while(ite.hasNext()){
-				MultipartFile file =multiRequest.getFile(ite.next());
-				CommonsMultipartFile fi = (CommonsMultipartFile) file;
-				String newName = UploadingImageUtil.upload(fi);
-				newPictureUrl.add(UrlContant.qiNiuUrl + "/" + newName) ;
 			}
 		}
 		

@@ -7,7 +7,7 @@
 	from special
 	</select>
 	
-	<select id="getSpecial" resultType="com.lexian.manager.plate.bean.Special">
+	<select id="getSpecialPage" resultType="com.lexian.manager.plate.bean.Special">
 	select DISTINCT
 	id,name
 	from special

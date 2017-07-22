@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.shop.dao.CitysDao">
+
+	<select id="getCitiesByParentId"  resultType="com.lexian.manager.shop.bean.Citys">
+		select id,city from citys 
+		<if test="parentId != null">
+			where parent_id=#{parentId,jdbcType=INTEGER}
+		</if>
+		<if test="parentId == null">
+			where parent_id is null
+		</if>
+	
+	</select>
+</mapper>

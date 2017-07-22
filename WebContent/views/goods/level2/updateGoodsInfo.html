@@ -1,0 +1,130 @@
+<div class="container updateGoodsInfoContainer">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <span class="glyphicon glyphicon-user">&nbsp;商品管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;商品基本信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;信息修改&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
+        </div>
+    </div>
+
+    <form role="form" class="form-horizontal" ng-init="getGoodsInfoById()">
+        <div class="form-group">
+            <label for="username" class="control-label col-sm-2">商品名称：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="username" placeholder="请输入商品名称" ng-model="name"/>
+            </div>
+            <div class="col-sm-offset-1 col-sm-3 checkbox">
+                <label><input type="checkbox" ng-model="states"/>激活</label>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <label class="control-label col-sm-2">类别信息：</label>
+            <div class="col-sm-2">
+                <select class="form-control" ng-model="level1"
+                        ng-options="item.categoryName for item in firstCategories" ng-change="level1Change()"></select>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" ng-model="level2"
+                        ng-options="item.categoryName for item in secondCategories" ng-show="secondCategories.length"
+                        ng-change="level2Change()"></select>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" ng-model="level3"
+                        ng-options="item.categoryName for item in thirdCategories"
+                        ng-show="thirdCategories.length"></select>
+            </div>
+            <div class="col-sm-2">
+                <div class="alert alert-danger help-block" ng-show="level3 ==null">
+                    注意第三级id不能为空
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <label class="control-label col-sm-2">规格信息：</label>
+            <div class="col-sm-3 specGroupContainer">
+                <label for="specGroup">规格组：</label>
+                <input type="text" id="specGroup" name="specGroup" class="form-control specGroup"
+                       placeholder="请输入规格组" required ng-model="specGroup"/>
+            </div>
+            <div class="col-sm-3 specNameContainer">
+                <label for="specName">规格名：</label>
+                <input type="text" id="specName" name="specName" class="form-control specName" placeholder="请输入规格名"
+                       required ng-model="specName"/>
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-primary" type="button" ng-disabled="specName == null || specGroup == null"
+                        ng-click="addInfoBlock()">
+                    <span class=" glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-2" id="info-block-container">
+                <div class="col-sm-2 alert-dismissable info-block" ng-repeat="item in commodtySpecs">
+                    <span>{{item.specGroup}}：{{item.specName}}</span>
+                    <button type="button" class="btn btn-primary" data-dismiss="alert" ng-click="removeInfoBlock(item.specGroup, item.specName)">
+                        <span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <label class="control-label col-sm-2">商品简介：</label>
+            <div class="col-sm-9">
+                <textarea rows="3" placeholder="请输入商品简介" class="form-control" ng-model="introduce"></textarea>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <label class="control-label col-sm-2">商品详情：</label>
+            <div class="col-sm-9">
+                <textarea rows="3" id="detailed" class="form-control" ckeditor ng-model="detailed" name="detailed"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">商品主图：</label>
+            <img ng-src="{{pictureUrl}}" class="col-sm-4"/>
+            <div class="col-sm-2">
+                <input type="file" file-model="mainPicFile" id="mainPicInput" accept=".jpg,.png,.JPG,.bmp.PNG,.jpeg"/>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary form-control" ng-disabled="bMainPicBtnActive"
+                        ng-click="uploadMainPic()">{{mainPicBtn}}
+                </button>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <label class="control-label col-sm-2">商品配图：</label>
+            <div class="col-sm-10" id="subPicContainer">
+                <div class="col-sm-6 alert-dismissable" ng-repeat="item in aSubPicUrl">
+                    <img ng-src="{{item}}" width="400px" height="400px">
+                    <button type="button" class="btn btn-primary" data-dismiss="alert" ng-click="removeSubPic(item)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <input type="file" file-model="subPicFile" id="subPicInput" accept=".jpg,.png,.JPG,.bmp.PNG,.jpeg"/>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary form-control" ng-disabled="bSubPicBtnActive"
+                        ng-click="uploadSubPic()">{{subPicBtn}}
+                </button>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3">
+                <button type="button" class="btn btn-primary form-control" ng-click="submitUpdatedInfo()">保存信息</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>

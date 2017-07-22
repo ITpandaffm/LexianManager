@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-sm-2 ">
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" ng-click="addNewGoods()">
                         <span class="glyphicon glyphicon-plus">添加</span>
                     </button>
                 </div>
@@ -51,16 +51,16 @@
             <th>操作</th>
         </tr>
 
-        <tr ng-repeat="items in aGoodsInfo">
+        <tr ng-repeat="item in aGoodsInfo">
             <td>{{$index+1}}</td>
-            <td>{{items.commodityNo}}</td>
-            <td>{{items.name}}</td>
+            <td>{{item.commodityNo}}</td>
+            <td>{{item.name}}</td>
             <td></td>
-            <td>{{items.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td>{{items.updateTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td>{{items.introduce}}</td>
+            <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.updateTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.introduce}}</td>
             <td>
-                <a href="javascript:;">修改</a>
+                <a ui-sref="goods/info/updateGoodsInfo({id:item.id})">修改</a>
             </td>
         </tr>
     </table>

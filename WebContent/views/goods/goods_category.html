@@ -11,7 +11,7 @@
 						<div class="input-group-btn">
 							<div class="btn-group">
 								<button class="btn btn-default dropdown-toggle"
-										data-toggle="dropdown" type="button">
+									data-toggle="dropdown" type="button">
 									<span class="glyphicon glyphicon-ok">&emsp;分类名称</span> <span
 										class="caret"></span>
 								</button>
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="col-sm-2 ">
-					<button type="button" class="btn btn-default">
+					<button type="button" class="btn btn-default" ng-click="addCategory()">
 						<span class="glyphicon glyphicon-plus">添加</span>
 					</button>
 				</div>
@@ -55,8 +55,9 @@
 			<td>{{items.firstName}}</td>
 			<td>1</td>
 			<td>{{items.firstId}}</td>
-			<td><a href="javascript:;">修改</a>&emsp; <a href="javascript:;">删除</a>
-			</td>
+			<td><a
+				ui-sref="goods/category/changeCategory({id:items.firstId,categoryName:items.firstName})">修改</a>&emsp;
+				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.firstId, 1)">删除</a></td>
 		</tr>
 	</table>
 	<pagination></pagination>
@@ -74,7 +75,9 @@
 			<td>{{items.secondName}}</td>
 			<td>2</td>
 			<td>{{items.firstName}}</td>
-			<td><a href="javascript:;">修改</a>&emsp; <a href="javascript:;">删除</a>
+			<td>
+				<a ui-sref="goods/category/changeCategory({id:items.secondtId,categoryName:items.secondName})">修改</a>&emsp;
+				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.secondtId, 2)">删除</a>
 			</td>
 		</tr>
 	</table>
@@ -92,9 +95,10 @@
 			<td>{{items.thirdName}}</td>
 			<td>3</td>
 			<td>{{items.secondName}}</td>
-			<td><a href="javascript:;">修改</a>&emsp; <a href="javascript:;">删除</a>
-			</td>
+			<td><a ui-sref="goods/category/changeCategory({id:items.thirdId,categoryName:items.thirdName})">修改</a>&emsp;
+				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.thirdId, 3)">删除</a></td>
 		</tr>
 	</table>
 	<pagination></pagination>
+	<confirmdeletemodal></confirmdeletemodal>
 </div>

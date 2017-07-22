@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <span class="glyphicon glyphicon-user">&nbsp;商品管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;分类管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;添加商品分类&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
+        </div>
+    </div>
+
+    <form role="form" class="form-horizontal" name="addCategoryForm" ng-init="getAllCategories()">
+        <div class="form-group">
+            <label for="classLevel1" class="control-label col-sm-3">级别：</label>
+            <div class="col-sm-4">
+                <select class="form-control" ng-model="categoryLevel" id="classLevel1"
+                        ng-change="updateCategoryLevel()">
+                    <option value="0" ng-selected=true>一级分类</option>
+                    <option value="1">二级分类</option>
+                    <option value="2">三级分类</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="categoryLevel">
+            <label for="classLevel2" class="control-label col-sm-3">上级分类：</label>
+            <div class="col-sm-4">
+                <select class="form-control" ng-required="true" name="categoryLevel2" id="classLevel2"
+                        ng-model="parentId">
+                    <option ng-repeat="items in currentCategory" value="{{items.id}}">{{items.categoryName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="categoryName" class="control-label col-sm-3">类别名称：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="categoryName" ng-model="categoryName"
+                       name="categoryName" ng-required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-8">
+                <button type="button" class="btn btn-primary" ng-click="addCategory()"
+                        ng-disabled="addCategoryForm.categoryName.$invalid">保存
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

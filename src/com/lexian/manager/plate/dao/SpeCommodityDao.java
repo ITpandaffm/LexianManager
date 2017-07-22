@@ -13,7 +13,7 @@ public interface SpeCommodityDao {
 	
 	public int getCountSpeCommodities(int id);
 	
-	public List<SpecialCommodity> getSpecialCommodities(@Param("id")int id,Map<String, Object> params);
+	public List<SpecialCommodity> getSpecialCommoditiesPage(Map<String, Object> params);
 	
 	public void addSpecialCommodities(@Param("commodityNo")String commodityNo,@Param("id")int id);
 

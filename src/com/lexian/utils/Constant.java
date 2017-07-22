@@ -21,6 +21,7 @@ public static Map<Integer, String> messages;
 	public static final int code_state_forbid=-200;
 	
 	public static final int code_no_privilege = -10;		//沒有权限
+	public static final int code_no_login=-101;
 	
 	static{
 		messages = new HashMap<Integer, String>();
@@ -36,5 +37,6 @@ public static Map<Integer, String> messages;
 		messages.put(code_unknown_reason, "未知的原因");
 		messages.put(code_no_privilege, "沒有权限");
 		messages.put(code_state_forbid, "该用户已被禁用，请联系管理员");
+		messages.put(code_no_login, "请先登录");
 	}
 }

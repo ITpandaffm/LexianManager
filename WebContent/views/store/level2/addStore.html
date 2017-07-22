@@ -1,0 +1,138 @@
+<div class="container addStoreContainer">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div>
+                <span class="glyphicon glyphicon-user">&nbsp;门店信息管理&nbsp;</span> <span
+                    class="glyphicon glyphicon-chevron-right">&nbsp;添加门店信息&nbsp;</span>
+                <a href="javascript:window.history.go(-1);">返回</a>
+            </div>
+        </div>
+    </div>
+    <form role="form" class="form-horizontal" name="addStoreForm">
+        <div class="col-sm-6">
+            <div class="form-group"  ng-class="{'has-error':addStoreForm.storeNo.$invalid && addStoreForm.storeNo.$dirty}">
+                <label for="storeNo" class="control-label col-sm-4">门店编号：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="storeNo" placeholder="请输入四位纯数字" name="storeNo" ng-model="storeNo" required  ng-pattern="/^\d{4}$/"/>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error':addStoreForm.storeName.$invalid && addStoreForm.storeName.$dirty}">
+                <label for="storeName" class="control-label col-sm-4">门店名称：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="storeName" placeholder="名称最短为两个汉字" name="storeName" ng-model="storeName" required minlength="2" maxlength="30"/>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error':addStoreForm.storeAddress.$invalid && addStoreForm.storeAddress.$dirty}">
+                <label for="storeAddress" class="control-label col-sm-4">门店地址：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="storeAddress" placeholder="请输入门店地址" name="storeAddress" ng-model="storeAddress" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="storeIntroduce" class="control-label col-sm-4">门店介绍：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="storeIntroduce" placeholder="请输入门店介绍" name="storeIntroduce" ng-model="storeIntroduce"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="startTime" class="control-label col-sm-4">开始营业时间：</label>
+                <div class="col-sm-8">
+                    <input type="datepicker" class="form-control" id="startTime" name="startTime" ng-model="startTime"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="closeTime" class="control-label col-sm-4">结束营业时间：</label>
+                <div class="col-sm-8">
+                    <input type="datepicker" class="form-control" id="closeTime" name="closeTime" ng-model="closeTime"/>
+                    <div ng-show="closeTime<startTime">
+                        <span>终止时间输入错误</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group" ng-class="{'has-error':addStoreForm.maxLatitude.$invalid}">
+                <label for="maxLatitude" class="control-label col-sm-4">最大纬度：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="maxLatitude" placeholder="请输入最大纬度" name="maxLatitude" ng-model="maxLatitude" ng-pattern="/^[\-\+]?([0-8]?\d{1}\.\d{1,5}|90\.0{1,5})$/"/>
+                    <div ng-show="addStoreForm.maxLatitude.$invalid">
+                        <span>请输入正确的纬度(-90.0~+90.0，必须输入1到5位小数)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error':addStoreForm.minLatitude.$invalid}">
+                <label for="minLatitude" class="control-label col-sm-4">最小纬度：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="minLatitude" placeholder="请输入最小纬度" name="minLatitude" ng-model="minLatitude" ng-pattern="/^[\-\+]?([0-8]?\d{1}\.\d{1,5}|90\.0{1,5})$/"/>
+                    <div ng-show="addStoreForm.minLatitude.$invalid">
+                        <span>请输入正确的纬度(-90.0~+90.0，必须输入1到5位小数)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':addStoreForm.maxLongitude.$invalid}">
+                <label for="maxLongitude" class="control-label col-sm-4">最大经度：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="maxLongitude" placeholder="请输入最大经度" name="maxLongitude" ng-model="maxLongitude" ng-pattern="/^[\-\+]?(0?\d{1,2}\.\d{1,5}|1[0-7]?\d{1}\.\d{1,5}|180\.0{1,5})$/"/>
+                    <div ng-show="addStoreForm.maxLongitude.$invalid">
+                        <span>请输入正确的经度（-180.0~+180.0）整数部分为0~180，必须输入1到5位小数</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':addStoreForm.minLongitude.$invalid}">
+                <label for="minLongitude" class="control-label col-sm-4">最小经度：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="minLongitude" placeholder="请输入最小经度" name="minLongitude" ng-model="minLongitude" ng-pattern="/^[\-\+]?(0?\d{1,2}\.\d{1,5}|1[0-7]?\d{1}\.\d{1,5}|180\.0{1,5})$/"/>
+                    <div ng-show="addStoreForm.minLongitude.$invalid">
+                        <span>请输入正确的经度（-180.0~+180.0）整数部分为0~180，必须输入1到5位小数</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-init="getProvince()">
+                <label for="province" class="control-label col-sm-4">省份：</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="province" ng-model="provinceId" ng-click="updateProvince()">
+                        <option ng-repeat="items in aProvince" value="{{items.id}}">{{items.city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city" class="control-label col-sm-4">城市：</label>
+                <div class="col-sm-8">
+                    <select ng-init="getCitys()" class="form-control" id="city" ng-model="citysId"
+                            ng-click="getCounty(citysId)">
+                        <option ng-repeat="items in aCitys" value="{{items.id}}">{{items.city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="aCounty.length">
+                <label for="area" class="control-label col-sm-4">区域：</label>
+                <div class="col-sm-8">
+                    <select ng-init="getCounty(35)" class="form-control" id="area" ng-model="countyId">
+                        <option ng-repeat="items in aCounty" value="{{items.id}}">{{items.city}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-sm-offset-5">
+            <button type="button" class="btn btn-primary submitNewStoreBtn" ng-click="submitNewStore()" ng-disabled="addStoreForm.storeNo.$invalid ||
+				addStoreForm.storeName.$invalid ||
+				 addStoreForm.storeAddress.$invalid ||
+				 addStoreForm.storeIntroduce.$invalid ||
+				 addStoreForm.startTime.$invalid ||
+				 addStoreForm.closeTime.$invalid ||
+				 addStoreForm.maxLatitude.$invalid ||
+				 addStoreForm.minLatitude.$invalid ||
+				 addStoreForm.maxLongitude.$invalid ||
+				 addStoreForm.minLongitude.$invalid ||
+				 (closeTime<startTime) ||
+				 aCounty.length==0">保存
+            </button>
+        </div>
+    </form>
+</div>

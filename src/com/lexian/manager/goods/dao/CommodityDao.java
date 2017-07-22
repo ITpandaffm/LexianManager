@@ -11,11 +11,7 @@ import com.lexian.manager.goods.bean.CommoditySpec;
 
 public interface CommodityDao {
 	
-	public List<Commodity> getCommodities(Map<String, Object> params);
-	
-	
-	
-	public int getCountCommodity();
+	public List<Commodity> getCommoditiesPage(Map<String, Object> params);
 	
 	public List<Commodity> getCommodityByCategoryId(int categoryId);
 	

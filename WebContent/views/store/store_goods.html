@@ -47,7 +47,7 @@
             <td>{{item.storeNo}}</td>
             <td>{{item.storeName}}</td>
             <td>
-                <a href="javascript:;">店铺商品管理</a>
+                <a ui-sref="store/goods/manageStore({aStoreGoodsId:item.storeNo,aStoreGoodsName:item.storeName})">店铺商品管理</a>
             </td>
         </tr>
 

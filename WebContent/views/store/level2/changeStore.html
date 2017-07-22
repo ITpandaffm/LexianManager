@@ -1,0 +1,147 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body" style="background-color: #f5f5f5;">
+			<div>
+				<span class="glyphicon glyphicon-user">&nbsp;门店信息管理&nbsp;</span> <span
+					class="glyphicon glyphicon-chevron-right">&nbsp;添加门店信息&nbsp;</span>
+				<a href="javascript:window.history.go(-1);">返回</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-10">
+		<form role="form" class="form-horizontal" name="addStoreForm">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="storeid" class="control-label col-sm-4">门店编号：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="storeid" name="storeid" ng-model="storeNo" ng-required="true" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="storename" class="control-label col-sm-4">门店名称：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="storename" name="storename" ng-model="storeName" ng-required="true"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="storeAddress" class="control-label col-sm-4">门店地址：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="storeAddress" name="storeAddress" ng-model="storeAddress" ng-required="true"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="storeIntr" class="control-label col-sm-4">门店介绍：</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="storeIntr" name="storeIntr" ng-model="storeIntroduce" ng-required="true"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="beginTime" class="control-label col-sm-4">开始营业时间：</label>
+					<div class="col-sm-8">
+						<input type="time" value="startTime" ng-model="startTime" class="form-control" id="beginTime" name="beginTime" ng-required="true"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="endTime" class="control-label col-sm-4">结束营业时间：</label>
+					<div class="col-sm-8">
+						<input type="time" value="closeTime" ng-model="closeTime" class="form-control" id="endTime" name="endTime" ng-required="true"/>
+						<div ng-show="closeTime<startTime">
+							<span>终止时间输入错误</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="maxLat" class="control-label col-sm-4">最大纬度：</label>
+					<div class="col-sm-8">
+						<input type="number" class="form-control" id="maxLat" name="maxLat" ng-model="maxLatitude" ng-required="true" />
+						<div ng-show="maxLatitude>90||maxLatitude<0">
+							<span>请输入正确的纬度</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="minLat" class="control-label col-sm-4">最小纬度：</label>
+					<div class="col-sm-8">
+						<input type="number" class="form-control" id="minLat" name="minLat" ng-model="minLatitude" ng-required="true"/>
+						<div ng-show="minLatitude>90||minLatitude<0">
+							<span>请输入正确的纬度</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="maxLONG" class="control-label col-sm-4">最大经度：</label>
+					<div class="col-sm-8">
+						<input type="number" class="form-control" id="maxLONG" name="maxLong" ng-model="maxLongitude" ng-required="true"/>
+						<div ng-show="maxLongitude>180||maxLongitude<0">
+							<span>请输入正确的经度</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="minLONG" class="control-label col-sm-4">最小经度：</label>
+					<div class="col-sm-8">
+						<input type="number" class="form-control" id="minLONG" name="minLong" ng-model="minLongitude" ng-required="true"/>
+						<div ng-show="minLongitude>180||minLongitude<0">
+							<span>请输入正确的经度</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group" ng-init="getProvince()">
+					<label for="province" class="control-label col-sm-4">省份：</label>
+					<div class="col-sm-8">
+						<select class="form-control" id="province" ng-init="provinceId=1" ng-model="provinceId" ng-click="getCitys()">
+							<option ng-repeat="items in aProvince" value="{{items.id}}">{{items.city}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="city" class="control-label col-sm-4">城市：</label>
+					<div class="col-sm-8">
+						<select ng-init="getCitys()" class="form-control" id="city" ng-model="citysId" ng-click="getCounty(citysId)">
+							<option ng-repeat="items in aCitys" value="{{items.id}}">{{items.city}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group" ng-show="aCounty.length">
+					<label for="area" class="control-label col-sm-4">区域：</label>
+					<div class="col-sm-8">
+						<select  ng-init="getCounty(35)" class="form-control" id="area" ng-model="countyId">
+							<option ng-repeat="items in aCounty" value="{{items.id}}">{{items.city}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div align="center">
+				<button type="button" class="btn btn-primary" ng-click="addStore()"
+				ng-disabled="addStoreForm.storeid.$invalid || 
+				addStoreForm.storename.$invalid ||
+				 addStoreForm.storeAddress.$invalid ||
+				 addStoreForm.storeIntr.$invalid ||
+				 addStoreForm.beginTime.$invalid ||
+				 addStoreForm.endTime.$invalid ||
+				 addStoreForm.maxLat.$invalid ||
+				 addStoreForm.minLat.$invalid ||
+				 addStoreForm.maxLong.$invalid ||
+				 addStoreForm.minLong.$invalid ||
+				 (closeTime<startTime) ||
+				 (maxLatitude>90||maxLatitude<0) ||
+				 (minLatitude>90||minLatitude<0) ||
+				 (maxLongitude>180||maxLongitude<0) ||
+				 (minLongitude>180||minLongitude<0) ||
+				 aCounty.length==0">保存</button>
+			</div>
+		</form>
+	</div>
+</div>

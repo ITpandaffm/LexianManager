@@ -3,12 +3,25 @@
 <mapper namespace="com.lexian.manager.shop.dao.StoreDao">
 	<select id="getAllStorePage" resultType="Store">
 		select
-		store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
+		id,store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
 		from store
 	</select>
+	
+	<select id="getStoreByStoreNo" resultType="Store" parameterType="java.lang.String">
+	select id,store_no as storeNo,province_id as provinceId,citys_id as
+	cityId,county_id as countyId,storename as storeName,storeaddress as
+	storeAddress,introduce,starttime as startTime,closetime as
+	closeTime,maxlongitude as maxLongItude,
+	minlongitude as
+	minLongItude,maxlatitude as maxLatItude,minlatitude as
+	minLatItude,status
+	from store
+	where store_no=#{storeNo,jdbcType=VARCHAR}
+	</select>
+	
 	<insert id="addStore" parameterType="Store">
 		insert into
-		store(store_no,storename,storeaddress,introduce,starttime,closetime,maxlongitude,minlongitude,maxlatitude,minlatitude,province_id,citys_id,county_id)
+		store(store_no,storename,storeaddress,introduce,starttime,closetime,maxlongitude,minlongitude,maxlatitude,minlatitude,province_id,citys_id,county_id,status)
 		values(
 		#{storeNo,jdbcType=VARCHAR},
 		#{storeName,jdbcType=VARCHAR},
@@ -22,7 +35,8 @@
 		#{ minLatItude,jdbcType=DOUBLE},
 		#{ provinceId,jdbcType=INTEGER},
 		#{ cityId,jdbcType=INTEGER},
-		#{ countyId,jdbcType=INTEGER}
+		#{ countyId,jdbcType=INTEGER},
+		#{ status,jdbcType=INTEGER}
 		)
 	</insert>
 	<update id="updateStore" parameterType="Store">
@@ -73,4 +87,9 @@
 		</set>
 		where id=#{id,jdbcType=INTEGER}
 	</update>
+	<select id="getStoresByCitysId" resultType="Store">
+		 select id , storename as storeName,storeaddress as storeAddress 
+		 from store
+		 where province_id=#{pid,jdbcType=INTEGER} and citys_id=#{cityId,jdbcType=INTEGER} and county_id=#{countyId,jdbcType=INTEGER}	 
+	</select>
 </mapper>

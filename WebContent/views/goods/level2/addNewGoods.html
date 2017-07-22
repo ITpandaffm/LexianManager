@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <span class="glyphicon glyphicon-user">&nbsp;商品管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;商品基本信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;信息添加&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
+        </div>
+    </div>
+
+    <div class="col-sm-10">
+        <form role="form" class="form-horizontal" name="addNewCommodityForm">
+            <div class="form-group" ng-class="{'has-error':addNewCommodityForm.commodityNo.$invalid}">
+                <label for="commodityNo" class="control-label col-sm-2">商品编号：</label>
+                <div class="col-sm-4">
+                    <input type="text" name="commodityNo" id="commodityNo" class="form-control"
+                           placeholder="13位数字，例如978755681000" ng-model="commodityNo" ng-pattern="/^\d{13}$/"/>
+                </div>
+                <div class="col-sm-4">
+                    <div class="alert alert-danger help-block"
+                         ng-show="addNewCommodityForm.commodityNo.$invalid&&addNewCommodityForm.commodityNo.$dirty">
+                        编号必须为13位纯数字
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="control-label col-sm-2">商品名称：</label>
+                <div class="col-sm-4">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="请输入商品名称" ng-model="name"
+                           required maxlength="30"/>
+                </div>
+                <div class="col-sm-4">
+                    <div class="alert alert-danger help-block"
+                         ng-show="addNewCommodityForm.name.$invalid&&addNewCommodityForm.name.$dirty">
+                        名称不能为空！
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group" ng-init="getAllCategories()">
+                <label class="control-label col-sm-2">类别信息：</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="level1"
+                            ng-options="item.categoryName for item in firstCategories" ng-change="level1Change()">
+                        <option value="" ng-selected="true">--请选择一级分类--</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="level2" ng-show="secondCategories.length"
+                            ng-options="item.categoryName for item in secondCategories"></select>
+                </div>
+                <div class="col-sm-2">
+                    <select class="form-control" ng-model="level3" ng-show="thirdCategories.length"
+                            ng-options="item.categoryName for item in thirdCategories"></select>
+                </div>
+                <div class="col-sm-2">
+                    <div class="alert alert-danger help-block" ng-show="level3 ==null && bSelectDirty">
+                        注意第三级id不能为空
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label class="control-label col-sm-2">商品简介：</label><br/>
+                <div class="col-sm-9">
+                    <textarea rows="5" placeholder="请输入商品简介" class="form-control" maxlength="150"
+                              ng-model="introduce"></textarea>
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-3">
+                    <button type="button" class="btn btn-primary form-control" ng-click="submitNewCommodity()"
+                            ng-disabled="level3==null || addNewCommodityForm.$invalid || addNewCommodityForm.$pristine ">
+                        保存信息
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

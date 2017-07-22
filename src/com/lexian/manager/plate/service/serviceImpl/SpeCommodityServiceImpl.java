@@ -40,13 +40,11 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 	public ResultHelper getSpecialCommodities(int id,Integer pageNo) {
 		Page page = new Page();
 
-		if (pageNo != null) {
-			page.setPageNo(pageNo);
-		}
-		page.setTotalSize(speCommodityDao.getCountSpeCommodities(id));
+		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
-		List<SpecialCommodity> orderssWithStore = speCommodityDao.getSpecialCommodities(id, params);
+		params.put("id", id);
+		List<SpecialCommodity> orderssWithStore = speCommodityDao.getSpecialCommoditiesPage(params);
 		page.setData(orderssWithStore);
 
 		ResultHelper result = new ResultHelper(Constant.code_success, page);

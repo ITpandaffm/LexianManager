@@ -1,5 +1,7 @@
 package com.lexian.manager.shop.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +27,10 @@ public class CommodityStoreController {
 
 	@ResponseBody
 	@RequestMapping("getCommodityStoreByStoreNo.do")
-	public ResultHelper getCommdityByStoreNo(String storeNo) {
-		ResultHelper result = commoditystoreService.getCommodityByStoreNo(storeNo);
+	public ResultHelper getCommdityByStoreNo(Integer pageNo,String storeNo) {
+		ResultHelper result = commoditystoreService.getCommodityByStoreNo(storeNo,pageNo);
 		return result;
-		// commoditystore/getCommodityStoreByStoreNo.do?storeNo=1004
+		// commoditystore/getCommodityStoreByStoreNo.do?storeNo=1013&pageNo=10
 	}
 	@ResponseBody
 	@RequestMapping("updateCommodityStore.do")

@@ -1,16 +1,13 @@
 package com.lexian.manager.goods.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lexian.manager.goods.bean.Commodity;
-import com.lexian.manager.goods.bean.CommoditySpec;
 import com.lexian.manager.goods.service.CommodityService;
 import com.lexian.web.ResultHelper;
 
@@ -85,7 +82,7 @@ public class CommodityController {
 	 */
 	@ResponseBody
 	@RequestMapping("updateCommodity.do")
-	public ResultHelper updateCommodity(Commodity commodity){
+	public ResultHelper updateCommodity(@RequestBody Commodity commodity){
 		ResultHelper result = commodityService.updateCommodity(commodity);
 		return result;
 		//commodity/updateCommodity.do

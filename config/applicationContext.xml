@@ -83,4 +83,9 @@
 	<!-- 静态资源访问默认的servlet -->
 	<mvc:default-servlet-handler />
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="maxUploadSize" value="2000000000"></property> <!-- 最大上传文件大小 20000kb，注意是多个文件的和-->
+		<property name="maxInMemorySize" value="109600000"></property>
+	</bean>
 </beans>

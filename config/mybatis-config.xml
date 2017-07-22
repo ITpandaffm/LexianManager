@@ -27,6 +27,7 @@
 		<typeAlias type="com.lexian.manager.goods.bean.Category" alias="Category" />
 		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />
 		<typeAlias type="com.lexian.manager.goods.bean.CommoditySpec" alias="CommoditySpec" />
+		<typeAlias type="com.lexian.manager.shop.bean.Citys" alias="Citys"/>
 	</typeAliases>
 	
 	<plugins>  

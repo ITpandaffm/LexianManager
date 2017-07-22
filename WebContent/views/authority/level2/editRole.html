@@ -1,20 +1,20 @@
 <div class="container editRoleContainer">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div>
-                <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
-                <span class="glyphicon glyphicon-chevron-right">&nbsp;修改角色信息&nbsp;</span>
-                <a href="javascript:window.history.go(-1);">返回</a>
-            </div>
+            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
+            <span class="glyphicon glyphicon-chevron-right">&nbsp;修改角色信息&nbsp;</span>
+            <a href="javascript:window.history.go(-1);">返回</a>
         </div>
     </div>
 
-    <form role="form" class="form-horizontal" name="editRoleForm" ng-class="{'hasError': editRoleForm.username.$invalid && addRoleForm.name.$dirty}">
+    <form role="form" class="form-horizontal" name="editRoleForm"
+          ng-class="{'hasError': editRoleForm.username.$invalid && addRoleForm.name.$dirty}">
         <div class="form-group">
             <label for="username" class="control-label col-sm-3">角色名称：</label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" name="username" id="username" placeholder="请输入角色名称" ng-model="name" required/>
+                <input type="text" class="form-control" name="username" id="username" placeholder="请输入角色名称"
+                       ng-model="name" required/>
             </div>
             <div class="col-sm-4">
                 <div class="alert alert-danger help-block"
@@ -26,12 +26,15 @@
         <div class="form-group">
             <label for="description" class="control-label col-sm-3">角色描述：</label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" id="description" placeholder="请输入角色描述" ng-model="description" ng-keyup="clickEnter($event)"/>
+                <input type="text" class="form-control" id="description" placeholder="请输入角色描述" ng-model="description"
+                       ng-keyup="clickEnter($event)"/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-3">
-                <button type="button" class="btn btn-primary" ng-disabled="editRoleForm.$invalid" ng-click="updateRole()">保存</button>
+                <button type="button" class="btn btn-primary" ng-disabled="editRoleForm.$invalid"
+                        ng-click="updateRole()">保存
+                </button>
             </div>
         </div>
     </form>

@@ -22,10 +22,10 @@ public class UploadingImageUtil {
 		// ...其他参数参考类注释
 		private static UploadManager uploadManager = new UploadManager(cfg);
 		// ...生成上传凭证，然后准备上传
-		private static String accessKey = "cF_2ALl43aKI4BtLkaZ2JIJnqQ-c3yE_ew9_Rfe9";
-		private static String secretKey = "jLgHePbyHruskcqQC3MbqGz2tCNVF_gy2v66dqBd";
+		private static String accessKey = "a5raC1U1P_Sap5M3GDFdPjPIgXovBNMKJAwJY-05";
+		private static String secretKey = "s32eI0n9vL3PpggqpMZCbEr6T4kEEaDNMQFY4MX4";
 		
-		private static String bucket = "lexianmanager";// 上传到指定的七牛云存储的一个空间中
+		private static String bucket = "lexianmarket";// 上传到指定的七牛云存储的一个空间中
 		private static String key = null;// 默认不指定key的情况下，以文件内容的hash值作为文件名（上传后的文件名）
 		
 		public static String upload(CommonsMultipartFile file) throws UnsupportedEncodingException {

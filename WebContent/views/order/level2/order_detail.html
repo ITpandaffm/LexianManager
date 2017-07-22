@@ -44,7 +44,7 @@
             <tr ng-repeat="item in oDetail.orderItems">
                 <td class="goods_td">{{item.commodity.commodityNo}}</td>
                 <td class="goods_td">{{item.commodity.name}}</td>
-                <td class="goods_td"><img src="../img/38f4ade2-8b1e-4586-9025-5cfacd1378af.jpg" alt="" width="120px" height="120px" /></td>
+                <td class="goods_td"><img ng-src="{{item.commodity.pictureUrl}}" alt="" width="120px" height="120px" /></td>
                 <td class="goods_td">{{item.listPrice}}</td>
                 <td class="goods_td">{{item.amount}}</td>
                 <td class="goods_td">{{item.totalPrice}}</td>

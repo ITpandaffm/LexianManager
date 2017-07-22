@@ -17,6 +17,7 @@ import com.lexian.manager.authority.dao.ManagerDao;
 import com.lexian.manager.authority.dao.RoleManagerDao;
 import com.lexian.manager.authority.service.ManagerService;
 import com.lexian.utils.Constant;
+import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
@@ -188,6 +189,11 @@ public class ManagerServiceImpl implements ManagerService {
 		params.put("id", id);
 		List<Menu> menus = managerDao.getMenusPage(params);
 		page.setData(menus);
+		
+		for(Menu menu:menus){
+			menu.setBackUrl(UrlContant.qiNiuUrl+"/"+menu.getBackUrl());
+		}
+		
 		return new ResultHelper(Constant.code_success,page);
 	}
 

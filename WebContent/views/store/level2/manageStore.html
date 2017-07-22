@@ -1,0 +1,76 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body" style="background-color: #f5f5f5;">
+			<div class="col-sm-6">
+				<span class="glyphicon glyphicon-user">&nbsp;店铺管理&nbsp;</span> <span
+					class="glyphicon glyphicon-chevron-right">&nbsp;店铺商品管理&nbsp;</span>
+				<span class="glyphicon glyphicon-chevron-right">&nbsp;{{storeName}}&nbsp;</span>
+				<a href="javascript:window.history.go(-1);">返回</a>
+			</div>
+			<div class="col-sm-6">
+				<div class="col-sm-10">
+					<div class="input-group">
+						<div class="input-group-btn">
+							<div class="btn-group">
+								<button class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" type="button">
+									<span class="glyphicon glyphicon-ok">&emsp;商品名称</span> <span
+										class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;商品名称</a>
+									</li>
+									<li><a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;商品编号</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<input type="text" class="form-control" placeholder="请输入搜索内容">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2 ">
+					<button type="button" class="btn btn-default" ng-click="registerGoods()">
+						<span class="glyphicon glyphicon-plus">注册商品</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<table class="table table-striped" ng-init="getCommodityStore()">
+			<tr>
+				<th></th>
+				<th>商品编号</th>
+				<th>商品名称</th>
+				<th>库存数量</th>
+				<th>现价</th>
+				<th>原价</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+
+			<tr ng-repeat="item in commodityStore">
+				<td>{{$index+1}}</td>
+				<td>{{item.commmodityNo}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.commodityAmont}}</td>
+				<td>{{item.commodotyPrice}}</td>
+				<td>{{item.realPrice}}</td>
+				<td ng-switch="item.type"><span ng-switch-when="1">已上架</span> <span
+					ng-switch-when="-1">已下架</span></td>
+				<td><a href="javascript:;" ng-click="changeCommodityType(item)"
+					ng-switch="item.type"> <span ng-switch-when="1">下架</span> <span
+						ng-switch-when="-1">上架</span></a>&emsp; 
+						<a ui-sref="store/goods/manageStore/changePrice({storeName:storeName,id:item.id,commodotyPrice:item.commodotyPrice,realPrice:item.realPrice})">更改价格</a>&emsp;
+					<a ui-sref="store/goods/manageStore/changeAmont({storeName:storeName,id:item.id,commodityAmont:item.commodityAmont})">更改库存</a>&emsp;</td>
+			</tr>
+		</table>
+		<pagination></pagination>
+	</div>
+</div>

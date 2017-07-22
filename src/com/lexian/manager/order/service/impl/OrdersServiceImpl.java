@@ -7,10 +7,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lexian.manager.goods.bean.Commodity;
+import com.lexian.manager.order.bean.OrderItem;
 import com.lexian.manager.order.bean.Orders;
 import com.lexian.manager.order.dao.OrdersDao;
 import com.lexian.manager.order.service.OrdersService;
 import com.lexian.utils.Constant;
+import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
@@ -44,8 +47,14 @@ public class OrdersServiceImpl implements OrdersService {
 
 	@Override
 	public ResultHelper getOrderDetail(int id) {
-
-		return new ResultHelper(Constant.code_success, ordersDao.getOrdersWithUserAndAndOrderItemsStore(id));
+		Orders orders=ordersDao.getOrdersWithUserAndAndOrderItemsStore(id);
+		
+		for(OrderItem item:orders.getOrderItems()){
+			Commodity commodity=item.getCommodity();
+			commodity.setPictureUrl(UrlContant.qiNiuUrl+"/"+commodity.getPictureUrl());
+		}
+		
+		return new ResultHelper(Constant.code_success,orders );
 	}
 
 	@Override

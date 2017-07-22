@@ -10,6 +10,7 @@ import com.lexian.manager.goods.bean.Category;
 import com.lexian.manager.goods.service.SortService;
 import com.lexian.web.ResultHelper;
 
+
 @Controller
 @RequestMapping("sort")
 @SessionAttributes(value={"managerId"},types={Integer.class})
@@ -30,11 +31,11 @@ public class SortController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping("getAllCategories.do")
-	 public ResultHelper getAllCategories(){
-		ResultHelper result=sortService.getAllCategories();
+	@RequestMapping("getCategories.do")
+	 public ResultHelper getCategories(){
+		ResultHelper result=sortService.getCategories();
 		return result;
-		//sort/getAllCategories.do
+		//sort/getCategories.do
 	 }
 	/**
 	 * 
@@ -44,7 +45,7 @@ public class SortController {
 	@ResponseBody
 	@RequestMapping("getCategoryView.do")
 	 public ResultHelper getCategoryView(Integer pageNo){
-		ResultHelper result=sortService.getAllCategories();
+		ResultHelper result=sortService.getAllCategories(pageNo);
 		return result;
 		//sort/getCategoryView.do
 	 }
@@ -68,12 +69,12 @@ public class SortController {
 	 */
 	@ResponseBody
 	@RequestMapping("addCategory.do")
-	 public ResultHelper addCategory(){
+	 public ResultHelper addCategory(Category category){
 		//sort/addCategory.do
-		Category category= new Category();
+		/*Category category= new Category();
 		category.setCategoryName("chenhao");
 		category.setType(2);
-		category.setParentId(46);
+		category.setParentId(46);*/
 		return sortService.addCategory(category);
 		 
 	 }
@@ -98,9 +99,9 @@ public class SortController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping("deleteSpecial.do")
+	@RequestMapping("deleteCategory.do")
 	 public ResultHelper deleteCategory(int id){
-		 //sort/deleteSpecial.do?id=10
+		 //sort/deleteCategory.do?id=10
 		return sortService.deleteCategory(id);
 	 }
 }

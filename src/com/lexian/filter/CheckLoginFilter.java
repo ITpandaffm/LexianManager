@@ -1,6 +1,7 @@
 package com.lexian.filter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -14,16 +15,11 @@ import javax.servlet.http.HttpSession;
 
 public class CheckLoginFilter implements Filter {
 
-	private String targetPage;
-	private String root;
 	private String loginAction;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		targetPage = filterConfig.getInitParameter("target-page");
 		loginAction = filterConfig.getServletContext().getInitParameter("login-action");
-		root = filterConfig.getServletContext().getContextPath();
-
 	}
 
 	@Override
@@ -35,7 +31,20 @@ public class CheckLoginFilter implements Filter {
 		if (canContinue(req, resp)) {
 			chain.doFilter(request, response);
 		} else {
-			resp.sendRedirect(root + "/" + targetPage);
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/json; charset=utf-8");
+			String jsonStr = "{\"code\":\"-101\",\"data\":\"请先登录\"}";
+			PrintWriter out = null;
+			try {
+			    out = response.getWriter();
+			    out.write(jsonStr);
+			} catch (IOException e) {
+			    e.printStackTrace();
+			} finally {
+			    if (out != null) {
+			        out.close();
+			    }
+			}
 		}
 	}
 

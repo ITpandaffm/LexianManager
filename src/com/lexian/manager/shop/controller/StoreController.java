@@ -1,8 +1,5 @@
 package com.lexian.manager.shop.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +53,13 @@ public class StoreController {
 	  store1.setStoreName("hahah");*/
 		ResultHelper result=storeService.updateStore(store);
 		return result;
-		//store/updateStore.do
+		//store/updateStore.do?id=69&status=-1
+	}
+	@ResponseBody
+	@RequestMapping("getStoreByStoreNo.do")
+	public ResultHelper getStoreByStoreNo(String storeNo){
+		ResultHelper result=storeService.getStoreByStoreNo(storeNo);
+		return result;
+		//store/getStoreByStoreNo.do?storeNo=1001
 	}
 }
