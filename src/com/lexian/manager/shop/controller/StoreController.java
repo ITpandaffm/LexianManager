@@ -54,6 +54,7 @@ public class StoreController {
 		ResultHelper result=storeService.updateStore(store);
 		return result;
 		//store/updateStore.do?id=69&status=-1
+
 	}
 	@ResponseBody
 	@RequestMapping("getStoreByStoreNo.do")
@@ -61,5 +62,6 @@ public class StoreController {
 		ResultHelper result=storeService.getStoreByStoreNo(storeNo);
 		return result;
 		//store/getStoreByStoreNo.do?storeNo=1001
+
 	}
 }
