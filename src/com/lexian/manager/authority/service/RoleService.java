@@ -1,11 +1,12 @@
 package com.lexian.manager.authority.service;
 
 import com.lexian.manager.authority.bean.Role;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 public interface RoleService {
 	
-	public ResultHelper getRoles(Integer pageNo);
+	public ResultHelper getRoles(Page page);
 
 	public ResultHelper addRole(Role role);
 

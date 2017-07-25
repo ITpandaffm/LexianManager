@@ -26,8 +26,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="请输入搜索内容">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span
-                                    class="glyphicon glyphicon-search"></span></button>
+                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
                 </div>
@@ -39,7 +38,6 @@
             </div>
         </div>
     </div>
-
     <table class="table table-striped" ng-init="getManagers()">
         <tr>
             <th></th>
@@ -50,9 +48,8 @@
             <th>状态</th>
             <th>操作</th>
         </tr>
-
         <tr ng-repeat="item in aManagers">
-            <td>{{$index+1}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.name}}</td>
             <td>{{item.info}}</td>
             <td>{{item.createTime| date: 'yyyy-MM-dd HH:mm:ss'}}</td>
@@ -66,13 +63,11 @@
                 <a ui-sref="authority/managers/associateRole({id: item.id, name: item.name})">关联角色</a>&emsp;
                 <a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(item.id)">删除</a>&emsp;
                 <a href="javascript:;" ng-click="resetManagerPwd(item.id)">重置密码</a>&emsp;
-
                 <a href="javascript:;" ng-click="updateManagerStatus(item.status, item.id, item.name)" ng-switch-when="1">禁用</a>
                 <a href="javascript:;" ng-click="updateManagerStatus(item.status, item.id, item.name)" ng-switch-when="0">激活</a>
             </td>
             <confirmdeletemodal></confirmdeletemodal>
-
         </tr>
     </table>
-    <pagination></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getManagers()"></pagination>
 </div>

@@ -31,6 +31,7 @@
 			<result column="storename" property="storeName" jdbcType="VARCHAR" />
 		</association>
 		<collection property="orderItems" ofType="OrderItem">
+			<id column="oiid" property="id" jdbcType="INTEGER"></id>
 			<result column="amount" property="amount" jdbcType="INTEGER" />
 			<result column="listprice" property="listPrice" jdbcType="DOUBLE" />
 			<result column="totalprice" property="totalPrice" jdbcType="DOUBLE" />
@@ -59,7 +60,7 @@
 	<select id="getOrdersWithUserAndAndOrderItemsStore" resultMap="OrderssWithUserAndStoreAndOrderItemMap"
 		parameterType="java.lang.Integer">
 
-		SELECT orders.id,order_no,orders.createtime,username,phone,storename,
+		SELECT orders.id,orderitem.id as oiid,order_no,orders.createtime,username,phone,storename,
 		amount,listprice,totalprice,
 		commodity.commodity_no,NAME,pictureurl
 		FROM

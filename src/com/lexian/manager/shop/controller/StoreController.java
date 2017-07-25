@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lexian.manager.shop.bean.Store;
 import com.lexian.manager.shop.service.StoreService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 @Controller
 @RequestMapping("store")
@@ -29,9 +30,9 @@ public class StoreController {
 	//Integer pageNo
 	@ResponseBody
 	@RequestMapping("getAllStore.do")
-	public ResultHelper getAllStore(Integer pageNo){
+	public ResultHelper getAllStore(Page page){
 		// TODO Auto-generated method stub
-		ResultHelper result=storeService.getAllStore(pageNo);
+		ResultHelper result=storeService.getAllStore(page);
 		//store/getAllStore.do?pageNo=2
 		return result;
 	}
@@ -54,7 +55,6 @@ public class StoreController {
 		ResultHelper result=storeService.updateStore(store);
 		return result;
 		//store/updateStore.do?id=69&status=-1
-
 	}
 	@ResponseBody
 	@RequestMapping("getStoreByStoreNo.do")
@@ -62,6 +62,5 @@ public class StoreController {
 		ResultHelper result=storeService.getStoreByStoreNo(storeNo);
 		return result;
 		//store/getStoreByStoreNo.do?storeNo=1001
-
 	}
 }

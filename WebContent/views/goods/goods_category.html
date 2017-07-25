@@ -51,7 +51,7 @@
 		</tr>
 
 		<tr ng-repeat="items in aFirstCategory">
-			<td>{{$index+1}}</td>
+			<td>{{$index+startIndex1}}</td>
 			<td>{{items.firstName}}</td>
 			<td>1</td>
 			<td>{{items.firstId}}</td>
@@ -60,7 +60,7 @@
 				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.firstId, 1)">删除</a></td>
 		</tr>
 	</table>
-	<pagination></pagination>
+	<pagination page-size="pageSize1" page-no="pageNo1" total-size="{{nTotalSize1}}" page-nums="{{nPageNums1}}" start-index={{startIndex1}} end-index={{lastIndex1}} refresh-method="getFirstCategory()"></pagination>
 	<table class="table table-striped" ng-init="getSecondCategory()">
 		<tr>
 			<th></th>
@@ -71,7 +71,7 @@
 		</tr>
 
 		<tr ng-repeat="items in aSecondCategory">
-			<td>{{$index+1}}</td>
+			<td>{{$index+startIndex2}}</td>
 			<td>{{items.secondName}}</td>
 			<td>2</td>
 			<td>{{items.firstName}}</td>
@@ -81,7 +81,7 @@
 			</td>
 		</tr>
 	</table>
-	<pagination></pagination>
+	<pagination page-size="pageSize2" page-no="pageNo2" total-size="{{nTotalSize2}}" page-nums="{{nPageNums2}}" start-index={{startIndex2}} end-index={{lastIndex2}} refresh-method="getSecondCategory()"></pagination>
 	<table class="table table-striped" ng-init="getThirdCategory()">
 		<tr>
 			<th></th>
@@ -91,7 +91,7 @@
 			<th>操作</th>
 		</tr>
 		<tr ng-repeat="items in aThirdCategory">
-			<td>{{$index+1}}</td>
+			<td>{{$index+startIndex3}}</td>
 			<td>{{items.thirdName}}</td>
 			<td>3</td>
 			<td>{{items.secondName}}</td>
@@ -99,6 +99,6 @@
 				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.thirdId, 3)">删除</a></td>
 		</tr>
 	</table>
-	<pagination></pagination>
+	<pagination page-size="pageSize3" page-no="pageNo3" total-size="{{nTotalSize3}}" page-nums="{{nPageNums3}}" start-index={{startIndex3}} end-index={{lastIndex3}} refresh-method="getThirdCategory()"></pagination>
 	<confirmdeletemodal></confirmdeletemodal>
 </div>

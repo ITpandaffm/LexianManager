@@ -1,11 +1,12 @@
 package com.lexian.manager.goods.service;
 
 import com.lexian.manager.goods.bean.Commodity;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 public interface CommodityService {
 	
-	public ResultHelper getCommodities(Integer pageNo);
+	public ResultHelper getCommodities(Page page);
 	
 	public ResultHelper getCommodityByCategoryId(int categoryId);
 	

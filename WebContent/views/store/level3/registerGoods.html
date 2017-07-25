@@ -1,7 +1,6 @@
-
 <div class="container">
 	<div class="panel panel-default">
-		<div class="panel-body" style="background-color: #f5f5f5;">
+		<div class="panel-body">
 			<div class="col-sm-6">
 				<span class="glyphicon glyphicon-user">&nbsp;店铺管理&nbsp;</span> <span
 					class="glyphicon glyphicon-chevron-right">&nbsp;店铺商品管理&nbsp;</span>
@@ -39,25 +38,28 @@
 		</div>
 	</div>
 
-	<div>
+	<div ng-init="getAllCategories()">
 		<label class="control-label col-sm-2">选择商品类别：</label>
 		<div class="col-sm-2">
-			<select class="form-control">
-				<option>校服文化</option>
+			<select class="form-control" id="firstClass" ng-model="firstSelected"
+				ng-change="changeSecondCat()"
+				ng-options="item.categoryName for item in firstCategories">
 			</select>
 		</div>
 		<div class="col-sm-2">
-			<select class="form-control">
-				<option>套装</option>
+			<select id="secondClass" class="form-control"
+				ng-model="secondSelected" ng-change="changeThirdCat()"
+				ng-options="item.categoryName for item in secondCategories">
 			</select>
 		</div>
 		<div class="col-sm-2">
-			<select class="form-control">
-				<option>运动衫</option>
+			<select id="thirdClass" class="form-control" ng-model="thirdSelected"
+				ng-change="getGoods()"
+				ng-options="item.categoryName for item in thirdCategories">
 			</select>
 		</div>
 		<div class="col-sm-2">
-			<button type="button" class="btn btn-default">注册选中项</button>
+			<button type="button" class="btn btn-default" ng-click="registerGoods()">注册选中项</button>
 		</div>
 	</div>
 	<br />
@@ -66,7 +68,7 @@
 		<table class="table table-striped">
 			<tr>
 				<th></th>
-				<th><input type="checkbox" /></th>
+				<th><input type="checkbox" ng-checked="" ng-click="selectAll($event)"/></th>
 				<th>商品编号</th>
 				<th>商品名称</th>
 				<th>主图片</th>
@@ -75,17 +77,15 @@
 				<th>简介</th>
 			</tr>
 
-			<tr>
-				<td>1</td>
-				<td><input type="checkbox" /></td>
-				<td>695684030227</td>
-				<td>运动装</td>
-				<td><img alt=""
-					src="../img/caa7ca5a-2b00-4696-bedd-67af77ae46f8.jpg" width="40px"
-					height="40px" /></td>
-				<td>2015-12-25 02:28:42</td>
-				<td></td>
-				<td>运动装</td>
+			<tr ng-repeat="item in commodities">
+				<td>{{$index+1}}</td>
+				<td><input type="checkbox" ng-checked="isChecked(item.commodityNo)"  ng-click="toggleCheck($event,item.commodityNo)" /></td>
+				<td>{{item.commodityNo}}</td>
+				<td>{{item.name}}</td>
+				<td><img alt="" height="40px" /></td>
+				<td>{{item.createTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
+				<td>{{item.updateTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
+				<td>{{item.introduce}}</td>
 			</tr>
 		</table>
 	</div>

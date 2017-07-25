@@ -24,11 +24,7 @@ public class OrdersServiceImpl implements OrdersService {
 	private OrdersDao ordersDao;
 
 	@Override
-	public ResultHelper getOrderss(Integer pageNo, Integer state) {
-
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
+	public ResultHelper getOrderss(Page page, Integer state) {
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -66,11 +62,8 @@ public class OrdersServiceImpl implements OrdersService {
 	}
 
 	@Override
-	public ResultHelper getOrderssByDate(Integer state, String start, String end, Integer pageNo) {
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
-
+	public ResultHelper getOrderssByDate(Integer state, String start, String end, Page page) {
+		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 

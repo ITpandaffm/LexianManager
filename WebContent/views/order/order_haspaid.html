@@ -68,7 +68,7 @@
             <th>操作</th>
         </tr>
         <tr ng-repeat="item in aPaidLists">
-            <td>{{$index+1}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.orderNo}}</td>
             <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             <td>已付款</td>
@@ -80,5 +80,5 @@
             </td>
         </tr>
     </table>
-    <pagination></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getPaidLists()"></pagination>
 </div>

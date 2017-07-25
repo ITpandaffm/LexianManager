@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.authority.bean.Role;
 import com.lexian.manager.authority.service.RoleService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -19,8 +20,8 @@ public class RoleController {
 	// role/getRoles.do
 	@ResponseBody
 	@RequestMapping("getRoles.do")
-	public ResultHelper getRoles(Integer pageNo) {
-		return roleService.getRoles(pageNo);
+	public ResultHelper getRoles(Page page) {
+		return roleService.getRoles(page);
 	}
 
 	// role/getRoles.do

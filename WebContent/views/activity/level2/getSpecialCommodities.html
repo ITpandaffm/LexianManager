@@ -26,7 +26,7 @@
             <th>操作</th>
         </tr>
         <tr ng-repeat="item in aSpecialCommodities">
-            <td>111{{$index+1}}</td>
+            <td>111{{$index+startIndex}}</td>
             <td>{{item.id}}</td>
             <td>{{item.commodityNo}}</td>
             <td>{{item.name}}</td>
@@ -37,7 +37,7 @@
         </tr>
 
     </table>
-    <pagination></pagination>
+        <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getSpecialCommodities()"></pagination>
     <confirmdeletemodal></confirmdeletemodal>
     <div class="modal fade" id="addGoods" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">

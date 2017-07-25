@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.vip.bean.User;
 import com.lexian.manager.vip.service.UserService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -19,9 +20,9 @@ public class UserController {
 	//user/getUsers.do
 	@ResponseBody
 	@RequestMapping("getUsers.do")
-	public ResultHelper getUsers(Integer pageNo){
+	public ResultHelper getUsers(Page page){
 		
-		return userService.getUsers(pageNo);
+		return userService.getUsers(page);
 	}
 	//user/updateUser.do?id=146fe691-f6fd-4400-bbdb-d5835fb8207c&status=-1
 	@ResponseBody

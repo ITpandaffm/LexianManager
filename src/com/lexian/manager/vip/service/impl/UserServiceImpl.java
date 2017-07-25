@@ -21,11 +21,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 
 	@Override
-	public ResultHelper getUsers(Integer pageNo) {
-
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
+	public ResultHelper getUsers(Page page) {
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);

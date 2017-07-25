@@ -60,10 +60,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public ResultHelper getPrivileges(Integer id, Integer pageNo) {
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
+	public ResultHelper getPrivileges(Integer id, Page page) {
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -140,11 +137,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public ResultHelper getManagers(Integer pageNo) {
-
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
+	public ResultHelper getManagers(Page page) {
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -180,10 +173,8 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public ResultHelper getMenus(Integer id, Integer pageNo) {
+	public ResultHelper getMenus(Integer id, Page page) {
 
-		Page page = new Page();
-		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		params.put("id", id);

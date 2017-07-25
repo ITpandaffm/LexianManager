@@ -3,7 +3,7 @@ package com.lexian.manager.shop.bean;
 public class CommodityStore {
 
 	private Integer id;
-	private String commmodityNo;
+	private String commodityNo;
 	private String storeNo;
 	private Double commodotyPrice;
 	private Double realPrice;
@@ -24,11 +24,11 @@ public class CommodityStore {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getCommmodityNo() {
-		return commmodityNo;
+	public String getCommodityNo() {
+		return commodityNo;
 	}
-	public void setCommmodityNo(String commmodityNo) {
-		this.commmodityNo = commmodityNo;
+	public void setCommodityNo(String commodityNo) {
+		this.commodityNo = commodityNo;
 	}
 	public String getStoreNo() {
 		return storeNo;

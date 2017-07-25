@@ -15,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.lexian.manager.authority.bean.Manager;
 import com.lexian.manager.authority.service.ManagerService;
 import com.lexian.utils.Constant;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -95,9 +96,9 @@ public class ManagerController {
 	//manager/getPrivileges.do?pageNo=2
 	@ResponseBody
 	@RequestMapping("getPrivileges.do")
-	public ResultHelper getPrivileges(Map<String, Object> model,Integer pageNo) {
+	public ResultHelper getPrivileges(Map<String, Object> model,Page page) {
 
-		return managerService.getPrivileges((Integer) model.get("managerId"),pageNo);
+		return managerService.getPrivileges((Integer) model.get("managerId"),page);
 	}
 	
 	/**
@@ -120,8 +121,8 @@ public class ManagerController {
 	//manager/getMenus.do
 	@ResponseBody
 	@RequestMapping("getMenus.do")
-	public ResultHelper gethMenus(Map<String, Object> model,Integer pageNo) {
-		ResultHelper result=managerService.getMenus((Integer) model.get("managerId"),pageNo);
+	public ResultHelper gethMenus(Map<String, Object> model,Page page) {
+		ResultHelper result=managerService.getMenus((Integer) model.get("managerId"),page);
 		return result;
 	}
 

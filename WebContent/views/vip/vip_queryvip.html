@@ -46,7 +46,7 @@
         </tr>
 
         <tr ng-repeat="item in aVips" ng-switch="item.status">
-            <td>{{$index}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.userName}}</td>
             <td>{{item.phone}}</td>
             <td>{{item.lastLoginTime|date: 'YY-mm-ss HH-mm-ss'}}</td>
@@ -60,5 +60,5 @@
             </td>
         </tr>
     </table>
-    <pagination></pagination>
+            <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getVips()"></pagination>
 </div>

@@ -50,7 +50,7 @@
         </tr>
 
         <tr ng-repeat="item in aStoreInfo" ng-switch="item.status">
-            <td>{{$index+1}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.storeNo}}</td>
             <td>{{item.storeName}}</td>
             <td>{{item.storeAddress}}</td>
@@ -59,12 +59,12 @@
                 <span ng-switch-when="-1">已冻结</span>
             </td>
             <td>
-                <a ui-sref="store/info/changeStore({storeNo:item.storeNo})">修改</a>&emsp;
+                <a ui-sref="store/info/updateStore({storeNo:item.storeNo})">修改</a>&emsp;
                 <a href="javascript:;" class="forbidden-btn" ng-switch-when="1"
                    ng-click="forbiddenStore(item.id, item.status)">禁用</a>
                 <a href="javascript:;" ng-switch-when="-1" ng-click="forbiddenStore(item.id, item.status)">启用</a>
             </td>
         </tr>
     </table>
-    <pagination></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getStoreInfo()"></pagination>
 </div>

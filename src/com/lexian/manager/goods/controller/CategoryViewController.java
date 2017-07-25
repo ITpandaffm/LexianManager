@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lexian.manager.goods.service.CategoryViewService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -32,8 +33,8 @@ public class CategoryViewController {
 	 */
 	@ResponseBody
 	@RequestMapping("getAllCategoryView.do")
-	public ResultHelper getAllCategoryView(Integer pageNo){
-		ResultHelper result=cateViewService.getAllCategoryView(pageNo);
+	public ResultHelper getAllCategoryView(Page page){
+		ResultHelper result=cateViewService.getAllCategoryView(page);
 		return result;
 		//categoryView/getAllCategoryView.do?pageNo=1
 	}
@@ -44,8 +45,8 @@ public class CategoryViewController {
 	 */
 	@ResponseBody
 	@RequestMapping("getFirstCategoryView.do")
-	public ResultHelper getFirstCategoryView(Integer pageNo){
-		ResultHelper result=cateViewService.getFirstCategoryView(pageNo);
+	public ResultHelper getFirstCategoryView(Page page){
+		ResultHelper result=cateViewService.getFirstCategoryView(page);
 		return result;
 		//categoryView/getFirstCategoryView.do?pageNo=1
 	}
@@ -56,8 +57,8 @@ public class CategoryViewController {
 	 */
 	@ResponseBody
 	@RequestMapping("getSecondCategoryView.do")
-	public ResultHelper getSecondCategoryView(Integer pageNo){
-		ResultHelper result=cateViewService.getSecondCategoryView(pageNo);
+	public ResultHelper getSecondCategoryView(Page page){
+		ResultHelper result=cateViewService.getSecondCategoryView(page);
 		return result;
 		//categoryView/getSecondCategoryView.do?pageNo=1
 	}
@@ -68,8 +69,8 @@ public class CategoryViewController {
 	 */
 	@ResponseBody
 	@RequestMapping("getThirdCategoryView.do")
-	public ResultHelper getThirdCategoryView(Integer pageNo){
-		ResultHelper result=cateViewService.getThirdCategoryView(pageNo);
+	public ResultHelper getThirdCategoryView(Page page){
+		ResultHelper result=cateViewService.getThirdCategoryView(page);
 		return result;
 		//categoryView/getThirdCategoryView.do?pageNo=1
 	}

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.lexian.manager.plate.dao.SpeCommodityDao;
 import com.lexian.manager.plate.service.SpeCommodityService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -30,9 +30,9 @@ public class SpeCommodityController {
 	 */
 	@ResponseBody
 	@RequestMapping("getSpecialCommodities.do")
-	public ResultHelper getSpecialCommodities(int id,Integer pageNo){
+	public ResultHelper getSpecialCommodities(int id,Page page){
 		
-		ResultHelper result = SpeCommodityService.getSpecialCommodities(id,pageNo);
+		ResultHelper result = SpeCommodityService.getSpecialCommodities(id,page);
 		return result;
 		//speCommodity/getSpecialCommodities.do?id=1&pageNo=1
 	}

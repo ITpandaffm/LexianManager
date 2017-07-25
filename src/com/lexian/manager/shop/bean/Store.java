@@ -20,11 +20,9 @@ public class Store {
 	private double longItude;
 	private double latItude;
 	private String introduce;
-
 	@DateTimeFormat(pattern="HH:mm:ss")
 	private Date startTime;
 	@DateTimeFormat(pattern="HH:mm:ss")
-
 	private Date closeTime;
 	private Integer status;
 	public Integer getId() {

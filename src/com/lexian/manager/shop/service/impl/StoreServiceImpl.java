@@ -40,14 +40,12 @@ public class StoreServiceImpl implements StoreService {
 	// ResultHelper result = new ResultHelper(Constant.code_success, page);
 	// return result;
 	@Override
-	public ResultHelper getAllStore(Integer pageNo) {
+	public ResultHelper getAllStore(Page page) {
 		// TODO Auto-generated method stub
 		/*
 		 * List<Store> list=storeDao.getAllStore(); return new
 		 * ResultHelper(Constant.code_success,list);
 		 */
-		Page page = new Page();
-		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		List<Store> list = storeDao.getAllStorePage(params);

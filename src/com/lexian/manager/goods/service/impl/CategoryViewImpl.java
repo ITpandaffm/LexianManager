@@ -29,10 +29,7 @@ public class CategoryViewImpl implements CategoryViewService{
 	}
 
 	@Override
-	public ResultHelper getAllCategoryView(Integer pageNo) {
-
-		Page page = new Page();
-		page.setPageNo(pageNo);
+	public ResultHelper getAllCategoryView(Page page) {
 		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -45,9 +42,7 @@ public class CategoryViewImpl implements CategoryViewService{
 	}
 
 	@Override
-	public ResultHelper getFirstCategoryView(Integer pageNo) {
-		Page page = new Page();
-		page.setPageNo(pageNo);
+	public ResultHelper getFirstCategoryView(Page page) {
 		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
@@ -60,10 +55,8 @@ public class CategoryViewImpl implements CategoryViewService{
 	}
 
 	@Override
-	public ResultHelper getSecondCategoryView(Integer pageNo) {
-		Page page = new Page();
+	public ResultHelper getSecondCategoryView(Page page) {
 
-		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		List<CategoryView> orderssWithStore = CategoryViewDao.getSecondCategoryViewPage(params);
@@ -75,11 +68,8 @@ public class CategoryViewImpl implements CategoryViewService{
 	}
 
 	@Override
-	public ResultHelper getThirdCategoryView(Integer pageNo) {
-		Page page = new Page();
-
+	public ResultHelper getThirdCategoryView(Page page) {
 	
-		page.setPageNo(pageNo);	
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		List<CategoryView> orderssWithStore = CategoryViewDao.getThirdCategoryViewPage(params);

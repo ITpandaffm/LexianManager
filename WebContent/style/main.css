@@ -345,9 +345,7 @@ table tbody tr {
 .pagination .current-page {
     width: 60px;
 }
-.pagination span.glyphicon:nth-of-type(even) {
-    margin-left: 20px;
-}
+
 .pagination .glyphicon {
     color: #47bdcc;
 }

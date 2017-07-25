@@ -37,10 +37,7 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 	}
 	
 	@Override
-	public ResultHelper getSpecialCommodities(int id,Integer pageNo) {
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
+	public ResultHelper getSpecialCommodities(int id,Page page) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		params.put("id", id);

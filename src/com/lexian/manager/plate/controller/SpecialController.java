@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lexian.manager.plate.service.SpecialService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -27,8 +28,8 @@ public class SpecialController {
 	 */
 	@ResponseBody
 	@RequestMapping("getSpecial.do")
-	public ResultHelper getSpecial(Integer pageNo){
-		ResultHelper result =specialService.getSpecial(pageNo);
+	public ResultHelper getSpecial(Page page){
+		ResultHelper result =specialService.getSpecial(page);
 		return result;
 		//special/getSpecial.do?pageNo=1
 	}

@@ -112,29 +112,29 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/store/level2/addStore.html',
                 controller: 'addStoreController'
             })
-            .state('store/info/changeStore', {
-                url: '/store/info/changeStore/:storeNo',
-                templateUrl: 'views/store/level2/changeStore.html',
-                controller: 'changeStoreController'
+            .state('store/info/updateStore', {
+                url: '/store/info/updateStore/:storeNo',
+                templateUrl: 'views/store/level2/updateStore.html',
+                controller: 'updateStoreController'
             })
             .state('store/goods/manageStore', {
-                url: '/store/goods/manageStore/:aStoreGoodsId/:aStoreGoodsName',
+                url: '/store/goods/manageStore/:storeNo/:storeName',
                 templateUrl: 'views/store/level2/manageStore.html',
                 controller: 'manageStoreController'
             })
             //门店模块的三级路由
             .state('store/goods/manageStore/changePrice', {
-                url: '/store/goods/manageStore/changePrice/:storeName/:id/:commodotyPrice/:realPrice',
+                url: '/store/goods/manageStore/changePrice/:storeName/:id/:commodotyPrice/:realPrice/:storeNo',
                 templateUrl: 'views/store/level3/changePrice.html',
                 controller: 'changePriceController'
             })
             .state('store/goods/manageStore/changeAmont', {
-                url: '/store/goods/manageStore/changeAmont/:storeName/:id/:commodityAmont',
+                url: '/store/goods/manageStore/changeAmont/:storeName/:id/:commodityAmont/:storeNo',
                 templateUrl: 'views/store/level3/changeAmont.html',
-                controller: 'changeAmontController'
+                controller: 'changeAmountController'
             })
             .state('store/goods/manageStore/registerGoods', {
-                url: '/store/goods/manageStore/registerGoods',
+                url: '/store/goods/manageStore/registerGoods/:storeNo/:storeName',
                 templateUrl: 'views/store/level3/registerGoods.html',
                 controller: 'registerGoodsController'
             })

@@ -1,23 +1,47 @@
-myApp.directive('pagination', function () {
+myApp.directive('pagination', function($timeout) {
     return {
         restrict: 'E',
         templateUrl: 'views/components/pagination.html',
-        replace: true
+        replace: true,
+        scope: {
+            pageSize: '=',
+            pageNo: '=',
+            totalSize: '@',
+            pageNums: '@',
+            startIndex: '@',
+            endIndex: '@',
+            refreshMethod: '&'
+        },
+        controller: function($scope) {
+            $scope.prevPage = function() {
+                if ($scope.pageNo - 1 > 0) {
+                    $scope.pageNo--;
+                    $scope.refreshMethod();
+                } else {
+                    alert('已经是第一页了！');
+                }
+            };
+            $scope.nextPage = function() {
+                if ($scope.pageNo + 1 <= $scope.pageNums) {
+                    $scope.pageNo++;
+                    $scope.refreshMethod();
+                } else {
+                    alert('已经是最后一页了！');
+                }
+            };
+        }
     };
 });
 
-myApp.directive('confirmdeletemodal', function () {
+myApp.directive('confirmdeletemodal', function() {
     return {
         restrict: 'E',
-        // scope: {
-        //     deleteId: '@'
-        // },
         templateUrl: 'views/components/deleteModal.html',
         replace: true
     };
 });
 
-myApp.directive('changemodulenamemodal', function () {
+myApp.directive('changemodulenamemodal', function() {
     return {
         restrict: 'E',
         templateUrl: 'views/components/changeModuleNameModal.html',
@@ -25,7 +49,7 @@ myApp.directive('changemodulenamemodal', function () {
     };
 });
 
-myApp.directive('addspecialmodal', function () {
+myApp.directive('addspecialmodal', function() {
     return {
         restrict: 'E',
         templateUrl: 'views/components/addSpecialModal.html',
@@ -33,15 +57,15 @@ myApp.directive('addspecialmodal', function () {
     };
 });
 
-myApp.directive('fileModel', ['$parse', function ($parse) {
+myApp.directive('fileModel', ['$parse', function($parse) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
             var model = $parse(attrs.fileModel);
             var modelSetter = model.assign;
 
-            element.bind('change', function(){
-                scope.$apply(function(){
+            element.bind('change', function() {
+                scope.$apply(function() {
                     modelSetter(scope, element[0].files[0]);
                 });
             });
@@ -51,8 +75,8 @@ myApp.directive('fileModel', ['$parse', function ($parse) {
 
 myApp.directive('ckeditor', function() {
     return {
-        require : '?ngModel',
-        link : function(scope, element, attrs, ngModel) {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
             var ckeditor = CKEDITOR.replace(element[0], {
 
             });

@@ -2,6 +2,7 @@ package com.lexian.manager.authority.service;
 
 import com.lexian.manager.authority.bean.Manager;
 import com.lexian.manager.authority.bean.RoleManager;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 
@@ -9,7 +10,7 @@ public interface ManagerService {
 
 	public ResultHelper signIn(String name,String password);
 	
-	public ResultHelper getPrivileges(Integer id,Integer pageNo);
+	public ResultHelper getPrivileges(Integer id,Page page);
 	
 	public ResultHelper getPrivilegeUrls(Integer id);
 	
@@ -19,7 +20,7 @@ public interface ManagerService {
 	
 	public ResultHelper updateManager(Manager manager);
 
-	public ResultHelper getManagers(Integer pageNo);
+	public ResultHelper getManagers(Page page);
 
 	public ResultHelper deleteManagerById(Integer id);
 
@@ -27,7 +28,7 @@ public interface ManagerService {
 
 	public ResultHelper updateManagerPassword(Manager manager, String newPass);
 
-	public ResultHelper getMenus(Integer id,Integer pageNo);
+	public ResultHelper getMenus(Integer id,Page page);
 	
 	public ResultHelper updateAssociatedRole(Manager manager,Integer[] newRoleId);
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.lexian.manager.authority.bean.Manager;
 import com.lexian.manager.authority.service.ManagerService;
 import com.lexian.manager.authority.service.RoleService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -30,8 +31,8 @@ public class HandleManagerController {
 	//handleManager/getManagers.do
 	@ResponseBody
 	@RequestMapping("getManagers.do")
-	public ResultHelper getManagers(Integer pageNo){
-		return managerService.getManagers(pageNo);
+	public ResultHelper getManagers(Page page){
+		return managerService.getManagers(page);
 	}
 	//handleManager/addManager.do?name=xxx
 	//<insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="userId" parameterType="com.chenzhou.mybatis.User">  

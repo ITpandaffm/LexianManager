@@ -34,9 +34,7 @@ public class CommodityServiceImpl implements CommodityService{
 	}
 
 	@Override
-	public ResultHelper getCommodities(Integer pageNo) {
-		Page page = new Page();
-		page.setPageNo(pageNo);
+	public ResultHelper getCommodities(Page page) {
 		
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);

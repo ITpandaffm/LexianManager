@@ -42,10 +42,8 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public ResultHelper getRoles(Integer pageNo) {
+	public ResultHelper getRoles(Page page) {
 		
-		Page page=new Page();
-		page.setPageNo(pageNo);
 		Map<String,Object> params=new HashMap<>();
 		params.put("page", page);
 		page.setData(roleDao.getRolesPage(params));

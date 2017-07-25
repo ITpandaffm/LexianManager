@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lexian.manager.goods.bean.Category;
 import com.lexian.manager.goods.service.SortService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 
@@ -44,8 +45,8 @@ public class SortController {
 	 */
 	@ResponseBody
 	@RequestMapping("getCategoryView.do")
-	 public ResultHelper getCategoryView(Integer pageNo){
-		ResultHelper result=sortService.getAllCategories(pageNo);
+	 public ResultHelper getCategoryView(Page page){
+		ResultHelper result=sortService.getAllCategories(page);
 		return result;
 		//sort/getCategoryView.do
 	 }

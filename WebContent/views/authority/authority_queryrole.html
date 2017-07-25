@@ -52,7 +52,7 @@
         </tr>
 
         <tr ng-repeat="item in aRoles">
-            <td>{{$index+1}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
             <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
@@ -64,5 +64,5 @@
             </td>
         </tr>
     </table>
-    <pagination></pagination>
+        <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getRoles()"></pagination>
 </div>

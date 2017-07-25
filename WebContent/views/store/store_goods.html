@@ -43,14 +43,14 @@
         </tr>
 
         <tr ng-repeat="item in aStoreGoods">
-            <td>{{$index+1}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.storeNo}}</td>
             <td>{{item.storeName}}</td>
             <td>
-                <a ui-sref="store/goods/manageStore({aStoreGoodsId:item.storeNo,aStoreGoodsName:item.storeName})">店铺商品管理</a>
+                <a ui-sref="store/goods/manageStore({storeNo:item.storeNo,storeName:item.storeName})">店铺商品管理</a>
             </td>
         </tr>
 
     </table>
-    <pagination></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getStoreGoods()"></pagination>
 </div>

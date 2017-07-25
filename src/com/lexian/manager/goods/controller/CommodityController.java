@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lexian.manager.goods.bean.Commodity;
 import com.lexian.manager.goods.service.CommodityService;
+import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
 @Controller
@@ -34,9 +35,9 @@ public class CommodityController {
 	 */
 	@ResponseBody
 	@RequestMapping("getCommodities.do")
-	public ResultHelper getCommodities(Integer pageNo) {
+	public ResultHelper getCommodities(Page page) {
 
-		ResultHelper result = commodityService.getCommodities(pageNo);
+		ResultHelper result = commodityService.getCommodities(page);
 		// commodity/getCommodities.do?pageNo=1
 		return result;
 

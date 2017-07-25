@@ -33,11 +33,8 @@ public class SpecialServiceImpl implements SpecialService{
 	}
 
 	@Override
-	public ResultHelper getSpecial(Integer pageNo) {
+	public ResultHelper getSpecial(Page page) {
 		
-		Page page = new Page();
-
-		page.setPageNo(pageNo);
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		List<Special> orderssWithStore = specialDao.getSpecialPage(params);

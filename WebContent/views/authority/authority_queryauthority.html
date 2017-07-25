@@ -42,11 +42,10 @@
             <th>描述</th>
         </tr>
         <tr ng-repeat="item in aPrivileges">
-            <td>{{($index+1)}}</td>
+            <td>{{$index+startIndex}}</td>
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
         </tr>
     </table>
-
-    <pagination></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getPrivileges()"></pagination>
 </div>

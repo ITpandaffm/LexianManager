@@ -31,10 +31,7 @@ public class SortServiceImpl implements SortService{
 	}
 
 	@Override
-	public ResultHelper getAllCategories(Integer pageNo) {
-		Page page = new Page();
-		page.setPageNo(pageNo);
-		
+	public ResultHelper getAllCategories(Page page) {
 		Map<String, Object> params = new HashMap<>();
 		params.put("page", page);
 		List<Category> orderssWithStore = sortDao.getAllCategoriesPage(params);
