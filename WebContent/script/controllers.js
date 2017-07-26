@@ -68,6 +68,13 @@ myApp.controller('updatePwdController', ['$scope', '$state', 'httpService', func
 //authority
 //查询权限
 myApp.controller('queryPrivilegesController', ['$scope', '$timeout', 'httpService', function($scope, $timeout, httpService) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '权限名称', filterName: 'name' }, { chName: '权限描述', filterName: 'description' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
+
     $scope.pageNo = 1;
     $scope.pageSize = 10;
     $scope.getPrivileges = function() {
@@ -97,6 +104,13 @@ myApp.controller('queryPrivilegesController', ['$scope', '$timeout', 'httpServic
 //查询菜单
 myApp.controller('queryMenuController', ['$scope', 'httpService', 'srefAndIconFatory',
     function($scope, httpService, srefAndIconFatory) {
+        $scope.selctedFilter = 'name';
+        $scope.filterStr = '';
+        $scope.filterTypes = [{ chName: '菜单名称', filterName: 'name' }];
+        $scope.myFilter = function(item) {
+            return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+        }
+
         $scope.getMenus = function() {
             httpService.getRequest('manager/getUserWithMenus.do', {})
                 .then(function(data) {
@@ -115,6 +129,13 @@ myApp.controller('queryMenuController', ['$scope', 'httpService', 'srefAndIconFa
 
 //查询后台用户
 myApp.controller('queryUsersController', ['$scope', '$state', '$timeout', 'httpService', function($scope, $state, $timeout, httpService) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '管理员账号', filterName: 'name' }, { chName: '描述', filterName: 'info' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
+
     $scope.pageNo = 1;
     $scope.pageSize = 10;
     $scope.getManagers = function() {
@@ -309,6 +330,12 @@ myApp.controller('associateRoleController', ['$scope', '$stateParams', '$state',
 
 //查询角色
 myApp.controller('queryRoleController', ['$scope', '$state', '$timeout', 'httpService', function($scope, $state, $timeout, httpService) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '角色名称', filterName: 'name' }, { chName: '描述', filterName: 'description' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
     $scope.pageNo = 1;
     $scope.pageSize = 10;
     $scope.getRoles = function() {
@@ -431,6 +458,13 @@ myApp.controller('editRoleMenuController', ['$scope', '$stateParams', '$filter',
 
 //vip
 myApp.controller('queryVipController', ['$scope', '$timeout', 'httpService', function($scope, $timeout, httpService) {
+    $scope.selctedFilter = 'userName';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '会员名', filterName: 'userName' }, { chName: '手机号', filterName: 'phone' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
+
     $scope.pageNo = 1;
     $scope.pageSize = 10;
     $scope.getVips = function() {
@@ -487,6 +521,10 @@ myApp.controller('queryVipController', ['$scope', '$timeout', 'httpService', fun
 // 分类管理
 myApp.controller('goodsCategoryController', ['$scope', '$state', '$timeout', 'httpService',
     function($scope, $state, $timeout, httpService) {
+        $scope.selctedFilter = 'firstName';
+        $scope.filterStr = '';
+        $scope.filterTypes = [{ chName: '分类名称', filterName: 'firstName' }];
+
         // 一级分类
         $scope.pageNo1 = 1;
         $scope.pageSize1 = 10;
@@ -667,6 +705,13 @@ myApp.controller('changeCategoryController', ['$scope', '$stateParams', '$state'
 // goodsinfo
 // 商品信息管理
 myApp.controller('goodsInfoController', ['$scope', '$state', '$timeout', 'httpService', function($scope, $state, $timeout, httpService) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '商品名称', filterName: 'name' }, { chName: '商品编号', filterName: 'commodityNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
+
     $scope.pageNo = 1;
     $scope.pageSize = 10;
     $scope.getGoodsInfo = function() {
@@ -967,6 +1012,13 @@ myApp.controller('updateGoodsInfoController', ['$scope', '$state', '$stateParams
 // 门店信息
 myApp.controller('storeInfoController', ['$scope', '$state', '$timeout', 'httpService',
     function($scope, $state, $timeout, httpService) {
+    $scope.selctedFilter = 'storeName';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '门店名称', filterName: 'storeName' }, { chName: '门店编号', filterName: 'storeNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
+
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getStoreInfo = function() {
@@ -1209,6 +1261,12 @@ myApp.controller('updateStoreController', ['$scope', '$filter', '$stateParams', 
 // 门店商品
 myApp.controller('storeGoodsController', ['$scope', '$timeout', 'httpService',
     function($scope, $timeout, httpService) {
+    $scope.selctedFilter = 'storeName';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '店铺名称', filterName: 'storeName' }, { chName: '店铺编号', filterName: 'storeNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getStoreGoods = function() {
@@ -1237,6 +1295,12 @@ myApp.controller('storeGoodsController', ['$scope', '$timeout', 'httpService',
 // 店铺商品管理
 myApp.controller('manageStoreController', ['$scope', '$state', '$stateParams', '$timeout', 'httpService',
     function($scope, $state, $stateParams, $timeout, httpService) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '商品名称', filterName: 'name' }, { chName: '商品编号', filterName: 'commodityNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.storeNo = $stateParams.storeNo;
         $scope.storeName = $stateParams.storeName;
         $scope.pageNo = 1;
@@ -1287,9 +1351,14 @@ myApp.controller('manageStoreController', ['$scope', '$state', '$stateParams', '
 //注册新商品
 myApp.controller('registerGoodsController', ['$scope', '$stateParams', '$filter', 'httpService', 'getCategoryArrByIdFactory', 'isCheckFactory',
     function($scope, $stateParams, $filter, httpService, getCategoryArrByIdFactory, isCheckFactory) {
+    $scope.selctedFilter = 'name';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '商品名称', filterName: 'name' }, { chName: '商品编号', filterName: 'commodityNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.storeName = $stateParams.storeName;
         $scope.storeNo = $stateParams.storeNo;
-        console.log($stateParams);
         $scope.storeCommoditiesNo = [];
 
         $scope.getAllCategories = function() {
@@ -1437,6 +1506,12 @@ myApp.controller('changeAmountController', ['$scope', '$stateParams', '$state', 
 //订单列表
 myApp.controller('orderListController', ['$scope', '$filter', '$timeout', 'orderService', 'orderSearchByDateService',
  function($scope, $filter, $timeout, orderService, orderSearchByDateService) {
+    $scope.selctedFilter = 'orderNo';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '订单编号', filterName: 'orderNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getOrderLists = function() {
@@ -1470,6 +1545,12 @@ myApp.controller('orderListController', ['$scope', '$filter', '$timeout', 'order
 //未付款订单
 myApp.controller('orderUnpaidController', ['$scope', '$filter', '$timeout', 'orderService', 'orderSearchByDateService',
  function($scope, $filter, $timeout, orderService, orderSearchByDateService) {
+    $scope.selctedFilter = 'orderNo';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '订单编号', filterName: 'orderNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getUnpaidLists = function() {
@@ -1502,6 +1583,12 @@ myApp.controller('orderUnpaidController', ['$scope', '$filter', '$timeout', 'ord
 //已付款订单
 myApp.controller('orderPaidController', ['$scope', '$filter', '$timeout', 'httpService', 'orderService', 'orderSearchByDateService',
  function($scope, $filter, $timeout, httpService, orderService, orderSearchByDateService) {
+    $scope.selctedFilter = 'orderNo';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '订单编号', filterName: 'orderNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getPaidLists = function() {
@@ -1545,6 +1632,12 @@ myApp.controller('orderPaidController', ['$scope', '$filter', '$timeout', 'httpS
 //已发货订单
 myApp.controller('orderDeliverController', ['$scope', '$filter', '$timeout', 'orderService', 'orderSearchByDateService',
  function($scope, $filter, $timeout, orderService, orderSearchByDateService) {
+    $scope.selctedFilter = 'orderNo';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '订单编号', filterName: 'orderNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getDeliverLists = function() {
@@ -1575,8 +1668,14 @@ myApp.controller('orderDeliverController', ['$scope', '$filter', '$timeout', 'or
 }]);
 
 //已完成订单
-myApp.controller('orderCompleteController', ['$scope', '$filter','$timeout', 'orderService', 'orderSearchByDateService',
+myApp.controller('orderCompleteController', ['$scope', '$filter', '$timeout', 'orderService', 'orderSearchByDateService',
  function($scope, $filter, $timeout, orderService, orderSearchByDateService) {
+    $scope.selctedFilter = 'orderNo';
+    $scope.filterStr = '';
+    $scope.filterTypes = [{ chName: '订单编号', filterName: 'orderNo' }];
+    $scope.myFilter = function(item) {
+        return item[$scope.selctedFilter].indexOf($scope.filterStr) >= 0;
+    }
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getCompleteLists = function() {
@@ -1706,28 +1805,28 @@ myApp.controller('getSpecialCommoditiesController', ['$scope', '$stateParams', '
         $scope.pageNo = 1;
         $scope.pageSize = 10;
         $scope.getSpecialCommodities = function() {
-            $timeout(function () {
-httpService.getRequest('speCommodity/getSpecialCommodities.do', {
-                params: {
-                    id: $stateParams.aSpecialsID,
-                    pageNo: $scope.pageNo,
-                    pageSize: $scope.pageSize
-                }
-            }).then(
-                function(data) {
-                    if (1 == data.code) {
-                        $scope.aSpecialCommodities = data.data.data;
-                        $scope.nTotalSize = data.data.totalSize;
-                        $scope.nPageNums = data.data.pageNums;
-
-                        $scope.startIndex = ($scope.pageNo - 1) * $scope.pageSize + 1;
-                        $scope.lastIndex = $scope.startIndex + data.data.data.length - 1;
+            $timeout(function() {
+                httpService.getRequest('speCommodity/getSpecialCommodities.do', {
+                    params: {
+                        id: $stateParams.aSpecialsID,
+                        pageNo: $scope.pageNo,
+                        pageSize: $scope.pageSize
                     }
-                },
-                function(error) {
-                    console.log('getSpecialCommoditiesController error' +
-                        error);
-                });
+                }).then(
+                    function(data) {
+                        if (1 == data.code) {
+                            $scope.aSpecialCommodities = data.data.data;
+                            $scope.nTotalSize = data.data.totalSize;
+                            $scope.nPageNums = data.data.pageNums;
+
+                            $scope.startIndex = ($scope.pageNo - 1) * $scope.pageSize + 1;
+                            $scope.lastIndex = $scope.startIndex + data.data.data.length - 1;
+                        }
+                    },
+                    function(error) {
+                        console.log('getSpecialCommoditiesController error' +
+                            error);
+                    });
             }, 0);
         };
         //添加活动商品

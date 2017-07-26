@@ -7,29 +7,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="col-sm-10 col-sm-offset-2">
-                    <div class="input-group">
-                        <div class="input-group-btn">
-                            <div class="btn-group">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-                                    <span class="glyphicon glyphicon-ok">&emsp;店铺名称</span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;店铺名称</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;店铺编号</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" placeholder="请输入搜索内容">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span
-                                    class="glyphicon glyphicon-search"></span></button>
-                        </div>
-                    </div>
+                    <searchfilter selected-filter="selctedFilter" filter-str="filterStr" filter-types="filterTypes"></searchfilter>
                 </div>
             </div>
         </div>
@@ -42,7 +20,7 @@
             <th>操作</th>
         </tr>
 
-        <tr ng-repeat="item in aStoreGoods">
+        <tr ng-repeat="item in aStoreGoods | filter: myFilter">
             <td>{{$index+startIndex}}</td>
             <td>{{item.storeNo}}</td>
             <td>{{item.storeName}}</td>
@@ -52,5 +30,6 @@
         </tr>
 
     </table>
-    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getStoreGoods()"></pagination>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getStoreGoods()">
+    </pagination>
 </div>

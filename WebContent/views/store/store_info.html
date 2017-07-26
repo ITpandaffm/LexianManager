@@ -7,29 +7,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="col-sm-10">
-                    <div class="input-group">
-                        <div class="input-group-btn">
-                            <div class="btn-group">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-                                    <span class="glyphicon glyphicon-ok">&emsp;门店名称</span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;门店名称</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;门店编号</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" placeholder="请输入搜索内容">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="button"><span
-                                    class="glyphicon glyphicon-search"></span></button>
-                        </div>
-                    </div>
+                    <searchfilter selected-filter="selctedFilter" filter-str="filterStr" filter-types="filterTypes"></searchfilter>
                 </div>
                 <div class="col-sm-2 ">
                     <button type="button" class="btn btn-default" ng-click="addStore()">
@@ -49,7 +27,7 @@
             <th>操作</th>
         </tr>
 
-        <tr ng-repeat="item in aStoreInfo" ng-switch="item.status">
+        <tr ng-repeat="item in aStoreInfo | filter: myFilter" ng-switch="item.status">
             <td>{{$index+startIndex}}</td>
             <td>{{item.storeNo}}</td>
             <td>{{item.storeName}}</td>

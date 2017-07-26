@@ -26,4 +26,6 @@
 	secondid as secondId,secondname as secondName,thirdid as thirdId,thirdname as thirdName
 	from categoryview
 	</select>
+	
+	
 </mapper>

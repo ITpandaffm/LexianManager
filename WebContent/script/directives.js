@@ -1,4 +1,4 @@
-myApp.directive('pagination', function($timeout) {
+myApp.directive('pagination', function() {
     return {
         restrict: 'E',
         templateUrl: 'views/components/pagination.html',
@@ -13,6 +13,11 @@ myApp.directive('pagination', function($timeout) {
             refreshMethod: '&'
         },
         controller: function($scope) {
+            $scope.pageSizeChange = function () {
+                //为了防止用户在最后一页的时候变大pageSize而超出边界，决定当用户改变pageSize的时候，重置到第一页
+                $scope.pageNo = 1;
+                $scope.refreshMethod();  
+            };
             $scope.prevPage = function() {
                 if ($scope.pageNo - 1 > 0) {
                     $scope.pageNo--;
@@ -28,6 +33,26 @@ myApp.directive('pagination', function($timeout) {
                 } else {
                     alert('已经是最后一页了！');
                 }
+            };
+        }
+    };
+});
+
+myApp.directive('searchfilter', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'views/components/searchFilter.html',
+        replace: true,
+        scope: {
+            selectedFilter: '=',
+            filterStr: '=',
+            filterTypes: '='
+        },
+        controller: function ($scope) {
+            $scope.selectedItem = $scope.filterTypes[0];
+            $scope.updateSelectedFilter = function (item) {
+                $scope.selectedFilter = item.filterName;
+                $scope.selectedItem = item;
             };
         }
     };

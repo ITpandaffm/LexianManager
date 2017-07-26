@@ -29,29 +29,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="input-group input-group-sm">
-                        <div class="input-group-btn">
-                            <div class="btn-group btn-group-sm">
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-                                    <span class="glyphicon glyphicon-ok">&emsp;订单编号</span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li class="small">
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;订单编号</a>
-                                    </li>
-                                    <li class="small">
-                                        <a href="javascript:;" class="glyphicon glyphicon-ok">&emsp;订单状态</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" placeholder="请输入搜索内容">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default btn-sm" type="button"><span
-                                    class="glyphicon glyphicon-search"></span></button>
-                        </div>
-                    </div>
+                    <searchfilter selected-filter="selctedFilter" filter-str="filterStr" filter-types="filterTypes"></searchfilter>
                 </div>
             </div>
         </div>
@@ -67,7 +45,7 @@
             <th>取货门店</th>
             <th>操作</th>
         </tr>
-        <tr ng-repeat="item in aPaidLists">
+        <tr ng-repeat="item in aPaidLists | filter: myFilter">
             <td>{{$index+startIndex}}</td>
             <td>{{item.orderNo}}</td>
             <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
