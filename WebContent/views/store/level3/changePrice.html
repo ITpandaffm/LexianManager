@@ -43,22 +43,45 @@
 	</div>
 
 	<div>
-		<form role="form" class="form-horizontal">
-			<div class="form-group">
+		<form role="form" class="form-horizontal" name="changePriceForm">
+			<div class="form-group"
+				ng-class="{'has-error':changePriceForm.curprice.$invalid && changePriceForm.curprice.$dirty}">
 				<label for="curprice" class="control-label col-sm-3">现价：</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" id="curprice" ng-model="commodotyPrice" />
+					<input type="text" name="curprice" class="form-control"
+						id="curprice" ng-model="commodotyPrice" ng-required="true"
+						ng-pattern="/^\d+(\.\d{0,2})?$/" />
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changePriceForm.curprice.$error.pattern">请输入小数点后两位
+					</div>
+					<div class="alert alert-danger help-block"
+						ng-show="changePriceForm.curprice.$error.required">
+						请输入数字</div>
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group"
+				ng-class="{'has-error':changePriceForm.oldprice.$invalid && changePriceForm.oldprice.$dirty}">
 				<label for="oldprice" class="control-label col-sm-3">原价：</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" id="oldprice" ng-model="realPrice"/>
+					<input type="text" name="oldprice" class="form-control"
+						id="oldprice" ng-model="realPrice" ng-required="true"
+						ng-pattern="/^\d+(\.\d{0,2})?$/" />
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changePriceForm.oldprice.$error.pattern">请输入小数点后两位</div>
+					<div class="alert alert-danger help-block"
+						ng-show="changePriceForm.oldprice.$error.required && changePriceForm.oldprice.$dirty">
+						请输入数字</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-3 col-sm-8">
-					<button type="button" class="btn btn-primary" ng-click="changePrice()">保存</button>
+					<button type="button" class="btn btn-primary"
+						ng-click="changePrice()"
+						ng-disabled="(changePriceForm.curprice.$invalid && changePriceForm.curprice.$dirty)||(changePriceForm.oldprice.$invalid && changePriceForm.oldprice.$dirty)">保存</button>
 				</div>
 			</div>
 		</form>

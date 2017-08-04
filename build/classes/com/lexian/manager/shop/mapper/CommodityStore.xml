@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.shop.dao.CommodityStoreDao">
 	<select id="getCommdityByStoreNoPage" resultType="CommodityStore"
 		parameterType="java.util.Map">
@@ -36,7 +37,8 @@
 	insert into 
 	commodity_store(commodity_no,store_no,type)
 	values(
-	(select commodity_no from commodity where commodity_no=#{commodityNo,jdbcType=VARCHAR}),
+	(select commodity_no from commodity where 
+	commodity_no=#{commodityNo,jdbcType=VARCHAR}),
 	(select store_no from store where store_no=#{storeNo,jdbcType=VARCHAR}),
 	#{ type,jdbcType=INTEGER}
 	)
@@ -45,16 +47,21 @@
 	insert into 
 	commodity_store(commodity_no,store_no,type)
 	values(
-	(select commodity_no from commodity where commodity_no=#{commodityNo,jdbcType=VARCHAR}),
+	(select commodity_no from commodity where 
+	commodity_no=#{commodityNo,jdbcType=VARCHAR}),
 	(select store_no from store where store_no=#{storeNo,jdbcType=VARCHAR}),
 	#{ type,jdbcType=INTEGER})
 	</insert>
 	<select id="getCommodityByCategoryId" resultType="Commodity">
-		SELECT DISTINCT c.id ,c.name ,c.commodity_no as commodityNo,c.pictureurl as pictureUrl,c.createtime as createTime,c.updateTime as updateTime,c.introduce
+		SELECT DISTINCT c.id ,c.name ,c.commodity_no as commodityNo,
+		c.pictureurl as pictureUrl,c.createtime as createTime,
+		c.updateTime as updateTime,c.introduce
  		FROM commodity c,commodity_store cs
- 		 WHERE c.commodity_no=cs.commodity_no AND c.category_id=#{categoryId,jdbcType=VARCHAR}
+ 		 WHERE c.commodity_no=cs.commodity_no AND 
+ 		 c.category_id=#{categoryId,jdbcType=VARCHAR}
   		AND c.commodity_no NOT IN (
-		SELECT commodity_no FROM commodity_store WHERE store_no=#{storeNo,jdbcType=VARCHAR})
+		SELECT commodity_no FROM commodity_store WHERE 
+		store_no=#{storeNo,jdbcType=VARCHAR})
 	</select>
 	
 </mapper>

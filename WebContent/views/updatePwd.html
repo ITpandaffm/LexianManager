@@ -8,32 +8,62 @@
     </div>
 
     <form role="form" class="form-horizontal" name="myform">
-        <div class="form-group" ng-class="{'has-error':myform.oldpwd.$dirty && myform.oldpwd.$error.minlength}">
+        <div class="form-group" ng-class="{'has-error':myform.oldpwd.$dirty && myform.oldpwd.$invalid}">
             <label for="oldpwd" class="control-label col-sm-3">旧密码：</label>
             <div class="col-sm-4">
                 <input type="password" autocomplete="off" class="form-control" id="oldpwd" name="oldpwd"
-                       ng-model="oldPwd" ng-required="true" ng-minlength="6"/>
+                       ng-model="oldPwd" ng-required="true" ng-minlength="6" ng-maxlength="30" ng-pattern="/^[A-Za-z0-9]+$/"/>
             </div>
             <div class="col-sm-4">
                 <div class="alert alert-danger help-block" ng-show="myform.oldpwd.$error.minlength">
                     密码长度至少为6位
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.oldpwd.$error.maxlength">
+                    密码长度最多为30位
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.oldpwd.$dirty && myform.oldpwd.$error.required">
+                    密码不能为空！
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.oldpwd.$error.pattern">
+                    只能输入字母和数字
+                </div>
+            </div>
         </div>
-        <div class="form-group" ng-class="{'has-error':myform.password.$dirty && myform.password.$error.minlength}">
+        <div class="form-group" ng-class="{'has-error':myform.password.$dirty && myform.password.$invalid}">
             <label for="password" class="control-label col-sm-3">新密码：</label>
             <div class="col-sm-4">
                 <input type="password" autocomplete="off" class="form-control" id="password" ng-model="newPwd"
-                       name="password" ng-required="true" ng-minlength="6"/>
+                       name="password" ng-required="true" ng-minlength="6"  ng-maxlength="30"  ng-pattern="/^[A-Za-z0-9]+$/"/>
             </div>
             <div class="col-sm-4">
                 <div class="alert alert-danger help-block" ng-show="myform.password.$error.minlength">
                     密码长度至少为6位
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.password.$error.maxlength">
+                    密码长度最多为30位
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.password.$dirty &&myform.password.$error.required">
+                     密码不能为空！
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block" ng-show="myform.password.$error.pattern">
+                    只能输入字母和数字
+                </div>
+            </div>
         </div>
         <div class="form-group"
-             ng-class="{'has-error':myform.password.$dirty && myform.comfirm_password.$dirty && newPwd != newPwdConfirm}">
+             ng-class="{'has-error':myform.comfirm_password.$dirty && newPwd != newPwdConfirm}">
             <label for="comfirm_password" class="control-label col-sm-3">确认新密码：</label>
             <div class="col-sm-4">
                 <input type="password" autocomplete="off" class="form-control" id="comfirm_password"
@@ -45,11 +75,18 @@
                     两次密码不一致
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block"
+                     ng-show="myform.comfirm_password.$dirty && myform.comfirm_password.$error.required">
+                    密码不能为空！
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-8">
-                <button type="button" class="btn btn-primary" ng-click="updatePwd()" ng-disabled="myform.$invalid">
+                <button type="button" class="btn btn-primary" ng-click="updatePwd()" 
+                ng-disabled="myform.$invalid || newPwd != newPwdConfirm">
                     修改
                 </button>
             </div>

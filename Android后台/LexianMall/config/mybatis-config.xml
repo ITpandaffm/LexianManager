@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.lexian.mall.user.bean.User" alias="User"/>
+		<typeAlias type="com.lexian.mall.user.bean.Wallet" alias="Wallet"/>
+		<typeAlias type="com.lexian.mall.user.bean.Orders" alias="Orders"/>
+		<typeAlias type="com.lexian.mall.user.bean.OrderItem" alias="OrderItem"/>
+		<typeAlias type="com.lexian.mall.user.bean.Trolley" alias="Trolley"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.Commodity" alias="Commodity"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.Store" alias="Store"/>
+		<typeAlias type="com.lexian.mall.city.bean.Citys" alias="Citys"/>
+		<typeAlias type="com.lexian.mall.version.bean.AppManager" alias="AppManager"/>
+		<typeAlias type="com.lexian.mall.user.bean.WalletRecord" alias="WalletRecord"/>
+		<typeAlias type="com.lexian.mall.user.bean.OrderItem" alias="OrderItem"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.CommodityStore" alias="CommodityStore"/>
+		<typeAlias type="com.lexian.mall.user.bean.CommodityCollection" alias="CommodityCollection"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.Browse" alias="Browse"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.Category" alias="Category"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.CommodityPicture" alias="CommodityPicture"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.CommoditySpec" alias="CommoditySpec"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.Special" alias="Special"/>
+		<typeAlias type="com.lexian.mall.commodity.bean.SpecialCommodity" alias="SpecialCommodity"/>
+	</typeAliases>
+	<plugins>  
+		<plugin interceptor="com.lexian.interceptor.PageInterceptor"></plugin>  
+	</plugins>
+</configuration>

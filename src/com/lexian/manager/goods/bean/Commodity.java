@@ -1,20 +1,49 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.goods.bean;
 
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
+
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 public class Commodity {
 
 	private Integer id;
+	@Pattern(regexp="^\\d{13}$")
 	private String commodityNo;
+	@Size(min=1,max=20)
 	private String name;
+	
 	private Integer categoryId;
+	@Size(min=1,max=2000)
 	private String introduce;
+	
 	private String detailed;
+	
 	private String pictureUrl;
+	
+	@Null
 	private Date createTime;
+	@Null
 	private Date updateTime;
+	@Range(max=1,min=-1)
 	private Integer states;
+	
 	private CategoryView categoryView;
 	private List<String> commodityPicuture;
 	

@@ -1,41 +1,68 @@
 <div class="container addRoleContainer">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
-            <span class="glyphicon glyphicon-chevron-right">&nbsp;添加角色&nbsp;</span>
-            <a href="javascript:window.history.go(-1);">返回</a>
-        </div>
-    </div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span> <span
+				class="glyphicon glyphicon-chevron-right">&nbsp;查看角色信息&nbsp;</span>
+			<span class="glyphicon glyphicon-chevron-right">&nbsp;添加角色&nbsp;</span>
+			<a href="javascript:window.history.go(-1);">返回</a>
+		</div>
+	</div>
 
 
-    <form role="form" name="addRoleForm" class="form-horizontal">
-        <div class="form-group" ng-class="{'has-error':addRoleForm.name.$invalid && addRoleForm.name.$dirty}">
-            <label for="username" class="control-label col-sm-3">角色名称：</label>
-            <div class="col-sm-3">
-                <input type="text" name="name" class="form-control" id="username" placeholder="请输入角色名称" ng-model="name"
-                       required/>
-            </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger help-block"
-                     ng-show="addRoleForm.name.$invalid && addRoleForm.name.$dirty">
-                    姓名不能为空！
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="description" class="control-label col-sm-3">角色描述：</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" id="description" placeholder="请输入角色描述" ng-model="description"
-                       ng-keyup="clickEnter($event)"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-3">
-                <button type="button" class="btn btn-primary" ng-click="submitNewRole()"
-                        ng-disabled="addRoleForm.$invalid">保存
-                </button>
-            </div>
-        </div>
-    </form>
+	<form role="form" name="addRoleForm" class="form-horizontal">
+		<div class="form-group"
+			ng-class="{'has-error':addRoleForm.name.$invalid && addRoleForm.name.$dirty}">
+			<label for="username" class="control-label col-sm-3">角色名称：</label>
+			<div class="col-sm-3">
+				<input type="text" name="name" class="form-control" id="username"
+					placeholder="请输入角色名称" ng-model="name" ng-required="true"
+					ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-Za-z]+$/" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.name.$error.required && addRoleForm.name.$dirty">角色名称不能为空</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.name.$error.minlength">至少输入5个字符！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.name.$error.maxlength">最多输入20个字符！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.name.$error.pattern">只能输入由字母组成的字符！</div>
+			</div>
+		</div>
+		<div class="form-group"
+			ng-class="{'has-error':addRoleForm.description.$invalid && addRoleForm.description.$dirty}">
+			<label for="description" class="control-label col-sm-3">角色描述：</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" name="description"
+					id="description" placeholder="请输入角色描述" ng-model="description"
+					ng-keyup="clickEnter($event)" ng-required="true" ng-maxlength="150"
+					ng-pattern="/^[0-9a-zA-Z\u4e00-\u9fa5]*$/" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.description.$error.pattern">不能存在特殊字符！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.description.$error.required && addRoleForm.description.$dirty">角色描述不能为空！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addRoleForm.description.$error.maxlength">最多输入150字符！</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-3">
+				<button type="button" class="btn btn-primary"
+					ng-click="submitNewRole()" ng-disabled="addRoleForm.$invalid">保存
+				</button>
+			</div>
+		</div>
+	</form>
 </div>

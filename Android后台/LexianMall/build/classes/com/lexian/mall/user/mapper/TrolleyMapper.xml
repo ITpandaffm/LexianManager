@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.TrolleyDao">
+
+	<resultMap type="Trolley" id="TrolleyWithCommodity">
+		
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+		<result column="commodity_no" property="commodityNo" 
+		jdbcType="VARCHAR"/>
+		<result column="amont" property="amont" jdbcType="INTEGER"/>
+		<result column="listprice" property="listPrice" jdbcType="DOUBLE"/>
+		<result column="totalprice" property="totalPrice" jdbcType="DOUBLE"/>
+		<result column="createtime" property="createTime" jdbcType="TIMESTAMP"/>
+		<result column="updatetime" property="updateTime" jdbcType="TIMESTAMP"/>	
+		
+		<association property="store" javaType="Store">
+			<result column="sstore_no" property="storeNo" jdbcType="VARCHAR"/>
+			<result column="storename" property="storeName" jdbcType="VARCHAR"/>
+		</association>
+		<association property="commodity" javaType="Commodity">
+			<result column="ccommodity_no" property="commodityNo" 
+			jdbcType="VARCHAR"/>
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+			<result column="pictureurl" property="pictureUrl" 
+			jdbcType="VARCHAR" />
+		</association>
+	</resultMap>
+	
+	
+	
+	
+	<insert id="addCommodityToTrolley" parameterType="Trolley">
+	
+		insert into trolley (
+			user_id,store_no,commodity_no,amont,listprice,totalprice,createtime,
+			updatetime
+		) 
+		values(
+			#{userId,jdbcType=VARCHAR},
+			#{storeNo,jdbcType=VARCHAR},
+			#{commodityNo,jdbcType=VARCHAR},
+			#{amont,jdbcType=INTEGER},
+			#{listPrice,jdbcType=DOUBLE},
+			#{totalPrice,jdbcType=DOUBLE},
+			#{createTime,jdbcType=TIMESTAMP},
+			#{updateTime,jdbcType=TIMESTAMP}
+		)
+		
+	</insert>
+	
+	<delete id="deleteTrolleyById" parameterType="java.lang.Integer">
+		delete from trolley where id=#{id}
+	</delete>
+	
+	<delete id="clearTrolley" parameterType="java.lang.String">
+	
+		delete from trolley where user_id=#{userId,jdbcType=VARCHAR}
+	
+	</delete>
+	
+	<select id="getTrolleys" parameterType="java.lang.String" 
+	resultMap="TrolleyWithCommodity">
+		SELECT t.id,t.store_no,s.store_no AS sstore_no,s.storename,
+		t.commodity_no ,c.commodity_no AS ccommodity_no,amont,c.name,pictureurl,
+		listprice,
+		totalprice ,
+		t.createtime
+		FROM trolley t,store s,commodity c 
+		WHERE 
+		c.commodity_no=t.commodity_no
+		AND
+		s.store_no=t.store_no
+		AND
+		user_id=#{userId,jdbcType=VARCHAR}
+		order by createtime desc
+	</select>
+	
+	<update id="updateTrolley" parameterType="Trolley">
+		update trolley 
+		set 
+		amont=#{amont,jdbcType=INTEGER},
+		updatetime=#{updateTime,jdbcType=TIMESTAMP},
+		totalprice=#{totalPrice,jdbcType=DOUBLE}
+		WHERE store_no=#{storeNo,jdbcType=VARCHAR}
+		AND commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		AND user_id=#{userId,jdbcType=VARCHAR}
+	</update>
+	
+	<select id="getListPrice" parameterType="Trolley" 
+	resultType="java.lang.Double">
+		select listprice from trolley WHERE store_no=#{storeNo,jdbcType=VARCHAR}
+		AND commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		AND user_id=#{userId,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="hasCommodityInTrolley" parameterType="Trolley" 
+	resultType="java.lang.Integer">
+		select count(*) from trolley 
+		where 
+		user_id=#{userId,jdbcType=VARCHAR}
+		AND 
+		commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		AND
+		store_no=#{storeNo,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

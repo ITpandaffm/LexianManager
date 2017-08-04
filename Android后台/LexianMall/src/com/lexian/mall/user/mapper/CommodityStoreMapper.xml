@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.CommodityStoreDao">
+
+	<select id="getCommodityStoreByCommodityNoAndStoreNo" 
+	resultType="CommodityStore">
+	
+		select id,store_no as storeNo,commodity_no as commodityNo,
+		real_price as realPrice,
+		commodity_amont as  commodityAmont,
+		commodity_lockamont as commodityLockAmont,
+		type
+		FROM commodity_store
+		where store_no=#{storeNo,jdbcType=VARCHAR}
+		AND commodity_no=#{commodityNo,jdbcType=VARCHAR}
+	</select>
+	
+	<update id="updateCommodityStoreAmontByBatch" 
+	parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" open="" close="" 
+		separator=";">  
+                update commodity_store   
+                set
+                  commodity_amont=#{item.commodityAmont,jdbcType=INTEGER} 
+                where store_no=#{item.storeNo,jdbcType=VARCHAR}
+				AND commodity_no=#{item.commodityNo,jdbcType=VARCHAR} 
+				
+         </foreach> 
+	</update>
+	
+</mapper>

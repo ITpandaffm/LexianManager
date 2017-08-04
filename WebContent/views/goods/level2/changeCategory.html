@@ -1,29 +1,47 @@
 <div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <span class="glyphicon glyphicon-user">&nbsp;商品管理&nbsp;</span> <span
-                class="glyphicon glyphicon-chevron-right">&nbsp;分类管理&nbsp;</span> <span
-                class="glyphicon glyphicon-chevron-right">&nbsp;商品分类管理&nbsp;</span>
-            <a href="javascript:window.history.go(-1);">返回</a>
-        </div>
-    </div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<span class="glyphicon glyphicon-user">&nbsp;商品管理&nbsp;</span> <span
+				class="glyphicon glyphicon-chevron-right">&nbsp;分类管理&nbsp;</span> <span
+				class="glyphicon glyphicon-chevron-right">&nbsp;商品分类管理&nbsp;</span>
+			<a href="javascript:window.history.go(-1);">返回</a>
+		</div>
+	</div>
 
-    <div>
-        <form role="form" class="form-horizontal" name="changeCategoryForm">
-            <div class="form-group">
-                <label for="categoryName" class="control-label col-sm-3">分类名称：</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="categoryName" name="categoryName"
-                           ng-model="categoryName" ng-required="true"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-8">
-                    <button type="button" class="btn btn-primary" ng-click="submitNewCategoryName()"
-                            ng-disabled="changeCategoryForm.categoryName.$invalid">保存
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
+	<div>
+		<form role="form" class="form-horizontal" name="changeCategoryForm">
+			<div class="form-group"   ng-class="{'has-error':changeCategoryForm.categoryName.$dirty && changeCategoryForm.categoryName.$invalid}">
+				<label for="categoryName" class="control-label col-sm-3">分类名称：</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="categoryName"
+						name="categoryName" ng-model="categoryName" ng-required="true"
+						ng-pattern="/[a-zA-Z]|[\u4e00-\u9fa5]/" ng-minlength="1"
+						ng-maxlength="10" />
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changeCategoryForm.categoryName.$error.pattern">
+						请输入英文或汉字</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changeCategoryForm.categoryName.$dirty && changeCategoryForm.categoryName.$error.required">
+						请至少输入一个字符</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changeCategoryForm.categoryName.$error.maxlength">
+						最多输入10字符</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-8">
+					<button type="button" class="btn btn-primary"
+						ng-click="submitNewCategoryName()"
+						ng-disabled="changeCategoryForm.categoryName.$invalid">保存
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

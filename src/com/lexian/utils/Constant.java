@@ -1,42 +1,54 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 public class Constant {
 	
 public static Map<Integer, String> messages;
 	
-	public static final int code_success = 1;				// 操作成功
-	public static final int code_entity_not_found = -1;		// 找不到实体
-	public static final int code_invalid_parameter = -2;	// 参数无效
-	public static final int code_entity_duplicated = -3;	// 该实体已经存在，因此不能再次创建
-	public static final int code_entity_in_use = -4;		// 该实体仍被使用，因此不能被删除
-	public static final int code_permission_denied = -5;	// 没有执行该操作的权限
-	public static final int code_login_required = -6;		// 用户没有登录
-	public static final int code_login_failed = -7;			// 登录失败
-	public static final int code_execute_error = -99;		// 服务器执行出错
-	public static final int code_unknown_reason = -100;		// 不明原因的错误
+	public static final int CODE_SUCCESS = 1;				// 操作成功
+	public static final int CODE_ENTITY_NOT_FOUND = -1;		// 找不到实体
+	public static final int CODE_INVALID_PARAMETER = -2;	// 参数无效
+	public static final int CODE_ENTITY_DUPLICATED = -3;	// 该实体已经存在，因此不能再次创建
+	public static final int CODE_ENTITY_IN_USE = -4;		// 该实体仍被使用，因此不能被删除
+	public static final int CODE_PERMISSION_DENIED = -5;	// 没有执行该操作的权限
+	public static final int CODE_LOGIN_REQUIRED = -6;		// 用户没有登录
+	public static final int CODE_LOGIN_FAILED = -7;			// 登录失败
+	public static final int CODE_EXECUTE_ERROR = -99;		// 服务器执行出错
+	public static final int CODE_UNKNOWN_REASON = -100;		// 不明原因的错误
 	
-	public static final int code_state_forbid=-200;
+	public static final int CODE_STATE_FORBID=-200;
 	
-	public static final int code_no_privilege = -10;		//沒有权限
-	public static final int code_no_login=-101;
+	public static final int CODE_NO_PRIVILEGE = -10;		//沒有权限
+	public static final int CODE_NO_LOGIN=-101;
 	
 	static{
 		messages = new HashMap<Integer, String>();
-		messages.put(code_success, "操作成功");
-		messages.put(code_entity_not_found, "找不到实体");
-		messages.put(code_invalid_parameter, "参数无效");
-		messages.put(code_entity_duplicated, "该实体已经存在");
-		messages.put(code_entity_in_use, "该实体不能删除");
-		messages.put(code_permission_denied, "没有执行该操作的权限");
-		messages.put(code_login_required, "用户没有登录");
-		messages.put(code_login_failed, "登录失败");
-		messages.put(code_execute_error, "服务器执行出错");
-		messages.put(code_unknown_reason, "未知的原因");
-		messages.put(code_no_privilege, "沒有权限");
-		messages.put(code_state_forbid, "该用户已被禁用，请联系管理员");
-		messages.put(code_no_login, "请先登录");
+		messages.put(CODE_SUCCESS, "操作成功");
+		messages.put(CODE_ENTITY_NOT_FOUND, "找不到实体");
+		messages.put(CODE_INVALID_PARAMETER, "参数无效");
+		messages.put(CODE_ENTITY_DUPLICATED, "该实体已经存在");
+		messages.put(CODE_ENTITY_IN_USE, "该实体不能删除");
+		messages.put(CODE_PERMISSION_DENIED, "没有执行该操作的权限");
+		messages.put(CODE_LOGIN_REQUIRED, "用户没有登录");
+		messages.put(CODE_LOGIN_FAILED, "登录失败");
+		messages.put(CODE_EXECUTE_ERROR, "服务器执行出错");
+		messages.put(CODE_UNKNOWN_REASON, "未知的原因");
+		messages.put(CODE_NO_PRIVILEGE, "沒有权限");
+		messages.put(CODE_STATE_FORBID, "该用户已被禁用，请联系管理员");
+		messages.put(CODE_NO_LOGIN, "请先登录");
 	}
 }

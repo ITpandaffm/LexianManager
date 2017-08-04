@@ -1,4 +1,9 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.authority.controller;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +15,15 @@ import com.lexian.manager.authority.service.RoleService;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("role")
 public class RoleController {
@@ -34,14 +48,14 @@ public class RoleController {
 	// role/addRole.do?name=supermanager
 	@ResponseBody
 	@RequestMapping("addRole.do")
-	public ResultHelper addRole(Role role) {
+	public ResultHelper addRole(@Valid Role role) {
 		return roleService.addRole(role);
 	}
 
 	// role/updateRole.do?id=4&&name=wwww
 	@ResponseBody
 	@RequestMapping("updateRole.do")
-	public ResultHelper updateRole(Role role) {
+	public ResultHelper updateRole(@Valid Role role) {
 
 		return roleService.updateRole(role);
 	}

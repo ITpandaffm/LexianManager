@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 顶部标题栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="@color/bg_header">
+
+
+        <TextView
+            android:id="@+id/store_title_location_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/store_title"
+            style="@style/text_head_title"/>
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="30dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/home_title_location"
+            />
+    </RelativeLayout>
+
+    <!--正文部分-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_white">
+
+        <RelativeLayout
+            android:id="@+id/store_spinner_province_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/store_input_bg">
+
+            <Spinner
+                android:id="@+id/store_spinner_province"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"></Spinner>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/store_spinner_city_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/store_spinner_province_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/store_input_bg">
+
+            <Spinner
+                android:id="@+id/store_spinner_city"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"></Spinner>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/store_spinner_district_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/store_spinner_city_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/store_input_bg">
+
+            <Spinner
+                android:id="@+id/store_spinner_district"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"></Spinner>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/store_spinner_location_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/store_spinner_district_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/store_input_bg">
+
+            <Spinner
+                android:id="@+id/store_spinner_location"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"></Spinner>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_go_store"
+            style="@style/text_login_button"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/store_spinner_location_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_bg"
+            android:text="@string/confirm" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

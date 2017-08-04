@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.goods.dao.CategoryViewDao">
 
-	<select id="getAllCategoryViewPage" resultType="com.lexian.manager.goods.bean.CategoryView">
+	<select id="getAllCategoryViewPage" 
+	resultType="com.lexian.manager.goods.bean.CategoryView">
 	select 
-	firstid as firstId,firstname as firstName,secondid as secondId,secondname as secondName,thirdid as thirdId,thirdname as thirdName
+	firstid as firstId,firstname as firstName,secondid as secondId,
+	secondname as secondName,thirdid as thirdId,thirdname as thirdName
 	from categoryview
 	</select>
 	
-	<select id="getFirstCategoryViewPage" resultType="com.lexian.manager.goods.bean.CategoryView">
+	<select id="getFirstCategoryViewPage" 
+	resultType="com.lexian.manager.goods.bean.CategoryView">
 	select distinct
 	firstid as firstId,firstname as firstName
 	from categoryview
 	</select>
 	
-	<select id="getSecondCategoryViewPage" resultType="com.lexian.manager.goods.bean.CategoryView">
+	<select id="getSecondCategoryViewPage" 
+	resultType="com.lexian.manager.goods.bean.CategoryView">
 	select distinct
-	firstid as firstId,firstname as firstName,secondid as secondId,secondname as secondName
+	firstid as firstId,firstname as firstName,secondid as secondId,
+	secondname as secondName
 	from categoryview
 	</select>
 	
 	
-	<select id="getThirdCategoryViewPage" resultType="com.lexian.manager.goods.bean.CategoryView">
+	<select id="getThirdCategoryViewPage"
+	 resultType="com.lexian.manager.goods.bean.CategoryView">
 	select distinct
-	secondid as secondId,secondname as secondName,thirdid as thirdId,thirdname as thirdName
+	secondid as secondId,secondname as secondName,thirdid as thirdId,
+	thirdname as thirdName
 	from categoryview
 	</select>
 	

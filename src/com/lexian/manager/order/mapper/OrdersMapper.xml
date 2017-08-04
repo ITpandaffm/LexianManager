@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.order.dao.OrdersDao">
 
 
@@ -8,13 +9,16 @@
 		<id column="id" property="id" jdbcType="INTEGER"></id>
 		<result column="order_no" property="orderNo" jdbcType="VARCHAR" />
 
-		<result column="totalamount" property="totalAmount" jdbcType="DOUBLE" />
+		<result column="totalamount" property="totalAmount"
+		 jdbcType="DOUBLE" />
 
 		<result column="states" property="states" jdbcType="INTEGER" />
-		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="createtime" property="createTime"
+		 jdbcType="TIMESTAMP" />
 
 		<association property="store" javaType="Store">
-			<result column="storename" property="storeName" jdbcType="VARCHAR" />
+			<result column="storename" property="storeName" 
+			jdbcType="VARCHAR" />
 		</association>
 
 	</resultMap>
@@ -22,24 +26,28 @@
 	<resultMap type="Orders" id="OrderssWithUserAndStoreAndOrderItemMap">
 		<id column="id" property="id" jdbcType="INTEGER"></id>
 		<result column="order_no" property="orderNo" jdbcType="VARCHAR" />
-		<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="createtime" property="createTime" 
+		jdbcType="TIMESTAMP" />
 		<association property="user" javaType="User">
 			<result column="username" property="userName" jdbcType="VARCHAR" />
 			<result column="phone" property="phone" jdbcType="VARCHAR" />
 		</association>
 		<association property="store" javaType="Store">
-			<result column="storename" property="storeName" jdbcType="VARCHAR" />
+			<result column="storename" property="storeName" 
+			jdbcType="VARCHAR" />
 		</association>
 		<collection property="orderItems" ofType="OrderItem">
 			<id column="oiid" property="id" jdbcType="INTEGER"></id>
 			<result column="amount" property="amount" jdbcType="INTEGER" />
 			<result column="listprice" property="listPrice" jdbcType="DOUBLE" />
-			<result column="totalprice" property="totalPrice" jdbcType="DOUBLE" />
+			<result column="totalprice" property="totalPrice" 
+			jdbcType="DOUBLE" />
 			<association property="commodity" javaType="Commodity">
 				<result column="commodity_no" property="commodityNo"
 					jdbcType="VARCHAR" />
 				<result column="name" property="name" jdbcType="VARCHAR" />
-				<result column="pictureurl" property="pictureUrl" jdbcType="VARCHAR" />
+				<result column="pictureurl" property="pictureUrl" 
+				jdbcType="VARCHAR" />
 			</association>
 		</collection>
 	</resultMap>
@@ -57,10 +65,12 @@
 		</if>
 	</select>
 
-	<select id="getOrdersWithUserAndAndOrderItemsStore" resultMap="OrderssWithUserAndStoreAndOrderItemMap"
+	<select id="getOrdersWithUserAndOrderItemsStore" 
+	resultMap="OrderssWithUserAndStoreAndOrderItemMap"
 		parameterType="java.lang.Integer">
 
-		SELECT orders.id,orderitem.id as oiid,order_no,orders.createtime,username,phone,storename,
+		SELECT orders.id,orderitem.id as oiid,order_no,
+		orders.createtime,username,phone,storename,
 		amount,listprice,totalprice,
 		commodity.commodity_no,NAME,pictureurl
 		FROM

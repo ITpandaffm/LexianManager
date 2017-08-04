@@ -33,10 +33,10 @@
             <td>{{$index+startIndex}}</td>
             <td>{{item.commodityNo}}</td>
             <td>{{item.name}}</td>
-            <td></td>
+            <td><img ng-src="{{item.pictureUrl}}" width="80px" height="80px" /></td>
             <td>{{item.createTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
             <td>{{item.updateTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
-            <td>{{item.introduce}}</td>
+            <td><textarea rows="5" class="form-control goodsInfoText" maxlength="200" disabled>{{item.introduce}}</textarea></td>
             <td>
                 <a ui-sref="goods/info/updateGoodsInfo({id:item.id})">修改</a>
             </td>

@@ -32,7 +32,7 @@
 			<td>1</td>
 			<td>{{items.firstId}}</td>
 			<td><a
-				ui-sref="goods/category/changeCategory({id:items.firstId,categoryName:items.firstName})">修改</a>&emsp;
+				ui-sref="goods/category/changeCategory({id:items.firstId,categoryName:items.firstName,parentId:0,type:1})">修改</a>&emsp;
 				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.firstId, 1)">删除</a></td>
 		</tr>
 	</table>
@@ -52,7 +52,7 @@
 			<td>2</td>
 			<td>{{items.firstName}}</td>
 			<td>
-				<a ui-sref="goods/category/changeCategory({id:items.secondtId,categoryName:items.secondName})">修改</a>&emsp;
+				<a ui-sref="goods/category/changeCategory({id:items.secondtId,categoryName:items.secondName,parentId:items.firstId,type:2})">修改</a>&emsp;
 				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.secondtId, 2)">删除</a>
 			</td>
 		</tr>
@@ -71,7 +71,7 @@
 			<td>{{items.thirdName}}</td>
 			<td>3</td>
 			<td>{{items.secondName}}</td>
-			<td><a ui-sref="goods/category/changeCategory({id:items.thirdId,categoryName:items.thirdName})">修改</a>&emsp;
+			<td><a ui-sref="goods/category/changeCategory({id:items.thirdId,categoryName:items.thirdName,parentId:items.secondtId,type:3})">修改</a>&emsp;
 				<a href="javascript:;" data-toggle="modal" data-target="#confirmDeleteModal" ng-click="updateDeleteId(items.thirdId, 3)">删除</a></td>
 		</tr>
 	</table>

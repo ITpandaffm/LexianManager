@@ -29,11 +29,30 @@
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group"  ng-class="{'has-error':addCategoryForm.categoryName.$dirty && addCategoryForm.categoryName.$invalid}">
             <label for="categoryName" class="control-label col-sm-3">类别名称：</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="categoryName" ng-model="categoryName"
-                       name="categoryName" ng-required="true"/>
+                       name="categoryName" ng-required="true" ng-pattern="/[a-zA-Z]|[\u4e00-\u9fa5]/"
+                       ng-minlength="1" ng-maxlength="10"/>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block"
+                     ng-show="addCategoryForm.categoryName.$error.pattern">
+                    请输入英文或汉字
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block"
+                     ng-show="addCategoryForm.categoryName.$dirty && addCategoryForm.categoryName.$error.required">
+                    请至少输入一个字符
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-danger help-block"
+                     ng-show="addCategoryForm.categoryName.$error.maxlength">
+                   最多输入10字符
+                </div>
             </div>
         </div>
         <div class="form-group">

@@ -1,3 +1,6 @@
+/**
+ * Created by 冯富铭 on 2017/7/6.
+ */
 myApp.factory('srefAndIconFatory', function() {
     var jSref = {
         17: 'authority/queryauthority',
@@ -16,7 +19,7 @@ myApp.factory('srefAndIconFatory', function() {
         34: 'order/complete',
         64: 'activity/specify',
 
-        71: 'welcome',
+        71: 'statistics/goodsStatistics',
         45: 'welcome',
         47: 'welcome'
     };
@@ -192,4 +195,139 @@ myApp.service('dateTimePickerService', function() {
             forceParse: 0
         });
     };
-})
+});
+
+myApp.service('diagramService', function () {
+   this.getPieOption = function (data) {
+       let option = {
+           backgroundColor: '#2c343c',
+           visualMap: {
+               show: false,
+               min: 80,
+               max: 600,
+               inRange: {
+                   colorLightness: [0, 1]
+               }
+           },
+           tooltip: {},
+           series : [
+               {
+                   name: '访问来源',
+                   type: 'pie',
+                   radius: '55%',
+                   data:  data,
+                   roseType: 'angle',
+                   label: {
+                       normal: {
+                           textStyle: {
+                               color: 'rgba(255, 255, 255, 0.3)'
+                           }
+                       }
+                   },
+                   labelLine: {
+                       normal: {
+                           lineStyle: {
+                               color: 'rgba(255, 255, 255, 0.3)'
+                           }
+                       }
+                   },
+                   itemStyle: {
+                       normal: {
+                           color: '#c23531',
+                           shadowBlur: 200,
+                           shadowColor: 'rgba(0, 0, 0, 0.5)'
+                       }
+                   }
+               }
+           ]
+       };
+       return option;
+   };
+   this.getLineOption = function (dataName,dataCount) {
+       let option = {
+           backgroundColor: '#fff',
+           tooltip: {trigger: 'axis'},
+           legend: {
+               data:['count']
+           },
+           toolbox: {
+               show : true,
+               feature : {
+                   mark : {show: true},
+                   dataView : {show: true, readOnly: false},
+                   magicType : {show: true, type: ['line', 'bar']},
+                   restore : {show: true},
+                   saveAsImage : {show: true}
+               }
+           },
+           xAxis: {
+               axisLabel:{
+                   interval:0,
+                   rotate:15,//倾斜度 -90 至 90 默认为0
+                   margin:15,
+                   marginLeft: 100,
+                   textStyle:{
+                       fontWeight:"bolder",
+                       color:"#000000"
+                   }
+               },
+               data: dataName
+           },
+           yAxis: {
+               splitArea : {show : true}
+           },
+           series: [{
+               name: 'count',
+               type: 'bar',
+               data: dataCount,
+               itemStyle: {
+                   normal: {
+                       label: {
+                           show: true,//是否展示
+                           textStyle: {
+                               fontWeight:'bolder',
+                               fontSize : '12',
+                               fontFamily : '微软雅黑',
+                           }
+                       }
+                   }
+               },
+               markLine : {
+                   data : [
+                       {type : 'average', name: '平均值'}
+                   ]
+               }
+           }]
+       };
+       return option;
+   }
+});
+
+myApp.service('mapService', function(){
+	this.mapInit = function(oLocation){
+		console.log(oLocation);
+		if(0 == oLocation.longitude || 0 == oLocation.latitude){
+			alert("请检查该门店的经纬度！");
+		} else {
+			// 百度地图API功能
+			var map = new BMap.Map("storemap");
+			var point = new BMap.Point(oLocation.longitude,oLocation.latitude);
+			map.centerAndZoom(point,16);
+			map.enableScrollWheelZoom(true);
+			var marker = new BMap.Marker(point);  // 创建标注
+			map.addOverlay(marker);              // 将标注添加到地图中
+			map.panTo(point); 
+			var opts = {
+					  width : 200,     // 信息窗口宽度
+					  height: 80,     // 信息窗口高度
+					  title : oLocation.storeName, // 信息窗口标题
+					}
+					var infoWindow = new BMap.InfoWindow("地址："+oLocation.storeAddress, opts);  // 创建信息窗口对象 
+			map.openInfoWindow(infoWindow,point); //开启信息窗口
+			marker.addEventListener("click", function(){          
+						map.openInfoWindow(infoWindow,point); //开启信息窗口
+					});
+		}
+
+	}
+});

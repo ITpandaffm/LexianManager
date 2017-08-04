@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.shop.dao.StoreDao">
 	<select id="getAllStorePage" resultType="Store">
 		select
-		id,store_no as storeNo,storename as storeName,storeaddress as storeAddress,status
+		id,store_no as storeNo,storename as storeName,
+		storeaddress as storeAddress,status
 		from store
 	</select>
 	
-	<select id="getStoreByStoreNo" resultType="Store" parameterType="java.lang.String">
+	<select id="getStoreByStoreNo" resultType="Store"
+	 parameterType="java.lang.String">
 	select id,store_no as storeNo,province_id as provinceId,citys_id as
 	cityId,county_id as countyId,storename as storeName,storeaddress as
 	storeAddress,introduce,starttime as startTime,closetime as
@@ -21,7 +24,9 @@
 	
 	<insert id="addStore" parameterType="Store">
 		insert into
-		store(store_no,storename,storeaddress,introduce,starttime,closetime,maxlongitude,minlongitude,maxlatitude,minlatitude,province_id,citys_id,county_id,status)
+		store(store_no,storename,storeaddress,introduce,
+		starttime,closetime,maxlongitude,minlongitude,maxlatitude,
+		minlatitude,province_id,citys_id,county_id,status)
 		values(
 		#{storeNo,jdbcType=VARCHAR},
 		#{storeName,jdbcType=VARCHAR},
@@ -40,11 +45,8 @@
 		)
 	</insert>
 	<update id="updateStore" parameterType="Store">
-		update store
+		update store 
 		<set>
-			<if test="storeNo !=null">
-				store_no=#{storeNo,jdbcType=VARCHAR},
-			</if>
 			<if test="storeName !=null">
 				storename=#{storeName,jdbcType=VARCHAR},
 			</if>
@@ -55,10 +57,10 @@
 				introduce=#{introduce,jdbcType=VARCHAR},
 			</if>
 			<if test="startTime !=null">
-				starttime=#{startTime,jdbcType=Time},
+				starttime=#{startTime,jdbcType=TIME},
 			</if>
 			<if test="closeTime !=null">
-				closetime=#{closeTime,jdbcType=Time},
+				closetime=#{closeTime,jdbcType=TIME},
 			</if>
 			<if test="maxLongItude !=null">
 				maxlongitude=#{maxLongItude,jdbcType=DOUBLE},
@@ -76,7 +78,7 @@
 				province_id=#{provinceId,jdbcType=INTEGER},
 			</if>
 			<if test="cityId !=null">
-				city_id=#{cityId,jdbcType=INTEGER},
+				citys_id=#{cityId,jdbcType=INTEGER},
 			</if>
 			<if test="countyId !=null">
 				county_id=#{countyId,jdbcType=INTEGER},
@@ -85,11 +87,13 @@
 				status=#{status,jdbcType=INTEGER}
 			</if>
 		</set>
-		where id=#{id,jdbcType=INTEGER}
+		where store_no=#{storeNo,jdbcType=VARCHAR}
 	</update>
 	<select id="getStoresByCitysId" resultType="Store">
 		 select id , storename as storeName,storeaddress as storeAddress 
 		 from store
-		 where province_id=#{pid,jdbcType=INTEGER} and citys_id=#{cityId,jdbcType=INTEGER} and county_id=#{countyId,jdbcType=INTEGER}	 
+		 where province_id=#{pid,jdbcType=INTEGER} and 
+		 citys_id=#{cityId,jdbcType=INTEGER} 
+		 and county_id=#{countyId,jdbcType=INTEGER}	 
 	</select>
 </mapper>

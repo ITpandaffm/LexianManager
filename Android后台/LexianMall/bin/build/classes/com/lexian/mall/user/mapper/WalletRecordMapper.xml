@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.WalletRecordDao" >
+ 	
+ 	<select id="getWalletRecords" resultType="WalletRecord"
+ 	 parameterType="java.lang.Integer">
+ 		
+ 		select order_no as orderNo ,amount,description,createtime as createTime 
+ 		from walletrecord where wallet_id=#{id} order by createtime desc
+ 	</select>
+ 	
+ 	<insert id="insertWalletRecord" parameterType="WalletRecord">
+ 		insert into walletrecord(wallet_id,order_no,amount,type,
+ 		resulttype,description,createtime)
+ 		values
+ 		(
+ 			#{walletId,jdbcType=INTEGER},
+ 			#{orderNo,jdbcType=INTEGER},
+ 			#{amount,jdbcType=DOUBLE},
+ 			#{ type,jdbcType=INTEGER},
+ 			#{ resultType,jdbcType=INTEGER},
+ 			#{ description,jdbcType=INTEGER},
+ 			#{ createTime,jdbcType=INTEGER}
+ 		)
+ 	</insert>
+</mapper>

@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.authority.service.impl;
 
 import java.util.ArrayList;
@@ -21,6 +24,15 @@ import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Service
 public class ManagerServiceImpl implements ManagerService {
 
@@ -48,12 +60,12 @@ public class ManagerServiceImpl implements ManagerService {
 		if (manager != null) {
 			
 			if(manager.getStatus()!=1){
-				result=new ResultHelper(Constant.code_state_forbid, manager);
+				result=new ResultHelper(Constant.CODE_STATE_FORBID, manager);
 			}else{
-				result = new ResultHelper(Constant.code_success, manager);
+				result = new ResultHelper(Constant.CODE_SUCCESS, manager);
 			}
 		} else {
-			result = new ResultHelper(Constant.code_login_failed);
+			result = new ResultHelper(Constant.CODE_LOGIN_FAILED);
 		}
 
 		return result;
@@ -68,7 +80,7 @@ public class ManagerServiceImpl implements ManagerService {
 		List<Privilege> privileges = managerDao.getPrivilegesPage(params);
 		page.setData(privileges);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 	}
@@ -76,13 +88,13 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public ResultHelper getUserWithMenus(Integer id) {
 		// TODO Auto-generated method stub
-		return new ResultHelper(Constant.code_success, managerDao.getUserWithMenus(id));
+		return new ResultHelper(Constant.CODE_SUCCESS, managerDao.getUserWithMenus(id));
 	}
 
 	@Override
 	public ResultHelper getPrivilegeUrls(Integer id) {
 
-		return new ResultHelper(Constant.code_success, managerDao.getPrivilegeUrls(id));
+		return new ResultHelper(Constant.CODE_SUCCESS, managerDao.getPrivilegeUrls(id));
 	}
 
 	@Override
@@ -95,23 +107,28 @@ public class ManagerServiceImpl implements ManagerService {
 			manager.setCreateTime(time);
 			
 			manager.setUpdateTime(time);
+			if(manager.getStatus()==null){
+				manager.setStatus(1);
+			}
 			
 			managerDao.addManager(manager);
 			
-			
-			List<RoleManager> rms=new ArrayList<>();
-			for(Integer rid:roleId){
-				RoleManager rm=new RoleManager();
-				rm.setManagerId(manager.getId());
-				rm.setRoleId(rid);
-				rms.add(rm);
+			if(roleId!=null){
+				List<RoleManager> rms=new ArrayList<>();
+				for(Integer rid:roleId){
+					RoleManager rm=new RoleManager();
+					rm.setManagerId(manager.getId());
+					rm.setRoleId(rid);
+					rms.add(rm);
+				}
+				
+				roleManagerDao.insertRoleManagerBatch(rms);
 			}
 			
-			roleManagerDao.insertRoleManagerBatch(rms);
 			
-			result=new ResultHelper(Constant.code_success);
+			result=new ResultHelper(Constant.CODE_SUCCESS);
 		}else{
-			result=new ResultHelper(Constant.code_invalid_parameter);
+			result=new ResultHelper(Constant.CODE_INVALID_PARAMETER);
 		}
 		return result;
 	}
@@ -121,14 +138,14 @@ public class ManagerServiceImpl implements ManagerService {
 		Date time = new Date();
 		manager.setUpdateTime(time);
 		managerDao.updateManager(manager);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
 	public ResultHelper updateManagerPassword(Manager manager, String newPass) {
 
 		ResultHelper result = verifyPassword(manager.getId(), manager.getPassword());
-		if (result.getCode() == Constant.code_success) {
+		if (result.getCode() == Constant.CODE_SUCCESS) {
 			manager.setPassword(newPass);
 			updateManager(manager);
 		}
@@ -144,7 +161,7 @@ public class ManagerServiceImpl implements ManagerService {
 		List<Manager> privileges = managerDao.getManagersPage(params);
 		page.setData(privileges);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 
@@ -153,7 +170,7 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public ResultHelper deleteManagerById(Integer id) {
 		managerDao.deleteManagerById(id);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
@@ -163,10 +180,10 @@ public class ManagerServiceImpl implements ManagerService {
 
 		ResultHelper result;
 		if (manager == null) {
-			result = new ResultHelper(Constant.code_login_failed);
+			result = new ResultHelper(Constant.CODE_LOGIN_FAILED);
 		} else {
 
-			result = new ResultHelper(Constant.code_success);
+			result = new ResultHelper(Constant.CODE_SUCCESS);
 		}
 		return result;
 
@@ -185,7 +202,7 @@ public class ManagerServiceImpl implements ManagerService {
 			menu.setBackUrl(UrlContant.qiNiuUrl+"/"+menu.getBackUrl());
 		}
 		
-		return new ResultHelper(Constant.code_success,page);
+		return new ResultHelper(Constant.CODE_SUCCESS,page);
 	}
 
 	@Override
@@ -206,7 +223,7 @@ public class ManagerServiceImpl implements ManagerService {
 		}
 		roleManagerDao.insertRoleManagerBatch(rms);
 		
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 

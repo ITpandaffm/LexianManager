@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.manager.statistics.dao.StatisticsDao">
+	
+	<resultMap type="CommodityStatistics" id="CommodityStatisticsWithCommodity">
+	
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="commodity_no" property="commodityNo" jdbcType="VARCHAR"/>
+		<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+		<result column="type" property="type" jdbcType="INTEGER"/>
+		<result column="count" property="count" jdbcType="INTEGER"/>
+		<association property="commodity" javaType="Commodity">
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+		</association>
+	</resultMap>
+	
+	<resultMap type="StoreCommodityStatistics" id="StoreCommodityStatisticsWithStoreAndCommodity">
+	
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="commodity_no" property="commodityNo" jdbcType="VARCHAR"/>
+		<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+		<result column="type" property="type" jdbcType="INTEGER"/>
+		<result column="count" property="count" jdbcType="INTEGER"/>
+		<association property="commodity" javaType="Commodity">
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+		</association>
+		<association property="store" javaType="Store">
+			<result column="storename" property="storeName" jdbcType="VARCHAR"/>
+		</association>
+	</resultMap>
+	
+	<select id="getCommodityBrowseStatistics" resultMap="CommodityStatisticsWithCommodity">
+		select cbs.id,cbs.commodity_no,type,count,name 
+		from commodity_browse_statistics cbs,commodity c
+		where 
+		cbs.commodity_no=c.commodity_no
+		and
+		type=#{type,jdbcType=INTEGER}
+		order by count desc
+		<if test="size!=null">
+			limit 0,#{size,jdbcType=INTEGER}	
+		</if>
+		<if test="size==null">
+			limit 0,10	
+		</if>
+	</select>
+	
+	
+	<select id="getCommodityCollectionStatistics" resultMap="CommodityStatisticsWithCommodity">
+		select cbs.id,cbs.commodity_no,type,count ,name
+		from commodity_collection_statistics cbs,commodity c
+		where 
+		cbs.commodity_no=c.commodity_no
+		and
+		type=#{type,jdbcType=INTEGER}
+		order by count desc
+		<if test="size!=null">
+			limit 0,#{size,jdbcType=INTEGER}	
+		</if>
+		<if test="size==null">
+			limit 0,10	
+		</if>
+	</select>
+	
+	<select id="getCommodityBuyStatistics" resultMap="CommodityStatisticsWithCommodity">
+		select cbs.id,cbs.commodity_no,type,count ,name
+		from commodity_buy_statistics cbs,commodity c
+		where 
+		cbs.commodity_no=c.commodity_no
+		and
+		type=#{type,jdbcType=INTEGER}
+		order by count desc
+		<if test="size!=null">
+			limit 0,#{size,jdbcType=INTEGER}	
+		</if>
+		<if test="size==null">
+			limit 0,10	
+		</if>
+	</select>
+	
+
+	
+	<select id="getStoreCommodityBuyStatistics" resultMap="StoreCommodityStatisticsWithStoreAndCommodity">
+		select cbs.id,cbs.store_no,cbs.commodity_no,type,count ,name,storename
+		from store_commodity_buy_statistics cbs,store s, commodity c
+		where 
+		cbs.store_no=s.store_no
+		and 
+		cbs.commodity_no=c.commodity_no
+		and
+		type=#{type,jdbcType=INTEGER}
+		and cbs.store_no=#{storeNo,jdbcType=VARCHAR}
+		order by count desc
+		<if test="size!=null">
+			limit 0,#{size,jdbcType=INTEGER}	
+		</if>
+		<if test="size==null">
+			limit 0,10	
+		</if>
+	</select>
+	<select id="getStoreCommodityCollectionStatistics" resultMap="StoreCommodityStatisticsWithStoreAndCommodity">
+		select cbs.id,cbs.store_no,cbs.commodity_no,type,count ,name,storename
+		from store_commodity_collection_statistics cbs,store s, commodity c
+		where 
+		cbs.store_no=s.store_no
+		and 
+		cbs.commodity_no=c.commodity_no
+		and
+		type=#{type,jdbcType=INTEGER}
+		and cbs.store_no=#{storeNo,jdbcType=VARCHAR}
+		order by count desc
+		<if test="size!=null">
+			limit 0,#{size,jdbcType=INTEGER}	
+		</if>
+		<if test="size==null">
+			limit 0,10	
+		</if>
+	</select>
+	
+	<select id="getCommodityBrowseCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select sum(count) from commodity_browse_statistics where type=#{type,jdbcType=INTEGER}
+	</select>
+	<select id="getCommodityBuyCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select sum(count) from commodity_buy_statistics where type=#{type,jdbcType=INTEGER}
+	</select>
+	<select id="getCommodityCollectionCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select sum(count) from commodity_collection_statistics where type=#{type,jdbcType=INTEGER}
+	</select>
+	<select id="getStoreCommodityBuyCount" resultType="java.lang.Integer">
+		select sum(count) from store_commodity_buy_statistics where store_no=#{storeNo,jdbcType=VARCHAR} AND type=#{type,jdbcType=INTEGER}
+	</select>
+	<select id="getStoreCommodityCollectionCount" resultType="java.lang.Integer">
+		select sum(count) from store_commodity_collection_statistics where store_no=#{storeNo,jdbcType=VARCHAR} AND type=#{type,jdbcType=INTEGER}
+	</select>
+	
+</mapper>

@@ -13,7 +13,7 @@
              ng-class="{'has-error':editManagerForm.username.$invalid && editManagerForm.username.$dirty}">
             <label for="username" class="control-label col-sm-3">管理员帐号：</label>
             <div class="col-sm-4">
-                <input type="text" name="username" class="form-control" id="username" ng-model="name" required/>
+                <input type="text" name="username" class="form-control" id="username" ng-model="name" required disabled/>
             </div>
             <div class="col-sm-4">
                 <div class="alert alert-danger help-block"
@@ -22,16 +22,31 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group"
+        ng-class="{'has-error':editManagerForm.describe.$dirty && editManagerForm.describe.$invalid}">
             <label for="describe" class="control-label col-sm-3">管理员描述：</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="describe" ng-model="info"/>
+                <input type="text" class="form-control" id="describe" ng-model="info"
+                ng-required="true" name="describe"
+					ng-maxlength="150" ng-pattern="/^[0-9a-zA-Z\u4e00-\u9fa5]*$/"/>
             </div>
+            <div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="editManagerForm.describe.$error.pattern">不能存在特殊字符！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="editManagerForm.describe.$error.required && editManagerForm.describe.$dirty">管理员描述不能为空！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="editManagerForm.describe.$error.maxlength">最多输入150字符！</div>
+			</div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-8">
                 <button type="button" class="btn btn-primary" ng-click="submitUpdatedManager()"
-                        ng-disabled="editManagerForm.username.$invalid">保存
+                        ng-disabled="editManagerForm.$invalid">保存
                 </button>
             </div>
         </div>

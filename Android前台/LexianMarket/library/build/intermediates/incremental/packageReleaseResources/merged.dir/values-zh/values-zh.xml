@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pull_to_refresh_from_bottom_pull_label">上拉加载更多！</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">亲，拼命加载中...</string>
+    <string name="pull_to_refresh_from_bottom_release_label">松手立即加载！</string>
+    <string name="pull_to_refresh_pull_label">下拉即可刷新！</string>
+    <string name="pull_to_refresh_refreshing_label">亲，正在刷新中...</string>
+    <string name="pull_to_refresh_release_label">松手立即刷新！</string>
+</resources>

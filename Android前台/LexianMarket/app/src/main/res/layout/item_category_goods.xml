@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/category_goods_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/category_goods_view"
+                android:layout_marginLeft="5dp"
+                android:layout_width="5dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/bg_black"/>
+            <TextView
+                android:id="@+id/category_goods_title"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/sring"
+                android:textSize="23dp"
+                />
+        </LinearLayout>
+        <com.example.administrator.lexianmarket.view.GoodsGridView
+            android:id="@+id/categories_goods_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="3.0dip"
+            android:listSelector="@null"
+            android:numColumns="3"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="3.0dip"
+            android:focusable="false"/>
+    </LinearLayout>
+</LinearLayout>

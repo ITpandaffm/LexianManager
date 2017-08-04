@@ -1,11 +1,25 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.order.bean;
 
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.validator.constraints.Range;
+
 import com.lexian.manager.shop.bean.Store;
 import com.lexian.manager.vip.bean.User;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 public class Orders {
 	private Integer id;
 	private String orderNo;//订单编号
@@ -16,6 +30,7 @@ public class Orders {
 	private String paymentSubtype;//支付子类型
 	private Date createTime;
 	private String deliveryType;//配送类型
+	@Range(max=4,min=1)
 	private Integer states;//订单状态：1：待付款 2：待发货  3：已发货  4：已结单
 	
 	private Store store;

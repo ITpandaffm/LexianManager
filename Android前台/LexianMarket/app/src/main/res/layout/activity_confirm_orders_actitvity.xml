@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_default"
+    tools:context="com.example.administrator.lexianmarket.activity.ConfirmOrdersActitvity">
+
+    <include layout="@layout/item_common_header"/>
+
+    <!--列表-->
+    <ListView
+        android:id="@+id/lv_confirm"
+        android:layout_marginTop="60dp"
+        android:layout_above="@+id/rl_confirm"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+    <!--底部-->
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bg_default">
+        <TextView
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@+id/tv_confrim_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/total"
+            android:textSize="20sp"
+            android:textColor="@color/text_black"/>
+        <TextView
+            android:id="@+id/tv_confrim_total_price"
+            android:layout_marginRight="15dp"
+            android:layout_toStartOf="@+id/btn_confirm_orders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/_187_00"
+            android:textSize="20sp"
+            android:textColor="@color/text_red"/>
+        <Button
+            android:id="@+id/btn_confirm_orders"
+            android:layout_alignParentEnd="true"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@color/bg_header"
+            android:text="@string/place_order"
+            android:textColor="@color/text_white"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+</RelativeLayout>

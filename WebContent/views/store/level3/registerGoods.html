@@ -60,7 +60,7 @@
 				<td><input type="checkbox" ng-checked="isChecked(item.commodityNo)"  ng-click="toggleCheck($event,item.commodityNo)" /></td>
 				<td>{{item.commodityNo}}</td>
 				<td>{{item.name}}</td>
-				<td><img alt="" height="40px" /></td>
+				<td><img ng-src="{{item.pictureUrl}}" height="60px" /></td>
 				<td>{{item.createTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
 				<td>{{item.updateTime | date:"yyyy-MM-dd hh:mm:ss"}}</td>
 				<td>{{item.introduce}}</td>

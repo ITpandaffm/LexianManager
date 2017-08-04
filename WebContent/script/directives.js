@@ -1,3 +1,6 @@
+/**
+ * Created by 冯富铭 on 2017/7/6.
+ */
 myApp.directive('pagination', function() {
     return {
         restrict: 'E',
@@ -33,6 +36,20 @@ myApp.directive('pagination', function() {
                 } else {
                     alert('已经是最后一页了！');
                 }
+            };
+            $scope.jumpTo = function() {
+            	//判断是否纯数字
+            	var r = /^[0-9]*[1-9][0-9]*$/;　　//正则匹配正整数 
+            	if (r.test($scope.pageNo)) {
+            		//判断是否越界
+            		if($scope.pageNo > $scope.pageNums) {
+            			alert('已经超过最大页数了!');
+            			$scope.pageNo = +$scope.pageNums;
+            		} 
+            		$scope.refreshMethod();
+            	} else {
+            		alert('请输入正整数！');
+            		}
             };
         }
     };

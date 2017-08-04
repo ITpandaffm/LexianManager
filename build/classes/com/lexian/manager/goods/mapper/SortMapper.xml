@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.goods.dao.SortDao">
 
 
@@ -23,7 +24,8 @@
 </select>
 
 <update id="updateCategoryById">
-		update category set categoryname =#{categoryName,jdbcType=VARCHAR} where id=#{id,jdbcType=INTEGER}
+		update category set categoryname =#{categoryName,jdbcType=VARCHAR} 
+		where id=#{id,jdbcType=INTEGER}
 	
 </update>
 
@@ -50,7 +52,14 @@
   	AND TYPE=#{type,jdbcType=INTEGER}
   	AND parentid=#{parentId,jdbcType=INTEGER}
   </select>
-
+	
+	<select id="getCountCategory" resultType="Category">
+  	SELECT 
+  	id,categoryname AS categoryName,TYPE,parentid AS parentId
+  	FROM category
+  	WHERE categoryname=#{categoryName,jdbcType=VARCHAR}
+  	AND TYPE=#{type,jdbcType=INTEGER}
+  </select>
 	<select id="getCountCategoryByParentId" resultType="java.lang.Integer">
 	
 	SELECT COUNT(*)

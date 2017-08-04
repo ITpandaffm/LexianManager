@@ -1,9 +1,13 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.authority.controller;
 
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +22,15 @@ import com.lexian.utils.Constant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Controller
 @SessionAttributes(value={"managerId","privilegeUrls"},types={Integer.class,List.class})
 @RequestMapping("manager")
@@ -47,7 +60,7 @@ public class ManagerController {
 
 		ResultHelper result = managerService.signIn(name, password);
 
-		if (result.getCode() == Constant.code_success) {
+		if (result.getCode() == Constant.CODE_SUCCESS) {
 			
 			Manager manager = (Manager) result.getData();
 			
@@ -70,7 +83,7 @@ public class ManagerController {
 	@RequestMapping("signOut.do")
 	public ResultHelper signOut(SessionStatus status) {
 		status.setComplete();
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 	
 	/**
@@ -82,7 +95,7 @@ public class ManagerController {
 	// manager/updateManagerPassword.do?password=1&newPass=2
 	@ResponseBody
 	@RequestMapping("updateManagerPassword.do")
-	public ResultHelper updateManagerPassword(Manager manager,String newPass,Map<String, Object> model) {
+	public ResultHelper updateManagerPassword(@Valid Manager manager,String newPass,Map<String, Object> model) {
 		manager.setId((Integer) model.get("managerId"));
 		return managerService.updateManagerPassword(manager,newPass);
 	}

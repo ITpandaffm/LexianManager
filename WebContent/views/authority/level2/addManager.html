@@ -1,85 +1,142 @@
 <div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span>
-            <span class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
-            <span class="glyphicon glyphicon-chevron-right">&nbsp;添加管理员&nbsp;</span>
-            <a href="javascript:window.history.go(-1);">返回</a>
-        </div>
-    </div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<span class="glyphicon glyphicon-user">&nbsp;管理员管理&nbsp;</span> <span
+				class="glyphicon glyphicon-chevron-right">&nbsp;查看管理员信息&nbsp;</span>
+			<span class="glyphicon glyphicon-chevron-right">&nbsp;添加管理员&nbsp;</span>
+			<a href="javascript:window.history.go(-1);">返回</a>
+		</div>
+	</div>
 
-    <form role="form" class="form-horizontal" name="addManagerForm">
-        <div class="form-group"
-             ng-class="{'has-error':addManagerForm.username.$invalid && addManagerForm.username.$dirty}">
-            <label for="username" class="control-label col-sm-3">管理员帐号：</label>
-            <div class="col-sm-4">
-                <input type="text" name="username" class="form-control" id="username" ng-model="username" required/>
-            </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger help-block"
-                     ng-show="addManagerForm.username.$invalid && addManagerForm.username.$dirty">
-                    账号不能为空！
-                </div>
-            </div>
-        </div>
-        <div class="form-group"
-             ng-class="{'has-error':addManagerForm.password.$dirty && addManagerForm.password.$error.minlength}">
-            <label for="password" class="control-label col-sm-3">密码：</label>
-            <div class="col-sm-4">
-                <input type="password" name="password" class="form-control" id="password" ng-model="password"
-                       ng-minlength="6" required/>
-            </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger help-block" ng-show="addManagerForm.password.$error.minlength">
-                    密码长度至少为6位
-                </div>
-            </div>
-        </div>
-        <div class="form-group"
-             ng-class="{'has-error':addManagerForm.password.$dirty && addManagerForm.confirmPwd.$dirty && password != confirmPwd}">
-            <label for="confirm-password" class="control-label col-sm-3">确认密码：</label>
-            <div class="col-sm-4">
-                <input type="password" name="confirmPwd" class="form-control" id="confirm-password"
-                       ng-model="confirmPwd" required/>
-            </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger help-block"
-                     ng-show="addManagerForm.confirmPwd.$dirty && password != confirmPwd">
-                    两次密码不一致
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="describe" class="control-label col-sm-3">管理员描述：</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="describe" ng-model="description"/>
-            </div>
-        </div>
+	<form role="form" class="form-horizontal" name="addManagerForm">
+		<div class="form-group"
+			ng-class="{'has-error':addManagerForm.username.$invalid && addManagerForm.username.$dirty}">
+			<label for="username" class="control-label col-sm-3">管理员帐号：</label>
+			<div class="col-sm-4">
+				<input type="text" name="username" class="form-control"
+					id="username" ng-model="username" ng-required="true"
+					ng-pattern="/^([1-9][0-9]*)$/" ng-maxlength="20" ng-minlength="5" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.username.$error.required && addManagerForm.username.$dirty">
+					账号不能为空！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.username.$error.pattern && addManagerForm.username.$dirty">
+					账号必须为非0开头的数字！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.username.$error.maxlength">
+					账号最多为20个数字！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.username.$error.minlength">
+					账号最少为5个数字！</div>
+			</div>
+		</div>
+		<div class="form-group"
+			ng-class="{'has-error':addManagerForm.password.$dirty && addManagerForm.password.$invalid}">
+			<label for="password" class="control-label col-sm-3">密码：</label>
+			<div class="col-sm-4">
+				<input type="password" name="password" class="form-control"
+					id="password" ng-model="password" ng-minlength="6"
+					ng-required="true" ng-maxlength="30" ng-pattern="/^[A-Za-z0-9]+$/" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.password.$error.minlength">密码长度至少为6位
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.password.$error.maxlength">密码长度最多为30位</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.password.$error.pattern">密码应由数字和字母组成</div>
+			</div>
+		</div>
+		<div class="form-group"
+			ng-class="{'has-error':addManagerForm.confirmPwd.$dirty && (password != confirmPwd || addManagerForm.confirmPwd.$invalid)}">
+			<label for="confirm-password" class="control-label col-sm-3">确认密码：</label>
+			<div class="col-sm-4">
+				<input type="password" name="confirmPwd" class="form-control"
+					id="confirm-password" ng-model="confirmPwd" ng-minlength="6"
+					ng-required="true" ng-maxlength="30" ng-pattern="/[A-Za-z0-9]/" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.confirmPwd.$dirty && password != confirmPwd">
+					两次密码不一致</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.confirmPwd.$error.minlength">密码长度至少为6位
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.confirmPwd.$error.maxlength">密码长度最多为30位</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.confirmPwd.$error.pattern">密码应由数字和字母组成</div>
+			</div>
+		</div>
+		<div class="form-group"
+			ng-class="{'has-error':addManagerForm.describe.$dirty && addManagerForm.describe.$invalid}">
+			<label for="describe" class="control-label col-sm-3">管理员描述：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="describe"
+					name="describe" ng-model="description" ng-required="true"
+					ng-maxlength="150" ng-pattern="/^[0-9a-zA-Z\u4e00-\u9fa5]*$/" />
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.describe.$error.pattern">不能存在特殊字符！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.describe.$error.required && addManagerForm.describe.$dirty">管理员描述不能为空！</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.describe.$error.maxlength">最多输入150字符！</div>
+			</div>
+		</div>
 
-        <div class="form-group" ng-init="getAllRoles()">
-            <label class="control-label col-sm-3">角色名称：</label>
-            <div class="col-sm-8 row checkbox">
-                <div class="col-sm-4 checkbox" ng-repeat="item in aAllRoles">
-                    <label>
-                        <input type="checkbox" name="rolename" ng-click="checkboxStateChange(item.id)">{{item.description}}&emsp;
-                    </label>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="alert alert-danger help-block"
-                     ng-show="addManagerForm.rolename.$dirty && roleId.length == 0">
-                    角色不能为空！
-                </div>
-            </div>
+		<div class="form-group" ng-init="getAllRoles()">
+			<label class="control-label col-sm-3">角色名称：</label>
+			<div class="col-sm-8 row checkbox">
+				<div class="col-sm-4 checkbox" ng-repeat="item in aAllRoles">
+					<label> <input type="checkbox" name="rolename"
+						ng-click="checkboxStateChange(item.id)">{{item.description}}&emsp;
+					</label>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="alert alert-danger help-block"
+					ng-show="addManagerForm.rolename.$dirty && roleId.length == 0">
+					角色不能为空！</div>
+			</div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-8">
-                    <button type="button" class="btn btn-primary" ng-click="submitNewManager()"
-                            ng-disabled="addManagerForm.username.$pristine||addManagerForm.password.$pristine||addManagerForm.confirmPwd.$pristine||addManagerForm.$invalid || roleId.length == 0">
-                        保存
-                    </button>
-                </div>
-            </div>
-        </div>
-    </form>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-8">
+					<button type="button" class="btn btn-primary"
+						ng-click="submitNewManager()"
+						ng-disabled="addManagerForm.username.$pristine||
+						addManagerForm.password.$pristine||
+						addManagerForm.confirmPwd.$pristine||
+						password != confirmPwd ||
+						addManagerForm.$invalid || 
+						roleId.length == 0">
+						保存</button>
+				</div>
+			</div>
+		</div>
+	</form>
 </div>

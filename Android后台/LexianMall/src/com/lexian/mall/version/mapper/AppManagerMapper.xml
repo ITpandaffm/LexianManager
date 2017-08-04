@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.version.dao.AppManagerDao">
+
+	<select id="getLastVersion" resultType="AppManager">
+	
+		SELECT appname AS appName,versionnumber AS versionNumber,
+		appurl AS appUrl ,LOG,
+		updatetime AS updateTime 
+		FROM appmanager 
+		WHERE updatetime=(
+			SELECT MAX(updatetime) FROM appmanager
+		)
+	</select>
+
+</mapper>

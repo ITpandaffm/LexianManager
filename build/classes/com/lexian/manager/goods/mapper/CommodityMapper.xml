@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.goods.dao.CommodityDao">
 
-<resultMap type="Commodity" id="CommodityPicture">
-	<result column="id" property="id" jdbcType="INTEGER" />
-	
-	<result column="commodity_no" property="commodityNo" jdbcType="VARCHAR" />
-	
-	<result column="name" property="name" jdbcType="VARCHAR" />
-	
-	<result column="category_id" property="categoryId" jdbcType="INTEGER" />
-	
-	<result column="introduce" property="introduce" jdbcType="VARCHAR" />
-	
-	<result column="detailed" property="detailed" jdbcType="VARCHAR" />
-	
-	<result column="pictureurl" property="pictureUrl" jdbcType="VARCHAR" />
-	
-	<result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
-	
-	<result column="updatetime" property="updateTime" jdbcType="TIMESTAMP" />
-	
-	<result column="states" property="states" jdbcType="INTEGER" />
-	
-	<association property="categoryView" javaType="com.lexian.manager.goods.bean.CategoryView">
+	<resultMap type="Commodity" id="CommodityPicture">
+		<result column="id" property="id" jdbcType="INTEGER" />
+
+		<result column="commodity_no" property="commodityNo" 
+		jdbcType="VARCHAR" />
+
+		<result column="name" property="name" jdbcType="VARCHAR" />
+
+		<result column="category_id" property="categoryId"
+		 jdbcType="INTEGER" />
+
+		<result column="introduce" property="introduce" 
+		jdbcType="VARCHAR" />
+
+		<result column="detailed" property="detailed" jdbcType="VARCHAR" />
+
+		<result column="pictureurl" property="pictureUrl" jdbcType="VARCHAR" />
+
+		<result column="createtime" property="createTime" 
+		jdbcType="TIMESTAMP" />
+
+		<result column="updatetime" property="updateTime" 
+		jdbcType="TIMESTAMP" />
+
+		<result column="states" property="states" jdbcType="INTEGER" />
+
+		<association property="categoryView"
+			javaType="com.lexian.manager.goods.bean.CategoryView">
 			<result column="firstid" property="firstId" jdbcType="INTEGER" />
-			<result column="firstname" property="firstName" jdbcType="VARCHAR" />
+			<result column="firstname" property="firstName" 
+			jdbcType="VARCHAR" />
 			<result column="secondid" property="secondId" jdbcType="INTEGER" />
-			<result column="secondname" property="secondName" jdbcType="VARCHAR" />
-			<result column="thirdid" property="thirdId" jdbcType="INTEGER" />		
-			<result column="thirdname" property="thirdName" jdbcType="VARCHAR" />
-	</association>
-	
-	<collection property="commodtySpecs" ofType="CommoditySpec">
-			<result column="id" property="id" jdbcType="VARCHAR" />	
-			<result column="commodity_no" property="commodityNo" jdbcType="VARCHAR" />	
-			<result column="spec_group" property="specGroup" jdbcType="VARCHAR" />
+			<result column="secondname" property="secondName" 
+			jdbcType="VARCHAR" />
+			<result column="thirdid" property="thirdId" jdbcType="INTEGER" />
+			<result column="thirdname" property="thirdName" 
+			jdbcType="VARCHAR" />
+		</association>
+
+		<collection property="commodtySpecs" ofType="CommoditySpec">
+			
+			<result column="spec_group" property="specGroup" 
+			jdbcType="VARCHAR" />
 			<result column="spec_name" property="specName" jdbcType="INTEGER" />
-			<result column="states" property="states" jdbcType="INTEGER" />
-	</collection>
-	
-	<collection property="commodityPicuture" ofType="java.lang.String">
-	
-		<result column="picture_url" property="commodityPicuture" jdbcType="VARCHAR" />
-		
-	</collection>
-</resultMap>
+		</collection>
+
+		<collection property="commodityPicuture" ofType="java.lang.String">
+
+			<result column="picture_url" property="commodityPicuture"
+				jdbcType="VARCHAR" />
+
+		</collection>
+	</resultMap>
 
 
 
 	<select id="getCommodityById" resultMap="CommodityPicture">
 
 		SELECT DISTINCT
-		c.id,c.commodity_no,c.name,c.category_id,c.introduce,c.detailed,c.pictureurl,c.createtime,c.updatetime,c.states,cp.picture_url,cs.spec_group,cs.spec_name,cv.firstid,cv.firstname,cv.secondid,cv.secondname,cv.thirdid,cv.thirdname
-		FROM commodity AS c,commodity_picture  AS cp,commodity_spec AS cs,categoryview AS cv
+		c.id,c.commodity_no,c.name,c.category_id,c.introduce,c.detailed,
+		c.pictureurl,c.createtime,c.updatetime,c.states,cp.picture_url,
+		cs.spec_group,cs.spec_name,cv.firstid,cv.firstname,cv.secondid,
+		cv.secondname,cv.thirdid,cv.thirdname
+		FROM commodity AS c,commodity_picture AS cp,
+		commodity_spec AS cs,categoryview AS cv
 		WHERE c.commodity_no=cp.commodity_no
 		AND cs.commodity_no=c.commodity_no
 		AND cs.commodity_no=cp.commodity_no
 		AND c.category_id=cv.thirdid
-		AND c.id=#{id,jdbcType=VARCHAR}
+		AND c.id=#{id,jdbcType=INTEGER}
 	</select>
 
 	<select id="getCommodityByCategoryId" resultType="Commodity">
 		select
-		id,commodity_no as commodityNo,name,introduce,detailed,pictureurl as pictureUrl,createtime ascreateTime,updateTime as updateTime,states
+		id,commodity_no as commodityNo,name,introduce,detailed,pictureurl as
+		pictureUrl,createtime ascreateTime,updateTime as updateTime,states
 		from commodity
 		where
 		category_id=#{categoryId,jdbcType=INTEGER}
 
 	</select>
 
-	<select id="getCommodityBycommodityNo" resultType="Commodity">
+	<select id="getCommodityByCommodityNo" resultType="Commodity">
 		select
 		id,commodity_no as commodityNo,name,category_id as
 		categoryId,introduce,detailed,pictureurl as pictureUrl,
-		createtime as
-		createTime,updateTime as updateTime,states
+		createtime as createTime,updateTime as updateTime,states
 		from commodity
 		where
 		commodity_no=#{commodityNo,jdbcType=VARCHAR}
@@ -95,12 +109,14 @@
 
 	<insert id="addCommodity" parameterType="Commodity">
 
-		INSERT INTO commodity (commodity_no, NAME, category_id,
+		INSERT INTO commodity
+		(commodity_no, NAME, category_id,
 		introduce,createtime)
 		VALUES (
 		#{commodityNo,jdbcType=VARCHAR},
 		#{name,jdbcType=VARCHAR},
-		(SELECT id FROM category WHERE id=#{categoryId,jdbcType=INTEGER}),
+		(SELECT id
+		FROM category WHERE id=#{categoryId,jdbcType=INTEGER}),
 		#{introduce,jdbcType=VARCHAR},
 		#{createTime,jdbcType=TIMESTAMP});
 	</insert>
@@ -108,17 +124,12 @@
 	<update id="updateCommodity" parameterType="Commodity">
 		update commodity
 		<set>
-			<!-- <if test="commodity.id != null">
-				id=#{commodity.id,jdbcType=INTEGER},
-			</if> -->
-			<!-- <if test="commodityNo != null">
-				commodity_no=#{commodityNo,jdbcType=VARCHAR},
-			</if> -->
 			<if test="name != null">
 				name=#{name,jdbcType=VARCHAR},
 			</if>
 			<if test="categoryId != null">
-				category_id=(SELECT id FROM category WHERE id=#{categoryId,jdbcType=INTEGER}),
+				category_id=(SELECT id FROM category WHERE
+				id=#{categoryId,jdbcType=INTEGER}),
 			</if>
 			<if test="introduce != null">
 				introduce=#{introduce,jdbcType=VARCHAR},
@@ -143,7 +154,9 @@
 
 		delete
 		from commodity_picture
-		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		where
+		commodity_no=#{commodityNo,jdbcType=VARCHAR}
+
 	</delete>
 
 	<insert id="addCommodityPicture">
@@ -161,17 +174,19 @@
 		commodity_spec(commodity_no,spec_group,spec_name,states)
 		VALUES(
 		(SELECT commodity_no
-		FROM commodity WHERE commodity_no=#{commodityNo,jdbcType=VARCHAR}),
+		FROM commodity WHERE
+		commodity_no=#{commodityNo,jdbcType=VARCHAR}),
 		#{specGroup,jdbcType=VARCHAR},
 		#{specName,jdbcType=VARCHAR},
 		#{states,jdbcType=INTEGER}
 		)
 	</insert>
-	
+
 	<delete id="deleteCommoditySpec">
 
 		delete
 		from commodity_spec
-		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		where
+		commodity_no=#{commodityNo,jdbcType=VARCHAR}
 	</delete>
 </mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_inactive">#9B9B9B</color>
+    <color name="text_active">#F0973E</color>
+    <color name="bg_header">#F0973E</color>
+
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_black">#000000</color>
+    <color name="text_red">#FF0000</color>
+    <color name="text_default">#787878</color>
+
+    <color name="bg_body">#F2F2F2</color>
+    <color name="bg_inactive">#9B9B9B</color>
+    <color name="bg_active">#F0983D</color>
+    <color name="bg_fragment">#4D4D4D</color>
+    <color name="bg_gridview">#FFE8ECEF</color>
+    <color name="bd_gridview_line">#FFD3DDE6</color>
+
+    <color name="bg_white">#FFFFFF</color>
+    <color name="bg_black">#000000</color>
+    <color name="bg_grey">#9B9B9B</color>
+    <color name="bg_default">#F0F0F0</color>
+
+    <color name="text_login_input">#DB8B40</color>
+    <color name="bg_login_input">#DB8B40</color>
+    <color name="bg_btn">#F0973E</color>
+    <color name="bg_btn_stroke">#FFB152</color>
+    <color name="bg_store_spinner">#737373</color>
+    <color name="bg_category_selected">#F0F0F0</color>
+    <color name="bg_category_selected_view">#F0973E</color>
+    <color name="blue">#87CEFA</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+</resources>

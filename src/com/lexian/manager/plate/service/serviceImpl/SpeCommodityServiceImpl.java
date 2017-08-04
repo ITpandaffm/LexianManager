@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.plate.service.serviceImpl;
 
 import java.util.HashMap;
@@ -11,9 +14,19 @@ import com.lexian.manager.plate.bean.SpecialCommodity;
 import com.lexian.manager.plate.dao.SpeCommodityDao;
 import com.lexian.manager.plate.service.SpeCommodityService;
 import com.lexian.utils.Constant;
+import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 @Service
 public class SpeCommodityServiceImpl implements SpeCommodityService{
 	
@@ -33,7 +46,7 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 	@Override
 	public ResultHelper deleteSpeCommodity(int id) {
 		speCommodityDao.deleteSpeCommodity(id);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 	
 	@Override
@@ -42,9 +55,12 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 		params.put("page", page);
 		params.put("id", id);
 		List<SpecialCommodity> orderssWithStore = speCommodityDao.getSpecialCommoditiesPage(params);
+		for (SpecialCommodity specialCommodity : orderssWithStore) {
+			specialCommodity.setPictureUrl(UrlContant.qiNiuUrl+specialCommodity.getPictureUrl());
+		}
 		page.setData(orderssWithStore);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 		
@@ -54,10 +70,10 @@ public class SpeCommodityServiceImpl implements SpeCommodityService{
 	public ResultHelper addSpecialCommodities(String commodityNo,int specialId) {
 		SpecialCommodity specialCommodity = speCommodityDao.getSpecialCommodity(commodityNo,specialId);
 		if(specialCommodity !=null){
-			return new ResultHelper(Constant.code_entity_duplicated);
+			return new ResultHelper(Constant.CODE_ENTITY_DUPLICATED);
 		}else{
 		speCommodityDao.addSpecialCommodities(commodityNo, specialId);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 		}
 	}
 

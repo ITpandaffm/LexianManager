@@ -1,4 +1,9 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.goods.controller;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +16,15 @@ import com.lexian.manager.goods.service.SortService;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
-
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("sort")
 @SessionAttributes(value={"managerId"},types={Integer.class})
@@ -70,12 +83,8 @@ public class SortController {
 	 */
 	@ResponseBody
 	@RequestMapping("addCategory.do")
-	 public ResultHelper addCategory(Category category){
+	 public ResultHelper addCategory(@Valid Category category){
 		//sort/addCategory.do
-		/*Category category= new Category();
-		category.setCategoryName("chenhao");
-		category.setType(2);
-		category.setParentId(46);*/
 		return sortService.addCategory(category);
 		 
 	 }
@@ -88,10 +97,10 @@ public class SortController {
 	 */
 	@ResponseBody
 	@RequestMapping("updateCategory.do")
-	 public ResultHelper updateCategoryById(int id,String categoryName){
+	 public ResultHelper updateCategoryById(@Valid Category category){
 		//sort/updateCategory.do?id=46&categoryName=装备学习
 		//sort/updateCategory.do?id=10&categoryName=学习装备2
-		return sortService.updateCategoryById(id, categoryName);
+		return sortService.updateCategoryById(category);
 		 
 	 }
 	/**

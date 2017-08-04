@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <span class="glyphicon glyphicon-user">&nbsp;数据统计&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;商品销售概况&nbsp;</span>
+                <span class="glyphicon glyphicon-chevron-right">&nbsp;门店商品销售概况&nbsp;</span>
+                <a href="javascript:window.history.go(-1);">返回</a>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <searchfilter selected-filter="selctedFilter" filter-str="filterStr" filter-types="filterTypes"></searchfilter>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped" ng-init="getStoreGoods()">
+        <tr>
+            <th></th>
+            <th>店铺编号</th>
+            <th>店铺名称</th>
+            <th>操作</th>
+        </tr>
+
+        <tr ng-repeat="item in aStoreGoods | filter: myFilter">
+            <td>{{$index+startIndex}}</td>
+            <td>{{item.storeNo}}</td>
+            <td>{{item.storeName}}</td>
+            <td>
+                <a ui-sref="statistics/goodsStatistics/storeStatistics/specificStoreStatistics({storeNo:item.storeNo,storeName:item.storeName})">查看门店商品销售概况</a>
+            </td>
+        </tr>
+
+    </table>
+    <pagination page-size="pageSize" page-no="pageNo" total-size="{{nTotalSize}}" page-nums="{{nPageNums}}" start-index={{startIndex}} end-index={{lastIndex}} refresh-method="getStoreGoods()">
+    </pagination>
+</div>

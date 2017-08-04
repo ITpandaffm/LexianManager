@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.UserDao" >
+ 	
+ 	<resultMap type="User" id="UserWithWalletMap">
+ 		<id column="id" property="id" jdbcType="VARCHAR"/>
+ 		<result column="username" property="userName" jdbcType="VARCHAR"/>
+ 		<result column="portrait" property="portrait" jdbcType="VARCHAR"/>
+ 		<result column="portrait" property="portrait"/>
+ 		<association property="wallet" javaType="Wallet">
+ 			<id column="wid" property="id" jdbcType="INTEGER"/>
+ 			<result column="balance" property="balance" jdbcType="DOUBLE"/>
+ 		</association>
+ 	</resultMap>
+ 	
+ <select id="getUserById" parameterType="java.lang.String" resultType="User">
+ 
+ 	select username,phone,portrait from user where id=#{userId,jdbcType=VARCHAR}
+ </select>
+ 
+  <select id="getUserIdByPhoneAndPassword" resultType="java.lang.String">
+    select id
+    from user
+    where phone=#{phone,jdbcType=VARCHAR}
+     and passwd=#{password,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="getUserWithWalletById" resultMap="UserWithWalletMap" 
+   parameterType="java.lang.String">
+    select 
+    u.id,username,phone,w.id as wid,balance,portrait
+    from user u ,wallet w
+    where  w.user_id=u.id AND u.id=#{userId,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="checkPassword" parameterType="User" 
+  resultType="java.lang.Integer">
+  
+  	select count(*) from user where id=#{id,jdbcType=VARCHAR}
+  	 AND passwd=#{passwd,jdbcType=VARCHAR}
+
+  </select>
+ <update id="updatePassword">
+ 
+ 	update user set passwd=#{newPassword,jdbcType=VARCHAR}
+ 	 WHERE id=#{userId,jdbcType=VARCHAR}
+ </update>
+ <insert id="addUser" parameterType="User" useGeneratedKeys="true" 
+ keyProperty="id">
+ 	insert into user (id,phone,username,passwd)
+ 	values
+ 	(
+ 		#{id,jdbcType=VARCHAR},
+ 		#{phone,jdbcType=VARCHAR},
+ 		#{userName,jdbcType=VARCHAR},
+ 		#{passwd,jdbcType=VARCHAR}
+ 	)
+ </insert>
+  <select id="checkIsPhoneUsed" parameterType="java.lang.String" 
+  resultType="java.lang.Integer">
+  
+  		select count(*) from user where phone=#{phone,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.vip.service.impl;
 
 import java.util.HashMap;
@@ -14,6 +17,15 @@ import com.lexian.utils.Constant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -28,7 +40,7 @@ public class UserServiceImpl implements UserService {
 		List<User> privileges = userDao.getUsersPage(params);
 		page.setData(privileges);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 
@@ -37,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ResultHelper updateUser(User user) {
 		userDao.updateUser(user);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 }

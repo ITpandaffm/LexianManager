@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="panel panel-default">
-		<div class="panel-body" style="background-color: #f5f5f5;">
+		<div class="panel-body">
 			<div class="col-sm-6">
 				<span class="glyphicon glyphicon-user">&nbsp;店铺管理&nbsp;</span> <span
 					class="glyphicon glyphicon-chevron-right">&nbsp;店铺商品管理&nbsp;</span>
@@ -8,7 +8,7 @@
 				<a href="javascript:window.history.go(-1);">返回</a>
 			</div>
 			<div class="col-sm-6">
-				<div class="col-sm-10">
+				<div class="col-sm-10 pull-right">
 					<div class="input-group">
 						<div class="input-group-btn">
 							<div class="btn-group">
@@ -33,26 +33,33 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-2 ">
-					<button type="button" class="btn btn-default">
-						<span class="glyphicon glyphicon-plus">注册商品</span>
-					</button>
-				</div>
 			</div>
 		</div>
 	</div>
 
 	<div>
-		<form role="form" class="form-horizontal">
-			<div class="form-group">
+		<form role="form" class="form-horizontal" name="changeAmontForm">
+			<div class="form-group" ng-class="{'has-error':changeAmontForm.UpdateStorage.$invalid && changeAmontForm.UpdateStorage.$dirty}">
 				<label for="UpdateStorage" class="control-label col-sm-3">更新库存：</label>
 				<div class="col-sm-4">
-					<input type="text" ng-model="commodityAmont" class="form-control" id="UpdateStorage" />
+					<input type="text" name="UpdateStorage" ng-model="commodityAmont" class="form-control" id="UpdateStorage"
+					ng-required="true" ng-pattern="/^([1-9]\d*|[0]{1,1})$/" ng-maxlength="11"/>
+				</div>
+				<div class="col-sm-4">
+					<div class="alert alert-danger help-block"
+						ng-show="changeAmontForm.UpdateStorage.$error.pattern">请输入0或者正整数</div>
+					<div class="alert alert-danger help-block"
+						ng-show="changeAmontForm.UpdateStorage.$error.required && changeAmontForm.UpdateStorage.$dirty">
+						请输入数字</div>
+						<div class="alert alert-danger help-block"
+						ng-show="changeAmontForm.UpdateStorage.$error.maxlength">
+						请输入11位以内的数字</div>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-3 col-sm-8">
-					<button type="button" class="btn btn-primary" ng-click="changeAmont()">保存</button>
+					<button type="button" class="btn btn-primary" ng-click="changeAmont()"
+					ng-disabled="changeAmontForm.UpdateStorage.$invalid && changeAmontForm.UpdateStorage.$dirty">保存</button>
 				</div>
 			</div>
 		</form>

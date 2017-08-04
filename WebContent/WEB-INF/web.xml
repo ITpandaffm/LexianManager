@@ -57,7 +57,10 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	
+	<!-- 配置session的存活时间 -->
+	<session-config>  
+    	<session-timeout>5</session-timeout>  
+	</session-config>
 	
 	
 	<!-- 配置跳转到主页的过滤器，若登录成功则直接跳转到 home页面，否则跳转到登录界面 -->
@@ -102,6 +105,9 @@
 		<filter-name>CheckPrivilegeFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping> -->
-
+	<!-- 配置监听session的监听器 -->
+	<listener>
+		<listener-class>com.lexian.listener.SessionListener</listener-class>
+	</listener>
 
 </web-app>

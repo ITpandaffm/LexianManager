@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="com.lexian.manager.plate.bean.Special" x="27" y="33">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.bean.SpecialCommodity" x="24" y="145">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.service.SpeCommodityService"
+        x="173" y="379">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.dao.SpecialDao" x="272" y="102">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.dao.SpeCommodityDao" x="602" y="268">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.controller.SpecialController"
+        x="872" y="452">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.plate.service.SpecialService"
+            endpointName="specialService" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.plate.service.SpecialService"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.plate.service.serviceImpl.SpeCommodityServiceImpl"
+        x="172" y="263">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.lexian.manager.plate.service.SpeCommodityService"/>
+        <Association
+            destinationClassName="com.lexian.manager.plate.dao.SpeCommodityDao"
+            endpointName="speCommodityDao" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.plate.dao.SpeCommodityDao"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.plate.service.serviceImpl.SpecialServiceImpl"
+        x="594" y="107">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.lexian.manager.plate.service.SpecialService"/>
+        <Association
+            destinationClassName="com.lexian.manager.plate.dao.SpecialDao"
+            endpointName="specialDao" kind="Simple"/>
+        <Association
+            destinationClassName="com.lexian.manager.plate.dao.SpeCommodityDao"
+            endpointName="speCommodityDao" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.plate.dao.SpecialDao"/>
+        <Communication destinationClassName="com.lexian.manager.plate.dao.SpeCommodityDao"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.plate.controller.SpeCommodityController"
+        x="168" y="507">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.plate.service.SpeCommodityService"
+            endpointName="speCommodityService" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.plate.service.SpeCommodityService"/>
+    </Class>
+    <Class name="com.lexian.manager.plate.service.SpecialService"
+        x="874" y="247">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

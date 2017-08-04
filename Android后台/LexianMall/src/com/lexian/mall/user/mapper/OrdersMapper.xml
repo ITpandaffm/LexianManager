@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.OrdersDao">
+
+
+
+	<resultMap type="Orders" id="OrderssWithStoreMap">
+		<id column="id" property="id" jdbcType="INTEGER"></id>
+		<result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+
+		<result column="totalamount" property="totalAmount" jdbcType="DOUBLE" />
+		<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+		<result column="states" property="states" jdbcType="INTEGER" />
+		<result column="createtime" property="createTime" 
+		jdbcType="TIMESTAMP" />
+
+		<association property="store" javaType="Store">
+			<result column="storename" property="storeName" 
+			jdbcType="VARCHAR" />
+		</association>
+
+	</resultMap>
+
+	<resultMap type="Orders" id="OrderssWithUserAndStoreAndOrderItemMap">
+		<id column="id" property="id" jdbcType="INTEGER"></id>
+		<result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+		<result column="createtime" property="createTime" 
+		jdbcType="TIMESTAMP" />
+		<result column="deliverytype" property="deliveryType" 
+		jdbcType="VARCHAR" />
+		<association property="user" javaType="User">
+			<result column="username" property="userName" jdbcType="VARCHAR" />
+			<result column="phone" property="phone" jdbcType="VARCHAR" />
+		</association>
+		<association property="store" javaType="Store">
+			<result column="storename" property="storeName" 
+			jdbcType="VARCHAR" />
+			<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+		</association>
+		<collection property="orderItems" ofType="OrderItem">
+			<id column="oiid" property="id" jdbcType="INTEGER"></id>
+			<result column="amount" property="amount" jdbcType="INTEGER" />
+			<result column="listprice" property="listPrice" jdbcType="DOUBLE" />
+			<result column="totalprice" property="totalPrice" 
+			jdbcType="DOUBLE" />
+			<association property="commodity" javaType="Commodity">
+				<result column="commodity_no" property="commodityNo"
+					jdbcType="VARCHAR" />
+				<result column="name" property="name" jdbcType="VARCHAR" />
+				<result column="pictureurl" property="pictureUrl" 
+				jdbcType="VARCHAR" />
+			</association>
+		</collection>
+	</resultMap>
+
+
+
+	<select id="getOrderssWithStorePage" resultMap="OrderssWithStoreMap"
+		parameterType="java.util.Map">
+		SELECT orders.id,order_no,orders.store_no,totalamount,states,
+		createtime,storename
+		FROM
+		orders,store
+		WHERE store.store_no=orders.store_no
+		<if test="state != null">
+			and states=#{state,jdbcType=INTEGER}
+		</if>
+		and user_id=#{userId,jdbcType=VARCHAR}
+		ORDER BY createtime DESC
+	</select>
+
+	<select id="getOrdersWithUserAndAndOrderItemsStore"
+	 resultMap="OrderssWithUserAndStoreAndOrderItemMap"
+		parameterType="java.lang.Integer">
+
+		SELECT orders.id,orderitem.id as oiid,order_no,orders.createtime,
+		username,phone,storename,orders.deliverytype,
+		amount,listprice,totalprice,store.store_no,
+		commodity.commodity_no,NAME,pictureurl
+		FROM
+		orders,USER,store,orderitem,commodity
+		WHERE 
+		user.id=orders.user_id 
+		AND 
+		orderitem.commodity_no=commodity.commodity_no
+		AND
+		store.store_no=orders.store_no 
+		AND 
+		orderitem.order_id=orders.id
+		AND
+		orders.id=#{id}
+	</select>
+	
+	<insert id="insertOrders" parameterType="Orders" keyProperty="id"
+	 useGeneratedKeys="true">
+		insert into orders (order_no,user_id,store_no,totalamount,paymenttype,
+		paymentsubtype,createtime,deliverytype,states)
+		values(
+			#{ orderNo,jdbcType=VARCHAR},
+			#{ userId,jdbcType=VARCHAR},
+			#{ storeNo,jdbcType=VARCHAR},
+			#{ totalAmount,jdbcType=DOUBLE},
+			#{ paymentType,jdbcType=VARCHAR},
+			#{ paymentSubtype,jdbcType=VARCHAR},
+			#{ createTime,jdbcType=TIMESTAMP},
+			#{ deliveryType,jdbcType=VARCHAR},
+			#{ states,jdbcType=INTEGER}
+		)
+	</insert>
+
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.CommodityCollectionDao" >
+ 	
+ 	<resultMap type="CommodityCollection" 
+ 	id="CommodityCollectionWithStoreAndCommodity">
+ 		<id column="id" property="id" jdbcType="INTEGER"/>
+ 		<result column="commodity_no" 
+ 		property="commodityNo" jdbcType="VARCHAR"/>
+ 		<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+ 		<result column="collecttime" property="collectTime"
+ 		 jdbcType="TIMESTAMP"/>
+ 		
+ 		<association property="store" javaType="Store">
+ 			<result column="storename" property="storeName" jdbcType="VARCHAR"/>
+ 		</association>
+ 		
+ 		<association property="commodity" javaType="Commodity">
+ 			<result column="name" property="name" jdbcType="VARCHAR"/>
+ 			<result column="pictureurl" property="pictureUrl"
+ 			 jdbcType="VARCHAR"/>
+ 			
+ 		</association>
+ 		
+ 		<association property="commodityStore" javaType="CommodityStore">
+ 			<result column="real_price" property="realPrice" jdbcType="DOUBLE"/>
+ 		</association>
+ 	</resultMap>
+ 		
+ 	<select id="getCommodityCollectionPage" 
+ 	resultMap="CommodityCollectionWithStoreAndCommodity"
+ 	 parameterType="java.util.Map">
+ 		SELECT cc.id,cc.commodity_no,cc.store_no,collecttime,storename,name,
+ 		real_price,pictureurl as pictureUrl
+ 		FROM commodity_collection cc,store,commodity,commodity_store
+ 		WHERE 
+ 		cc.commodity_no=commodity.commodity_no
+ 		AND
+ 		cc.store_no=store.store_no
+ 		AND
+ 		commodity_store.commodity_no=commodity.commodity_no
+ 		AND
+ 		commodity_store.store_no=store.store_no
+ 		AND cc.user_id=#{userId,jdbcType=VARCHAR}
+ 		order by collecttime desc
+ 	</select>
+ 	
+ 	<insert id="addCommodityCollection" parameterType="CommodityCollection">
+ 		insert into 
+ 		commodity_collection (user_id,commodity_no,store_no,collecttime)
+ 		values
+ 		(
+ 			#{userId,jdbcType=VARCHAR},
+ 			#{commodityNo,jdbcType=VARCHAR},
+ 			#{storeNo,jdbcType=VARCHAR},
+ 			#{collectTime,jdbcType=TIMESTAMP}
+ 		)
+ 	</insert>
+ 	
+ 	<delete id="deleteCommodityCollection" parameterType="CommodityCollection">
+ 		delete from commodity_collection 
+ 		where 
+ 		user_id=#{userId,jdbcType=VARCHAR}
+ 		AND
+ 		commodity_no=#{commodityNo,jdbcType=VARCHAR}
+ 		and
+ 		store_no=#{storeNo,jdbcType=VARCHAR}
+ 	</delete>
+ 	
+ 	<select id="hasCommodityInCommodityCollection" 
+ 	parameterType="CommodityCollection" resultType="java.lang.Integer">
+ 	
+ 		select count(*) from commodity_collection 
+		where 
+		user_id=#{userId,jdbcType=VARCHAR}
+		AND 
+		commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		AND
+		store_no=#{storeNo,jdbcType=VARCHAR}
+ 	
+ 	</select>
+ 	
+</mapper>

@@ -1,4 +1,9 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.authority.controller;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +16,15 @@ import com.lexian.manager.authority.service.RoleService;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("handleManager")
 public class HandleManagerController {
@@ -38,13 +52,13 @@ public class HandleManagerController {
 	//<insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="userId" parameterType="com.chenzhou.mybatis.User">  
 	@ResponseBody
 	@RequestMapping("addManager.do")
-	public ResultHelper addManager(Manager manager,Integer[] roleId){
+	public ResultHelper addManager(@Valid Manager manager,Integer[] roleId){
 		return managerService.addManager(manager,roleId);
 	}
 	//handleManager/updateManager.do?id=82&name=1
 	@ResponseBody
 	@RequestMapping("updateManager.do")
-	public ResultHelper updateManager(Manager manager){
+	public ResultHelper updateManager(@Valid Manager manager){
 		return managerService.updateManager(manager);
 	}
 	//handleManager/deleteManager.do?id=110

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.authority.dao.ManagerDao" >
   <resultMap id="UserWithMenusMap" type="Manager" >
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -18,11 +19,14 @@
     select 
     id,name,status
     from manager
-    where name=#{name,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
+    where name=#{name,jdbcType=VARCHAR}
+     and password=#{password,jdbcType=VARCHAR}
   </select>
   
-  <select id="getUserWithMenus" parameterType="java.lang.Integer" resultMap="UserWithMenusMap">
-  		SELECT DISTINCT manager.name,menu.id,menu.url,menu.name mname,menu.parentid,menu.backurl 
+  <select id="getUserWithMenus" parameterType="java.lang.Integer" 
+  resultMap="UserWithMenusMap">
+  		SELECT DISTINCT manager.name,menu.id,menu.url,menu.name mname,
+  		menu.parentid,menu.backurl 
   		FROM menu ,manager,role_menu ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -31,8 +35,10 @@
   		and manager.id=#{id,jdbcType=INTEGER}
   </select>
   
-  <select id="getPrivilegesPage" parameterType="java.util.Map" resultType="Privilege">
-  		SELECT DISTINCT privilege.id,privilege.url,privilege.name,privilege.description 
+  <select id="getPrivilegesPage" parameterType="java.util.Map"
+   resultType="Privilege">
+  		SELECT DISTINCT privilege.id,privilege.url,privilege.name,
+  		privilege.description 
   		FROM privilege ,manager,role_privilege ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
   		AND role_manager.role_id=role.id
@@ -42,7 +48,8 @@
   </select>
   
   
-  <select id="getPrivilegeUrls" parameterType="java.lang.Integer" resultType="java.lang.String">
+  <select id="getPrivilegeUrls" parameterType="java.lang.Integer" 
+  resultType="java.lang.String">
   		SELECT DISTINCT privilege.url
   		FROM privilege ,manager,role_privilege ,role,role_manager 
   		WHERE manager.id=role_manager.manager_id
@@ -53,7 +60,8 @@
   </select>
   
   
-  <insert id="addManager" parameterType="Manager" keyProperty="id" useGeneratedKeys="true" >
+  <insert id="addManager" parameterType="Manager" keyProperty="id"
+   useGeneratedKeys="true" >
   		
   		
   		insert into manager(name,password, info, createtime, updatetime, status)
@@ -103,7 +111,8 @@
   
   
   <select id="verifyPassword" resultType="java.lang.Integer">
-  		select id from manager where id=#{id} and password=#{password,jdbcType=VARCHAR}
+  		select id from manager where id=#{id}
+  		 and password=#{password,jdbcType=VARCHAR}
   </select>
   
   <select id="getMenusPage" resultType="Menu" parameterType="java.util.Map">
@@ -116,7 +125,8 @@
   		AND role_menu.menu_id=menu.id
   		and manager.id=#{id,jdbcType=INTEGER}
   </select>
-  <select id="hasNameUsed" parameterType="java.lang.String" resultType="java.lang.Integer">
+  <select id="hasNameUsed" parameterType="java.lang.String"
+   resultType="java.lang.Integer">
   		select count(id) from manager where name=#{name,jdbcType=VARCHAR}
   </select>
   

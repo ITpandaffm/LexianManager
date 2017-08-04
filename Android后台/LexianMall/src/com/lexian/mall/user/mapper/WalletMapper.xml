@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.user.dao.WalletDao" >
+ 	
+ 	<select id="getWalletByUserIdAndPayPassword" resultType="Wallet">
+ 		select id ,balance from wallet where 
+ 		user_id=#{userId,jdbcType=VARCHAR}
+ 		and
+ 		password=#{payPassword,jdbcType=VARCHAR}
+ 	</select>
+ 	
+ 	<update id="updateBalance" parameterType="Wallet">
+ 		update wallet set balance=#{balance,jdbcType=DOUBLE}
+ 		WHERE
+ 		id=#{id,jdbcType=INTEGER}
+ 	</update>
+ 	
+</mapper>

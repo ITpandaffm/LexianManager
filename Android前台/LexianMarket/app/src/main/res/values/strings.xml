@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">乐鲜超市</string>
+
+    <!-- 框架菜单按钮文字 -->
+    <string name="fragment_indicator_home">首页</string>
+    <string name="fragment_indicator_category">类别</string>
+    <string name="fragment_indicator_location">门店</string>
+    <string name="fragment_indicator_cart">购物车</string>
+    <string name="fragment_indicator_mine">我的</string>
+
+    <string name="app_exit_indicator">再按一次退出本应用</string>
+
+    <!--首页-->
+    <string name="home_title">北京ETC</string>
+    <string name="home_menu0_text">商品分类</string>
+    <string name="home_menu1_text">我的收藏</string>
+    <string name="home_menu2_text">购物车</string>
+    <string name="home_menu3_text">我的订单</string>
+
+    <!--类别-->
+    <string name="category_title">商品分类</string>
+
+    <string name="grid_title1">橡皮擦</string>
+    <string name="grid_title2">圆珠笔</string>
+
+    <!--商品列表-->
+    <string name="goods_list_title">商品列表</string>
+
+    <!--门店-->
+    <string name="store_title">手动定位</string>
+
+    <!--购物车-->
+    <string name="cart_title">购物车</string>
+    <string name="cart_empty">购物车饿扁了，快去购物。。。</string>
+
+    <!--个人中心-->
+    <string name="mine_title">个人中心</string>
+    <string name="mine_default_username">请登录</string>
+    <string name="mine_menu0_text">我的订单</string>
+    <string name="mine_menu0_right_text">查看全部订单</string>
+    <string name="mine_menu1_text">我的钱包</string>
+    <string name="mine_menu1_right_text">一卡通、沃币等</string>
+    <string name="mine_menu2_text">乐鲜活动</string>
+    <string name="mine_menu2_right_text">乐鲜活动</string>
+    <string name="mine_menu3_text">分享返现</string>
+    <string name="mine_menu3_right_text">分享软件</string>
+    <string name="mine_menu4_text">关于我们</string>
+    <string name="mine_menu4_right_text">了解我们的文化</string>
+
+    <!--登录-->
+    <string name="login_title">用户登录</string>
+    <string name="login_bottom_string0">Copyright©2015-2017</string>
+    <string name="login_bottom_string1">北京中软国际教育科技有限公司  版权所有</string>
+    <string name="login_fail_phonenumber">登录失败！手机号长度应为11位</string>
+
+    <!--confirmOrderActivity-->
+    <string name="store_name">店铺名称</string>
+    <string name="commodity_name">商品名称</string>
+    <string name="commodity_number">购买数量</string>
+    <string name="confirm_string_first">售后服务</string>
+    <string name="confirm_string_second">全国联保</string>
+    <string name="confirm_string_third">配送方式</string>
+    <string name="confirm_String_fourth">全国免邮</string>
+    <string name="login_first">请先登录</string>
+    <string name="commodity_detail">商品详情</string>
+    <string name="first_page">首页</string>
+    <string name="had_collection">已经收藏</string>
+    <string name="remove_collection">取消收藏</string>
+    <string name="commodity_jian">件</string>
+    <string name="amount">库存：</string>
+    <string name="go_cart">放入购物车</string>
+    <string name="confirm_orders">确认订单</string>
+    <string name="had_go_cart">以放入购物车</string>
+    <!--加载-->
+    <string name="no_more">没有更多了</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="down_refresh">正在下拉刷新...</string>
+    <string name="refreshing">正在玩命加载中...</string>
+    <string name="loosen_refresh">放开以刷新</string>
+    <string name="up_refreshing">正在上拉刷新...</string>
+    <string name="no_commodity">没有查到相关商品！</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败！手机号或密码错误</string>
+    <string name="input_valid_arguments">请输入合法的参数</string>
+    <string name="order_detail">订单详情</string>
+    <string name="my_order">我的订单</string>
+
+    <!--注册-->
+    <string name="register_success">注册成功</string>
+    <string name="this_phone_used">手机号已被占用</string>
+    <string name="user_register">用户注册</string>
+    <string name="fail_phonenumber">注册失败！手机号长度应为11位</string>
+    <string name="fail_password_min">注册失败！密码长度至少为6位</string>
+    <string name="fail_password_max">注册失败！密码长度最多为12位</string>
+    <string name="fail_password_two">注册失败！两次密码输入不一致</string>
+
+    <string name="specail_first">限时抢购</string>
+    <string name="specail_two">品牌精选</string>
+    <string name="special_third">精彩推荐</string>
+    <string name="special_fourth">新品推荐</string>
+    <string name="modify_success">修改成功</string>
+    <string name="modify_password">修改密码</string>
+    <string name="person_information">个人信息</string>
+    <string name="exit_success">退出成功</string>
+    <string name="money">￥</string>
+    <string name="zero_money">￥0.00</string>
+    <string name="point_out">提示</string>
+    <string name="confirm_delete_if">确定要删除这一项吗？</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="state_paymente">待付款</string>
+    <string name="state_deliver_goods">待发货</string>
+    <string name="state_deliver_goods_had">已发货</string>
+    <string name="statement_sheet">已结单</string>
+    <string name="number">数量:</string>
+    <string name="real_price">单价:￥</string>
+    <string name="total_price">总计：￥</string>
+    <!--commodity-->
+    <string name="select_commodity">请先选中商品</string>
+    <string name="sure_clean_cart">确定要清空购物车吗？</string>
+    <string name="select_one_store">请选中一个门店</string>
+    <string name="accounts">123456</string>
+    <string name="yuan">元</string>
+    <string name="money_pay">余额支付</string>
+    <string name="buy_success">购买成功</string>
+    <string name="amount_not_enough">购买失败，库存不够</string>
+    <string name="money_not_enough">购买失败，余额不足</string>
+    <string name="password_error">购买失败，密码错误</string>
+    <string name="program_name">程序名：</string>
+    <string name="version_number">版本号：</string>
+    <string name="appurl">appUrl：</string>
+    <string name="version_introduce">版本说明：</string>
+    <string name="version_content">版权所有 © 中软国际有限公司 2017 保留一切权利</string>
+    <string name="loading">加载中</string>
+    <string name="go_collection">没有商品，快去收藏吧</string>
+    <string name="commodity_introduce">商品简介：</string>
+    <string name="commodity_paramter">产品参数</string>
+    <string name="store_information">门店信息</string>
+    <string name="customer_service">客服</string>
+    <string name="store">店铺</string>
+    <string name="collection">收藏</string>
+    <string name="input_cart">加入购物车</string>
+    <string name="buy">立即购买</string>
+    <string name="total">合计：</string>
+    <string name="_187_00">￥187.00</string>
+    <string name="place_order">提交订单</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="phone_number">手机号码</string>
+    <string name="user_information">用户信息</string>
+    <string name="real_name">真实姓名</string>
+    <string name="email">邮箱地址</string>
+    <string name="message_short">短信验证码</string>
+    <string name="get_message">获取验证码</string>
+    <string name="next_step">下一步</string>
+    <string name="input_new_password">请输入新密码</string>
+    <string name="second_input_password">再输一次新密码</string>
+    <string name="finish">完成</string>
+    <!--GoodsList-->
+    <string name="sales_volums">销量</string>
+    <string name="screen">筛选</string>
+    <string name="price">价格</string>
+    <string name="input_commodity_name">请输入商品名称</string>
+    <string name="input_phone_number">请输入手机号</string>
+    <string name="input_password">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="order_number">订单编号:</string>
+    <string name="conginee">收货人:</string>
+    <string name="contract_information">联系方式:</string>
+    <string name="delivery_mode">配送方式:</string>
+    <string name="title_first">乐鲜生活购物平台欢迎您！</string>
+    <string name="input_name">请输入昵称</string>
+    <string name="confirm_password">请确认密码</string>
+    <string name="input_old_password">请输入原密码</string>
+    <string name="modify">修改</string>
+    <string name="username">用户名:</string>
+    <string name="exit">退出登录</string>
+    <string name="account_balance">账户余额</string>
+    <string name="recharge">充值</string>
+    <string name="transfer_accounts">转账</string>
+    <string name="common_problem">常见问题</string>
+    <string name="wallet_string">本服务由大连中软提供</string>
+    <string name="name">名字：</string>
+    <string name="bianhao">编号：</string>
+    <string name="address">地址：</string>
+    <string name="introduce">简介：</string>
+    <string name="payment_datail">付款详情</string>
+    <string name="pay_number">支付账号</string>
+    <string name="payment_method">付款方式</string>
+    <string name="need_pay">需付款</string>
+    <string name="confirm_payment">确认付款</string>
+    <string name="balance">结算</string>
+    <string name="delete_selected">删除选中</string>
+    <string name="cleaning">清空</string>
+    <string name="state_pick">待取货</string>
+    <string name="my_logistics">我的物流</string>
+    <string name="coupon">优惠券</string>
+    <string name="aobi">沃币</string>
+    <string name="yikatong">一卡通</string>
+    <string name="input_payment_password">输入支付密码</string>
+    <string name="sring">橡皮擦</string>
+    <string name="creation_date">创建日期：</string>
+    <string name="order_state">订单状态：</string>
+    <string name="params_not_empty">手机号或密码不能为空</string>
+    <string name="fail_username_empty">注册失败！用户名为空</string>
+    <string name="fail_phonenumber_invalid">注册失败！手机号应为数字</string>
+    <string name="fail_phonenumber_empty">注册失败！手机号为空</string>
+    <string name="login_fail_phone_invalid">登录失败！手机号应为数字</string>
+    <string name="fail_change_phone_min">修改失败！密码长度至少为6位</string>
+    <string name="fail_change_phone_max">修改失败！密码长度最多为12位</string>
+    <string name="fail_change_phone_confirm">修改失败！两次密码输入不一致</string>
+    <string name="fail_change_empty">修改失败！各项均不能为空</string>
+    <string name="no_order">没有相应的订单，快去下吧！！！</string>
+    <string name="all">共</string>
+    <string name="confirm_total_item">合计：￥</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="activity_lexian">乐鲜活动</string>
+    <string name="no_activity">没有特殊活动</string>
+    <string name="dialog">提示</string>
+    <string name="confirm_delete_this">确定要删除这一项吗？</string>
+    <string name="login_forbid">该账户已被禁用，请联系管理员解封</string>
+    <!--others-->
+
+</resources>

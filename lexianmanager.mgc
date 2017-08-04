@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="com.lexian.manager.authority.service.ManagerService"
+        x="1120" y="45">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.bean.Privilege" x="-9" y="60">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.dao.ManagerDao" x="379" y="32">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.bean.Menu" x="1134" y="456">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.authority.controller.HandleManagerController"
+        x="991" y="238">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.service.ManagerService"
+            endpointName="managerService" kind="Simple"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.service.RoleService"
+            endpointName="roleService" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.authority.service.ManagerService"/>
+        <Communication destinationClassName="com.lexian.manager.authority.service.RoleService"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.dao.RoleMenuDao" x="299" y="408">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.bean.Role" x="18" y="485">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.dao.RolePrivilegeDao"
+        x="382" y="514">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.authority.service.impl.RoleServiceImpl"
+        x="705" y="209">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.lexian.manager.authority.service.RoleService"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.dao.RolePrivilegeDao"
+            endpointName="rolePrivilegeDao" kind="Simple"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.dao.RoleDao"
+            endpointName="roleDao" kind="Simple"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.dao.RoleMenuDao"
+            endpointName="roleMenuDao" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.authority.dao.RoleMenuDao"/>
+        <Communication destinationClassName="com.lexian.manager.authority.bean.Role"/>
+        <Communication destinationClassName="com.lexian.manager.authority.dao.RolePrivilegeDao"/>
+        <Communication destinationClassName="com.lexian.manager.authority.dao.RoleDao"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.bean.Manager" x="1357" y="458">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.bean.Menu"
+            endpointName="menus" kind="Simple"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.authority.service.impl.ManagerServiceImpl"
+        x="710" y="13">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.lexian.manager.authority.service.ManagerService"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.dao.RoleManagerDao"
+            endpointName="roleManagerDao" kind="Simple"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.dao.ManagerDao"
+            endpointName="managerDao" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.authority.dao.ManagerDao"/>
+        <Communication destinationClassName="com.lexian.manager.authority.bean.Manager"/>
+        <Communication destinationClassName="com.lexian.manager.authority.bean.Menu"/>
+        <Communication destinationClassName="com.lexian.manager.authority.dao.RoleManagerDao"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.controller.RoleController"
+        x="725" y="513">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.service.RoleService"
+            endpointName="roleService" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.authority.service.RoleService"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.dao.RoleDao" x="381" y="287">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.lexian.manager.authority.controller.ManagerController"
+        x="1168" y="345">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.lexian.manager.authority.service.ManagerService"
+            endpointName="managerService" kind="Simple"/>
+        <Communication destinationClassName="com.lexian.manager.authority.service.ManagerService"/>
+        <Communication destinationClassName="com.lexian.manager.authority.bean.Manager"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.dao.RoleManagerDao"
+        x="321" y="171">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.lexian.manager.authority.service.RoleService"
+        x="745" y="372">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

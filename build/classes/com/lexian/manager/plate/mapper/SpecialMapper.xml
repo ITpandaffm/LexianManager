@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lexian.manager.plate.dao.SpecialDao">
 
 	<select id="getCountSpecial" resultType="java.lang.Integer">
@@ -7,7 +8,8 @@
 	from special
 	</select>
 	
-	<select id="getSpecialPage" resultType="com.lexian.manager.plate.bean.Special">
+	<select id="getSpecialPage" 
+	resultType="com.lexian.manager.plate.bean.Special">
 	select DISTINCT
 	id,name
 	from special
@@ -27,7 +29,8 @@
 	 VALUES (#{name,jdbcType=VARCHAR}); 
 	</insert>
 	
-	<select id="getSpecialByName" resultType="com.lexian.manager.plate.bean.Special">
+	<select id="getSpecialByName" 
+	resultType="com.lexian.manager.plate.bean.Special">
 		select DISTINCT
 		id,name
 		from special

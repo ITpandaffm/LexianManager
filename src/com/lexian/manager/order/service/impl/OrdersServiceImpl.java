@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.order.service.impl;
 
 import java.util.HashMap;
@@ -17,6 +20,15 @@ import com.lexian.utils.UrlContant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Service
 public class OrdersServiceImpl implements OrdersService {
 
@@ -36,21 +48,21 @@ public class OrdersServiceImpl implements OrdersService {
 		List<Orders> orderssWithStore = ordersDao.getOrderssWithStorePage(params);
 		page.setData(orderssWithStore);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 	}
 
 	@Override
 	public ResultHelper getOrderDetail(int id) {
-		Orders orders=ordersDao.getOrdersWithUserAndAndOrderItemsStore(id);
+		Orders orders=ordersDao.getOrdersWithUserAndOrderItemsStore(id);
 		
 		for(OrderItem item:orders.getOrderItems()){
 			Commodity commodity=item.getCommodity();
 			commodity.setPictureUrl(UrlContant.qiNiuUrl+"/"+commodity.getPictureUrl());
 		}
 		
-		return new ResultHelper(Constant.code_success,orders );
+		return new ResultHelper(Constant.CODE_SUCCESS,orders );
 	}
 
 	@Override
@@ -58,7 +70,7 @@ public class OrdersServiceImpl implements OrdersService {
 
 		ordersDao.updateOrders(orders);
 
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
@@ -76,7 +88,7 @@ public class OrdersServiceImpl implements OrdersService {
 		List<Orders> orderssWithStore = ordersDao.getOrderssByDatePage(params);
 		page.setData(orderssWithStore);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 		return result;
 	}
 

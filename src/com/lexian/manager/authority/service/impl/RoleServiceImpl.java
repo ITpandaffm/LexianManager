@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.authority.service.impl;
 
 import java.util.Date;
@@ -20,7 +23,15 @@ import com.lexian.utils.Constant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
-
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 @Service
 public class RoleServiceImpl implements RoleService {
 	
@@ -48,7 +59,7 @@ public class RoleServiceImpl implements RoleService {
 		params.put("page", page);
 		page.setData(roleDao.getRolesPage(params));
 		
-		return new ResultHelper(Constant.code_success, page);
+		return new ResultHelper(Constant.CODE_SUCCESS, page);
 	}
 
 	@Override
@@ -62,9 +73,9 @@ public class RoleServiceImpl implements RoleService {
 			role.setUpdateTime(time);
 			
 			roleDao.addRole(role);
-			result=new ResultHelper(Constant.code_success,role);
+			result=new ResultHelper(Constant.CODE_SUCCESS,role);
 		}else{
-			result=new ResultHelper(Constant.code_invalid_parameter);
+			result=new ResultHelper(Constant.CODE_INVALID_PARAMETER);
 		}
 		return result;
 	}
@@ -75,7 +86,7 @@ public class RoleServiceImpl implements RoleService {
 		role.setUpdateTime(new Date());
 		roleDao.updateRole(role);
 		
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	
@@ -90,7 +101,7 @@ public class RoleServiceImpl implements RoleService {
 		data[1]=roleDao.getMenus(id);
 		
 		
-		return new ResultHelper(Constant.code_success,data);
+		return new ResultHelper(Constant.CODE_SUCCESS,data);
 	}
 
 	@Override
@@ -117,7 +128,7 @@ public class RoleServiceImpl implements RoleService {
 		}
 		
 		
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
@@ -143,7 +154,7 @@ public class RoleServiceImpl implements RoleService {
 		}
 		
 		
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
@@ -154,18 +165,18 @@ public class RoleServiceImpl implements RoleService {
 		
 		data[1]=roleDao.getPrivileges(id);
 		
-		return new ResultHelper(Constant.code_success,data);
+		return new ResultHelper(Constant.CODE_SUCCESS,data);
 	}
 
 	@Override
 	public ResultHelper getAllRoles() {
 		
-		return new ResultHelper(Constant.code_success,roleDao.getAllRoles());
+		return new ResultHelper(Constant.CODE_SUCCESS,roleDao.getAllRoles());
 	}
 
 	@Override
 	public ResultHelper getRoleByManagerId(Integer managerId) {
-		return new ResultHelper(Constant.code_success,roleDao.getRoleByManagerId(managerId));
+		return new ResultHelper(Constant.CODE_SUCCESS,roleDao.getRoleByManagerId(managerId));
 	}
 
 }

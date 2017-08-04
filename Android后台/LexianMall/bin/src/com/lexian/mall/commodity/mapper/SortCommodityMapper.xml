@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.commodity.dao.SortCommodityDao">
+
+	<resultMap type="CommodityStore" 
+	id="CommodityCategoryId">
+			<result column="commodity_price" property="commodityPrice"
+			 jdbcType="DECIMAL"/>
+			
+			<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+			
+			<result column="cscommodity_no" property="commodityNo"
+			 jdbcType="VARCHAR"/>
+			
+			<result column="commodity_amont" property="commodityAmont" 
+			jdbcType="INTEGER"/>
+			
+			<result column="commodity_lockamont" property="commodityLockAmont"
+			 jdbcType="INTEGER"/>
+			
+			<result column="type" property="type" jdbcType="INTEGER"/>
+			<result column="real_price" property="realPrice" jdbcType="DOUBLE"/>
+		<association property="commodity"
+		 javaType="Commodity">
+			<id column="id" property="id" jdbcType="INTEGER"/>
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+			<result column="commodity_no" property="commodityNo"
+			 jdbcType="VARCHAR"/>
+			<result column="category_id" property="categoryId" 
+			jdbcType="INTEGER"/>
+			<result column="introduce" property="introduce" jdbcType="VARCHAR"/>
+			<result column="pictureurl" property="pictureUrl"
+			 jdbcType="VARCHAR"/>
+			<result column="states" property="states" jdbcType="INTEGER"/>
+		</association>
+	</resultMap>
+
+
+	<select id="getFirstCategory"
+	 resultType="Category">
+		select distinct 
+		id,categoryname as categoryName,type,parentid as parentId
+		from category
+		where type=1
+	
+	</select>
+	
+	<select id="getSecondCategory" 
+	 resultType="Category">
+		select distinct 
+		id,categoryname as categoryName,type,parentid as parentId
+		from category
+		where parentid=#{parentId,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getThirdCategory"
+	 resultType="Category">
+		select distinct 
+		id,categoryname as categoryName,type,parentid as parentId
+		from category
+		where parentid=#{parentId,jdbcType=INTEGER}
+	</select>
+		
+		
+	
+	<select id="getCommoditiesByCategoryIdPage" parameterType="java.util.Map"
+	 resultMap="CommodityCategoryId">
+		SELECT 
+		c.id,c.category_id,c.commodity_no ,c.name,c.introduce ,c.pictureurl,
+		c.states,cs.real_price,cs.commodity_price,cs.store_no,
+		cs.commodity_amont,cs.commodity_lockamont,
+		cs.commodity_no as cscommodity_no,cs.type
+		FROM commodity AS c,commodity_store AS cs
+		WHERE c.category_id=#{categoryId,jdbcType=INTEGER}
+		AND c.commodity_no=cs.commodity_no
+
+	</select>
+	
+	<select id="getCommodityStoreByCommodityNo"
+	 resultType="CommodityStore">
+		select
+		id,store_no AS storeNo,commodity_no as commodityNo,
+		commodity_price AS commodityPrice,
+		real_price AS realPrice,commodity_amont AS commodityAmont,
+		commodity_lockamont AS commodityLockAmont,TYPE
+		from commodity_store
+		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getCommodityStore"
+	 resultType="CommodityStore">
+		select
+		id,store_no AS storeNo,commodity_no as commodityNo,
+		commodity_price AS commodityPrice,
+		real_price AS realPrice,commodity_amont AS commodityAmont,
+		commodity_lockamont AS commodityLockAmont,TYPE
+		from commodity_store
+		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+		and store_no=#{storeNo,jdbcType=VARCHAR}
+	
+	</select>
+	
+	<select id="getCommodityByCommodityNo"
+	 resultType="Commodity">
+		select
+		id,category_id as categoryId,commodity_no as commodityNo,
+		name,introduce,pictureurl as pictureUrl,states
+		from commodity
+		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getSotreByStoreNo" 
+	resultType="Store">
+		select 
+		id,store_no as storeNo,province_id as provinceId,citys_id as cityId,
+		county_id as countyId,storename as storeName,
+		storeaddress as storeAddress,maxlongitude as maxLongItude,
+		minlongitude as minLongItude,maxlatitude as maxLatItude,
+		minlatitude as minLatItude,introduce,status
+		from store
+		where store_no=#{storeNo,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getCommodityPicture" 
+	resultType="CommodityPicture">
+		select
+		id,commodity_no as commodityNo,picture_url as pictureUrl
+		from commodity_picture
+		where commodity_no=#{commodityNo,jdbcType=VARCHAR}
+	
+	</select>
+</mapper>

@@ -1,3 +1,6 @@
+/**
+ * Created by 冯富铭 on 2017/7/6.
+ */
 var myApp = angular.module('lx-app', ['ui.router'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -14,7 +17,7 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/updatePwd.html'
             })
 
-            //权限管理模块
+            // 权限管理模块
             .state('authority/queryauthority', {
                 url: '/authority/queryauthority',
                 templateUrl: 'views/authority/authority_queryauthority.html'
@@ -31,7 +34,7 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 url: '/authority/queryrole',
                 templateUrl: 'views/authority/authority_queryrole.html'
             })
-            //权限管理模块的二级路由
+            // 权限管理模块的二级路由
             .state('authority/role/addRole', {
                 url: '/authority/role/addRole',
                 templateUrl: 'views/authority/level2/addRole.html',
@@ -62,12 +65,12 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/authority/level2/associateRole.html',
                 controller: 'associateRoleController'
             })
-            //会员模块
+            // 会员模块
             .state('vip/queryvip', {
                 url: '/vip/queryvip',
                 templateUrl: 'views/vip/vip_queryvip.html'
             })
-            //商品管理模块
+            // 商品管理模块
             .state('goods/category', {
                 url: '/goods/category',
                 templateUrl: 'views/goods/goods_category.html'
@@ -83,7 +86,7 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 controller: 'addCategoryController'
             })
             .state('goods/category/changeCategory', {
-                url: '/goods/category/changeCategory/:id/:categoryName',
+                url: '/goods/category/changeCategory/:id/:categoryName/:parentId/:type',
                 templateUrl: 'views/goods/level2/changeCategory.html',
                 controller: 'changeCategoryController'
             })
@@ -113,7 +116,7 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 controller: 'addStoreController'
             })
             .state('store/info/updateStore', {
-                url: '/store/info/updateStore/:storeNo',
+                url: '/store/info/updateStore/:storeNo/:storeName',
                 templateUrl: 'views/store/level2/updateStore.html',
                 controller: 'updateStoreController'
             })
@@ -122,7 +125,12 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/store/level2/manageStore.html',
                 controller: 'manageStoreController'
             })
-            //门店模块的三级路由
+            .state('store/info/checkStroeInMap', {
+            	url: '/store/info/checkStroeInMap/:storeNo/:storeName',
+            	templateUrl: 'views/store/level2/storeMap.html',
+            	controller: 'storeMapController'
+            })
+            // 门店模块的三级路由
             .state('store/goods/manageStore/changePrice', {
                 url: '/store/goods/manageStore/changePrice/:storeName/:id/:commodotyPrice/:realPrice/:storeNo',
                 templateUrl: 'views/store/level3/changePrice.html',
@@ -138,7 +146,7 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/store/level3/registerGoods.html',
                 controller: 'registerGoodsController'
             })
-            //订单模块
+            // 订单模块
             .state('order/list', {
                 url: '/order/list',
                 templateUrl: 'views/order/order_list.html'
@@ -164,17 +172,38 @@ var myApp = angular.module('lx-app', ['ui.router'])
                 templateUrl: 'views/order/level2/order_detail.html',
                 controller: 'orderDetailController'
             })
-            //板块管理
+            // 板块管理
             .state('activity/specify', {
                 url: '/activity/specify',
                 templateUrl: 'views/activity/activity_specify.html'
             })
-            //查看活动商品
+            // 查看活动商品
             .state('activity/special/getSpecialCommodities', {
                 url: '/activity/special/getSpecialCommodities/:aSpecialsID',
                 templateUrl: 'views/activity/level2/getSpecialCommodities.html',
                 controller: 'getSpecialCommoditiesController'
-            });
-
+            })
+            // 数据统计
+            .state('statistics/goodsStatistics', {
+                url: '/statistics/goodsStatistics',
+                templateUrl: 'views/statistics/goodsStatistics.html'
+            })
+            // 数据统计二级路由
+            .state('statistics/goodsStatistics/overallStatistics', {
+                url: '/statistics/goodsStatistics/overallStatistics',
+                templateUrl: 'views/statistics/level2/overallStatistics.html',
+                controller: 'overallStatisticsController'
+            })
+            .state('statistics/goodsStatistics/storeStatistics', {
+                url: '/statistics/goodsStatistics/storeStatistics',
+                templateUrl: 'views/statistics/level2/storeStatistics.html',
+                controller: 'storeStatisticsController'
+            })
+        	// 数据统计三级路由
+	        .state('statistics/goodsStatistics/storeStatistics/specificStoreStatistics', {
+	            url: '/statistics/goodsStatistics/storeStatistics/specificStoreStatistics/:storeNo/:storeName',
+	            templateUrl: 'views/statistics/level3/specificStoreStatistics.html',
+	            controller: 'specificStoreStatisticsController'
+	        });
     });
 

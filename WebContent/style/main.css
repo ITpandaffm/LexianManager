@@ -1,392 +1,528 @@
 body {
-    background-image: url("http://osnk57csd.bkt.clouddn.com/bj.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+	background-image: url("http://osnk57csd.bkt.clouddn.com/bj.png");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
+
 .container {
-    width: 90%;
-    margin: 0 auto;
-    min-width: 1440px;
+	width: 90%;
+	margin: 0 auto;
+	min-width: 1440px;
 }
 /****************Header Start****************/
 header {
-    margin: 20px 0;
+	margin: 20px 0;
 }
+
 .header-pic {
-    display: table;
-    margin: 0 auto;
+	display: table;
+	margin: 0 auto;
 }
 /****************Header End****************/
 /****************Main Start****************/
 .main {
-    background: rgba(255,255,255,.9);
-    overflow: hidden;
-    padding-bottom: 10px;
+	background: rgba(255, 255, 255, .9);
+	overflow: hidden;
+	padding-bottom: 10px;
 }
+
 .main .row {
-    margin: 0;
+	margin: 0;
 }
+
 .main-left {
-    padding: 20px 10px;
-    background: #212020;
-    color: #fff;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
+	padding: 20px 10px;
+	background: #212020;
+	color: #fff;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
 }
+
 .left-header {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
-.left-header-top,
-.user-info,
-.time-area{
-    text-align: center;
+
+.left-header-top, .user-info, .time-area {
+	text-align: center;
 }
+
 .left-header-top a {
-    display: flex;
-    font-size: 14px;
-    margin: 5px 0;
-    color: #fff;
+	display: flex;
+	font-size: 14px;
+	margin: 5px 0;
+	color: #fff;
 }
+
 .left-header-top a:first-child {
-    margin-top: 10px;
+	margin-top: 10px;
 }
+
 .user-info {
-    margin-top: 15px;
-    font-size: 18px;
+	margin-top: 15px;
+	font-size: 18px;
 }
+
 .time-area {
-    margin-top: 15px;
-    font-size: 16px;
+	margin-top: 15px;
+	font-size: 16px;
 }
 
 /* 用户中心列表样式 */
 .left-user-center .panel-title a {
-    display: block;
-    height: 100%;
-    width: 100%;
+	display: block;
+	height: 100%;
+	width: 100%;
 }
 
 .left-user-center .panel-default .panel-heading {
-    background-color: #212020;
-    color: white;
+	background-color: #212020;
+	color: white;
 }
 
-.left-user-center .panel-group .panel-heading+.panel-collapse>.panel-body {
-    background-color: #212020;
-    padding: 0px;
-    border-top: 0px solid #ddd;
+.left-user-center .panel-group .panel-heading+.panel-collapse>.panel-body
+	{
+	background-color: #212020;
+	padding: 0px;
+	border-top: 0px solid #ddd;
 }
+
 .left-user-center .panel-default {
-    border: 0px;
+	border: 0px;
 }
+
 .left-user-center .panel {
-    background: #fff;
-    overflow: inherit;
+	background: #fff;
+	overflow: inherit;
 }
+
 .left-user-center .panel-title a {
-    font-size: 16px;
-    overflow: hidden;
+	font-size: 16px;
+	overflow: hidden;
 }
+
 .left-user-center .panel-title span {
-    float: right;
+	float: right;
 }
+
 .left-user-center a {
-    color: #fff;
-    line-height: 25px;
-    font-size: 14px;
-    font-weight: bold;
+	color: #fff;
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
 }
+
 .left-user-center .panel-body a {
-    margin-left: 33%;
+	margin-left: 33%;
 }
+
 .left-user-center a:link {
-    text-decoration: none;
-}
-.left-user-center a:hover{
-    text-decoration: none;
+	text-decoration: none;
 }
 
-.left-user-center a.collapsed strong{
-    color: #fff;
+.left-user-center a:hover {
+	text-decoration: none;
 }
-.left-user-center a strong{
-    color: #ff9053;
-    margin-left: 10px;
+
+.left-user-center a.collapsed strong {
+	color: #fff;
 }
+
+.left-user-center a strong {
+	color: #ff9053;
+	margin-left: 10px;
+}
+
 .left-user-center a.collapsed .glyphicon-chevron-down {
-    transition: all 0.5s ease;
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    color: #fff;
+	transition: all 0.5s ease;
+	transform: rotate(0);
+	-webkit-transform: rotate(0);
+	color: #fff;
 }
 
-.left-user-center a .glyphicon-chevron-down{
-    transition: all 0.5s ease;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    color: gray;
+.left-user-center a .glyphicon-chevron-down {
+	transition: all 0.5s ease;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	color: gray;
 }
 
 .left-user-center .panel-body a.active {
-    color: #ff9053;
+	color: #ff9053;
 }
+
 .icon {
-    display: inline-block;
-    background: url('http://osnk57csd.bkt.clouddn.com/manage_sprites.png') no-repeat;
-    margin-top: -4px;
-    vertical-align: middle;
+	display: inline-block;
+	background: url('http://osnk57csd.bkt.clouddn.com/manage_sprites.png')
+		no-repeat;
+	margin-top: -4px;
+	vertical-align: middle;
 }
 
 .icon-setting {
-    width: 24px;
-    height: 24px;
-    background-position: 0px 0px;
+	width: 24px;
+	height: 24px;
+	background-position: 0px 0px;
 }
 
 .icon-activity {
-    width: 24px;
-    height: 24px;
-    background-position: -29px 0px;
+	width: 24px;
+	height: 24px;
+	background-position: -29px 0px;
 }
 
 .icon-order {
-    width: 24px;
-    height: 24px;
-    background-position: -58px 0px;
+	width: 24px;
+	height: 24px;
+	background-position: -58px 0px;
 }
 
 .icon-store {
-    width: 24px;
-    height: 24px;
-    background-position: -87px 0px;
+	width: 24px;
+	height: 24px;
+	background-position: -87px 0px;
 }
 
 .icon-vip {
-    width: 24px;
-    height: 24px;
-    background-position: 0px -29px;
+	width: 24px;
+	height: 24px;
+	background-position: 0px -29px;
 }
 
 .icon-final_page {
-    width: 24px;
-    height: 24px;
-    background-position: -87px -58px;
+	width: 24px;
+	height: 24px;
+	background-position: -87px -58px;
 }
 
 .icon-next_page {
-    width: 24px;
-    height: 24px;
-    background-position: -29px -58px;
+	width: 24px;
+	height: 24px;
+	background-position: -29px -58px;
 }
 
 .icon-statisitcs {
-    width: 24px;
-    height: 24px;
-    background-position: -87px -29px;
+	width: 24px;
+	height: 24px;
+	background-position: -87px -29px;
 }
 
 .icon-previous_page {
-    width: 24px;
-    height: 24px;
-    background-position: 0px -58px;
+	width: 24px;
+	height: 24px;
+	background-position: 0px -58px;
 }
 
 .icon-first_page {
-    width: 24px;
-    height: 24px;
-    background-position: -58px -58px;
+	width: 24px;
+	height: 24px;
+	background-position: -58px -58px;
 }
 
 .icon-refresh {
-    width: 24px;
-    height: 23px;
-    background-position: 0px -87px;
+	width: 24px;
+	height: 23px;
+	background-position: 0px -87px;
 }
 
 .icon-goods {
-    width: 24px;
-    height: 24px;
-    background-position: -58px -29px;
+	width: 24px;
+	height: 24px;
+	background-position: -58px -29px;
 }
 
 .icon-authority {
-    width: 24px;
-    height: 24px;
-    background-position: -29px -29px;
+	width: 24px;
+	height: 24px;
+	background-position: -29px -29px;
 }
 
 .icon-sign_error {
-    width: 30px;
-    height: 32px;
-    background-position: -29px -87px;
+	width: 30px;
+	height: 32px;
+	background-position: -29px -87px;
 }
 
 .icon-sign_question {
-    width: 30px;
-    height: 32px;
-    background-position: -66px -87px;
+	width: 30px;
+	height: 32px;
+	background-position: -66px -87px;
 }
 /* */
-
 .main-right {
-    padding: 40px 20px 0 20px;
-    padding-bottom: 9999px;
-    margin-bottom: -9999px;
+	padding: 40px 20px 0 20px;
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
 }
-.main-right .container table th,
-.main-right .container table tr,
-.main-right .container table td {
-    text-align: center;
-    vertical-align: middle;
+
+.main-right .container table th, .main-right .container table tr,
+	.main-right .container table td {
+	text-align: center;
+	vertical-align: middle;
 }
+
 .main-right .container {
-    width: 100%;
-    min-width: 0;
+	width: 100%;
+	min-width: 0;
 }
+
 .main-right .welcomeContainer {
-    position: relative;
-    background-image: url("http://osnk57csd.bkt.clouddn.com/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
+	position: relative;
+	background-image: url("http://osnk57csd.bkt.clouddn.com/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500px;
 }
+
 .main-right .welcomeContainer img {
-    position: absolute;
-    right: 150px;
-    bottom: 30px;
+	position: absolute;
+	right: 150px;
+	bottom: 30px;
 }
+
 .main-right .panel-body {
-    background: #f5f5f5;
+	background: #f5f5f5;
 }
+
 .main-right .panel-body .glyphicon-user {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .main-right .updateContainer .form-group {
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
-.main-right .container .alert {
-    position: absolute;
-}
-.main-right .updateContainer .alert {
-    top: -15px;
-}
-.main-right .container .forbidden-btn {
-    color: #f00;
-}
-.main-right .vipContainer .table tr+tr td span {
-    color: #428bca;
-}
-.main-right .vipContainer .table tr+tr td:last-child a{
-    color: #f00;
-}
-.main-right .vipContainer .table tr+tr td:last-child a:hover {
-    text-decoration: none;
-}
-.main-right .updateGoodsInfoContainer .info-block {
-    border: 1px solid #ccc;
-    display: table;
-    padding: 10px;
-    margin-right: 10px;
-    width: initial;
-    margin-bottom: 10px;
-}
-.main-right .updateGoodsInfoContainer .info-block>span {
-    margin: 10px;
+	margin-top: 50px;
+	margin-bottom: 30px;
 }
 
-.main-right .updateGoodsInfoContainer .specGroupContainer,
-.main-right .updateGoodsInfoContainer .specNameContainer {
-    display: flex;
-    align-items: center;
+.main-right .container .alert {
+	position: absolute;
 }
+
+.main-right .updateContainer .alert {
+	top: -15px;
+}
+
+.main-right .container .forbidden-btn {
+	color: #f00;
+}
+
+.main-right .vipContainer .table tr+tr td span {
+	color: #428bca;
+}
+
+.main-right .vipContainer .table tr+tr td:last-child a {
+	color: #f00;
+}
+
+.main-right .vipContainer .table tr+tr td:last-child a:hover {
+	text-decoration: none;
+}
+
+.main-right .updateGoodsInfoContainer .info-block {
+	border: 1px solid #ccc;
+	display: table;
+	padding: 10px;
+	margin-right: 10px;
+	width: initial;
+	margin-bottom: 10px;
+}
+
+.main-right .updateGoodsInfoContainer .info-block>span {
+	margin: 10px;
+}
+
+.main-right .updateGoodsInfoContainer .specGroupContainer, .main-right .updateGoodsInfoContainer .specNameContainer
+	{
+	display: flex;
+	align-items: center;
+}
+
 .main-right .updateGoodsInfoContainer .specGroupContainer label,
-.main-right .updateGoodsInfoContainer .specNameContainer label {
-    flex-basis: 80px;
+	.main-right .updateGoodsInfoContainer .specNameContainer label {
+	flex-basis: 80px;
 }
-.main-right .updateGoodsInfoContainer .specName,
-.main-right .updateGoodsInfoContainer .specGroup {
-    flex-grow: 1;
+
+.main-right .updateGoodsInfoContainer .specName, .main-right .updateGoodsInfoContainer .specGroup
+	{
+	flex-grow: 1;
 }
 
 .main-right #subPicContainer>div {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
-.main-right #subPicContainer>div button{
-    margin-left: 20px;
+
+.main-right #subPicContainer>div button {
+	margin-left: 20px;
 }
 
 .main-right .addStoreContainer .submitNewStoreBtn {
-    margin-top: 30px;
+	margin-top: 30px;
+}
+
+.main-right .statisticChooseContainer .content {
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.statisticChooseContainer .content>h1 {
+	margin-bottom: 100px;
+}
+
+.allStatisticsContainer .content, .specificStoreContainer .content {
+	overflow: hidden;
+}
+
+.allStatisticsContainer .dataMenu, .specificStoreContainer .dataMenu {
+	margin: 50px auto;
+	width: 60%;
+}
+
+.allStatisticsContainer .showOption, .specificStoreContainer .showOption
+	{
+	display: flex;
+	justify-content: center;
+	margin: 50px auto;
+}
+
+.form_time .time-btn:hover {
+	cursor: pointer;
+}
+
+.chartContainer {
+	width: 90%;
+	margin: 0 auto;
+	height: 500px;
+	padding-left: 50px;
+}
+
+.mapContainer .storemap {
+	width: 90%;
+	margin: 80px auto;
+	height: 500px;
 }
 
 table tbody tr {
-    background: #fff;
+	background: #fff;
 }
 
 .pagination {
-    overflow: hidden;
-    width: 100%;
-}
-.pagination span:last-of-type {
-    float: right;
-    margin-top: 10px;
-    margin-right: 20px;
-}
-.pagination span:not(.glyphicon) {
-    font-size: 12px;
+	overflow: hidden;
+	width: 100%;
 }
 
+.pagination span:last-of-type {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+}
+
+.pagination
+
+ 
+
+span
+
+
+:not
+
+ 
+
+(
+.glyphicon
+
+ 
+
+)
+{
+font-size
+
+
+:
+
+ 
+
+12
+px
+
+
+;
+}
 .pagination div {
-    display: inline-block;
+	display: inline-block;
 }
 
 .pagination .current-page {
-    width: 60px;
+	width: 60px;
 }
 
 .pagination .glyphicon {
-    color: #47bdcc;
+	color: #47bdcc;
 }
+
 .pagination .glyphicon:hover {
-    color: #ff9053;
-    cursor: pointer;
+	color: #ff9053;
+	cursor: pointer;
 }
+
 .pagination .vertical-line {
-    position: relative;
-    top: 7px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    width: 0;
-    height: 23px;
-    margin: 0 15px;
+	position: relative;
+	top: 7px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	width: 0;
+	height: 23px;
+	margin: 0 15px;
 }
 
 .confirmDeleteModal .modal-dialog {
-    top: 30%;
-    text-align: center;
-    width:300px;
+	top: 30%;
+	text-align: center;
+	width: 300px;
 }
+
 .confirmDeleteModal .modal-body {
-    padding: 10px 0;
+	padding: 10px 0;
 }
+
 .confirmDeleteModal .modal-footer {
-    padding: 10px;
-    margin-top: 0;
+	padding: 10px;
+	margin-top: 0;
+}
+
+.changeModuleNameModal .modal-dialog {
+	top: 25%;
+}
+
+.addSpecialModal .modal-dialog {
+	top: 25%;
+}
+
+.addGoods .modal-dialog {
+	top: 13%;
+}
+
+.errorText {
+	color: #a94442;
+}
+
+.goodsInfoText {
+	resize: none;
 }
 /****************Main End****************/
 /****************Footer Start****************/
 footer {
-    height: 100px;
-    width: 80%;
-    margin: 0 auto;
+	height: 100px;
+	width: 80%;
+	margin: 0 auto;
 }
+
 .logo {
-    height: 50px;
-    width: 50px;
+	height: 50px;
+	width: 50px;
 }
+
 footer a {
-    color: #333;
+	color: #333;
 }
 /****************Footer End****************/

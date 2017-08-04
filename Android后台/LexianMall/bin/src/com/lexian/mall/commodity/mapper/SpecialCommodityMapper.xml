@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.commodity.dao.SpecialCommodityDao">
+
+	<resultMap type="Commodity"
+	 id="CommodityWithSpecialId">
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="name" property="name" jdbcType="VARCHAR"/>
+		<result column="commodity_no" property="commodityNo" 
+		jdbcType="VARCHAR"/>
+		<result column="category_id" property="categoryId" jdbcType="INTEGER"/>
+		<result column="introduce" property="introduce" jdbcType="VARCHAR"/>
+		<result column="pictureurl" property="pictureUrl" jdbcType="VARCHAR"/>
+		<result column="states" property="states" jdbcType="INTEGER"/>	
+		<association property="commodityStores" 
+		javaType="CommodityStore">
+			<result column="real_price" property="realPrice" jdbcType="DOUBLE"/>
+			
+			<result column="commodity_price" property="commodityPrice"
+			 jdbcType="DECIMAL"/>
+			
+			<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+			
+			<result column="commodity_no" property="commodityNo" 
+			jdbcType="VARCHAR"/>
+			
+			<result column="commodity_amont" property="commodityAmont" 
+			jdbcType="INTEGER"/>
+			
+			<result column="commodity_lockamont" property="commodityLockAmont"
+			 jdbcType="INTEGER"/>
+			
+			<result column="type" property="type" jdbcType="INTEGER"/>
+		</association>
+	
+	</resultMap>
+	
+	
+	<resultMap type="CommodityStore" 
+	id="CommodityByStoreNo">
+			<result column="commodity_price" property="commodityPrice"
+			 jdbcType="DECIMAL"/>
+			
+			<result column="store_no" property="storeNo" jdbcType="VARCHAR"/>
+			
+			<result column="cscommodity_no" property="commodityNo" 
+			jdbcType="VARCHAR"/>
+			
+			<result column="commodity_amont" property="commodityAmont" 
+			jdbcType="INTEGER"/>
+			
+			<result column="commodity_lockamont" property="commodityLockAmont" 
+			jdbcType="INTEGER"/>
+			
+			<result column="type" property="type" jdbcType="INTEGER"/>
+			<result column="real_price" property="realPrice" jdbcType="DOUBLE"/>
+		<association property="commodity" 
+		javaType="Commodity">
+			<id column="id" property="id" jdbcType="INTEGER"/>
+			<result column="name" property="name" jdbcType="VARCHAR"/>
+			<result column="commodity_no" property="commodityNo" 
+			jdbcType="VARCHAR"/>
+			<result column="category_id" property="categoryId" 
+			jdbcType="INTEGER"/>
+			<result column="introduce" property="introduce" jdbcType="VARCHAR"/>
+			<result column="pictureurl" property="pictureUrl" 
+			jdbcType="VARCHAR"/>
+			<result column="states" property="states" jdbcType="INTEGER"/>
+		</association>
+	</resultMap>	
+	
+	<select id="getSpecialCommodity" resultMap="CommodityWithSpecialId">
+		SELECT DISTINCT
+		c.id,c.category_id,c.commodity_no ,c.name,c.introduce,
+		c.pictureurl ,c.states,
+		cs.real_price,cs.commodity_price,cs.store_no,cs.commodity_amont,
+		cs.commodity_lockamont,cs.commodity_no,cs.type
+		FROM commodity AS c,commodity_store AS cs,special_commodity AS sc
+		WHERE c.commodity_no=sc.commodityno
+		AND c.commodity_no=cs.commodity_no
+		AND sc.specialid=#{specialId}
+
+	</select>
+	
+	<select id="getCommoditiesByStoreNoPage" parameterType="java.util.Map" 
+	resultMap="CommodityByStoreNo" >
+		SELECT 
+		c.id,c.category_id,c.commodity_no ,c.name,c.introduce,
+		c.pictureurl ,c.states,
+		cs.real_price,cs.commodity_price,cs.store_no,cs.commodity_amont,
+		cs.commodity_lockamont,cs.commodity_no AS cscommodity_no,cs.type
+		FROM commodity AS c,commodity_store AS cs
+		WHERE c.commodity_no=cs.commodity_no
+		AND cs.store_no=#{storeNo}
+	
+	</select>
+	
+	<select id="getSpecialsPage" 
+	resultType="Special">
+		select id,name
+		from special
+	</select>
+	
+</mapper>

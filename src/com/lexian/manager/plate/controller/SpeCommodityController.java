@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.plate.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +12,29 @@ import com.lexian.manager.plate.service.SpeCommodityService;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("speCommodity")
 public class SpeCommodityController {
 
 	@Autowired
-	private SpeCommodityService SpeCommodityService;
+	private SpeCommodityService speCommodityService;
+	
 	
 	public SpeCommodityService getSpeCommodityService() {
-		return SpeCommodityService;
+		return speCommodityService;
 	}
 	public void setSpeCommodityService(SpeCommodityService speCommodityService) {
-		SpeCommodityService = speCommodityService;
+		this.speCommodityService = speCommodityService;
 	}
-	
 	/**
 	 * 通过传回来的special表的id与special_commodity表的specialid匹配
 	 * @param id
@@ -32,7 +44,7 @@ public class SpeCommodityController {
 	@RequestMapping("getSpecialCommodities.do")
 	public ResultHelper getSpecialCommodities(int id,Page page){
 		
-		ResultHelper result = SpeCommodityService.getSpecialCommodities(id,page);
+		ResultHelper result = speCommodityService.getSpecialCommodities(id,page);
 		return result;
 		//speCommodity/getSpecialCommodities.do?id=1&pageNo=1
 	}
@@ -44,7 +56,7 @@ public class SpeCommodityController {
 	@ResponseBody
 	@RequestMapping("deleteSpeCommodity.do")
 	public ResultHelper deleteSpeCommodity(int id){
-		ResultHelper result = SpeCommodityService.deleteSpeCommodity(id);
+		ResultHelper result = speCommodityService.deleteSpeCommodity(id);
 		return result;
 		//speCommodity/deleteSpeCommodity.do?id=
 	}
@@ -58,7 +70,7 @@ public class SpeCommodityController {
 	@ResponseBody
 	@RequestMapping("addSpecialCommodities.do")
 	public ResultHelper addSpecialCommodities(String commodityNo,int specialId){
-		ResultHelper result = SpeCommodityService.addSpecialCommodities(commodityNo,specialId);
+		ResultHelper result = speCommodityService.addSpecialCommodities(commodityNo,specialId);
 		return result;
 		//speCommodity/addSpecialCommodities.do?commodityNo=6923644267148&specialId=1
 	}

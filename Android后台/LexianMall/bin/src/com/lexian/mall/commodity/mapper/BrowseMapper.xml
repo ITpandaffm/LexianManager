@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ <mapper namespace="com.lexian.mall.commodity.dao.BrowseDao">
+ 	<insert id="InsertBrowse" 
+ 	parameterType="Browse">
+ 	INSERT  INTO browse(commodity_no,user_id,browsetime)
+ 	 VALUES(#{commodityNo,jdbcType=VARCHAR},
+ 	 #{userId,jdbcType=VARCHAR},
+ 	 #{browseTime,jdbcType=TIMESTAMP})
+ 	
+ 	</insert>
+ 
+ 
+ </mapper>

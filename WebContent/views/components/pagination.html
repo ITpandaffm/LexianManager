@@ -14,7 +14,7 @@
         <input type="number" class="form-control" min="1" max="{{pageNums}}" ng-model="pageNo" />
     </div>
     <span>页&emsp;共{{pageNums}}页</span>
-    <button ng-click="refreshMethod()">go</button>
+    <button ng-click="jumpTo()">go</button>
 
     <i class="vertical-line"></i>
     <span class="glyphicon glyphicon-chevron-right" ng-click="nextPage()"></span>

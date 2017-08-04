@@ -1,0 +1,44 @@
+<div class="container specificStoreContainer" ng-init="chartInit()">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="col-sm-6">
+				<span class="glyphicon glyphicon-user">&nbsp;数据统计&nbsp;</span> 
+				<span class="glyphicon glyphicon-chevron-right">&nbsp;商品销售概况&nbsp;</span>
+				<span class="glyphicon glyphicon-chevron-right">&nbsp;{{storeName}}商品销售概况&nbsp;</span>
+				<a href="javascript:window.history.go(-1);">返回</a>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="col-sm-10">
+			<h2>{{storeName}}销售概况</h2>
+		</div>
+		<div class="col-sm-2">
+			<select class="form-control" ng-model="selectedTimeType" ng-change="timeTypeChange()">
+				<option value="1">过去一个月</option>
+				<option value="2">过去三个月</option>
+				<option value="3">过去六个月</option>
+				<option value="4">过去十二个月</option>
+			</select>
+		</div>
+	</div>
+	<div class="dataMenu">
+		<ul class="nav nav-pills nav-justified">
+			<li role="presentation" class="active" ng-click="getBuyStatistics($event)"><a href="javascript:;">购买次数最多</a></li>
+			<li role="presentation" ng-click="getCollectionStatistics($event)"><a href="javascript:;">收藏次数最多</a></li>
+		</ul>
+	</div>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="chart" class="chartContainer"></div>
+
+	<div class="showOption">
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary active" ng-click="changeDiagramType('line', $event)">
+				<span class="glyphicon glyphicon-stats"></span> 柱形图
+			</button>
+			<button type="button" class="btn btn-primary" ng-click="changeDiagramType('pie', $event)">
+				<span class="glyphicon glyphicon-th-large"></span> 饼状图
+			</button>
+		</div>
+	</div>
+</div>

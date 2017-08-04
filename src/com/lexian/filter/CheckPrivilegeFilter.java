@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.filter;
 
 import java.io.IOException;
@@ -16,6 +19,14 @@ import javax.servlet.http.HttpSession;
 import com.lexian.utils.Constant;
 import com.lexian.web.ResultHelper;
 
+/**
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 郝伟
+ * @version 1.0
+ */
 public class CheckPrivilegeFilter implements Filter{
 
 	private String ACTION;
@@ -37,7 +48,7 @@ public class CheckPrivilegeFilter implements Filter{
 			chain.doFilter(request, response);
 		}else{
 			
-			ResultHelper resultHelper=new ResultHelper(Constant.code_no_privilege);
+			ResultHelper resultHelper=new ResultHelper(Constant.CODE_NO_PRIVILEGE);
 			
 			String error="{'code':'"+resultHelper.getCode()+"','data':'"+resultHelper.getData().toString()+"'}";
 			

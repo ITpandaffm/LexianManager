@@ -28,6 +28,10 @@
 		<typeAlias type="com.lexian.manager.goods.bean.Commodity" alias="Commodity" />
 		<typeAlias type="com.lexian.manager.goods.bean.CommoditySpec" alias="CommoditySpec" />
 		<typeAlias type="com.lexian.manager.shop.bean.Citys" alias="Citys"/>
+		
+		<typeAlias type="com.lexian.manager.statistics.bean.CommodityStatistics" alias="CommodityStatistics" />
+		<typeAlias type="com.lexian.manager.statistics.bean.StoreCommodityStatistics" alias="StoreCommodityStatistics"/>
+		
 	</typeAliases>
 	
 	<plugins>  

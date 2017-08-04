@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lexian.mall.city.dao.StoreDao">
+
+	<select id="getStoresByCitysId" resultType="Store">
+		 select id , store_no as storeNo,storename as storeName,
+		 storeaddress as storeAddress 
+		 from store
+		 where province_id=#{pid,jdbcType=INTEGER} 
+		 and citys_id=#{cityId,jdbcType=INTEGER}
+		  and county_id=#{countyId,jdbcType=INTEGER}	 
+	</select>
+
+</mapper>

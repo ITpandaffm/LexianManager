@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/delete"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/iv_cover"
+        android:layout_marginRight="30dp"/>
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_cover"
+        android:layout_toRightOf="@id/iv_cover"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ff0000"
+        android:textSize="16sp"
+        android:text="@string/price"/>
+    <TextView
+        android:id="@+id/tv_cc_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/store_name"
+        android:textSize="14sp"
+        android:layout_marginRight="30dp"
+        android:layout_above="@id/tv_price"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/tv_commodity_name"
+        android:layout_width="180dp"
+        android:lines="1"
+        android:layout_height="wrap_content"
+        android:text="@string/commodity_name"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_above="@id/tv_cc_store_name"
+        android:layout_toRightOf="@id/iv_cover"
+        android:layout_marginBottom="15dp" />
+
+
+
+</RelativeLayout>

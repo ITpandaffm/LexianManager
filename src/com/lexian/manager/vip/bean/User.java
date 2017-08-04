@@ -1,5 +1,19 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.vip.bean;
 
+import org.hibernate.validator.constraints.Range;
+
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 public class User {
 
 	private String id;//自增长
@@ -10,6 +24,7 @@ public class User {
 	private String portrait;//用户头像URL
 	private String passwd;//密码（md5散列）
 	private String lastLoginTime;//最近登陆时间
+	@Range(max=1,min=-1)
 	private int status;//用户状态。1：启用；-1：冻结
 	
 	

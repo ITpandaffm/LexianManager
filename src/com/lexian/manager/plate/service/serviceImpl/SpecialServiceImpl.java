@@ -1,3 +1,6 @@
+/**
+*  Copyright 2017  Chinasofti , Inc. All rights reserved.
+*/
 package com.lexian.manager.plate.service.serviceImpl;
 
 import java.util.HashMap;
@@ -15,6 +18,15 @@ import com.lexian.utils.Constant;
 import com.lexian.web.Page;
 import com.lexian.web.ResultHelper;
 
+/**
+ * 
+ * <p>Title: 乐鲜生活</p>
+ * <p>Description: 乐鲜生活购物系统</p>
+ * <p>Copyright: Copyright (c) 200x</p>
+ * <p>Company: 中软国际</p>
+ * @author 陈浩
+ * @version 1.0
+ */
 @Service
 public class SpecialServiceImpl implements SpecialService{
 
@@ -40,7 +52,7 @@ public class SpecialServiceImpl implements SpecialService{
 		List<Special> orderssWithStore = specialDao.getSpecialPage(params);
 		page.setData(orderssWithStore);
 
-		ResultHelper result = new ResultHelper(Constant.code_success, page);
+		ResultHelper result = new ResultHelper(Constant.CODE_SUCCESS, page);
 
 		return result;
 	}
@@ -48,16 +60,16 @@ public class SpecialServiceImpl implements SpecialService{
 	@Override
 	public ResultHelper updateSpecial(int id, String name) {
 		specialDao.updateSpecial(id, name);
-		 return new ResultHelper(Constant.code_success);
+		 return new ResultHelper(Constant.CODE_SUCCESS);
 	}
 
 	@Override
 	public ResultHelper deleteSpecial(int id) {
 		if (speCommodityDao.getCountSpeCommodities(id) !=0) {
-			 return new ResultHelper(Constant.code_entity_duplicated);
+			 return new ResultHelper(Constant.CODE_ENTITY_DUPLICATED);
 		}else{
 		specialDao.deleteSpecial(id);
-		 return new ResultHelper(Constant.code_success);
+		 return new ResultHelper(Constant.CODE_SUCCESS);
 		}
 	}
 
@@ -65,10 +77,10 @@ public class SpecialServiceImpl implements SpecialService{
 	public ResultHelper addSpecial(String name) {
 		Special special = specialDao.getSpecialByName(name);
 		if (special != null) {
-			return new ResultHelper(Constant.code_entity_duplicated);
+			return new ResultHelper(Constant.CODE_ENTITY_DUPLICATED);
 		}else{
 		specialDao.addSpecial(name);
-		return new ResultHelper(Constant.code_success);
+		return new ResultHelper(Constant.CODE_SUCCESS);
 		}
 	}
 

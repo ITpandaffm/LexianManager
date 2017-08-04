@@ -1,3 +1,6 @@
+/**
+ * Created by 冯富铭 on 2017/7/6.
+ */
 var myApp = angular.module('singInApp', [])
     .controller('signController', ['$scope', '$http', function ($scope, $http) {
         $scope.signIn = function () {
